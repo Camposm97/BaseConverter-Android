@@ -1,2 +1,2 @@
 # BaseConverter
- A simple base converter for those in need of help
+ An android app for converting number systems into whatever base you want.
