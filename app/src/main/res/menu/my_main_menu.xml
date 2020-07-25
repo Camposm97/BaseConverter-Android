@@ -3,7 +3,6 @@
 
     <item
         android:id="@+id/mi_settings"
-        android:onClick="@string/"
         android:title="Settings" />
     <item
         android:id="@+id/mi_about"
