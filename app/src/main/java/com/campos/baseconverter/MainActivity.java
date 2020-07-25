@@ -34,7 +34,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void settingsClicked() {
+        /*
+        Display settings that allows the user to switch to a unsigned, sign/magnitude, and two's complement
+         */
+    }
+
+
     public void aboutClicked() {
-        startActivity(new Intent(this, MainActivity.class));
+        /*
+        Display an about dialog where the it tells the purpose of the program
+         */
     }
 }
