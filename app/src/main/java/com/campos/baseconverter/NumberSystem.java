@@ -32,6 +32,9 @@ public class NumberSystem {
      * @return result;
      */
     public String convert(String num) {
+        /*
+        If the base we want to convert to is smaller than the base we're converting from, then we divide.
+         */
         String result = "";
         return result;
     }
