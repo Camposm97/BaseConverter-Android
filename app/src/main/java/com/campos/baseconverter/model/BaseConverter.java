@@ -1,4 +1,4 @@
-package com.campos.baseconverter;
+package com.campos.baseconverter.model;
 
 public class BaseConverter {
     private Base convertFrom;

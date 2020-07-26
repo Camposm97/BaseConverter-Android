@@ -1,4 +1,4 @@
-package com.campos.baseconverter;
+package com.campos.baseconverter.model;
 
 public enum Base {
     BINARY(2), BASE_3(3), BASE_4(4), BASE_5(5),

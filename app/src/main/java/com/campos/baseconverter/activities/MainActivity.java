@@ -1,4 +1,4 @@
-package com.campos.baseconverter;
+package com.campos.baseconverter.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.campos.baseconverter.R;
 
 public class MainActivity extends AppCompatActivity {
 
