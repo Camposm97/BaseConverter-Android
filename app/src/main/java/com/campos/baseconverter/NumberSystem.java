@@ -25,8 +25,14 @@ public class NumberSystem {
         this.convertTo = convertTo;
     }
 
-    public String convert(String number) {
-
-        return null;
+    /**
+     * The way convert() works is that the user inputs their number as a String type so the method can take the input and
+     * analyze it and see if converting from its base to the base wanted is possible.
+     * @param num
+     * @return result;
+     */
+    public String convert(String num) {
+        String result = "";
+        return result;
     }
 }
