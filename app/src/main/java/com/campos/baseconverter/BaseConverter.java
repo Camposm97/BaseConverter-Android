@@ -38,7 +38,6 @@ public class BaseConverter {
          */
 
         // Compare the bases we want to convert from and to.
-
         String result = "";
         return result;
     }
