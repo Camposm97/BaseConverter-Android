@@ -6,13 +6,13 @@ public enum Base {
     DECIMAL(10), BASE_11(11), BASE_12(12), BASE_13(13),
     BASE_14(14), BASE_15(15), HEXADECIMAL(16);
 
-    private int numOfDigits;
+    private int radix;
 
-    private Base(int numOfDigits) {
-        this.numOfDigits = numOfDigits;
+    private Base(int radix) {
+        this.radix = radix;
     }
 
-    public int getNumOfDigits() {
-        return numOfDigits;
+    public int getRadix() {
+        return radix;
     }
 }
