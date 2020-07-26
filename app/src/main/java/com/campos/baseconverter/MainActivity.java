@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.mi_settings:
+                settingsClicked();
+                break;
             case R.id.mi_about:
                 aboutClicked();
                 break;
@@ -35,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settingsClicked() {
-        /*
-        Display settings that allows the user to switch to a unsigned, sign/magnitude, and two's complement
-         */
+        // Display settings that allows the user to switch to a unsigned, sign/magnitude, and two's complement
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
 
