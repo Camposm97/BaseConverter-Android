@@ -1,10 +1,10 @@
 package com.campos.baseconverter;
 
-public class NumberSystem {
+public class BaseConverter {
     private Base convertFrom;
     private Base convertTo;
 
-    public NumberSystem() {
+    public BaseConverter() {
         this.convertFrom = null;
         this.convertTo = null;
     }
@@ -33,8 +33,12 @@ public class NumberSystem {
      */
     public String convert(String num) {
         /*
-        If the base we want to convert to is smaller than the base we're converting from, then we divide.
+        If the base we want to convert to is smaller than the base we're converting from, then we
+        divide using the base's
          */
+
+        // Compare the bases we want to convert from and to.
+
         String result = "";
         return result;
     }
