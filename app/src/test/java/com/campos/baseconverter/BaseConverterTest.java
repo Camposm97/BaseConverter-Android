@@ -54,4 +54,17 @@ public class BaseConverterTest {
         String result = baseConverter.convertDecimalToBase(input, Base.OCTAL);
         assertEquals("26", result);
     }
+
+    @Test
+    public void convertBinaryToHex() {
+        BaseConverter baseConverter = new BaseConverter();
+        String strBin = "11010";
+        baseConverter.setInput(strBin);
+        baseConverter.setConvertFrom(Base.BINARY);
+        baseConverter.setConvertTo(Base.HEXADECIMAL);
+        String result = baseConverter.convert();
+        assertEquals("1A", result);
+    }
+
+
 }
