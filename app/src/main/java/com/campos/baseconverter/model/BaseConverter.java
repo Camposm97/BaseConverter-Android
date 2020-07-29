@@ -45,19 +45,14 @@ public class BaseConverter {
      * @return result
      */
     public String convert(String str) {
-        String result = "";
-
-        // Compare the bases we want to convert from and to.
-        BaseComparator baseComparator = new BaseComparator();
-        int value = baseComparator.compare(convertFrom, convertTo);
-        if (value == 0) { // Return input
+        String result;
+        if (convertFrom.equals(convertTo)) {
             return str;
-        } else if (value == 1) {
-
-        } else if (value == -1) {
-
+        } else {
+            result = convertToDecimal(str, convertFrom);
+            result = convertDecimalToBase(result, convertTo);
+            return result;
         }
-        return result;
     }
 
     /**
@@ -87,8 +82,27 @@ public class BaseConverter {
         return result;
     }
 
+    /**
+     * Takes the string which should be in decimal format and takes the base given
+     * to convert the string to the wanted base
+     * @param str
+     * @param base
+     * @return result
+     */
     public String convertDecimalToBase(String str, Base base) {
         String result = "";
+        int radix = base.getRadix();
+        long num = Long.valueOf(str);
+        while (num != 0) {
+            long r = num % radix;
+            if (r >= 10) {
+                r += 55;
+                result = ((char) r) + result;
+            } else {
+                result = r + result;
+            }
+            num = num / radix;
+        }
         return result;
     }
 }
