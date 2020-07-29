@@ -113,6 +113,9 @@ public class BaseConverter {
     public List<String> getAllResults() {
         String strDec = convertDecimalToBase(input, convertFrom);
         List<String> list = new LinkedList<>();
+        for (int i = 0; i < Base.values().length; i++) {
+            list.add(convertDecimalToBase(strDec, Base.values()[i]));
+        }
         return list;
     }
 }
