@@ -66,5 +66,14 @@ public class BaseConverterTest {
         assertEquals("1A", result);
     }
 
-
+    @Test
+    public void convertOctalToBinary() {
+        BaseConverter baseConverter = new BaseConverter();
+        String strOctal = "77";
+        baseConverter.setInput(strOctal);
+        baseConverter.setConvertFrom(Base.OCTAL);
+        baseConverter.setConvertTo(Base.BINARY);
+        String result = baseConverter.convert();
+        assertEquals("111111", result);
+    }
 }
