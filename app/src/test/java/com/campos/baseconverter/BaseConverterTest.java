@@ -31,4 +31,27 @@ public class BaseConverterTest {
         assertEquals("7", result);
     }
 
+    @Test
+    public void convertDecimalToBinary() {
+        BaseConverter baseConverter = new BaseConverter();
+        String input = "22";
+        String result = baseConverter.convertDecimalToBase(input, Base.BINARY);
+        assertEquals("10110", result);
+    }
+
+    @Test
+    public void convertDecimalToHexadecimal() {
+        BaseConverter baseConverter = new BaseConverter();
+        String input = "26";
+        String result = baseConverter.convertDecimalToBase(input, Base.HEXADECIMAL);
+        assertEquals("1A", result);
+    }
+
+    @Test
+    public void convertDecimalToOctal() {
+        BaseConverter baseConverter = new BaseConverter();
+        String input = "22";
+        String result = baseConverter.convertDecimalToBase(input, Base.OCTAL);
+        assertEquals("26", result);
+    }
 }
