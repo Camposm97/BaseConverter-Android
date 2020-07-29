@@ -76,4 +76,14 @@ public class BaseConverterTest {
         String result = baseConverter.convert();
         assertEquals("111111", result);
     }
+
+    @Test
+    public void convertHexToHex() {
+        String input = "S117";
+        Base convertFrom = Base.HEXADECIMAL;
+        Base convertTo = Base.HEXADECIMAL;
+        BaseConverter baseConverter = new BaseConverter(input, convertFrom, convertTo);
+        String result = baseConverter.convert();
+        assertEquals("S117", result);
+    }
 }
