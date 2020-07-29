@@ -1,5 +1,12 @@
 package com.campos.baseconverter.model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BaseConverter {
     private String input;
     private Base convertFrom;
@@ -93,5 +100,19 @@ public class BaseConverter {
             num = num / radix;
         }
         return result;
+    }
+
+    public List<String> getMainResults() {
+        String strDec = convertDecimalToBase(input, convertFrom);
+        String strBin = convertDecimalToBase(strDec, Base.BINARY);
+        String strOctal = convertDecimalToBase(strDec, Base.OCTAL);
+        String strHex = convertDecimalToBase(strDec, Base.HEXADECIMAL);
+        return Arrays.asList(strBin, strOctal, strDec, strHex);
+    }
+
+    public List<String> getAllResults() {
+        String strDec = convertDecimalToBase(input, convertFrom);
+        List<String> list = new LinkedList<>();
+        return list;
     }
 }
