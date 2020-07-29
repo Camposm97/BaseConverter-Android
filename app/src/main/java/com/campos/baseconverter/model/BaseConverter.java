@@ -69,11 +69,26 @@ public class BaseConverter {
     public String convertToDecimal(String str, Base base) {
         String result = "";
         int radix = base.getRadix(); // Unique digits in base
-        int pow = 0;
-        int sum = 0;
+        long pow = 0;
+        long sum = 0;
         for (int i = str.length() - 1; i >= 0; i--) {
-            System.out.println(str.charAt(i));
+            char c = str.charAt(i);
+            int num = 0;
+            if (Character.isLetter(c)) {
+                c = Character.toUpperCase(c);
+                num = (int) c - 55; // Giving us what the number the letter represents
+            } else {
+                num = Integer.parseInt(String.valueOf(c));
+            }
+            // Add to sum and increment power for next column
+            sum += (num * Math.pow(radix, pow++));
         }
+        result = String.valueOf(sum);
+        return result;
+    }
+
+    public String convertDecimalToBase(String str, Base base) {
+        String result = "";
         return result;
     }
 }
