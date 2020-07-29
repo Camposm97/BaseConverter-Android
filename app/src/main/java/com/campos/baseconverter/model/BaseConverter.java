@@ -1,12 +1,21 @@
 package com.campos.baseconverter.model;
 
 public class BaseConverter {
+    private String input;
     private Base convertFrom;
     private Base convertTo;
 
     public BaseConverter() {
         this.convertFrom = null;
         this.convertTo = null;
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
     }
 
     public Base getConvertFrom() {
@@ -28,15 +37,14 @@ public class BaseConverter {
     /**
      * The way convert() works is that the user inputs their number as a String so the method can take the input and
      * analyze it and see if converting from its base to the base wanted is possible.
-     * @param str
      * @return result
      */
-    public String convert(String str) {
+    public String convert() {
         String result;
         if (convertFrom.equals(convertTo)) {
-            return str;
+            return input;
         } else {
-            result = convertToDecimal(str, convertFrom);
+            result = convertToDecimal(input, convertFrom);
             result = convertDecimalToBase(result, convertTo);
             return result;
         }
