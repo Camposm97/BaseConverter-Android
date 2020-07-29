@@ -10,24 +10,18 @@ public class BaseConverter {
         this.convertTo = null;
     }
 
-    public String getInput() {
-        return input;
+    public BaseConverter(String input, Base convertFrom, Base convertTo) {
+        this.input = input;
+        this.convertFrom = convertFrom;
+        this.convertTo = convertTo;
     }
 
     public void setInput(String input) {
         this.input = input;
     }
 
-    public Base getConvertFrom() {
-        return convertFrom;
-    }
-
     public void setConvertFrom(Base convertFrom) {
         this.convertFrom = convertFrom;
-    }
-
-    public Base getConvertTo() {
-        return convertTo;
     }
 
     public void setConvertTo(Base convertTo) {
