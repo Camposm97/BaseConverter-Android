@@ -11,7 +11,7 @@ public class BaseConverterTest {
     public void convertToDecimal() {
         BaseConverter baseConverter = new BaseConverter();
         String input = "1010";
-        String s = baseConverter.convertToDecimal("1010", Base.BINARY);
-        System.out.println(input);
+        String result = baseConverter.convertToDecimal("1010", Base.BINARY);
+        assertEquals("10", result);
     }
 }
