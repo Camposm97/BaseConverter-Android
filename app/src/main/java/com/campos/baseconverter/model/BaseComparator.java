@@ -9,9 +9,9 @@ public class BaseComparator implements Comparator<Base> {
         int radix2 = b2.getRadix();
 
         if (radix1 < radix2) {
-            return 1; // 1 = We're converting to a higher base
+            return 1; // 1 = We're converting to a higher base, multiply then divide
         } else if (radix1 > radix2) {
-            return -1; // -1 = We're converting to a lower base
+            return -1; // -1 = We're converting to a lower base, multiply then divide
         }
         return 0;
     }
