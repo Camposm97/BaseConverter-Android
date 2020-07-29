@@ -64,11 +64,13 @@ public class BaseConverter {
      * Takes the string that's in the base and converts it to decimal
      * @param str
      * @param base
-     * @return
+     * @return result
      */
     public String convertToDecimal(String str, Base base) {
         String result = "";
-        int radix = base.getRadix();
+        int radix = base.getRadix(); // Unique digits in base
+        int pow = 0;
+        int sum = 0;
         for (int i = str.length() - 1; i >= 0; i--) {
             System.out.println(str.charAt(i));
         }
