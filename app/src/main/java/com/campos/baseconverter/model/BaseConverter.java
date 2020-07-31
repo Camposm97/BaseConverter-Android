@@ -103,7 +103,7 @@ public class BaseConverter {
     }
 
     public List<String> getMainResults() {
-        String strDec = convertDecimalToBase(input, convertFrom);
+        String strDec = convertToDecimal(input, convertFrom);
         String strBin = convertDecimalToBase(strDec, Base.BINARY);
         String strOctal = convertDecimalToBase(strDec, Base.OCTAL);
         String strHex = convertDecimalToBase(strDec, Base.HEXADECIMAL);
