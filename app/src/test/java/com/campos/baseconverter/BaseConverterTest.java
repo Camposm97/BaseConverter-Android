@@ -4,6 +4,9 @@ import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class BaseConverterTest {
@@ -85,5 +88,16 @@ public class BaseConverterTest {
         BaseConverter baseConverter = new BaseConverter(input, convertFrom, convertTo);
         String result = baseConverter.convert();
         assertEquals("S117", result);
+    }
+
+    @Test
+    public void getMainResults() {
+        String input = "1010";
+        BaseConverter baseConverter = new BaseConverter();
+        baseConverter.setConvertFrom(Base.BINARY);
+        baseConverter.setInput(input);
+        List<String> list = baseConverter.getMainResults();
+        System.out.println(list);
+        
     }
 }
