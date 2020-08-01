@@ -96,8 +96,8 @@ public class BaseConverterTest {
         BaseConverter baseConverter = new BaseConverter();
         baseConverter.setConvertFrom(Base.BINARY);
         baseConverter.setInput(input);
-        List<String> list = baseConverter.getMainResults();
-        System.out.println(list);
-
+        String[] results = baseConverter.getMainResults();
+        String[] expectedResults = {"1111", "17", "15", "F"};
+        assertEquals(expectedResults, results);
     }
 }
