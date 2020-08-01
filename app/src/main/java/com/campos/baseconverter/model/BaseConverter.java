@@ -102,20 +102,20 @@ public class BaseConverter {
         return result;
     }
 
-    public List<String> getMainResults() {
+    public String[] getMainResults() {
         String strDec = convertToDecimal(input, convertFrom);
         String strBin = convertDecimalToBase(strDec, Base.BINARY);
         String strOctal = convertDecimalToBase(strDec, Base.OCTAL);
         String strHex = convertDecimalToBase(strDec, Base.HEXADECIMAL);
-        return Arrays.asList(strBin, strOctal, strDec, strHex);
+        return new String[] {strBin, strOctal, strDec, strHex};
     }
 
-    public List<String> getAllResults() {
-        String strDec = convertDecimalToBase(input, convertFrom);
-        List<String> list = new LinkedList<>();
+    public String[] getAllResults() {
+        String strDec = convertToDecimal(input, convertFrom);
+        String[] arr = new String[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
-            list.add(convertDecimalToBase(strDec, Base.values()[i]));
+            arr[i] = convertDecimalToBase(strDec, Base.values()[i]);
         }
-        return list;
+        return arr;
     }
 }
