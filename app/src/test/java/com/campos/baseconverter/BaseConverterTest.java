@@ -92,12 +92,12 @@ public class BaseConverterTest {
 
     @Test
     public void getMainResults() {
-        String input = "1010";
+        String input = "1111";
         BaseConverter baseConverter = new BaseConverter();
         baseConverter.setConvertFrom(Base.BINARY);
         baseConverter.setInput(input);
         List<String> list = baseConverter.getMainResults();
         System.out.println(list);
-        
+
     }
 }
