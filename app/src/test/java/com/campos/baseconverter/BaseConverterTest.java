@@ -99,6 +99,7 @@ public class BaseConverterTest {
         baseConverter.setInput(input);
         String[] results = baseConverter.getMainResults();
         String[] expectedResults = {"1111", "17", "15", "F"};
+        System.out.println(Arrays.toString(results));
         assertArrayEquals(expectedResults, results);
     }
 
