@@ -5,6 +5,7 @@ import com.campos.baseconverter.model.BaseConverter;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -98,6 +99,20 @@ public class BaseConverterTest {
         baseConverter.setInput(input);
         String[] results = baseConverter.getMainResults();
         String[] expectedResults = {"1111", "17", "15", "F"};
-        assertEquals(expectedResults, results);
+        assertArrayEquals(expectedResults, results);
+    }
+
+    @Test
+    public void getAllResults() {
+        String input = "100011";
+        BaseConverter baseConverter = new BaseConverter();
+        baseConverter.setConvertFrom(Base.BINARY);
+        baseConverter.setInput(input);
+        String[] results = baseConverter.getAllResults();
+        String[] expectedResults = {"100011", "1022", "203", "120", "55", "50", "43", "38", "35",
+                "32", "2B", "29", "27", "25", "23", "21", "1H", "1G", "1F", "1E", "1D", "1C", "1B",
+                "1A", "19", "18", "17", "16", "15", "14", "13", "12", "11", "10", "Z"};
+//        System.out.println(Arrays.toString(results));
+        assertArrayEquals(expectedResults, results);
     }
 }
