@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.campos.baseconverter.R;
 
@@ -17,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button button = new Button(this);
+
+        LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
+        linearLayout.addView(button);
     }
 
     @Override
