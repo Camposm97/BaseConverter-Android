@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button = new Button(this);
+        button.setText("Hello World!");
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
         linearLayout.addView(button);
