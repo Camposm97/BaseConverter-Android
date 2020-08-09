@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.campos.baseconverter.MainBasesFragment;
 import com.campos.baseconverter.R;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -25,8 +26,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-        View fragmentMain = findViewById(R.id.main_fragment);
+        final View fragmentMain = findViewById(R.id.main_fragment);
+        Button btMainBases = findViewById(R.id.bt_Main);
+        Button btAllBases =findViewById(R.id.bt_All);
 
+        btMainBases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainBasesFragment fragment = new MainBasesFragment();
+                fragmentMain.set
+            }
+        });
+
+        btAllBases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
