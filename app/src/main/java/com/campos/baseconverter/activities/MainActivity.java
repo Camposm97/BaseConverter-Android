@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-        final View view = findViewById(R.id.main_fragment);
+        final ViewPager2 view = findViewById(R.id.main_view_pager);
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainBasesFragment fragment = new MainBasesFragment();
-
+                
             }
         });
 
