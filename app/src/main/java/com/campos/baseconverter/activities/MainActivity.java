@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-        final View fragmentMain = findViewById(R.id.main_fragment);
+        final View view = findViewById(R.id.main_fragment);
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainBasesFragment fragment = new MainBasesFragment();
-                fragmentMain.set
+
             }
         });
 
