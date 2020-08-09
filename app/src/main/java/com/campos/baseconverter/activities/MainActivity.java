@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.campos.baseconverter.R;
 import com.google.android.material.textfield.TextInputLayout;
@@ -20,11 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextInputLayout tf = new TextInputLayout(this);
-
-
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-        linearLayout.addView(tf);
     }
 
     @Override
