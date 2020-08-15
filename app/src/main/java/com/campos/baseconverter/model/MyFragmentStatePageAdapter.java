@@ -6,7 +6,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
@@ -17,7 +16,6 @@ public class MyFragmentStatePageAdapter extends FragmentStateAdapter {
     public MyFragmentStatePageAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
-
 
     private void addFragment(Fragment fragment, String title) {
         fragmentList.add(fragment);
