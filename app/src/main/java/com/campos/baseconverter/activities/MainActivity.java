@@ -2,7 +2,6 @@ package com.campos.baseconverter.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -15,10 +14,10 @@ import android.widget.LinearLayout;
 
 import com.campos.baseconverter.fragments.MainBasesFragment;
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.MyFragmentStatePageAdapter;
+import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    private final MyFragmentStatePageAdapter pageAdapter = new MyFragmentStatePageAdapter(getSupportFragmentManager(),  getLifecycle());
+    private final MyFragmentStateAdapter pageAdapter = new MyFragmentStateAdapter(getSupportFragmentManager(),  getLifecycle());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
