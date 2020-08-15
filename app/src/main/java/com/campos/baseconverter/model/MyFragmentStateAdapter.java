@@ -9,11 +9,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class MyFragmentStatePageAdapter extends FragmentStateAdapter {
+public class MyFragmentStateAdapter extends FragmentStateAdapter {
     private final List<Fragment> fragmentList = new LinkedList<>();
     private final List<String> titleList = new LinkedList<>();
 
-    public MyFragmentStatePageAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+    public MyFragmentStateAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
 
