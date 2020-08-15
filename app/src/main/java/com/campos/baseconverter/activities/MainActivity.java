@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
         final ViewPager2 view = (ViewPager2) findViewById(R.id.main_view_pager);
+
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
-
         btMainBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 
             }
         });
-
         btAllBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
