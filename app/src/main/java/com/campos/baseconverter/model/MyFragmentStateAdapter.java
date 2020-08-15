@@ -17,7 +17,7 @@ public class MyFragmentStateAdapter extends FragmentStateAdapter {
         super(fragmentManager, lifecycle);
     }
 
-    private void addFragment(Fragment fragment, String title) {
+    public void addFragment(Fragment fragment, String title) {
         fragmentList.add(fragment);
         titleList.add(title);
     }
