@@ -1,6 +1,7 @@
 package com.campos.baseconverter.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.campos.baseconverter.fragments.MainBasesFragment;
 import com.campos.baseconverter.R;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-        final ViewPager2 view = (ViewPager2) findViewById(R.id.main_view_pager);
+//        final ViewPager2 view = (ViewPager2) findViewById(R.id.main_view_pager);
 
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
@@ -43,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void aboutClicked() {
-        /*
-        Display an about dialog where the it tells the purpose of the program
-         */
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(R.string.about_name);
+        alert.setMessage("The purpose of this program is to convert bases"); // Put message in strings.xml
+        alert.setPositiveButton("OK", null);
+        alert.show();
     }
 }
