@@ -10,11 +10,13 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class MyFragmentStateAdapter extends FragmentStateAdapter {
-    private final List<Fragment> fragmentList = new LinkedList<>();
-    private final List<String> titleList = new LinkedList<>();
+    private List<Fragment> fragmentList;
+    private List<String> titleList;
 
     public MyFragmentStateAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
+        fragmentList = new LinkedList<>();
+        titleList = new LinkedList<>();
     }
 
     public void addFragment(Fragment fragment, String title) {
