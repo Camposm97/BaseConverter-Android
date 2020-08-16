@@ -20,21 +20,23 @@ import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private final MyFragmentStateAdapter pageAdapter = new MyFragmentStateAdapter(getSupportFragmentManager(),  getLifecycle());
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initControls();
+        
+    }
 
-        LinearLayout linearLayout = findViewById(R.id.main_linear_layout);
-//        final ViewPager2 view = (ViewPager2) findViewById(R.id.main_view_pager);
-
+    public void initControls() {
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
         btMainBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainBasesFragment fragment = new MainBasesFragment();
-                
+
             }
         });
         btAllBases.setOnClickListener(new View.OnClickListener() {
