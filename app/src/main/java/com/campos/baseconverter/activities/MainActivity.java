@@ -3,8 +3,6 @@ package com.campos.baseconverter.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -26,35 +24,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager = (ViewPager2) findViewById(R.id.main_view_pager);
-        setupViewPager(viewPager);
-        initControls();
+        viewPager = findViewById(R.id.main_view_pager);
+        loadViewPager(viewPager);
+        loadButtons();
     }
 
-    public void setupViewPager(ViewPager2 viewPager) {
+    public void loadViewPager(ViewPager2 viewPager) {
         MyFragmentStateAdapter adapter = new MyFragmentStateAdapter(getSupportFragmentManager(), getLifecycle());
         adapter.addFragment(new MainBasesFragment(), "MainBasesFragment");
         adapter.addFragment(new AllBasesFragment(), "AllBasesFragment");
         viewPager.setAdapter(adapter);
     }
 
-    public void setViewPager(int position) {
+    public void setViewPagerCurrentItem(int position) {
         viewPager.setCurrentItem(position);
     }
 
-    public void initControls() {
+    public void loadButtons() {
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
         btMainBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setViewPager(0);
+                setViewPagerCurrentItem(0);
             }
         });
         btAllBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setViewPager(1);
+                setViewPagerCurrentItem(1);
             }
         });
     }
