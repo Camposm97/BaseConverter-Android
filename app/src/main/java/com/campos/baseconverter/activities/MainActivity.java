@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    public void setViewPager(int position) {
+        viewPager.setCurrentItem(position);
+    }
+
     public void initControls() {
         Button btMainBases = findViewById(R.id.bt_Main);
         Button btAllBases =findViewById(R.id.bt_All);
