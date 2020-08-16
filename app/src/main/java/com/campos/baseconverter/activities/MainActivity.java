@@ -11,22 +11,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
+import com.campos.baseconverter.fragments.AllBasesFragment;
 import com.campos.baseconverter.fragments.MainBasesFragment;
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    private final MyFragmentStateAdapter pageAdapter = new MyFragmentStateAdapter(getSupportFragmentManager(),  getLifecycle());
+    private ViewPager2 viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        viewPager = (ViewPager2) findViewById(R.id.main_view_pager);
+        setupViewPager(viewPager);
         initControls();
-        
+    }
+
+    public void setupViewPager(ViewPager2 viewPager) {
+        MyFragmentStateAdapter adapter = new MyFragmentStateAdapter(getSupportFragmentManager(), getLifecycle());
+        adapter.addFragment(new MainBasesFragment(), "MainBasesFragment");
+        adapter.addFragment(new AllBasesFragment(), "AllBasesFragment");
+        viewPager.setAdapter(adapter);
     }
 
     public void initControls() {
