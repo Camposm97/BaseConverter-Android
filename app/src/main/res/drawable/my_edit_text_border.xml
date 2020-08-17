@@ -7,4 +7,9 @@
     <stroke
         android:color="@color/light_blue"
         android:width="2dp"/>
+    <padding
+        android:top="10dp"
+        android:bottom="10dp"
+        android:right="10dp"
+        android:left="10dp"/>
 </shape>
