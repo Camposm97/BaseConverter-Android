@@ -4,9 +4,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.campos.baseconverter.R;
 
@@ -55,6 +58,14 @@ public class MainBasesFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        EditText editText1 = getActivity().findViewById(R.id.tf_bin);
+//        editText1.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                Log.println(Log.ASSERT, "A", "Key: " + event.getKeyCode());
+//                return false;
+//            }
+//        });
     }
 
     @Override
