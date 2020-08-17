@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="@string/Decimal"
                 android:textSize="18sp" />
 
