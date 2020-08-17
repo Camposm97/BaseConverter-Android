@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new MainBasesFragment(), "MainBasesFragment");
         adapter.addFragment(new AllBasesFragment(), "AllBasesFragment");
         viewPager.setAdapter(adapter);
+        viewPager.setUserInputEnabled(false);
     }
 
     public void setViewPagerCurrentItem(int position) {
