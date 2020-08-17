@@ -13,11 +13,6 @@ import android.widget.EditText;
 
 import com.campos.baseconverter.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MainBasesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MainBasesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
