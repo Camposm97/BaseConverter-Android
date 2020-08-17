@@ -5,7 +5,7 @@
     <string name="clear_name">Clear</string>
 
     <string name="fragment_main_bases">Display Main Bases Here</string>
-    <string name="fragment_all_bases">Display ALl Bases</string>
+    <string name="fragment_all_bases">Display All Bases Here</string>
 
     <string name="Binary">BIN</string>
     <string name="Octal">OCT</string>
