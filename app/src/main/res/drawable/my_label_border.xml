@@ -9,4 +9,11 @@
         android:bottomLeftRadius="10dp"/>
     <solid
         android:color="@color/light_blue"/>
+    <size
+        android:height="20dp"/>
+    <padding
+        android:top="10dp"
+        android:bottom="10dp"
+        android:right="10dp"
+        android:left="10dp"/>
 </shape>
