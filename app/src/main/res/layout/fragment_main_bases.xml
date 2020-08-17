@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,9 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:gravity="center_vertical"
+            android:gravity="center|center_vertical"
             android:text="@string/Binary"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:fontFamily="monospace" />
 
         <EditText
             android:id="@+id/tf_bin"
@@ -42,9 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/Octal"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:fontFamily="monospace" />
 
         <EditText
             android:id="@+id/tf_oct"
@@ -66,9 +69,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/Decimal"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:fontFamily="monospace" />
 
         <EditText
             android:id="@+id/tf_dec"
@@ -90,9 +94,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/Hexadecimal"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:fontFamily="monospace" />
 
         <EditText
             android:id="@+id/tf_hex"
