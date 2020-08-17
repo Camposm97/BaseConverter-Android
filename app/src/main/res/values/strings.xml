@@ -11,4 +11,6 @@
     <string name="Octal">OCT</string>
     <string name="Decimal">DEC</string>
     <string name="Hexadecimal">HEX</string>
+
+    <string name="Base_2"> Base 2</string>
 </resources>
