@@ -29,9 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -45,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
+            android:background="@drawable/my_label_border"
             android:gravity="center"
             android:text="@string/Octal"
             android:textSize="18sp"
@@ -55,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="number" />
@@ -70,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
+            android:background="@drawable/my_label_border"
             android:gravity="center"
             android:text="@string/Decimal"
             android:textSize="18sp"
@@ -80,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="number" />
@@ -95,6 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
+            android:background="@drawable/my_label_border"
             android:gravity="center"
             android:text="@string/Hexadecimal"
             android:textSize="18sp"
@@ -105,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="textCapCharacters" />
