@@ -10,4 +10,5 @@
     <string name="Binary">BIN</string>
     <string name="Octal">OCT</string>
     <string name="Decimal">DEC</string>
+    <string name="Hexadecimal">HEX</string>
 </resources>
