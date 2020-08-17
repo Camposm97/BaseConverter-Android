@@ -3,7 +3,11 @@
     <string name="setting_name">Settings</string>
     <string name="about_name">About</string>
     <string name="clear_name">Clear</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="fragment_main_bases">Display Main Bases Here</string>
     <string name="fragment_all_bases">Display ALl Bases</string>
+
+    <string name="Binary">BIN</string>
+    <string name="Octal">OCT</string>
+    <string name="Decimal">DEC</string>
 </resources>
