@@ -31,5 +31,7 @@ public class MainBasesFragment extends Fragment {
     public void loadControls() {
         tfBin = view.findViewById(R.id.tf_bin);
         tfOct = view.findViewById(R.id.tf_oct);
+
+        tfBin.addTextChangedListener(new BaseTextChangeListener());
     }
 }
