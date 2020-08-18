@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.campos.baseconverter.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AllBasesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AllBasesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
