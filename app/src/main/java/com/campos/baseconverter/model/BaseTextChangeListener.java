@@ -2,28 +2,38 @@ package com.campos.baseconverter.model;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.widget.EditText;
 
-public class BaseTextChangeListener implements TextWatcher {
-    private static final String TAG = BaseTextChangeListener.class.getSimpleName();
+public interface BaseTextChangeListener extends TextWatcher {
 
-    public BaseTextChangeListener() {
-        
+    public BaseTextChangeListener(EditText tf) {
+        this.tf = tf;
+        this.strBefore = "";
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        Log.v(TAG, "Before: " + s);
+        this.strBefore = s.toString();
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        Log.v(TAG, "onChange: " + s);
+        String str = s.toString();
+        if (!str.isEmpty()) {
+            for (char c : str.toCharArray()) {
+                try {
+                    if (c != '0' || c != '1') {
+                        tf.setText(strBefore);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-        Log.v(TAG, "After: " + s);
-        Log.println(Log.VERBOSE, TAG, "");
+
     }
 }
