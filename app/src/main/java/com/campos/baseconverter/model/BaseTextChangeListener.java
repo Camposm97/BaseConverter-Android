@@ -19,6 +19,6 @@ public class BaseTextChangeListener implements TextWatcher {
     @Override
     public void afterTextChanged(Editable s) {
         Log.v(TAG, "After: " + s);
-        Log.v(TAG, "\n");
+        Log.println(Log.VERBOSE, TAG, "");
     }
 }
