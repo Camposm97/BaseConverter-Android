@@ -22,7 +22,7 @@ public class AllBasesFragment extends Fragment {
     private String mParam2;
 
     public AllBasesFragment() {
-        // Required empty public constructor
+    
     }
 
     /**
