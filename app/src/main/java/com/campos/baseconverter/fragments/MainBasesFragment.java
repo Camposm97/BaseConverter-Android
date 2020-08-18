@@ -17,10 +17,19 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 
 public class MainBasesFragment extends Fragment {
+    private View view;
+    private EditText tfBin, tfOct, tfDec, tfHex;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        
-        return inflater.inflate(R.layout.fragment_main_bases, container, false);
+        view = inflater.inflate(R.layout.fragment_main_bases, container, false);
+        loadControls();
+        return view;
+    }
+
+    public void loadControls() {
+        tfBin = view.findViewById(R.id.tf_bin);
+        tfOct = view.findViewById(R.id.tf_oct);
     }
 }
