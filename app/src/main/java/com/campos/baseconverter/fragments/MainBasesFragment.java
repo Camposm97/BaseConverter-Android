@@ -15,7 +15,6 @@ import com.campos.baseconverter.R;
 
 public class MainBasesFragment extends Fragment {
     public MainBasesFragment() {
-        // Required empty public constructor
     }
 
     @Override
