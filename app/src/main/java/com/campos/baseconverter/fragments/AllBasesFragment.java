@@ -13,16 +13,7 @@ import com.campos.baseconverter.R;
 public class AllBasesFragment extends Fragment {
     public AllBasesFragment() {
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AllBasesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+    
     public static AllBasesFragment newInstance(String param1, String param2) {
         AllBasesFragment fragment = new AllBasesFragment();
         Bundle args = new Bundle();
