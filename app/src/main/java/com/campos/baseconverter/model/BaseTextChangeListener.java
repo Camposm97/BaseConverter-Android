@@ -6,6 +6,11 @@ import android.util.Log;
 
 public class BaseTextChangeListener implements TextWatcher {
     private static final String TAG = BaseTextChangeListener.class.getSimpleName();
+
+    public BaseTextChangeListener() {
+        
+    }
+
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         Log.v(TAG, "Before: " + s);
