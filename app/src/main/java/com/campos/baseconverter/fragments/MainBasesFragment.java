@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 
 public class MainBasesFragment extends Fragment {
@@ -34,19 +35,9 @@ public class MainBasesFragment extends Fragment {
         tfDec = view.findViewById(R.id.tf_dec);
         tfHex = view.findViewById(R.id.tf_hex);
 
-        tfBin.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+        tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
 
             }
         });
