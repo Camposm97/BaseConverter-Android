@@ -21,13 +21,7 @@ public class MainBasesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EditText editText1 = getActivity().findViewById(R.id.tf_bin);
-//        editText1.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                Log.println(Log.ASSERT, "A", "Key: " + event.getKeyCode());
-//                return false;
-//            }
-//        });
+        
     }
 
     @Override
