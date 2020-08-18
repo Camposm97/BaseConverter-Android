@@ -8,18 +8,17 @@ public class BaseTextChangeListener implements TextWatcher {
     private static final String TAG = BaseTextChangeListener.class.getSimpleName();
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        Log.d(TAG, "Before: " + s);
+        Log.v(TAG, "Before: " + s);
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        Log.d(TAG, "onChange: " + s);
-
+        Log.v(TAG, "onChange: " + s);
     }
 
     @Override
     public void afterTextChanged(Editable s) {
-        Log.d(TAG, "After: " + s);
-
+        Log.v(TAG, "After: " + s);
+        Log.v(TAG, "\n");
     }
 }
