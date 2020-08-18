@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import com.campos.baseconverter.R;
 
 public class AllBasesFragment extends Fragment {
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public AllBasesFragment() {
     }
 
