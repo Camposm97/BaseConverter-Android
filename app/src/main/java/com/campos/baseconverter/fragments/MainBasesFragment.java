@@ -4,10 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,7 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
-import com.campos.baseconverter.util.MyStringUtils;
+import com.campos.baseconverter.util.BaseUtils;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -50,7 +47,7 @@ public class MainBasesFragment extends Fragment {
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (MyStringUtils.isBase(Base.BINARY, s.toString())) {
+                if (BaseUtils.isBase(Base.BINARY, s.toString())) {
                     Log.v(TAG, "Binary string matches");
                 }
             }
@@ -58,7 +55,7 @@ public class MainBasesFragment extends Fragment {
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (MyStringUtils.isBase(Base.OCTAL, s.toString())) {
+                if (BaseUtils.isBase(Base.OCTAL, s.toString())) {
                     Log.v(TAG, "Octal string matches");
                 }
             }
@@ -66,7 +63,7 @@ public class MainBasesFragment extends Fragment {
         tfDec.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (MyStringUtils.isBase(Base.DECIMAL, s.toString())) {
+                if (BaseUtils.isBase(Base.DECIMAL, s.toString())) {
                     Log.v(TAG, "Decimal string matches");
                 }
             }
@@ -74,7 +71,7 @@ public class MainBasesFragment extends Fragment {
         tfHex.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (MyStringUtils.isBase(Base.HEXADECIMAL, s.toString())) {
+                if (BaseUtils.isBase(Base.HEXADECIMAL, s.toString())) {
                     Log.v(TAG, "Hex string matches");
                 }
             }

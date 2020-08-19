@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.campos.baseconverter.model.Base;
 
-public class MyStringUtils {
+public class BaseUtils {
     public static boolean isBinary(String str) {
         return str.matches("[01]+");
     }
