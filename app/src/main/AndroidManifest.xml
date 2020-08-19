@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.OptionsActivity"
-            android:label="@string/setting_name"
+            android:label="@string/option_name"
             android:parentActivityName=".activities.MainActivity">
         </activity>
         <activity android:name=".activities.MainActivity">

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BaseConverter</string>
-    <string name="setting_name">Options</string>
+    <string name="option_name">Options</string>
     <string name="about_name">About</string>
     <string name="clear_name">Clear</string>
 
