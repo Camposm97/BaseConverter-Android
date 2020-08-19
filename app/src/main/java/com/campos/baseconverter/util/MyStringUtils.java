@@ -6,7 +6,11 @@ import com.campos.baseconverter.model.Base;
 
 public class MyStringUtils {
     public static boolean isBinary(String str) {
-        return str.matches("[01][01]+");
+        return str.matches("[01]+");
+    }
+
+    public static boolean isOctal(String str) {
+        return str.matches("[0-7]+");
     }
 
     public static boolean isBase(Base base, String str) {
