@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager = findViewById(R.id.main_view_pager);
-        loadViewPager(viewPager);
+        loadViewPager();
         loadButtons();
     }
 
-    public void loadViewPager(ViewPager2 viewPager) {
+    public void loadViewPager() {
+        viewPager = findViewById(R.id.main_view_pager);
         MyFragmentStateAdapter adapter = new MyFragmentStateAdapter(getSupportFragmentManager(), getLifecycle());
         adapter.addFragment(new MainBasesFragment(), "MainBasesFragment");
         adapter.addFragment(new AllBasesFragment(), "AllBasesFragment");

@@ -4,37 +4,80 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.Base;
+import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.BaseTextChangeListener;
+import com.campos.baseconverter.util.BaseUtils;
 
 public class MainBasesFragment extends Fragment {
-    public MainBasesFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EditText editText1 = getActivity().findViewById(R.id.tf_bin);
-//        editText1.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                Log.println(Log.ASSERT, "A", "Key: " + event.getKeyCode());
-//                return false;
-//            }
-//        });
-    }
+    private View view;
+    private EditText tfBin, tfOct, tfDec, tfHex;
+    private BaseConverter baseConverter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_bases, container, false);
+        view = inflater.inflate(R.layout.fragment_main_bases, container, false);
+        baseConverter = new BaseConverter();
+        loadControls();
+        return view;
+    }
+
+    public void loadControls() {
+        loadFields();
+        loadFieldListeners();
+    }
+
+    public void loadFields() {
+        tfBin = view.findViewById(R.id.tf_bin);
+        tfOct = view.findViewById(R.id.tf_oct);
+        tfDec = view.findViewById(R.id.tf_dec);
+        tfHex = view.findViewById(R.id.tf_hex);
+    }
+
+    public void loadFieldListeners() {
+        final String TAG = "BaseChecker";
+        tfBin.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isBinary(s.toString())) {
+                    Log.v(TAG, "Binary string matches");
+                } else {
+                    Log.v(TAG, "Binary string does NOT match");
+                }
+            }
+        });
+        tfOct.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isOctal(s.toString())) {
+                    Log.v(TAG, "Octal string matches");
+                }
+            }
+        });
+        tfDec.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isBase(Base.DECIMAL, s.toString())) {
+                    Log.v(TAG, "Decimal string matches");
+                }
+            }
+        });
+        tfHex.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isBase(Base.HEXADECIMAL, s.toString())) {
+                    Log.v(TAG, "Hex string matches");
+                }
+            }
+        });
     }
 }
