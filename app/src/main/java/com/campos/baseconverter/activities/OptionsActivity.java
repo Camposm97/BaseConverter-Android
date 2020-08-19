@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.campos.baseconverter.R;
 
-public class SettingsActivity extends AppCompatActivity {
+public class OptionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

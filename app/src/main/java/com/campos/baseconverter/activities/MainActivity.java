@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void settingsClicked() {
         // Display settings that allows the user to switch to a unsigned, sign/magnitude, and two's complement
-        startActivity(new Intent(this, SettingsActivity.class));
+        startActivity(new Intent(this, OptionsActivity.class));
     }
 
 
