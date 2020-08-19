@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,23 +47,25 @@ public class MainBasesFragment extends Fragment {
         final String TAG = "BaseChecker";
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (BaseUtils.isBase(Base.BINARY, s.toString())) {
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isBinary(s.toString())) {
                     Log.v(TAG, "Binary string matches");
+                } else {
+                    Log.v(TAG, "Binary string does NOT match");
                 }
             }
         });
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (BaseUtils.isBase(Base.OCTAL, s.toString())) {
+            public void afterTextChanged(Editable s) {
+                if (BaseUtils.isOctal(s.toString())) {
                     Log.v(TAG, "Octal string matches");
                 }
             }
         });
         tfDec.addTextChangedListener(new BaseTextChangeListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void afterTextChanged(Editable s) {
                 if (BaseUtils.isBase(Base.DECIMAL, s.toString())) {
                     Log.v(TAG, "Decimal string matches");
                 }
@@ -70,7 +73,7 @@ public class MainBasesFragment extends Fragment {
         });
         tfHex.addTextChangedListener(new BaseTextChangeListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void afterTextChanged(Editable s) {
                 if (BaseUtils.isBase(Base.HEXADECIMAL, s.toString())) {
                     Log.v(TAG, "Hex string matches");
                 }
