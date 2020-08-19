@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loadViewPager();
         loadButtons();
+        findViewById(R.id.main_linear_layout).requestFocus();
     }
 
     public void loadViewPager() {
