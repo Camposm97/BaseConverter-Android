@@ -17,6 +17,7 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
+import com.campos.baseconverter.util.MyStringUtils;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -45,11 +46,37 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void loadFieldListeners() {
+        final String TAG = "BaseChecker";
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean flag = s.toString().matches("[01]+");
-                Log.v("APP", "Match? " + flag);
+                if (MyStringUtils.isBase(Base.BINARY, s.toString())) {
+                    Log.v(TAG, "Binary string matches");
+                }
+            }
+        });
+        tfOct.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (MyStringUtils.isBase(Base.OCTAL, s.toString())) {
+                    Log.v(TAG, "Octal string matches");
+                }
+            }
+        });
+        tfDec.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (MyStringUtils.isBase(Base.DECIMAL, s.toString())) {
+                    Log.v(TAG, "Decimal string matches");
+                }
+            }
+        });
+        tfHex.addTextChangedListener(new BaseTextChangeListener() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (MyStringUtils.isBase(Base.HEXADECIMAL, s.toString())) {
+                    Log.v(TAG, "Hex string matches");
+                }
             }
         });
     }
