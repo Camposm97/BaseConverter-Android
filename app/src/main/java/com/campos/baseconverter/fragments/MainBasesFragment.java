@@ -66,8 +66,10 @@ public class MainBasesFragment extends Fragment {
         tfDec.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (MyUtils.isBase(Base.DECIMAL, s.toString())) {
+                if (MyUtils.isDec(s.toString())) {
                     Log.v(TAG, "Decimal string matches");
+                } else {
+                    Log.v(TAG, "Decimal string does NOT match");
                 }
             }
         });
