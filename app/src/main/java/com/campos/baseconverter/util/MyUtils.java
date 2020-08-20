@@ -17,6 +17,10 @@ public class MyUtils {
         return str.matches("[0-9]+");
     }
 
+    public static boolean isHex(String str) {
+        return str.matches("[0-9A-F]");
+    }
+
     public static boolean isBase(Base base, String str) {
         String regex = "[";
         int radix = base.getRadix();
