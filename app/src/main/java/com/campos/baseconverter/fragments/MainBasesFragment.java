@@ -60,6 +60,8 @@ public class MainBasesFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (BaseUtils.isOctal(s.toString())) {
                     Log.v(TAG, "Octal string matches");
+                } else {
+                    Log.v(TAG, "Octal string does NOT match");
                 }
             }
         });
