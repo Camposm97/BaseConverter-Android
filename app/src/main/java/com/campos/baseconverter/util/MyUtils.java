@@ -9,7 +9,7 @@ public class MyUtils {
         return str.matches("[01]+");
     }
 
-    public static boolean isOctal(String str) {
+    public static boolean isOct(String str) {
         return str.matches("[0-7]+");
     }
 

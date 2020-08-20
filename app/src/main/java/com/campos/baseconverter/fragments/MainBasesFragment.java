@@ -13,7 +13,6 @@ import android.widget.EditText;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 import com.campos.baseconverter.util.MyUtils;
 
@@ -56,7 +55,7 @@ public class MainBasesFragment extends Fragment {
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (MyUtils.isOctal(s.toString())) {
+                if (MyUtils.isOct(s.toString())) {
                     Log.v(TAG, "Octal string matches");
                 } else {
                     Log.v(TAG, "Octal string does NOT match");
