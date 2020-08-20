@@ -15,7 +15,7 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
-import com.campos.baseconverter.util.BaseUtils;
+import com.campos.baseconverter.util.MyUtils;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -48,7 +48,7 @@ public class MainBasesFragment extends Fragment {
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (BaseUtils.isBinary(s.toString())) {
+                if (MyUtils.isBinary(s.toString())) {
                     Log.v(TAG, "Binary string matches");
                 } else {
                     Log.v(TAG, "Binary string does NOT match");
@@ -58,7 +58,7 @@ public class MainBasesFragment extends Fragment {
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (BaseUtils.isOctal(s.toString())) {
+                if (MyUtils.isOctal(s.toString())) {
                     Log.v(TAG, "Octal string matches");
                 } else {
                     Log.v(TAG, "Octal string does NOT match");
@@ -68,7 +68,7 @@ public class MainBasesFragment extends Fragment {
         tfDec.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (BaseUtils.isBase(Base.DECIMAL, s.toString())) {
+                if (MyUtils.isBase(Base.DECIMAL, s.toString())) {
                     Log.v(TAG, "Decimal string matches");
                 }
             }
@@ -76,7 +76,7 @@ public class MainBasesFragment extends Fragment {
         tfHex.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (BaseUtils.isBase(Base.HEXADECIMAL, s.toString())) {
+                if (MyUtils.isBase(Base.HEXADECIMAL, s.toString())) {
                     Log.v(TAG, "Hex string matches");
                 }
             }
