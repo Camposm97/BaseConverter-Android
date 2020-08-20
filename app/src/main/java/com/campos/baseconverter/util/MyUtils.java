@@ -21,23 +21,23 @@ public class MyUtils {
         return str.matches("[0-9A-F]");
     }
 
-    public static boolean isBase(Base base, String str) {
-        String regex = "[";
-        int radix = base.getRadix();
-        if (radix <= 10) {
-            for (int i = 0; i < radix; i++){
-                regex += String.valueOf(i);
-            }
-        } else {
-            regex += "0123456789";
-            radix -= 10;
-            int n = 65;
-            for (int i = 10; i < radix; i++) {
-                regex += ((char) n);
-            }
-        }
-        regex += "]+";
-        Log.v("BaseChecker", regex);
-        return str.matches(regex);
-    }
+//    public static boolean isBase(Base base, String str) {
+//        String regex = "[";
+//        int radix = base.getRadix();
+//        if (radix <= 10) {
+//            for (int i = 0; i < radix; i++){
+//                regex += String.valueOf(i);
+//            }
+//        } else {
+//            regex += "0123456789";
+//            radix -= 10;
+//            int n = 65;
+//            for (int i = 10; i < radix; i++) {
+//                regex += ((char) n);
+//            }
+//        }
+//        regex += "]+";
+//        Log.v("BaseChecker", regex);
+//        return str.matches(regex);
+//    }
 }
