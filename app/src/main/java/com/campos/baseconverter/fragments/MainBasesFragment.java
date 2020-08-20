@@ -46,9 +46,9 @@ public class MainBasesFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isBinary(s.toString())) {
-                    Log.v(TAG, "Binary string matches");
+                    Log.v(TAG, "Bin string matches");
                 } else {
-                    Log.v(TAG, "Binary string does NOT match");
+                    Log.v(TAG, "Bin string does NOT match");
                 }
             }
         });
@@ -56,9 +56,9 @@ public class MainBasesFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isOct(s.toString())) {
-                    Log.v(TAG, "Octal string matches");
+                    Log.v(TAG, "Oct string matches");
                 } else {
-                    Log.v(TAG, "Octal string does NOT match");
+                    Log.v(TAG, "Oct string does NOT match");
                 }
             }
         });
@@ -66,17 +66,19 @@ public class MainBasesFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isDec(s.toString())) {
-                    Log.v(TAG, "Decimal string matches");
+                    Log.v(TAG, "Dec string matches");
                 } else {
-                    Log.v(TAG, "Decimal string does NOT match");
+                    Log.v(TAG, "Dec string does NOT match");
                 }
             }
         });
         tfHex.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (MyUtils.isBase(Base.HEXADECIMAL, s.toString())) {
+                if (MyUtils.isHex(s.toString())) {
                     Log.v(TAG, "Hex string matches");
+                } else {
+                    Log.v(TAG, "Hex string does NOT match");
                 }
             }
         });
