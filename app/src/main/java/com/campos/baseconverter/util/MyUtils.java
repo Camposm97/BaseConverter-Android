@@ -18,7 +18,7 @@ public class MyUtils {
     }
 
     public static boolean isHex(String str) {
-        return str.matches("[0-9A-F]");
+        return str.matches("[0-9A-F]+");
     }
 
 //    public static boolean isBase(Base base, String str) {
