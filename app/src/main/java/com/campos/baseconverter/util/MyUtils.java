@@ -13,6 +13,10 @@ public class MyUtils {
         return str.matches("[0-7]+");
     }
 
+    public static boolean isDec(String str) {
+        return str.matches("[0-9]+");
+    }
+
     public static boolean isBase(Base base, String str) {
         String regex = "[";
         int radix = base.getRadix();
