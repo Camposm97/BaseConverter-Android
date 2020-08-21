@@ -50,7 +50,9 @@ public class MainBasesFragment extends Fragment {
 //        final BaseConverter bc = new BaseConverter();
         final EditText[] arr = loadEditTextArray();
         tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
-        
+        tfOct.setOnKeyListener(new BaseOnKeyListener(tfOct, arr, Base.OCTAL));
+        tfDec.setOnKeyListener(new BaseOnKeyListener(tfDec, arr, Base.DECIMAL));
+        tfHex.setOnKeyListener(new BaseOnKeyListener(tfHex, arr, Base.HEXADECIMAL));
 //        tfBin.setOnKeyListener(new View.OnKeyListener() {
 //            @Override
 //            public boolean onKey(View v, int keyCode, KeyEvent event) {
