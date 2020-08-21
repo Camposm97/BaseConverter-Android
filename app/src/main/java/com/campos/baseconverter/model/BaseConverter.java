@@ -23,6 +23,11 @@ public class BaseConverter {
         this.convertTo = convertTo;
     }
 
+    public BaseConverter(String input, Base convertTo) {
+        this.input = input;
+        this.convertTo = convertTo;
+    }
+
     public void setInput(String input) {
         this.input = input;
     }
