@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.BaseOnKeyListener;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 import com.campos.baseconverter.util.MyUtils;
 
@@ -46,8 +47,9 @@ public class MainBasesFragment extends Fragment {
 
     public void loadFieldListeners() {
         final String TAG = "BaseChecker";
-        final BaseConverter bc = new BaseConverter();
-        
+//        final BaseConverter bc = new BaseConverter();
+        tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, Base.BINARY, loadEditTextArray()));
+
 //        tfBin.setOnKeyListener(new View.OnKeyListener() {
 //            @Override
 //            public boolean onKey(View v, int keyCode, KeyEvent event) {
