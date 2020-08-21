@@ -4,9 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.Editable;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +11,7 @@ import android.widget.EditText;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseOnKeyListener;
-import com.campos.baseconverter.model.BaseTextChangeListener;
-import com.campos.baseconverter.util.MyUtils;
-
-import java.util.Arrays;
 
 public class MainBasesFragment extends Fragment {
     private View view;
