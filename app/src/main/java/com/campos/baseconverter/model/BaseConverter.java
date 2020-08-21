@@ -123,4 +123,8 @@ public class BaseConverter {
         }
         return arr;
     }
+
+    public Base getConvertFrom() {
+        return convertFrom;
+    }
 }
