@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
+import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 import com.campos.baseconverter.util.MyUtils;
 
@@ -42,13 +43,13 @@ public class MainBasesFragment extends Fragment {
 
     public void loadFieldListeners() {
         final String TAG = "BaseChecker";
+        final BaseConverter bc = new BaseConverter();
+        Editable[] editArr = loadEditArray()
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isBinary(s.toString())) {
                     Log.v(TAG, "Bin string matches");
-                } else {
-                    Log.v(TAG, "Bin string does NOT match");
                 }
             }
         });
@@ -57,8 +58,6 @@ public class MainBasesFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isOct(s.toString())) {
                     Log.v(TAG, "Oct string matches");
-                } else {
-                    Log.v(TAG, "Oct string does NOT match");
                 }
             }
         });
@@ -67,8 +66,6 @@ public class MainBasesFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isDec(s.toString())) {
                     Log.v(TAG, "Dec string matches");
-                } else {
-                    Log.v(TAG, "Dec string does NOT match");
                 }
             }
         });
@@ -77,10 +74,12 @@ public class MainBasesFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isHex(s.toString())) {
                     Log.v(TAG, "Hex string matches");
-                } else {
-                    Log.v(TAG, "Hex string does NOT match");
                 }
             }
         });
+    }
+
+    private Editable[] loadEditArray() {
+        return new Editable[] {tfBin.getEditableText(), tfOct.getEditableText(), tfDec.getEditableText(), tfHex.getEditableText()};
     }
 }
