@@ -50,6 +50,9 @@ public class MainBasesFragment extends Fragment {
             public void afterTextChanged(Editable s) {
                 if (MyUtils.isBinary(s.toString())) {
                     Log.v(TAG, "Bin string matches");
+                    bc.setConvertFrom(Base.BINARY);
+                    bc.setInput(tfBin.getEditableText().toString());
+                    String[] results = bc.getMainResults();
                 }
             }
         });
@@ -77,6 +80,13 @@ public class MainBasesFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void displayResults(String[] results) {
+
+        for (int i = 0; i < results.length; i++) {
+
+        }
     }
 
     private Editable[] loadEditArray() {
