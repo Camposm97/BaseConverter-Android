@@ -46,11 +46,11 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void loadFieldListeners() {
-        final String TAG = MainBasesFragment.class.getSimpleName();
-        final BaseConverter bc = new BaseConverter();
+//        final String TAG = MainBasesFragment.class.getSimpleName();
+//        final BaseConverter bc = new BaseConverter();
         final EditText[] arr = loadEditTextArray();
         tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
-
+        
 //        tfBin.setOnKeyListener(new View.OnKeyListener() {
 //            @Override
 //            public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -65,15 +65,15 @@ public class MainBasesFragment extends Fragment {
 //                return false;
 //            }
 //        });
-        tfOct.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (MyUtils.isOct(tfOct.getText().toString())) {
-                    Log.v(TAG, "Oct string matches");
-                }
-                return false;
-            }
-        });
+//        tfOct.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                if (MyUtils.isOct(tfOct.getText().toString())) {
+//                    Log.v(TAG, "Oct string matches");
+//                }
+//                return false;
+//            }
+//        });
 //        tfOct.addTextChangedListener(new BaseTextChangeListener() {
 //            @Override
 //            public void afterTextChanged(Editable s) {
@@ -82,22 +82,22 @@ public class MainBasesFragment extends Fragment {
 //                }
 //            }
 //        });
-        tfDec.addTextChangedListener(new BaseTextChangeListener() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (MyUtils.isDec(s.toString())) {
-                    Log.v(TAG, "Dec string matches");
-                }
-            }
-        });
-        tfHex.addTextChangedListener(new BaseTextChangeListener() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (MyUtils.isHex(s.toString())) {
-                    Log.v(TAG, "Hex string matches");
-                }
-            }
-        });
+//        tfDec.addTextChangedListener(new BaseTextChangeListener() {
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (MyUtils.isDec(s.toString())) {
+//                    Log.v(TAG, "Dec string matches");
+//                }
+//            }
+//        });
+//        tfHex.addTextChangedListener(new BaseTextChangeListener() {
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (MyUtils.isHex(s.toString())) {
+//                    Log.v(TAG, "Hex string matches");
+//                }
+//            }
+//        });
     }
 
     private void displayResults(String[] results, EditText tf) {
