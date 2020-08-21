@@ -46,17 +46,18 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void loadFieldListeners() {
-        final String TAG = "BaseChecker";
-//        final BaseConverter bc = new BaseConverter();
-        tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, Base.BINARY, loadEditTextArray()));
+        final String TAG = MainBasesFragment.class.getSimpleName();
+        final BaseConverter bc = new BaseConverter();
+        final EditText[] arr = loadEditTextArray();
+        tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
 
 //        tfBin.setOnKeyListener(new View.OnKeyListener() {
 //            @Override
 //            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (MyUtils.isBinary(tfBin.getText().toString())) {
+//                if (MyUtils.isValidBase(Base.BINARY, tfBin.getText().toString())) {
 //                    Log.v(TAG, "Bin string matches");
 //                    bc.setConvertFrom(Base.BINARY);
-//                    bc.setInput(tfBin.getEditableText().toString());
+//                    bc.setInput(tfBin.getText().toString());
 //                    String[] results = bc.getMainResults();
 //                    Log.v(TAG, Arrays.toString(results));
 //                    displayResults(results, tfBin);
@@ -64,14 +65,23 @@ public class MainBasesFragment extends Fragment {
 //                return false;
 //            }
 //        });
-        tfOct.addTextChangedListener(new BaseTextChangeListener() {
+        tfOct.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void afterTextChanged(Editable s) {
-                if (MyUtils.isOct(s.toString())) {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (MyUtils.isOct(tfOct.getText().toString())) {
                     Log.v(TAG, "Oct string matches");
                 }
+                return false;
             }
         });
+//        tfOct.addTextChangedListener(new BaseTextChangeListener() {
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (MyUtils.isOct(s.toString())) {
+//                    Log.v(TAG, "Oct string matches");
+//                }
+//            }
+//        });
         tfDec.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -93,9 +103,9 @@ public class MainBasesFragment extends Fragment {
     private void displayResults(String[] results, EditText tf) {
         EditText[] arr = loadEditTextArray();
         for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] != tf) {
+            if (arr[i] != tf) {
                 arr[i].setText(results[i]);
-//            }
+            }
         }
     }
 
