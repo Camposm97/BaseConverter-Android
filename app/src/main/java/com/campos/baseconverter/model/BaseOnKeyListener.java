@@ -30,16 +30,14 @@ public class BaseOnKeyListener implements View.OnKeyListener {
 
     public void start() {
         if (isInfoValid()) {
-            BaseConverter bc = new BaseConverter();
-            bc.setInput(tf.getText().toString());
-            bc.setConvertFrom(convertFrom);
-            String[] results = bc.getMainResults();
-            Log.v(TAG, Arrays.toString(results));
+            BaseConverter bc = new BaseConverter(tf.getText().toString(), convertFrom);
             displayResults(bc.getMainResults());
+        } else {
+            displayResults("N\\A", "N\\A", "N\\A", "N\\A");
         }
     }
 
-    public void displayResults(String[] results) {
+    public void displayResults(String... results) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != tf) {
                 arr[i].setText(results[i]);
