@@ -127,4 +127,13 @@ public class BaseConverter {
     public Base getConvertFrom() {
         return convertFrom;
     }
+
+    @Override
+    public String toString() {
+        return "BaseConverter{" +
+                "input='" + input + '\'' +
+                ", convertFrom=" + convertFrom +
+                ", convertTo=" + convertTo +
+                '}';
+    }
 }
