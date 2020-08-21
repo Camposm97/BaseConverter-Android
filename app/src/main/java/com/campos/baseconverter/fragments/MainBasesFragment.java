@@ -55,7 +55,7 @@ public class MainBasesFragment extends Fragment {
                     bc.setInput(tfBin.getEditableText().toString());
                     String[] results = bc.getMainResults();
                     Log.v(TAG, Arrays.toString(results));
-                    displayResults(results);
+                    displayResults(results, tfBin);
                 }
             }
         });
@@ -85,10 +85,12 @@ public class MainBasesFragment extends Fragment {
         });
     }
 
-    private void displayResults(String[] results) {
+    private void displayResults(String[] results, EditText tf) {
         EditText[] arr = loadEditTextArray();
         for (int i = 0; i < arr.length; i++) {
-            arr[i].setText(results[i]);
+            if (arr[i] != tf) {
+                arr[i].setText(results[i]);
+            }
         }
     }
 
