@@ -44,7 +44,7 @@ public class MainBasesFragment extends Fragment {
     public void loadFieldListeners() {
         final String TAG = "BaseChecker";
         final BaseConverter bc = new BaseConverter();
-        Editable[] editArr = loadEditArray()
+        Editable[] editArr = loadEditTextArray()
         tfBin.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -84,13 +84,13 @@ public class MainBasesFragment extends Fragment {
     }
 
     private void displayResults(String[] results) {
-        EditText[] arr = loadEditArray();
-        for (int i = 0; i < results.length; i++) {
-
+        EditText[] arr = loadEditTextArray();
+        for (int i = 0; i < arr.length; i++) {
+            
         }
     }
 
-    private EditText[] loadEditArray() {
+    private EditText[] loadEditTextArray() {
         return new EditText[] {tfBin, tfOct, tfDec, tfHex};
     }
 }
