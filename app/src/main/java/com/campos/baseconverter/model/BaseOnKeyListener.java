@@ -24,6 +24,11 @@ public class BaseOnKeyListener implements View.OnKeyListener {
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
+        start();
+        return false;
+    }
+
+    public void start() {
         if (isInfoValid()) {
             BaseConverter bc = new BaseConverter();
             bc.setInput(tf.getText().toString());
@@ -32,10 +37,9 @@ public class BaseOnKeyListener implements View.OnKeyListener {
             Log.v(TAG, Arrays.toString(results));
             displayResults(bc.getMainResults());
         }
-        return false;
     }
 
-    private void displayResults(String[] results) {
+    public void displayResults(String[] results) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != tf) {
                 arr[i].setText(results[i]);
