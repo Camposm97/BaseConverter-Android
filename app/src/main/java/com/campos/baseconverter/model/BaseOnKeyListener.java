@@ -8,7 +8,8 @@ public class BaseOnKeyListener implements View.OnKeyListener {
     private BaseConverter bc;
     private EditText tf;
 
-    public BaseOnKeyListener(EditText tf) {
+    public BaseOnKeyListener(EditText tf, Base convertTo) {
+        this.bc = new BaseConverter();
         this.tf = tf;
     }
 
