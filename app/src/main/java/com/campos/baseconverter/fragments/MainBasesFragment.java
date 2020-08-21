@@ -102,15 +102,6 @@ public class MainBasesFragment extends Fragment {
 //        });
     }
 
-    private void displayResults(String[] results, EditText tf) {
-        EditText[] arr = loadEditTextArray();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != tf) {
-                arr[i].setText(results[i]);
-            }
-        }
-    }
-
     private EditText[] loadEditTextArray() {
         return new EditText[] {tfBin, tfOct, tfDec, tfHex};
     }
