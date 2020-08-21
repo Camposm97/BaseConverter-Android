@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +47,10 @@ public class MainBasesFragment extends Fragment {
     public void loadFieldListeners() {
         final String TAG = "BaseChecker";
         final BaseConverter bc = new BaseConverter();
-        tfBin.addTextChangedListener(new BaseTextChangeListener() {
+        tfBin.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void afterTextChanged(Editable s) {
-                if (MyUtils.isBinary(s.toString())) {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (MyUtils.isBinary(tfBin.getText().toString())) {
                     Log.v(TAG, "Bin string matches");
                     bc.setConvertFrom(Base.BINARY);
                     bc.setInput(tfBin.getEditableText().toString());
@@ -57,8 +58,22 @@ public class MainBasesFragment extends Fragment {
                     Log.v(TAG, Arrays.toString(results));
                     displayResults(results, tfBin);
                 }
+                return false;
             }
         });
+//        tfBin.addTextChangedListener(new BaseTextChangeListener() {
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (MyUtils.isBinary(s.toString())) {
+//                    Log.v(TAG, "Bin string matches");
+//                    bc.setConvertFrom(Base.BINARY);
+//                    bc.setInput(tfBin.getEditableText().toString());
+//                    String[] results = bc.getMainResults();
+//                    Log.v(TAG, Arrays.toString(results));
+//                    displayResults(results, tfBin);
+//                }
+//            }
+//        });
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -88,9 +103,9 @@ public class MainBasesFragment extends Fragment {
     private void displayResults(String[] results, EditText tf) {
         EditText[] arr = loadEditTextArray();
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != tf) {
+//            if (arr[i] != tf) {
                 arr[i].setText(results[i]);
-            }
+//            }
         }
     }
 
