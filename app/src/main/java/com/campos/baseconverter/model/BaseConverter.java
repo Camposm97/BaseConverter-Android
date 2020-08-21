@@ -23,9 +23,9 @@ public class BaseConverter {
         this.convertTo = convertTo;
     }
 
-    public BaseConverter(String input, Base convertTo) {
+    public BaseConverter(String input, Base convertFrom) {
         this.input = input;
-        this.convertTo = convertTo;
+        this.convertFrom = convertFrom;
     }
 
     public void setInput(String input) {
