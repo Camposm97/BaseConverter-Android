@@ -22,7 +22,7 @@ public class BaseOnKeyListener implements View.OnKeyListener {
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
-        if (MyUtils.isBinary(tf.getText().toString())) {
+        if (isInfoValid()) {
             String[] results = bc.getMainResults();
             displayResults(results);
         }
@@ -37,4 +37,7 @@ public class BaseOnKeyListener implements View.OnKeyListener {
         }
     }
 
+    public boolean isInfoValid() {
+        return MyUtils.isValidBase(bc.getConvertFrom(), tf.getText().toString());
+    }
 }
