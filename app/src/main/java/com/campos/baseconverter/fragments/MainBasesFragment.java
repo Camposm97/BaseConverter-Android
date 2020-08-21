@@ -61,19 +61,6 @@ public class MainBasesFragment extends Fragment {
                 return false;
             }
         });
-//        tfBin.addTextChangedListener(new BaseTextChangeListener() {
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                if (MyUtils.isBinary(s.toString())) {
-//                    Log.v(TAG, "Bin string matches");
-//                    bc.setConvertFrom(Base.BINARY);
-//                    bc.setInput(tfBin.getEditableText().toString());
-//                    String[] results = bc.getMainResults();
-//                    Log.v(TAG, Arrays.toString(results));
-//                    displayResults(results, tfBin);
-//                }
-//            }
-//        });
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
