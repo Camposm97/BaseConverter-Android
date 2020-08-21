@@ -84,9 +84,9 @@ public class MainBasesFragment extends Fragment {
 
     private void displayResults(String[] results) {
         EditText[] arr = loadEditTextArray();
-        for (int i = 0; i < arr.length; i++) {
-            arr[i].setText(results[i]);
-        }
+        arr[1].setText(results[1]);
+        arr[2].setText(results[2]);
+        arr[3].setText(results[3]);
     }
 
     private EditText[] loadEditTextArray() {
