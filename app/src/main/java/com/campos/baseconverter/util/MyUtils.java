@@ -24,11 +24,11 @@ public class MyUtils {
     public static boolean isValidBase(Base base, String str) {
         switch (base) {
             case BINARY:
-                return str.matches("[01]+")
+                return str.matches("[01]+");
             case OCTAL:
                 return str.matches("[0-7]+");
             case DECIMAL:
-                return str.matches("[0-9]+")
+                return str.matches("[0-9]+");
             case HEXADECIMAL:
                 return str.matches("[0-9A-F]+");
             default:
