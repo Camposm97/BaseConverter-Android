@@ -53,6 +53,7 @@ public class MainBasesFragment extends Fragment {
                     bc.setConvertFrom(Base.BINARY);
                     bc.setInput(tfBin.getEditableText().toString());
                     String[] results = bc.getMainResults();
+                    displayResults(results);
                 }
             }
         });
@@ -83,13 +84,13 @@ public class MainBasesFragment extends Fragment {
     }
 
     private void displayResults(String[] results) {
-
+        EditText[] arr = loadEditArray();
         for (int i = 0; i < results.length; i++) {
 
         }
     }
 
-    private Editable[] loadEditArray() {
-        return new Editable[] {tfBin.getEditableText(), tfOct.getEditableText(), tfDec.getEditableText(), tfHex.getEditableText()};
+    private EditText[] loadEditArray() {
+        return new EditText[] {tfBin, tfOct, tfDec, tfHex};
     }
 }
