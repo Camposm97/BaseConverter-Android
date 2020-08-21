@@ -47,20 +47,21 @@ public class MainBasesFragment extends Fragment {
     public void loadFieldListeners() {
         final String TAG = "BaseChecker";
         final BaseConverter bc = new BaseConverter();
-        tfBin.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (MyUtils.isBinary(tfBin.getText().toString())) {
-                    Log.v(TAG, "Bin string matches");
-                    bc.setConvertFrom(Base.BINARY);
-                    bc.setInput(tfBin.getEditableText().toString());
-                    String[] results = bc.getMainResults();
-                    Log.v(TAG, Arrays.toString(results));
-                    displayResults(results, tfBin);
-                }
-                return false;
-            }
-        });
+        
+//        tfBin.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                if (MyUtils.isBinary(tfBin.getText().toString())) {
+//                    Log.v(TAG, "Bin string matches");
+//                    bc.setConvertFrom(Base.BINARY);
+//                    bc.setInput(tfBin.getEditableText().toString());
+//                    String[] results = bc.getMainResults();
+//                    Log.v(TAG, Arrays.toString(results));
+//                    displayResults(results, tfBin);
+//                }
+//                return false;
+//            }
+//        });
         tfOct.addTextChangedListener(new BaseTextChangeListener() {
             @Override
             public void afterTextChanged(Editable s) {
