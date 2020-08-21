@@ -17,6 +17,8 @@ import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseTextChangeListener;
 import com.campos.baseconverter.util.MyUtils;
 
+import java.util.Arrays;
+
 public class MainBasesFragment extends Fragment {
     private View view;
     private EditText tfBin, tfOct, tfDec, tfHex;
@@ -52,6 +54,7 @@ public class MainBasesFragment extends Fragment {
                     bc.setConvertFrom(Base.BINARY);
                     bc.setInput(tfBin.getEditableText().toString());
                     String[] results = bc.getMainResults();
+                    Log.v(TAG, Arrays.toString(results));
                     displayResults(results);
                 }
             }
