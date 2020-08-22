@@ -12,15 +12,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Convert From:"
-            android:textSize="14sp"/>-->
-
         <Spinner
             android:id="@+id/spinner_main_bases"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_weight="1" />
@@ -51,8 +45,10 @@
             android:layout_weight="1"
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
+            android:enabled="false"
+            android:hint="@string/Base_2"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="none"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -83,7 +79,8 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="none"
+            android:enabled="false"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -113,7 +110,8 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="none"
+            android:enabled="false"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -143,7 +141,8 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:importantForAutofill="no"
-            android:inputType="textCapCharacters"
+            android:inputType="none"
+            android:enabled="false"
             android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
