@@ -6,6 +6,6 @@
     android:orientation="vertical"
     tools:context=".fragments.AllBasesFragment">
 
-    
+
 
 </LinearLayout>
