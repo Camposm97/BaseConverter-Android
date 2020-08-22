@@ -21,7 +21,9 @@ import android.widget.TextView;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
+import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseOnKeyListener;
+import com.campos.baseconverter.util.MyUtils;
 
 
 public class MainBasesFragment extends Fragment {
@@ -56,7 +58,7 @@ public class MainBasesFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
                 if (position != 0) {
-                    EditText editText = new EditText(getContext());
+                    final EditText editText = new EditText(getContext());
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
                     alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
@@ -67,7 +69,15 @@ public class MainBasesFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
                             String item = (String) spinner.getItemAtPosition(position);
                             Base convertFrom = Base.valueOf(item.toUpperCase());
-                            Log.v("Mios", convertFrom.toString());
+                            String input = editText.getText().toString();
+                            if (MyUtils.isValidBase(convertFrom, input)) {
+                                BaseConverter baseConverter = new BaseConverter(input, convertFrom);
+                                String[] results = baseConverter.getMainResults();
+                                EditText[] arr = loadFieldArr();
+                                for (int i = 0; i < results.length; i++) {
+                                    arr[i].setText(results[i]);
+                                }
+                            }
                             spinner.setSelection(0);
                         }
                     });
