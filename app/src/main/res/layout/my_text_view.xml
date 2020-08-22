@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_weight="0.2"
+    android:background="@drawable/my_label_border"
+    android:gravity="center|center_vertical"
+    android:text="@string/Binary"
+    android:textColor="@android:color/primary_text_dark"
+    android:textSize="14sp"
+    android:fontFamily="monospace"/>
