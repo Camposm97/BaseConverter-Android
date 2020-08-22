@@ -66,7 +66,8 @@ public class MainBasesFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String item = (String) spinner.getItemAtPosition(position);
-                            
+                            Base convertFrom = Base.valueOf(item.toUpperCase());
+                            Log.v("Mios", convertFrom.toString());
                             spinner.setSelection(0);
                         }
                     });
