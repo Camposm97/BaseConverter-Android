@@ -3,6 +3,7 @@ package com.campos.baseconverter.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,7 @@ public class MainBasesFragment extends Fragment {
                 if (position != 0) {
                     final EditText editText = new EditText(getContext());
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                    editText.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
                     alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
                     alertBuilder.setMessage("Please Enter Input:");
