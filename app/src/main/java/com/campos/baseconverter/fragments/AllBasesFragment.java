@@ -80,10 +80,14 @@ public class AllBasesFragment extends Fragment {
     }
 
     public LinearLayout[] loadOutputFields() {
+        Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (LinearLayout) LinearLayout.inflate(getContext(), R.layout.base_linear_layout_horizontal, null);
             TextView lbl = (TextView) TextView.inflate(getContext(), R.layout.my_text_view, null);
+            String title = bases[i].toString();
+            Log.v(TAG, title);
+            lbl.setText(title);
             EditText tf = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text, null);
             arr[i].addView(lbl);
             arr[i].addView(tf);
