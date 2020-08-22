@@ -49,7 +49,7 @@ public class MainBasesFragment extends Fragment {
         loadFieldListeners();
     }
 
-    public void fillSpinner() {
+    public void fillSpinner() { // Simplify code later and clear fields if cancel is pressed
         String[] arr = {"Convert From", "Binary", "Octal", "Decimal", "Hexadecimal"};
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
@@ -99,7 +99,7 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void clearFieldListeners() {
-
+        
     }
 
     public void loadFieldListeners() {
