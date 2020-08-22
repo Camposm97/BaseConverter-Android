@@ -23,4 +23,5 @@
     <string name="Base_10">Base 10</string>
     <string name="Base_11">Base 11</string>
     <string name="Base_12">Base 12</string>
+    <string name="Zero">0</string>
 </resources>
