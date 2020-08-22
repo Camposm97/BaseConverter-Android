@@ -1,9 +1,12 @@
 package com.campos.baseconverter.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.text.TextDirectionHeuristics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,23 +55,38 @@ public class MainBasesFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
+                if (position != 0) {
+                    EditText editText = new EditText(getContext());
+                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                    AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
+                    alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
+                    alertBuilder.setMessage("Please Enter Input:");
+                    alertBuilder.setView(editText);
+                    alertBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            spinner.setSelection(0);
+                        }
+                    });
+                    alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            spinner.setSelection(0);
+                        }
+                    });
+                    alertBuilder.show();
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                Log.v("Mios", "Nothing selected");
             }
         });
+    }
+
+    public void clearFieldListeners() {
+
     }
 
     public void loadFieldListeners() {
