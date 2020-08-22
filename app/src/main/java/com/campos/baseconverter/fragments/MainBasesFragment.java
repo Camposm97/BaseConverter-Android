@@ -15,8 +15,6 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseOnKeyListener;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -42,12 +40,10 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void fillSpinner() {
-        List<CharSequence> list = new ArrayList<>();
-        list.add("Binary");
-        list.add("Octal");
-        list.add("Decimal");
-        list.add("Hexadecimal");
-        ArrayAdapter<CharSequence> arrayAdapter = new ArrayAdapter<CharSequence>(null, null, null);
+        String[] arr = {"Binary", "Octal", "Decimal", "Hexadecimal"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, arr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item );
+        spinner.setAdapter(adapter);
     }
 
     public void loadFieldListeners() {
