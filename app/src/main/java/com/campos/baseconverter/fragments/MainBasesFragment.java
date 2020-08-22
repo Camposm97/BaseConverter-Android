@@ -3,11 +3,7 @@ package com.campos.baseconverter.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.text.InputType;
-import android.text.TextDirectionHeuristics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
