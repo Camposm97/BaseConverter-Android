@@ -7,34 +7,47 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseOnKeyListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainBasesFragment extends Fragment {
     private View view;
     private EditText tfBin, tfOct, tfDec, tfHex;
+    private Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main_bases, container, false);
         loadControls();
+        fillSpinner();
         return view;
     }
 
     public void loadControls() {
-        loadFields();
-        loadFieldListeners();
-    }
-
-    public void loadFields() {
+        spinner = view.findViewById(R.id.spinner_main_bases);
         tfBin = view.findViewById(R.id.tf_bin);
         tfOct = view.findViewById(R.id.tf_oct);
         tfDec = view.findViewById(R.id.tf_dec);
         tfHex = view.findViewById(R.id.tf_hex);
+        loadFieldListeners();
+    }
+
+    public void fillSpinner() {
+        List<CharSequence> list = new ArrayList<>();
+        list.add("Binary");
+        list.add("Octal");
+        list.add("Decimal");
+        list.add("Hexadecimal");
+        ArrayAdapter<CharSequence> arrayAdapter = new ArrayAdapter<CharSequence>(null, null, null);
     }
 
     public void loadFieldListeners() {
@@ -44,14 +57,14 @@ public class MainBasesFragment extends Fragment {
         from that field and convert them to the other fields.  Also the other fields are uneditable
         and can only be editable if the combo box is set to that base for that field to display
          */
-        final EditText[] arr = loadEditTextArray();
+        final EditText[] arr = loadFieldArr();
         tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
         tfOct.setOnKeyListener(new BaseOnKeyListener(tfOct, arr, Base.OCTAL));
         tfDec.setOnKeyListener(new BaseOnKeyListener(tfDec, arr, Base.DECIMAL));
         tfHex.setOnKeyListener(new BaseOnKeyListener(tfHex, arr, Base.HEXADECIMAL));
     }
 
-    private EditText[] loadEditTextArray() {
+    private EditText[] loadFieldArr() {
         return new EditText[] {tfBin, tfOct, tfDec, tfHex};
     }
 }
