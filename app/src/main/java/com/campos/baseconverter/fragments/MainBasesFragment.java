@@ -54,7 +54,7 @@ public class MainBasesFragment extends Fragment {
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
                 if (position != 0) {
                     EditText editText = new EditText(getContext());
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -65,6 +65,8 @@ public class MainBasesFragment extends Fragment {
                     alertBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            String item = (String) spinner.getItemAtPosition(position);
+                            
                             spinner.setSelection(0);
                         }
                     });
