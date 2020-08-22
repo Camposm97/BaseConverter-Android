@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +44,7 @@ public class MainBasesFragment extends Fragment {
         loadFieldListeners();
     }
 
-    public void fillSpinner() { // Simplify code later and clear fields if cancel is pressed
+    public void fillSpinner() { // Simplify code later
         String[] arr = {"Convert From", "Binary", "Octal", "Decimal", "Hexadecimal"};
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
@@ -80,6 +79,7 @@ public class MainBasesFragment extends Fragment {
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            clearFields();
                             spinner.setSelection(0);
                         }
                     });
@@ -89,12 +89,12 @@ public class MainBasesFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Log.v("Mios", "Nothing selected");
+
             }
         });
     }
 
-    public void clearFieldListeners() {
+    public void clearFields() {
         EditText[] arr = loadFieldArr();
         for (int i = 0; i < arr.length; i++) {
             arr[i].getText().clear();
