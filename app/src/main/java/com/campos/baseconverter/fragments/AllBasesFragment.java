@@ -46,10 +46,14 @@ public class AllBasesFragment extends Fragment {
     public void fillRoot(LinearLayout root) {
         Spinner spinner = loadSpinner();
         root.addView(spinner);
-        EditText[] fields = loadFields();
-        for (EditText field : fields) {
-            root.addView(field);
+        LinearLayout[] layouts = loadOutputFields();
+        for (LinearLayout layout : layouts) {
+            root.addView(layout);
         }
+//        EditText[] fields = loadFields();
+//        for (EditText field : fields) {
+//            root.addView(field);
+//        }
     }
 
     public Spinner loadSpinner() {
@@ -88,11 +92,11 @@ public class AllBasesFragment extends Fragment {
         return arr;
     }
 
-    public EditText[] loadFields() {
-        EditText[] arr = new EditText[Base.values().length];
-        for (int i = 0; i <arr.length; i++) {
-            arr[i] = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text, null);
-        }
-        return arr;
-    }
+//    public EditText[] loadFields() {
+//        EditText[] arr = new EditText[Base.values().length];
+//        for (int i = 0; i <arr.length; i++) {
+//            arr[i] = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text, null);
+//        }
+//        return arr;
+//    }
 }
