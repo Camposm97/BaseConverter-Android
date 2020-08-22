@@ -47,8 +47,9 @@ public class AllBasesFragment extends Fragment {
         Spinner spinner = loadSpinner();
         root.addView(spinner);
         LinearLayout[] layouts = loadOutputFields();
-        for (LinearLayout layout : layouts) {
-            root.addView(layout);
+        for (int i = 0; i < layouts.length; i++) {
+            root.addView(layouts[i]);
+            Log.v(TAG, i + "");
         }
 //        EditText[] fields = loadFields();
 //        for (EditText field : fields) {
