@@ -38,6 +38,12 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void loadFieldListeners() {
+        /*
+        Maybe I can have it where there's a combo box the user can choose from such as Binary,
+        then the binary field will be editable and have a text change listener that takes the input
+        from that field and convert them to the other fields.  Also the other fields are uneditable
+        and can only be editable if the combo box is set to that base for that field to display
+         */
         final EditText[] arr = loadEditTextArray();
         tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
         tfOct.setOnKeyListener(new BaseOnKeyListener(tfOct, arr, Base.OCTAL));
