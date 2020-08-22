@@ -91,7 +91,7 @@ public class MainBasesFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                // Do nothing
             }
         });
     }
