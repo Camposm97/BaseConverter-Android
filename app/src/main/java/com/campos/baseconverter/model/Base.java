@@ -12,7 +12,7 @@ public enum Base {
 
     private int radix;
 
-    private Base(int radix) {
+    Base(int radix) {
         this.radix = radix;
     }
 
@@ -29,17 +29,23 @@ public enum Base {
     }
 
     public static String toTitle(Base base) {
-        String s = base.toString();
-        switch (s) {
+        String result = base.toString();
+        switch (result) {
             case "BINARY":
-                return "BASE 2";
+                return "BASE 02";
             case "OCTAL":
-                return "BASE 8";
+                return "BASE 08";
             case "DECIMAL":
                 return "BASE 10";
             case "HEXADECIMAL":
                 return "BASE 16";
+            default:
+                result = " ";
+                if (base.getRadix() < 10) {
+                    result += "0";
+                }
+                result += base.getRadix();
+                return "BASE" + result;
         }
-        return s.replace('_', ' ');
     }
 }
