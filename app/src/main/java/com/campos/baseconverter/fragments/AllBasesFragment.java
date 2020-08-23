@@ -1,8 +1,5 @@
 package com.campos.baseconverter.fragments;
 
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.fonts.FontFamily;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,21 +11,18 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
-
-import org.w3c.dom.Text;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class AllBasesFragment extends Fragment {
     private static final String TAG = AllBasesFragment.class.getSimpleName();
-    private LinearLayout root;
+    private View root;
+    private LayoutInflater inflater;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,32 +32,32 @@ public class AllBasesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = (LinearLayout) inflater.inflate(R.layout.fragment_all_bases, container, false);
-        fillRoot(root);
+        this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
+        this.inflater = inflater;
+        fillSpinner();
+//        fillRoot(root);
         return root;
     }
 
-    public void fillRoot(LinearLayout root) {
-        Spinner spinner = loadSpinner();
-        root.addView(spinner);
-        LinearLayout[] layouts = loadOutputFields();
-        for (int i = 0; i < layouts.length; i++) {
-            root.addView(layouts[i]);
-            Log.v(TAG, i + "");
-        }
+//    public void fillRoot(LinearLayout root) {
+//        fillSpinner();
+//        LinearLayout[] layouts = loadOutputFields();
+//        for (int i = 0; i < layouts.length; i++) {
+//            root.addView(layouts[i]);
+//            Log.v(TAG, i + "");
+//        }
 //        EditText[] fields = loadFields();
 //        for (EditText field : fields) {
 //            root.addView(field);
 //        }
-    }
+//    }
 
-    public Spinner loadSpinner() {
-        Spinner spinner = new Spinner(getContext());
+    public void fillSpinner() {
+        Spinner spinner = root.findViewById(R.id.spinner_all_bases);
         List<String> list = loadItems();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        return spinner;
     }
 
     public List<String> loadItems() {
@@ -84,12 +78,12 @@ public class AllBasesFragment extends Fragment {
         Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (LinearLayout) LinearLayout.inflate(getContext(), R.layout.base_linear_layout_horizontal, null);
-            TextView lbl = (TextView) TextView.inflate(getContext(), R.layout.my_text_view, null);
+            arr[i] = (LinearLayout) inflater.inflate(R.layout.base_linear_layout_horizontal, null);
+            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
             String title = bases[i].toString();
             Log.v(TAG, title);
             lbl.setText(title);
-            EditText tf = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text, null);
+            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
             arr[i].addView(lbl);
             arr[i].addView(tf);
         }
@@ -99,7 +93,7 @@ public class AllBasesFragment extends Fragment {
 //    public EditText[] loadFields() {
 //        EditText[] arr = new EditText[Base.values().length];
 //        for (int i = 0; i <arr.length; i++) {
-//            arr[i] = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text, null);
+//            arr[i] = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text_layout, null);
 //        }
 //        return arr;
 //    }
