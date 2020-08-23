@@ -19,4 +19,27 @@ public enum Base {
     public int getRadix() {
         return radix;
     }
+
+    public static String toItem(Base base) {
+        String s = base.toString();
+        s = s.toLowerCase();
+        s = Character.toUpperCase(s.charAt(0)) + s.substring(1);
+        s = s.replace('_', ' ');
+        return s;
+    }
+
+    public static String toTitle(Base base) {
+        String s = base.toString();
+        switch (s) {
+            case "BINARY":
+                return "BASE 2";
+            case "OCTAL":
+                return "BASE 8";
+            case "DECIMAL":
+                return "BASE 10";
+            case "HEXADECIMAL":
+                return "BASE 16";
+        }
+        return s.replace('_', ' ');
+    }
 }
