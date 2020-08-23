@@ -22,6 +22,7 @@ public class AllBasesFragment extends Fragment {
     private static final String TAG = AllBasesFragment.class.getSimpleName();
     private View root;
     private LayoutInflater inflater;
+    private List<EditText> tfList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class AllBasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
+        this.tfList = new LinkedList<>();
         loadSpinner();
         loadViews();
         return root;
@@ -83,6 +85,7 @@ public class AllBasesFragment extends Fragment {
             lbl.setText(formatTitle(Base.values()[i].toString()));
 
             EditText tf = (EditText) arr[i].getChildAt(1);
+            tfList.add(tf); // For future
         }
         return arr;
     }
