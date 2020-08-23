@@ -73,13 +73,13 @@ public class AllBasesFragment extends Fragment {
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
-            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
-            String title = bases[i].toString();
-            Log.v(TAG, title);
-            lbl.setText(title);
-            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
-            arr[i].addView(lbl);
-            arr[i].addView(tf);
+//            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
+//            String title = bases[i].toString();
+//            Log.v(TAG, title);
+//            lbl.setText(title);
+//            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
+//            arr[i].addView(lbl);
+//            arr[i].addView(tf);
         }
         return arr;
     }
