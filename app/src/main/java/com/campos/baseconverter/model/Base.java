@@ -31,22 +31,23 @@ public enum Base {
         return s;
     }
 
-    public static List<String> getAllBases() {
+    public static List<String> loadSpinnerItemsAllBases() {
         List<String> list = new LinkedList<>();
+        list.add("Convert From");
         for (int i = 0; i < values().length; i++) {
             Base base = values()[i];
             switch (base) {
                 case BINARY:
-                    list.add("BASE 2");
+                    list.add("Base 2");
                     break;
                 case OCTAL:
-                    list.add("BASE 8");
+                    list.add("Base 8");
                     break;
                 case DECIMAL:
-                    list.add("BASE 10");
+                    list.add("Base 10");
                     break;
                 case HEXADECIMAL:
-                    list.add("BASE 16");
+                    list.add("Base 16");
                     break;
                 default:
                     String s = toItem(base);
