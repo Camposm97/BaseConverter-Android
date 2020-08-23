@@ -1,5 +1,8 @@
 package com.campos.baseconverter.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public enum Base {
     BINARY(2), BASE_3(3), BASE_4(4), BASE_5(5),
     BASE_6(6), BASE_7(7), OCTAL(8), BASE_9(9),
@@ -28,24 +31,60 @@ public enum Base {
         return s;
     }
 
+    public static List<String> getAllBases() {
+        List<String> list = new LinkedList<>();
+        for (int i = 0; i < values().length; i++) {
+            Base base = values()[i];
+            switch (base) {
+                case BINARY:
+                    list.add("BASE 2");
+                    break;
+                case OCTAL:
+                    list.add("BASE 8");
+                    break;
+                case DECIMAL:
+                    list.add("BASE 10");
+                    break;
+                case HEXADECIMAL:
+                    list.add("BASE 16");
+                    break;
+                default:
+                    String s = toItem(base);
+                    list.add(s);
+            }
+        }
+        return list;
+    }
+
     public static String toTitle(Base base) {
-        String result = base.toString();
-        switch (result) {
-            case "BINARY":
+        switch (base) {
+            case BINARY:
                 return "BASE 02";
-            case "OCTAL":
+            case OCTAL:
                 return "BASE 08";
-            case "DECIMAL":
+            case DECIMAL:
                 return "BASE 10";
-            case "HEXADECIMAL":
+            case HEXADECIMAL:
                 return "BASE 16";
             default:
-                result = " ";
+                String result = " ";
                 if (base.getRadix() < 10) {
                     result += "0";
                 }
                 result += base.getRadix();
                 return "BASE" + result;
+        }
+    }
+
+    public static boolean isMainBase(Base base) {
+        switch (base) {
+            case BINARY:
+            case OCTAL:
+            case DECIMAL:
+            case HEXADECIMAL:
+                return true;
+            default:
+                return false;
         }
     }
 }
