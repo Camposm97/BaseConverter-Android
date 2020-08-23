@@ -1,22 +1,26 @@
 package com.campos.baseconverter.util;
 
-import android.util.Log;
-
 import com.campos.baseconverter.model.Base;
 
 public class MyUtils {
-    public static boolean isValidBase(Base base, String str) {
+    public static boolean isValidBase(Base base, String input) {
         switch (base) {
             case BINARY:
-                return str.matches("[01]+");
+                return input.matches("[01]+");
             case OCTAL:
-                return str.matches("[0-7]+");
+                return input.matches("[0-7]+");
             case DECIMAL:
-                return str.matches("[0-9]+");
+                return input.matches("[0-9]+");
             case HEXADECIMAL:
-                return str.matches("[0-9A-F]+");
+                return input.matches("[0-9A-F]+");
             default:
-                return false;
+                int radix = base.getRadix();
+                if (radix < 10) {
+                    return input.matches("[0-" + (radix - 1) + "]+");
+                } else {
+                    char c = (char) (54 + radix);
+                    return input.matches("[0-9A-" + c + "]");
+                }
         }
     }
 }
