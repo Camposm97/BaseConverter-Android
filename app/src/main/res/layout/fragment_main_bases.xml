@@ -46,7 +46,6 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:enabled="false"
-            android:textColor="@color/black"
             android:importantForAutofill="no"
             android:inputType="none"
             android:textSize="14sp" />
@@ -79,7 +78,6 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:enabled="false"
-            android:textColor="@color/black"
             android:importantForAutofill="no"
             android:inputType="none"
             android:textSize="14sp" />
@@ -111,7 +109,6 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:enabled="false"
-            android:textColor="@color/black"
             android:importantForAutofill="no"
             android:inputType="none"
             android:textSize="14sp" />
@@ -143,7 +140,6 @@
             android:background="@drawable/my_edit_text_border"
             android:ems="10"
             android:enabled="false"
-            android:textColor="@color/black"
             android:importantForAutofill="no"
             android:inputType="none"
             android:textSize="14sp" />
