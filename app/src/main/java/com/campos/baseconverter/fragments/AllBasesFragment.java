@@ -75,10 +75,12 @@ public class AllBasesFragment extends Fragment {
         for (int i = 0; i < arr.length; i++) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(0, 0, 0, 40);
-            ViewGroup.LayoutParams fieldParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+            LinearLayout.LayoutParams fieldParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
             TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
