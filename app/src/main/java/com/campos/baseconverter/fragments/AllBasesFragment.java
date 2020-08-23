@@ -1,6 +1,7 @@
 package com.campos.baseconverter.fragments;
 
 import android.os.Bundle;
+import android.util.LayoutDirection;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +71,6 @@ public class AllBasesFragment extends Fragment {
     }
 
     public LinearLayout[] loadOutputFields() {
-        Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
@@ -78,20 +78,21 @@ public class AllBasesFragment extends Fragment {
                     LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(0, 0, 0, 40);
 
-            LinearLayout.LayoutParams fieldParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
-            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
-            lbl.setLayoutParams(fieldParams);
-            String title = bases[i].toString();
-            Log.v(TAG, title);
-            lbl.setText(title);
-            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
-            tf.setLayoutParams(fieldParams);
-            arr[i].addView(lbl);
-            arr[i].addView(tf);
+
+            TextView lbl = (TextView) arr[i].getChildAt(0);
+
+//
+//            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
+//            lbl.setLayoutParams(fieldParams);
+//            lbl.setText(Base.values()[i].toString());
+//
+//            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
+//            tf.setLayoutParams(fieldParams);
+//
+//            arr[i].addView(lbl);
+//            arr[i].addView(tf);
         }
         return arr;
     }
