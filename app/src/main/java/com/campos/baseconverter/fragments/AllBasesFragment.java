@@ -61,11 +61,7 @@ public class AllBasesFragment extends Fragment {
         List<String> list = new LinkedList<>();
         list.add("Convert From");
         for (int i = 0; i < bases.length; i++) {
-            String item = bases[i].toString();
-            item = item.toLowerCase();
-            item = Character.toUpperCase(item.charAt(0)) + item.substring(1);
-            item = item.replace('_', ' ');
-            list.add(item);
+            list.add(Base.toItem(bases[i]));
         }
         return list;
     }
@@ -73,34 +69,21 @@ public class AllBasesFragment extends Fragment {
     public LinearLayout[] loadOutputFields() {
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
+            Base base = Base.values()[i];
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(0, 0, 0, 40);
+            layoutParams.setMargins(0, 0, 0, 20);
 
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
 
             TextView lbl = (TextView) arr[i].getChildAt(0);
-            lbl.setText(formatTitle(Base.values()[i].toString()));
+            lbl.setText(Base.toTitle(base));
 
             EditText tf = (EditText) arr[i].getChildAt(1);
             tfList.add(tf); // For future
         }
         return arr;
-    }
-
-    public String formatTitle(String title) {
-        switch (title) {
-            case "BINARY":
-                return "BASE 2";
-            case "OCTAL":
-                return "BASE 8";
-            case "DECIMAL":
-                return "BASE 10";
-            case "HEXADECIMAL":
-                return "BASE 16";
-        }
-        return title.replace('_', ' ');
     }
 }
