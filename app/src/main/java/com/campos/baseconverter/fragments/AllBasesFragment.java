@@ -34,23 +34,18 @@ public class AllBasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
-        fillSpinner();
-//        fillRoot(root);
+//        fillSpinner();
+        fillRoot(root);
         return root;
     }
 
-//    public void fillRoot(LinearLayout root) {
+    public void fillRoot(LinearLayout root) {
 //        fillSpinner();
-//        LinearLayout[] layouts = loadOutputFields();
-//        for (int i = 0; i < layouts.length; i++) {
-//            root.addView(layouts[i]);
-//            Log.v(TAG, i + "");
-//        }
-//        EditText[] fields = loadFields();
-//        for (EditText field : fields) {
-//            root.addView(field);
-//        }
-//    }
+        LinearLayout[] layouts = loadOutputFields();
+        for (int i = 0; i < layouts.length; i++) {
+            root.addView(layouts[i]);
+        }
+    }
 
     public void fillSpinner() {
         Spinner spinner = root.findViewById(R.id.spinner_all_bases);
