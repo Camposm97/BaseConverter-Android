@@ -34,13 +34,12 @@ public class AllBasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
-//        fillSpinner();
-        fillRoot(root);
+        fillSpinner();
+        fillRoot((LinearLayout) root);
         return root;
     }
 
     public void fillRoot(LinearLayout root) {
-//        fillSpinner();
         LinearLayout[] layouts = loadOutputFields();
         for (int i = 0; i < layouts.length; i++) {
             root.addView(layouts[i]);
@@ -48,7 +47,7 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void fillSpinner() {
-        Spinner spinner = root.findViewById(R.id.spinner_all_bases);
+        Spinner spinner = root.findViewById(R.id.spinner_main_bases);
         List<String> list = loadItems();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,12 +83,4 @@ public class AllBasesFragment extends Fragment {
         }
         return arr;
     }
-
-//    public EditText[] loadFields() {
-//        EditText[] arr = new EditText[Base.values().length];
-//        for (int i = 0; i <arr.length; i++) {
-//            arr[i] = (EditText) EditText.inflate(getContext(), R.layout.my_edit_text_layout, null);
-//        }
-//        return arr;
-//    }
 }
