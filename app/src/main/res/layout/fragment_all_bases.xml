@@ -10,6 +10,10 @@
         android:id="@+id/spinner_all_bases"
         layout="@layout/my_spinner_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <include
+        layout="@layout/base_output_field_layout"/>
 
 </LinearLayout>
