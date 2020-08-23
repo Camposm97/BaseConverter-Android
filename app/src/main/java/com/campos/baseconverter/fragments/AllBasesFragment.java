@@ -80,11 +80,9 @@ public class AllBasesFragment extends Fragment {
 
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
-
-            String title = Base.values()[i].toString();
-            title = formatTitle(title);
+            
             TextView lbl = (TextView) arr[i].getChildAt(0);
-            lbl.setText(title);
+            lbl.setText(formatTitle(Base.values()[i].toString()));
 
             EditText tf = (EditText) arr[i].getChildAt(1);
         }
