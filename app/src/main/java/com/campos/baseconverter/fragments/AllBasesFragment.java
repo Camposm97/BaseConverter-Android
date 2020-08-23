@@ -1,8 +1,6 @@
 package com.campos.baseconverter.fragments;
 
 import android.os.Bundle;
-import android.util.LayoutDirection;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,12 +33,12 @@ public class AllBasesFragment extends Fragment {
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
-        fillSpinner();
-        fillRoot();
+        loadSpinner();
+        loadViews();
         return root;
     }
 
-    public void fillRoot() {
+    public void loadViews() {
         LinearLayout layoutOutputField = root.findViewById(R.id.layout_output_field);
         LinearLayout[] layouts = loadOutputFields();
         for (int i = 0; i < layouts.length; i++) {
@@ -48,7 +46,7 @@ public class AllBasesFragment extends Fragment {
         }
     }
 
-    public void fillSpinner() {
+    public void loadSpinner() {
         Spinner spinner = root.findViewById(R.id.spinner_all_bases);
         List<String> list = loadItems();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
@@ -80,7 +78,7 @@ public class AllBasesFragment extends Fragment {
 
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
-            
+
             TextView lbl = (TextView) arr[i].getChildAt(0);
             lbl.setText(formatTitle(Base.values()[i].toString()));
 
