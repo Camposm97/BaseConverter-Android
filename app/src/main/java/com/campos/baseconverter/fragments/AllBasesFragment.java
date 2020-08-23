@@ -78,7 +78,7 @@ public class AllBasesFragment extends Fragment {
         Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (LinearLayout) inflater.inflate(R.layout.base_linear_layout_horizontal, null);
+            arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
             String title = bases[i].toString();
             Log.v(TAG, title);
