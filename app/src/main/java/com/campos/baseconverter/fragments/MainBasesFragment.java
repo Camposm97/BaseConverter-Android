@@ -58,6 +58,7 @@ public class MainBasesFragment extends Fragment {
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
                     editText.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
+                    alertBuilder.setCancelable(false);
                     alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
                     alertBuilder.setMessage("Please Enter Input:");
                     alertBuilder.setView(editText);
