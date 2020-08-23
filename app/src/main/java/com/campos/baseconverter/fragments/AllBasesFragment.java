@@ -1,12 +1,15 @@
 package com.campos.baseconverter.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -32,14 +35,15 @@ public class AllBasesFragment extends Fragment {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
         fillSpinner();
-//        fillRoot((LinearLayout) root);
+        fillRoot();
         return root;
     }
 
-    public void fillRoot(LinearLayout root) {
+    public void fillRoot() {
+        LinearLayout layoutOutputField = root.findViewById(R.id.layout_output_field);
         LinearLayout[] layouts = loadOutputFields();
         for (int i = 0; i < layouts.length; i++) {
-            root.addView(layouts[i]);
+            layoutOutputField.addView(layouts[i]);
         }
     }
 
@@ -69,20 +73,23 @@ public class AllBasesFragment extends Fragment {
         Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.setMargins(0, 0, 0, 40);
+            layoutParams.setMargins(0, 0, 0, 40);
+            ViewGroup.LayoutParams fieldParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
-            arr[i].setLayoutParams(params);
-//            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
-//            String title = bases[i].toString();
-//            Log.v(TAG, title);
-//            lbl.setText(title);
-//            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
-//            arr[i].addView(lbl);
-//            arr[i].addView(tf);
+            arr[i].setLayoutParams(layoutParams);
+            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
+            lbl.setLayoutParams(fieldParams);
+            String title = bases[i].toString();
+            Log.v(TAG, title);
+            lbl.setText(title);
+            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
+            tf.setLayoutParams(fieldParams);
+            arr[i].addView(lbl);
+            arr[i].addView(tf);
         }
         return arr;
     }
