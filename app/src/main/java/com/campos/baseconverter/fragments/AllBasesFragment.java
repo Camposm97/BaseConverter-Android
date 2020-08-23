@@ -62,6 +62,8 @@ public class AllBasesFragment extends Fragment {
                 if (position != 0) {
                     Base convertFrom = Base.values()[position - 1];
                     Log.v(TAG, convertFrom.toString());
+
+                    
                 }
             }
 
@@ -70,16 +72,6 @@ public class AllBasesFragment extends Fragment {
                 // Do Nothing
             }
         });
-    }
-
-    public List<String> loadItems() {
-        Base[] bases = Base.values();
-        List<String> list = new LinkedList<>();
-        list.add("Convert From");
-        for (int i = 0; i < bases.length; i++) {
-            list.add(Base.toItem(bases[i]));
-        }
-        return list;
     }
 
     public LinearLayout[] loadOutputFields() {
@@ -98,7 +90,7 @@ public class AllBasesFragment extends Fragment {
             lbl.setText(Base.toTitle(base));
 
             EditText tf = (EditText) arr[i].getChildAt(1);
-            tfList.add(tf); // For future
+            tfList.add(tf);
         }
         return arr;
     }
