@@ -81,11 +81,27 @@ public class AllBasesFragment extends Fragment {
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
 
+            String title = Base.values()[i].toString();
+            title = formatTitle(title);
             TextView lbl = (TextView) arr[i].getChildAt(0);
-            lbl.setText(Base.values()[i].toString());
+            lbl.setText(title);
 
             EditText tf = (EditText) arr[i].getChildAt(1);
         }
         return arr;
+    }
+
+    public String formatTitle(String title) {
+        switch (title) {
+            case "BINARY":
+                return "BASE 2";
+            case "OCTAL":
+                return "BASE 8";
+            case "DECIMAL":
+                return "BASE 10";
+            case "HEXADECIMAL":
+                return "BASE 16";
+        }
+        return title.replace('_', ' ');
     }
 }
