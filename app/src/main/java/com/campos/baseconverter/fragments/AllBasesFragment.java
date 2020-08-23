@@ -82,17 +82,9 @@ public class AllBasesFragment extends Fragment {
             arr[i].setLayoutParams(layoutParams);
 
             TextView lbl = (TextView) arr[i].getChildAt(0);
+            lbl.setText(Base.values()[i].toString());
 
-//
-//            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
-//            lbl.setLayoutParams(fieldParams);
-//            lbl.setText(Base.values()[i].toString());
-//
-//            EditText tf = (EditText) inflater.inflate(R.layout.my_edit_text_layout, null);
-//            tf.setLayoutParams(fieldParams);
-//
-//            arr[i].addView(lbl);
-//            arr[i].addView(tf);
+            EditText tf = (EditText) arr[i].getChildAt(1);
         }
         return arr;
     }
