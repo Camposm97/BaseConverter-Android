@@ -1,15 +1,12 @@
 package com.campos.baseconverter.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -35,7 +32,7 @@ public class AllBasesFragment extends Fragment {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
         this.inflater = inflater;
         fillSpinner();
-        fillRoot((LinearLayout) root);
+//        fillRoot((LinearLayout) root);
         return root;
     }
 
@@ -47,7 +44,7 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void fillSpinner() {
-        Spinner spinner = root.findViewById(R.id.spinner_main_bases);
+        Spinner spinner = root.findViewById(R.id.spinner_all_bases);
         List<String> list = loadItems();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,7 +69,13 @@ public class AllBasesFragment extends Fragment {
         Base[] bases = Base.values();
         LinearLayout[] arr = new LinearLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, 0, 0, 40);
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
+            arr[i].setLayoutParams(params);
 //            TextView lbl = (TextView) inflater.inflate(R.layout.my_text_view_layout, null);
 //            String title = bases[i].toString();
 //            Log.v(TAG, title);
