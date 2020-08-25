@@ -1,10 +1,5 @@
 package com.campos.baseconverter.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,9 +7,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.campos.baseconverter.R;
 import com.campos.baseconverter.fragments.AllBasesFragment;
 import com.campos.baseconverter.fragments.MainBasesFragment;
-import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
