@@ -1,11 +1,6 @@
 package com.campos.baseconverter.model;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import com.campos.baseconverter.util.MyUtils;
 
 public class BaseConverter {
     private String input;
@@ -17,19 +12,23 @@ public class BaseConverter {
         this.convertTo = null;
     }
 
-    public BaseConverter(String input, Base convertFrom, Base convertTo) {
-        this.input = input;
-        this.convertFrom = convertFrom;
-        this.convertTo = convertTo;
+    public BaseConverter(Base convertFrom, Base convertTo, String input) throws InvalidBaseNumberException {
+        setConvertFrom(convertFrom);
+        setConvertTo(convertTo);
+        setInput(input);
     }
 
-    public BaseConverter(String input, Base convertFrom) {
-        this.input = input;
-        this.convertFrom = convertFrom;
+    public BaseConverter(Base convertFrom, String input) throws InvalidBaseNumberException {
+        setConvertFrom(convertFrom);
+        setInput(input);
     }
 
-    public void setInput(String input) {
-        this.input = input;
+    public void setInput(String input) throws InvalidBaseNumberException {
+        if (MyUtils.isValidBase(convertFrom, input)) {
+            this.input = input;
+        } else {
+            throw new InvalidBaseNumberException();
+        }
     }
 
     public void setConvertFrom(Base convertFrom) {
