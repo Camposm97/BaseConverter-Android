@@ -17,13 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-    <include
-        android:id="@+id/spinner_all_bases"
-        layout="@layout/my_spinner_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" />
-
+            <include
+                android:id="@+id/spinner_all_bases"
+                layout="@layout/my_spinner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
 
         </LinearLayout>
     </ScrollView>
