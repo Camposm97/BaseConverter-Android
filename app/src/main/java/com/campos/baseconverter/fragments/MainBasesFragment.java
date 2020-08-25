@@ -20,6 +20,7 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
+import com.campos.baseconverter.util.MyUtils;
 
 
 public class MainBasesFragment extends Fragment {
@@ -72,7 +73,11 @@ public class MainBasesFragment extends Fragment {
                                 String[] results = baseConverter.getMainResults();
                                 EditText[] arr = loadFieldArr();
                                 for (int i = 0; i < results.length; i++) {
-                                    arr[i].setText(results[i]);
+                                    if (i == 0) {
+                                        arr[i].setText(MyUtils.formatBinStr(results[i]));
+                                    } else {
+                                        arr[i].setText(results[i]);
+                                    }
                                 }
                             } catch (InvalidBaseNumberException e) {
                                 Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();

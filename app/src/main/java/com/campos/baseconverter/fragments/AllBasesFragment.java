@@ -87,7 +87,11 @@ public class AllBasesFragment extends Fragment {
                                 String[] results = baseConverter.getAllResults();
 
                                 for (int i = 0; i < tfList.size(); i++) {
-                                    tfList.get(i).setText(results[i]);
+                                    if (i == 0) {
+                                        tfList.get(i).setText(results[i]);
+                                    } else {
+                                        tfList.get(i).setText(results[i]);
+                                    }
                                 }
                             } catch (InvalidBaseNumberException e) {
                                 Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
