@@ -7,19 +7,13 @@
     android:orientation="vertical"
     tools:context=".fragments.MainBasesFragment">
 
-    <LinearLayout
+    <include
+        android:id="@+id/spinner_main_bases"
+        layout="@layout/my_spinner_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <include
-            layout="@layout/my_spinner_layout"
-            android:id="@+id/spinner_main_bases"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
