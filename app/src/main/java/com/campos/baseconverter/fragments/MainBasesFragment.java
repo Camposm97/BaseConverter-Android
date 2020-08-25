@@ -12,14 +12,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
-import com.campos.baseconverter.model.BaseOnKeyListener;
-import com.campos.baseconverter.util.MyUtils;
+import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 
 public class MainBasesFragment extends Fragment {
@@ -42,13 +42,12 @@ public class MainBasesFragment extends Fragment {
         tfOct = view.findViewById(R.id.tf_oct);
         tfDec = view.findViewById(R.id.tf_dec);
         tfHex = view.findViewById(R.id.tf_hex);
-        loadFieldListeners();
     }
 
     public void fillSpinner() { // Simplify code later
         String[] arr = {"Convert From", "Binary", "Octal", "Decimal", "Hexadecimal"};
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, arr);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -56,7 +55,7 @@ public class MainBasesFragment extends Fragment {
                 if (position != 0) {
                     final EditText editText = new EditText(getContext());
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
-                    editText.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
+                    editText.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
                     alertBuilder.setCancelable(false);
                     alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
@@ -68,15 +67,18 @@ public class MainBasesFragment extends Fragment {
                             String item = (String) spinner.getItemAtPosition(position);
                             Base convertFrom = Base.valueOf(item.toUpperCase());
                             String input = editText.getText().toString();
-                            if (MyUtils.isValidBase(convertFrom, input)) {
-                                BaseConverter baseConverter = new BaseConverter(input, convertFrom);
+                            try {
+                                BaseConverter baseConverter = new BaseConverter(convertFrom, input);
                                 String[] results = baseConverter.getMainResults();
                                 EditText[] arr = loadFieldArr();
                                 for (int i = 0; i < results.length; i++) {
                                     arr[i].setText(results[i]);
                                 }
+                            } catch (InvalidBaseNumberException e) {
+                                Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+                            } finally {
+                                spinner.setSelection(0);
                             }
-                            spinner.setSelection(0);
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -104,21 +106,7 @@ public class MainBasesFragment extends Fragment {
         }
     }
 
-    public void loadFieldListeners() {
-        /*
-        Maybe I can have it where there's a combo box the user can choose from such as Binary,
-        then the binary field will be editable and have a text change listener that takes the input
-        from that field and convert them to the other fields.  Also the other fields are uneditable
-        and can only be editable if the combo box is set to that base for that field to display
-         */
-        final EditText[] arr = loadFieldArr();
-        tfBin.setOnKeyListener(new BaseOnKeyListener(tfBin, arr, Base.BINARY));
-        tfOct.setOnKeyListener(new BaseOnKeyListener(tfOct, arr, Base.OCTAL));
-        tfDec.setOnKeyListener(new BaseOnKeyListener(tfDec, arr, Base.DECIMAL));
-        tfHex.setOnKeyListener(new BaseOnKeyListener(tfHex, arr, Base.HEXADECIMAL));
-    }
-
     private EditText[] loadFieldArr() {
-        return new EditText[] {tfBin, tfOct, tfDec, tfHex};
+        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
     }
 }
