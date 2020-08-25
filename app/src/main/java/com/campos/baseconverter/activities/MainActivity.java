@@ -67,16 +67,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.mi_History:
+                historyClicked();
+                break;
             case R.id.mi_settings:
                 settingsClicked();
                 break;
             case R.id.mi_about:
                 aboutClicked();
-            case R.id.mi_Clear:
-
-                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void historyClicked() {
+        startActivity(new Intent(this, HistoryActivity.class));
     }
 
     public void settingsClicked() {
