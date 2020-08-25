@@ -1,13 +1,13 @@
 package com.campos.baseconverter.model;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class MyFragmentStateAdapter extends FragmentStateAdapter {
     private List<Fragment> fragmentList;
