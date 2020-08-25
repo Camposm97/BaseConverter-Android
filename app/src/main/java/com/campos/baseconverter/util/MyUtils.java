@@ -8,7 +8,7 @@ import com.campos.baseconverter.model.Base;
  * revolve around Bases.
  */
 public class MyUtils {
-    public static boolean isValidBase(Base base, String input) {
+    public static boolean isValidBaseNum(Base base, String input) {
         switch (base) {
             case BINARY:
                 return input.matches("[01]+");

@@ -24,7 +24,7 @@ public class BaseConverter {
     }
 
     public void setInput(String input) throws InvalidBaseNumberException {
-        if (MyUtils.isValidBase(convertFrom, input)) {
+        if (MyUtils.isValidBaseNum(convertFrom, input)) {
             this.input = input;
         } else {
             throw new InvalidBaseNumberException();
