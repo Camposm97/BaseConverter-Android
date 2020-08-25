@@ -2,7 +2,7 @@
     <string name="app_name">BaseConverter</string>
     <string name="option_name">Options</string>
     <string name="about_name">About</string>
-    <string name="clear_name">Clear</string>
+    <string name="history_name">History</string>
 
     <string name="fragment_main_bases">Display Main Bases Here</string>
     <string name="fragment_all_bases">Display All Bases Here</string>
