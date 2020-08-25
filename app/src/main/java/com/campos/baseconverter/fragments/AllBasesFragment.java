@@ -15,12 +15,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.MyUtils;
 
 import java.util.LinkedList;
@@ -68,7 +70,7 @@ public class AllBasesFragment extends Fragment {
                 if (position != 0) {
                     final EditText editText = new EditText(getContext());
                     editText.setInputType(InputType.TYPE_CLASS_TEXT);
-                    editText.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
+                    editText.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
                     AlertDialog.Builder alertBuilder = new AlertDialog.Builder(getContext());
                     alertBuilder.setCancelable(false);
                     alertBuilder.setTitle("Convert From: " + spinner.getItemAtPosition(position));
@@ -78,18 +80,21 @@ public class AllBasesFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Base convertFrom = Base.values()[position - 1];
-                            Log.v(TAG, convertFrom.toString());
-
                             String input = editText.getText().toString();
-                            if (MyUtils.isValidBase(convertFrom, input)) {
-                                BaseConverter baseConverter = new BaseConverter(input, convertFrom);
+
+                            try {
+                                BaseConverter baseConverter = new BaseConverter(convertFrom, input);
                                 String[] results = baseConverter.getAllResults();
 
                                 for (int i = 0; i < tfList.size(); i++) {
                                     tfList.get(i).setText(results[i]);
                                 }
+                            } catch (InvalidBaseNumberException e) {
+                                Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+                            } finally {
+                                spinner.setSelection(0);
                             }
-                            spinner.setSelection(0);
+
                         }
                     });
                     alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
