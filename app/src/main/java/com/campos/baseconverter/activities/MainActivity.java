@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.mi_about:
                 aboutClicked();
+            case R.id.mi_Clear:
+
                 break;
         }
         return super.onOptionsItemSelected(item);
