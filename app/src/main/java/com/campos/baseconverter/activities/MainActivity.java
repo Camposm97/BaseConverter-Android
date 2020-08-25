@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new AllBasesFragment(), "AllBasesFragment");
         viewPager.setAdapter(adapter);
         viewPager.setUserInputEnabled(false);
+        viewPager.setOffscreenPageLimit(1);
     }
 
     public void setViewPagerCurrentItem(int position) {
