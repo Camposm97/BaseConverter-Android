@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Spinner
+        <include
+            layout="@layout/my_spinner_layout"
             android:id="@+id/spinner_main_bases"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_weight="1" />
