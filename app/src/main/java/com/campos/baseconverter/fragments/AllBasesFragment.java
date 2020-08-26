@@ -25,6 +25,7 @@ import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.MyUtils;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -85,10 +86,10 @@ public class AllBasesFragment extends Fragment {
                             try {
                                 BaseConverter baseConverter = new BaseConverter(convertFrom, input);
                                 String[] results = baseConverter.getAllResults();
-
+                                Log.v(TAG, Arrays.toString(results));
                                 for (int i = 0; i < tfList.size(); i++) {
                                     if (i == 0) {
-                                        tfList.get(i).setText(results[i]);
+                                        tfList.get(i).setText(MyUtils.formatBinStr(results[i]));
                                     } else {
                                         tfList.get(i).setText(results[i]);
                                     }
@@ -126,7 +127,7 @@ public class AllBasesFragment extends Fragment {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(0, 0, 0, 20);
+            layoutParams.setMargins(0, 0, 0, 10);
 
             arr[i] = (LinearLayout) inflater.inflate(R.layout.base_output_field_layout, null);
             arr[i].setLayoutParams(layoutParams);
