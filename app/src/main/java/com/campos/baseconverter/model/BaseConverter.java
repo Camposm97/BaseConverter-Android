@@ -66,24 +66,23 @@ public class BaseConverter {
      * @return result
      */
     public String convertToDecimal(String input, Base base) {
-        String result = "";
-        int radix = base.getRadix(); // Unique digits in base
-        long pow = 0;
-        long sum = 0;
+        int radix = base.getRadix();
+        int pow = 0;
+        BigInteger sum = BigInteger.ZERO;
         for (int i = input.length() - 1; i >= 0; i--) {
-            char c = input.charAt(i);
+            char c = Character.toUpperCase(input.charAt(i));
             int num = 0;
             if (Character.isLetter(c)) {
-                int n = (int) Character.toUpperCase(c) - 55;
-                num = (int) c - 55; // Giving us what the number the letter represents
-            } else { // Parse to string
+                num = ((int) (c - 55));
+            } else {
                 num = Integer.parseInt(String.valueOf(c));
             }
-            // Add to sum and increment power for next column
-            sum += (num * Math.pow(radix, pow++));
+            BigInteger bigInteger = BigInteger.valueOf(radix);
+            bigInteger = bigInteger.pow(pow++);
+            bigInteger = bigInteger.multiply(BigInteger.valueOf(num));
+            sum = sum.add(bigInteger);
         }
-        result = String.valueOf(sum);
-        return result;
+        return sum.toString();
     }
 
     /**
@@ -96,16 +95,17 @@ public class BaseConverter {
     public String convertDecimalToBase(String input, Base base) {
         String result = "";
         int radix = base.getRadix();
-        long num = Long.valueOf(input);
-        while (num != 0) {
-            long r = num % radix;
+        BigInteger num = new BigInteger(input);
+        while (!num.equals(BigInteger.ZERO)) {
+            BigInteger rem = num.mod(BigInteger.valueOf(radix));
+            int r = Integer.valueOf(rem.toString());
             if (r >= 10) {
                 r += 55;
                 result = ((char) r) + result;
             } else {
                 result = r + result;
             }
-            num = num / radix;
+            num = num.divide(BigInteger.valueOf(radix));
         }
         return result;
     }
