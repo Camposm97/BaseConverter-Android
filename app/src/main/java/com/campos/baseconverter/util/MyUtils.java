@@ -1,5 +1,7 @@
 package com.campos.baseconverter.util;
 
+import android.util.Log;
+
 import com.campos.baseconverter.model.Base;
 
 /**
@@ -24,7 +26,7 @@ public class MyUtils {
                     return input.matches("[0-" + (radix - 1) + "]+");
                 } else {
                     char c = (char) (54 + radix);
-                    return input.matches("[0-9A-" + c + "]");
+                    return input.matches("[0-9A-" + c + "]+");
                 }
         }
     }
