@@ -2,9 +2,11 @@ package com.campos.baseconverter;
 
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,7 +62,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertBinaryToHex() {
+    public void convertBinaryToHex() throws InvalidBaseNumberException {
         BaseConverter baseConverter = new BaseConverter();
         String strBin = "11010";
         baseConverter.setInput(strBin);
@@ -71,7 +73,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertOctalToBinary() {
+    public void convertOctalToBinary() throws InvalidBaseNumberException {
         BaseConverter baseConverter = new BaseConverter();
         String strOctal = "77";
         baseConverter.setInput(strOctal);
@@ -82,17 +84,17 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertHexToHex() {
+    public void convertHexToHex() throws InvalidBaseNumberException {
         String input = "S117";
         Base convertFrom = Base.HEXADECIMAL;
         Base convertTo = Base.HEXADECIMAL;
-        BaseConverter baseConverter = new BaseConverter(input, convertFrom, convertTo);
+        BaseConverter baseConverter = new BaseConverter(convertFrom, convertTo, input);
         String result = baseConverter.convert();
         assertEquals("S117", result);
     }
 
     @Test
-    public void getMainResults() {
+    public void getMainResults() throws InvalidBaseNumberException {
         String input = "1111";
         BaseConverter baseConverter = new BaseConverter();
         baseConverter.setConvertFrom(Base.BINARY);
@@ -104,7 +106,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void getAllResults() {
+    public void getAllResults() throws InvalidBaseNumberException {
         String input = "100011";
         BaseConverter baseConverter = new BaseConverter();
         baseConverter.setConvertFrom(Base.BINARY);
