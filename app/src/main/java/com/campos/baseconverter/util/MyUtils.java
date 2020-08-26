@@ -1,7 +1,5 @@
 package com.campos.baseconverter.util;
 
-import android.util.Log;
-
 import com.campos.baseconverter.model.Base;
 
 /**
