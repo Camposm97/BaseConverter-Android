@@ -1,6 +1,10 @@
 package com.campos.baseconverter.model;
 
+import android.util.Log;
+
 import com.campos.baseconverter.util.MyUtils;
+
+import java.math.BigInteger;
 
 public class BaseConverter {
     private String input;
@@ -57,22 +61,22 @@ public class BaseConverter {
 
     /**
      * Takes the string that's in the base and converts it to decimal
-     * @param str
+     * @param input
      * @param base
      * @return result
      */
-    public String convertToDecimal(String str, Base base) {
+    public String convertToDecimal(String input, Base base) {
         String result = "";
         int radix = base.getRadix(); // Unique digits in base
         long pow = 0;
         long sum = 0;
-        for (int i = str.length() - 1; i >= 0; i--) {
-            char c = str.charAt(i);
+        for (int i = input.length() - 1; i >= 0; i--) {
+            char c = input.charAt(i);
             int num = 0;
             if (Character.isLetter(c)) {
-                c = Character.toUpperCase(c);
+                int n = (int) Character.toUpperCase(c) - 55;
                 num = (int) c - 55; // Giving us what the number the letter represents
-            } else {
+            } else { // Parse to string
                 num = Integer.parseInt(String.valueOf(c));
             }
             // Add to sum and increment power for next column
@@ -85,14 +89,14 @@ public class BaseConverter {
     /**
      * Takes the string which should be in decimal format and takes the base given
      * to convert the string to the wanted base
-     * @param str
+     * @param input
      * @param base
      * @return result
      */
-    public String convertDecimalToBase(String str, Base base) {
+    public String convertDecimalToBase(String input, Base base) {
         String result = "";
         int radix = base.getRadix();
-        long num = Long.valueOf(str);
+        long num = Long.valueOf(input);
         while (num != 0) {
             long r = num % radix;
             if (r >= 10) {
@@ -118,7 +122,11 @@ public class BaseConverter {
         String strDec = convertToDecimal(input, convertFrom);
         String[] arr = new String[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
-            arr[i] = convertDecimalToBase(strDec, Base.values()[i]);
+            if (Base.values()[i].equals(convertFrom)) {
+                arr[i] = input;
+            } else {
+                arr[i] = convertDecimalToBase(strDec, Base.values()[i]);
+            }
         }
         return arr;
     }
