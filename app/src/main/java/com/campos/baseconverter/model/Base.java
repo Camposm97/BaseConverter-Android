@@ -1,5 +1,6 @@
 package com.campos.baseconverter.model;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,6 +30,10 @@ public enum Base {
         s = Character.toUpperCase(s.charAt(0)) + s.substring(1);
         s = s.replace('_', ' ');
         return s;
+    }
+
+    public static List<String> loadSpinnerItemMainBases() {
+        return Arrays.asList("Convert From", "Binary", "Octal", "Decimal", "Hexadecimal");
     }
 
     public static List<String> loadSpinnerItemsAllBases() {
