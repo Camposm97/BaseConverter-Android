@@ -1,5 +1,9 @@
 package com.campos.baseconverter.model;
 
+/*
+Replace parameters that take in a base and string representing the value for that base
+(specifically in BaseConverter)
+ */
 public class BaseNumber {
     private Base base;
     private String value;
