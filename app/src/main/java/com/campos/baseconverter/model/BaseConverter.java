@@ -1,9 +1,11 @@
 package com.campos.baseconverter.model;
 
+import android.util.Log;
+
 import java.math.BigInteger;
 
 public class BaseConverter {
-//    private String input;
+    //    private String input;
 //    private Base convertFrom;
     private BaseNumber input;
     private Base convertTo;
@@ -56,7 +58,7 @@ public class BaseConverter {
 
     public BaseNumber convert() throws InvalidBaseNumberException {
         BaseNumber baseNumber;
-        if (input.getBase().equals(convertTo)){
+        if (input.getBase().equals(convertTo)) {
             return input;
         } else {
             BaseNumber dec = convertToDecimal(input);
@@ -85,9 +87,9 @@ public class BaseConverter {
         int radix = input.getBase().getRadix();
         int pow = 0;
         BigInteger sum = BigInteger.ZERO;
-        for (int i = input.getValue().length() - 1; i >= 0; i--) {
+        for (int i = input.size() - 1; i >= 0; i--) {
             char c = Character.toUpperCase(input.getValue().charAt(i));
-            int num = 0;
+            int num;
             if (Character.isLetter(c)) {
                 num = ((int) (c - 55));
             } else {
@@ -103,7 +105,7 @@ public class BaseConverter {
 
     public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
         String result = "";
-        int radix = input.getBase().getRadix();
+        int radix = convertTo.getRadix();
         BigInteger num = new BigInteger(input.getValue());
         while (!num.equals(BigInteger.ZERO)) {
             BigInteger rem = num.mod(BigInteger.valueOf(radix));
@@ -116,20 +118,18 @@ public class BaseConverter {
             }
             num = num.divide(BigInteger.valueOf(radix));
         }
-        return new BaseNumber(convertTo, num.toString());
+        return new BaseNumber(convertTo, result);
     }
-
+    
     public BaseNumber[] getMainResults() throws InvalidBaseNumberException {
-//        String strDec = convertToDecimal(input);
         BaseNumber dec = convertToDecimal(input);
         BaseNumber bin = convertDecimalToBase(dec, Base.BINARY);
         BaseNumber octal = convertDecimalToBase(dec, Base.OCTAL);
         BaseNumber hex = convertDecimalToBase(dec, Base.HEXADECIMAL);
-        return new BaseNumber[] {bin, octal, dec, hex};
+        return new BaseNumber[]{bin, octal, dec, hex};
     }
 
     public BaseNumber[] getAllResults() throws InvalidBaseNumberException {
-//        String strDec = convertToDecimal(input);
         BaseNumber dec = convertToDecimal(input);
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
