@@ -1,7 +1,5 @@
 package com.campos.baseconverter.model;
 
-import com.campos.baseconverter.util.MyUtils;
-
 import java.math.BigInteger;
 
 public class BaseConverter {
@@ -26,7 +24,7 @@ public class BaseConverter {
     }
 
     public void setInput(String input) throws InvalidBaseNumberException {
-        if (MyUtils.isValidBaseNum(convertFrom, input)) {
+        if (Base.isValidBaseNum(convertFrom, input)) {
             this.input = input;
         } else {
             throw new InvalidBaseNumberException();
