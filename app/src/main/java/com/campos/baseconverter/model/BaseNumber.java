@@ -28,4 +28,12 @@ public class BaseNumber {
     public int size() {
         return value.length();
     }
+
+    @Override
+    public String toString() {
+        return "BaseNumber{" +
+                "base=" + base +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }
