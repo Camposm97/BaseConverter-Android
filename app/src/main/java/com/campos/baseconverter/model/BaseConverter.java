@@ -60,7 +60,7 @@ public class BaseConverter {
             return input;
         } else {
             BaseNumber dec = convertToDecimal(input);
-            BaseNumber result = convertDecimalToBase(dec);
+            BaseNumber result = convertDecimalToBase(dec, convertTo);
             return result;
         }
     }
@@ -100,8 +100,8 @@ public class BaseConverter {
         }
         return new BaseNumber(Base.DECIMAL, sum.toString());
     }
-    
-    public String convertDecimalToBase(BaseNumber input, Base convertTo) {
+
+    public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
         String result = "";
         int radix = input.getBase().getRadix();
         BigInteger num = new BigInteger(input.getValue());
@@ -116,27 +116,27 @@ public class BaseConverter {
             }
             num = num.divide(BigInteger.valueOf(radix));
         }
-        return result;
+        return new BaseNumber(convertTo, num.toString());
     }
 
-    public String[] getMainResults() throws InvalidBaseNumberException {
+    public BaseNumber[] getMainResults() throws InvalidBaseNumberException {
 //        String strDec = convertToDecimal(input);
         BaseNumber dec = convertToDecimal(input);
-        String strBin = convertDecimalToBase(dec.getValue(), Base.BINARY);
-        String strOctal = convertDecimalToBase(dec.getValue(), Base.OCTAL);
-        String strHex = convertDecimalToBase(dec.getValue(), Base.HEXADECIMAL);
-        return new String[] {strBin, strOctal, dec.getValue(), strHex};
+        BaseNumber bin = convertDecimalToBase(dec, Base.BINARY);
+        BaseNumber octal = convertDecimalToBase(dec, Base.OCTAL);
+        BaseNumber hex = convertDecimalToBase(dec, Base.HEXADECIMAL);
+        return new BaseNumber[] {bin, octal, dec, hex};
     }
 
-    public String[] getAllResults() throws InvalidBaseNumberException {
+    public BaseNumber[] getAllResults() throws InvalidBaseNumberException {
 //        String strDec = convertToDecimal(input);
         BaseNumber dec = convertToDecimal(input);
-        String[] arr = new String[Base.values().length];
+        BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
             if (Base.values()[i].equals(input.getBase())) {
-                arr[i] = input.getValue();
+                arr[i] = input;
             } else {
-                arr[i] = convertDecimalToBase(dec.getValue(), Base.values()[i]);
+                arr[i] = convertDecimalToBase(dec, Base.values()[i]);
             }
         }
         return arr;
