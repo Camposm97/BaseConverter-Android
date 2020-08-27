@@ -24,25 +24,25 @@ import java.util.List;
 
 
 public class MainBasesFragment extends Fragment {
-    private View view;
+    private View root;
     private EditText tfBin, tfOct, tfDec, tfHex;
     private Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_main_bases, container, false);
+        root = inflater.inflate(R.layout.fragment_main_bases, container, false);
         loadControls();
         loadSpinner();
-        return view;
+        return root;
     }
 
     public void loadControls() {
-        spinner = view.findViewById(R.id.spinner_main_bases);
-        tfBin = view.findViewById(R.id.tf_bin);
-        tfOct = view.findViewById(R.id.tf_oct);
-        tfDec = view.findViewById(R.id.tf_dec);
-        tfHex = view.findViewById(R.id.tf_hex);
+        spinner = root.findViewById(R.id.spinner_main_bases);
+        tfBin = root.findViewById(R.id.tf_bin);
+        tfOct = root.findViewById(R.id.tf_oct);
+        tfDec = root.findViewById(R.id.tf_dec);
+        tfHex = root.findViewById(R.id.tf_hex);
     }
 
     public void loadSpinner() {
