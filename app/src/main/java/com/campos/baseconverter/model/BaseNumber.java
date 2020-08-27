@@ -24,4 +24,8 @@ public class BaseNumber {
     public String getValue() {
         return value;
     }
+
+    public int size() {
+        return value.length();
+    }
 }
