@@ -1,5 +1,7 @@
 package com.campos.baseconverter.model;
 
+import android.app.Activity;
+import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.io.FileInputStream;
@@ -11,18 +13,19 @@ public class ConversionHistory {
     private static final String TAG = ConversionHistory.class.getSimpleName();
     private static ConversionHistory history;
 
-    public static void init() {
+    public static void init(AssetManager assets) {
         try {
-            history = load();
+            history = load(assets);
         } catch (IOException e) {
             Log.d(TAG, "Failed to load file.  Generating a new history.");
             history = new ConversionHistory();
         }
     }
 
-    private static ConversionHistory load() throws IOException{
-        ConversionHistory history;
-        FileInputStream fis = new
+    private static ConversionHistory load(AssetManager assets) throws IOException{
+        ConversionHistory history = null;
+        FileInputStream fis = new FileInputStream(assets.toString());
+        return history;
     }
 
     public static ConversionHistory getHistory() {
