@@ -20,6 +20,7 @@ import com.campos.baseconverter.view.fragments.MainBasesFragment;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutput;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ConversionHistory.init(getAssets());
+        ConversionHistory.init(this);
         loadViewPager();
         loadButtons();
     }
@@ -42,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         final String TAG = MainActivity.class.getSimpleName();
         final String FILE_NAME = "history.dat";
         try {
-            File dir = getFilesDir();
-            Log.d(TAG, dir.toString());
             FileOutputStream fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(ConversionHistory.getHistory());
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Saved history");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d(TAG, ":(");
+            Log.d(TAG, "Failed to save file");
         }
         super.onDestroy();
     }
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadButtons() {
         Button btMainBases = findViewById(R.id.bt_Main);
-        Button btAllBases =findViewById(R.id.bt_All);
+        Button btAllBases = findViewById(R.id.bt_All);
         btMainBases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
