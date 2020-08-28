@@ -68,27 +68,25 @@ public class BaseConverterTest {
         assertEquals("26", result.getValue());
     }
 
-//    @Test
-//    public void convertBinaryToHex() throws InvalidBaseNumberException {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String strBin = "11010";
-//        baseConverter.setInput(strBin);
-//        baseConverter.setConvertFrom(Base.BINARY);
-//        baseConverter.setConvertTo(Base.HEXADECIMAL);
-//        String result = baseConverter.convert();
-//        assertEquals("1A", result);
-//    }
+    @Test
+    public void convertBinaryToHex() throws InvalidBaseNumberException {
+        String strBin = "11010";
+        BaseNumber input = new BaseNumber(Base.BINARY, strBin);
+        BaseConverter baseConverter = new BaseConverter(input);
+        baseConverter.setConvertTo(Base.HEXADECIMAL);
+        BaseNumber result = baseConverter.convert();
+        assertEquals("1A", result.getValue());
+    }
 
-//    @Test
-//    public void convertOctalToBinary() throws InvalidBaseNumberException {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String strOctal = "77";
-//        baseConverter.setInput(strOctal);
-//        baseConverter.setConvertFrom(Base.OCTAL);
-//        baseConverter.setConvertTo(Base.BINARY);
-//        String result = baseConverter.convert();
-//        assertEquals("111111", result);
-//    }
+    @Test
+    public void convertOctalToBinary() throws InvalidBaseNumberException {
+        String strOctal = "77";
+        BaseNumber baseNumber = new BaseNumber(Base.OCTAL, strOctal);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        baseConverter.setConvertTo(Base.BINARY);
+        BaseNumber result = baseConverter.convert();
+        assertEquals("111111", result.getValue());
+    }
 
 //    @Test
 //    public void convertHexToHex() throws InvalidBaseNumberException {
