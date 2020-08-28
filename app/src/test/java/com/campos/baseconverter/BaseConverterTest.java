@@ -31,15 +31,16 @@ public class BaseConverterTest {
         BaseNumber result = baseConverter.convertToDecimal(baseNumber);
         assertEquals("17", result.getValue());
     }
-//
-//    @Test
-//    public void convertBase3ToDecimal() {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String input = "21";
-//        String result = baseConverter.convertToDecimal(input, Base.BASE_3);
-//        assertEquals("7", result);
-//    }
-//
+
+    @Test
+    public void convertBase3ToDecimal() throws InvalidBaseNumberException {
+        String input = "21";
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_3, input);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber result = baseConverter.convertToDecimal(baseNumber);
+        assertEquals("7", result.getValue());
+    }
+
 //    @Test
 //    public void convertDecimalToBinary() {
 //        BaseConverter baseConverter = new BaseConverter();
