@@ -27,7 +27,7 @@ public class BaseConverter {
         this.convertTo = convertTo;
     }
 
-    public BaseNumber convert() throws InvalidBaseNumberException {
+    public BaseNumber convert() {
         if (input.getBase().equals(convertTo)) {
             return input;
         } else {
@@ -75,7 +75,7 @@ public class BaseConverter {
         return new BaseNumber(convertTo, result);
     }
 
-    public BaseNumber[] getMainResults() throws InvalidBaseNumberException {
+    public BaseNumber[] getMainResults() {
         BaseNumber dec = convertToDecimal(input);
         BaseNumber bin = convertDecimalToBase(dec, Base.BINARY);
         BaseNumber octal = convertDecimalToBase(dec, Base.OCTAL);
@@ -83,7 +83,7 @@ public class BaseConverter {
         return new BaseNumber[]{bin, octal, dec, hex};
     }
 
-    public BaseNumber[] getAllResults() throws InvalidBaseNumberException {
+    public BaseNumber[] getAllResults() {
         BaseNumber dec = convertToDecimal(input);
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
