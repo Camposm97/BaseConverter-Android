@@ -38,10 +38,14 @@ public class ConversionHistory implements Serializable {
     public static void save(Activity a) {
         final String FILE_NAME = "history.dat";
         try {
-            FileOutputStream fis = a.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(fis);
-        } catch (FileNotFoundException e) {
+            FileOutputStream fos = a.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(history);
+            oos.close();
+            Log.d(Tag.TAG, "Save successful! :D");
+        } catch (IOException e) {
             e.printStackTrace();
+            Log.d(Tag.TAG, "Failed to save");
         }
     }
 
