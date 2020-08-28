@@ -17,6 +17,7 @@ import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
+import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
@@ -92,6 +93,7 @@ public class MainBasesFragment extends Fragment {
             BaseConverter baseConverter = new BaseConverter(baseNumber);
             BaseNumber[] results = baseConverter.getMainResults();
             EditText[] arr = loadOutputs();
+            ConversionHistory.getHistory().add(baseNumber);
             for (int i = 0; i < results.length; i++) {
                 if (i == 0) {
                     arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
