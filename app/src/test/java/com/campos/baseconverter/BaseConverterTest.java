@@ -23,13 +23,14 @@ public class BaseConverterTest {
         assertEquals("17", result.getValue());
     }
 
-//    @Test
-//    public void convertHexToDecimal() {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String input = "11"; // Which equals 17 in decimal
-//        String result = baseConverter.convertToDecimal(input, Base.HEXADECIMAL);
-//        assertEquals("17", result);
-//    }
+    @Test
+    public void convertHexToDecimal() throws InvalidBaseNumberException {
+        String input = "11"; // Which equals 17 in decimal
+        BaseNumber baseNumber = new BaseNumber(Base.HEXADECIMAL, input);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber result = baseConverter.convertToDecimal(baseNumber);
+        assertEquals("17", result.getValue());
+    }
 //
 //    @Test
 //    public void convertBase3ToDecimal() {
