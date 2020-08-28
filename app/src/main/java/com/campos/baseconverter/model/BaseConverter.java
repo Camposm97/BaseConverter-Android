@@ -1,7 +1,5 @@
 package com.campos.baseconverter.model;
 
-import android.util.Log;
-
 import java.math.BigInteger;
 
 public class BaseConverter {
