@@ -50,13 +50,14 @@ public class BaseConverterTest {
         assertEquals("10110", result.getValue());
     }
 
-//    @Test
-//    public void convertDecimalToHexadecimal() {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String input = "26";
-//        String result = baseConverter.convertDecimalToBase(input, Base.HEXADECIMAL);
-//        assertEquals("1A", result);
-//    }
+    @Test
+    public void convertDecimalToHex() throws InvalidBaseNumberException {
+        String input = "26";
+        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.HEXADECIMAL);
+        assertEquals("1A", result.getValue());
+    }
 
 //    @Test
 //    public void convertDecimalToOctal() {
