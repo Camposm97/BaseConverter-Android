@@ -95,23 +95,12 @@ public enum Base {
     }
 
     public static boolean isValidBaseNum(BaseNumber input) {
-//        switch (input.getBase()) {
-//            case BINARY:
-//                return input.getValue().matches("[01]+");
-//            case OCTAL:
-//                return input.getValue().matches("[0-7]+");
-//            case DECIMAL:
-//                return input.getValue().matches("[0-9]+");
-//            case HEXADECIMAL:
-//                return input.getValue().matches("[0-9A-F]+");
-//            default:
-                int radix = input.getBase().getRadix();
-                if (radix <= 10) {
-                    return input.getValue().matches("[0-" + (radix - 1) + "]+");
-                } else {
-                    char c = (char) (54 + radix);
-                    return input.getValue().matches("[0-9A-" + c + "]+");
-                }
-//        }
+        int radix = input.getBase().getRadix();
+        if (radix <= 10) {
+            return input.getValue().matches("[0-" + (radix - 1) + "]+");
+        } else {
+            char c = (char) (54 + radix);
+            return input.getValue().matches("[0-9A-" + c + "]+");
+        }
     }
 }
