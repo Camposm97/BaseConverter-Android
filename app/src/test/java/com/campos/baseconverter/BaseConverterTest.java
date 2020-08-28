@@ -59,13 +59,14 @@ public class BaseConverterTest {
         assertEquals("1A", result.getValue());
     }
 
-//    @Test
-//    public void convertDecimalToOctal() {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String input = "22";
-//        String result = baseConverter.convertDecimalToBase(input, Base.OCTAL);
-//        assertEquals("26", result);
-//    }
+    @Test
+    public void convertDecimalToOctal() throws InvalidBaseNumberException {
+        String input = "22";
+        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.OCTAL);
+        assertEquals("26", result.getValue());
+    }
 
 //    @Test
 //    public void convertBinaryToHex() throws InvalidBaseNumberException {
