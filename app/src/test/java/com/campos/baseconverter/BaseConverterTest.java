@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
+import java.util.zip.Inflater;
 
 import static org.junit.Assert.*;
 
@@ -88,15 +89,15 @@ public class BaseConverterTest {
         assertEquals("111111", result.getValue());
     }
 
-//    @Test
-//    public void convertHexToHex() throws InvalidBaseNumberException {
-//        String input = "S117";
-//        Base convertFrom = Base.HEXADECIMAL;
-//        Base convertTo = Base.HEXADECIMAL;
-//        BaseConverter baseConverter = new BaseConverter(convertFrom, convertTo, input);
-//        String result = baseConverter.convert();
-//        assertEquals("S117", result);
-//    }
+    @Test
+    public void convertHexToHex() throws InvalidBaseNumberException {
+        String strHex = "A117";
+        BaseNumber input = new BaseNumber(Base.HEXADECIMAL, strHex);
+        Base convertTo = Base.HEXADECIMAL;
+        BaseConverter baseConverter = new BaseConverter(input, convertTo);
+        BaseNumber result = baseConverter.convert();
+        assertEquals("A117", result.getValue());
+    }
 
 //    @Test
 //    public void getMainResults() throws InvalidBaseNumberException {
