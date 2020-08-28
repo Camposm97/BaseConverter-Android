@@ -2,6 +2,7 @@ package com.campos.baseconverter.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,12 @@ import com.campos.baseconverter.view.fragments.AllBasesFragment;
 import com.campos.baseconverter.view.fragments.MainBasesFragment;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
 
@@ -28,6 +35,25 @@ public class MainActivity extends AppCompatActivity {
         ConversionHistory.init(getAssets());
         loadViewPager();
         loadButtons();
+    }
+
+    @Override
+    protected void onDestroy() {
+        final String TAG = MainActivity.class.getSimpleName();
+        final String FILE_NAME = "history.dat";
+        try {
+            File dir = getFilesDir();
+            Log.d(TAG, dir.toString());
+            FileOutputStream fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(ConversionHistory.getHistory());
+            oos.close();
+            Log.d(TAG, "Saved history");
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d(TAG, ":(");
+        }
+        super.onDestroy();
     }
 
     public void loadViewPager() {
