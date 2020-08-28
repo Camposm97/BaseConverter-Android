@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.view.fragments.AllBasesFragment;
 import com.campos.baseconverter.view.fragments.MainBasesFragment;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ConversionHistory.init();
         loadViewPager();
         loadButtons();
     }

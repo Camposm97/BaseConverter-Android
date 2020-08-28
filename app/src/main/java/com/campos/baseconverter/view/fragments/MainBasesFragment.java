@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,7 +16,9 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
+import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
+import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
 
 import java.util.List;
@@ -87,21 +88,39 @@ public class MainBasesFragment extends Fragment {
 
     public void attemptBaseConversion(Base convertFrom, String input) {
         try {
-            BaseConverter baseConverter = new BaseConverter(convertFrom, input);
-            String[] results = baseConverter.getMainResults();
+            BaseNumber baseNumber = new BaseNumber(convertFrom, input);
+            BaseConverter baseConverter = new BaseConverter(baseNumber);
+            BaseNumber[] results = baseConverter.getMainResults();
             EditText[] arr = loadOutputs();
             for (int i = 0; i < results.length; i++) {
                 if (i == 0) {
-                    arr[i].setText(MyUtils.formatBinStr(results[i]));
+                    arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
                 } else {
-                    arr[i].setText(results[i]);
+                    arr[i].setText(results[i].getValue());
                 }
             }
         } catch (InvalidBaseNumberException e) {
-            Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+            AlertHelper.showInvalidBaseNumInput(getContext());
         } finally {
             spinner.setSelection(0);
         }
+//        try {
+//            BaseNumber baseNumber = new BaseNumber(convertFrom, input);
+//            BaseConverter baseConverter = new BaseConverter(baseNumber);
+//            String[] results = baseConverter.getMainResults();
+//            EditText[] arr = loadOutputs();
+//            for (int i = 0; i < results.length; i++) {
+//                if (i == 0) {
+//                    arr[i].setText(MyUtils.formatBinStr(results[i]));
+//                } else {
+//                    arr[i].setText(results[i]);
+//                }
+//            }
+//        } catch (InvalidBaseNumberException e) {
+//            Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+//        } finally {
+//            spinner.setSelection(0);
+//        }
     }
 
     public void clearFields() {

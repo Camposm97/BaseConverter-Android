@@ -94,24 +94,13 @@ public enum Base {
         }
     }
 
-    public static boolean isValidBaseNum(Base base, String input) {
-        switch (base) {
-            case BINARY:
-                return input.matches("[01]+");
-            case OCTAL:
-                return input.matches("[0-7]+");
-            case DECIMAL:
-                return input.matches("[0-9]+");
-            case HEXADECIMAL:
-                return input.matches("[0-9A-F]+");
-            default:
-                int radix = base.getRadix();
-                if (radix < 10) {
-                    return input.matches("[0-" + (radix - 1) + "]+");
-                } else {
-                    char c = (char) (54 + radix);
-                    return input.matches("[0-9A-" + c + "]+");
-                }
+    public static boolean isValidBaseNum(BaseNumber input) {
+        int radix = input.getBase().getRadix();
+        if (radix <= 10) {
+            return input.getValue().matches("[0-" + (radix - 1) + "]+");
+        } else {
+            char c = (char) (54 + radix);
+            return input.getValue().matches("[0-9A-" + c + "]+");
         }
     }
 }
