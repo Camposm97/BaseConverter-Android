@@ -22,6 +22,7 @@ import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
+import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
 
 import java.util.Arrays;
@@ -99,7 +100,7 @@ public class AllBasesFragment extends Fragment {
                 }
             }
         } catch (InvalidBaseNumberException e) {
-            Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+            AlertHelper.showInvalidBaseNumInput(getContext());
         } finally {
             spinner.setSelection(0);
         }
