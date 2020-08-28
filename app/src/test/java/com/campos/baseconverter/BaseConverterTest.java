@@ -99,29 +99,29 @@ public class BaseConverterTest {
         assertEquals("A117", result.getValue());
     }
 
-//    @Test
-//    public void getMainResults() throws InvalidBaseNumberException {
-//        String input = "1111";
-//        BaseConverter baseConverter = new BaseConverter();
-//        baseConverter.setConvertFrom(Base.BINARY);
-//        baseConverter.setInput(input);
-//        String[] results = baseConverter.getMainResults();
-//        String[] expectedResults = {"1111", "17", "15", "F"};
-//        System.out.println(Arrays.toString(results));
-//        assertArrayEquals(expectedResults, results);
-//    }
+    @Test
+    public void getMainResults() throws InvalidBaseNumberException {
+        String strBin = "1111";
+        BaseNumber input= new BaseNumber(Base.BINARY, strBin);
+        BaseConverter baseConverter = new BaseConverter(input);
+        BaseNumber[] results = baseConverter.getMainResults();
+        String[] expectedResults = {"1111", "17", "15", "F"};
+        for (int i = 0; i < results.length; i++) {
+            assertEquals(expectedResults[i], results[i].getValue());
+        }
+    }
 
-//    @Test
-//    public void getAllResults() throws InvalidBaseNumberException {
-//        String input = "100011";
-//        BaseConverter baseConverter = new BaseConverter();
-//        baseConverter.setConvertFrom(Base.BINARY);
-//        baseConverter.setInput(input);
-//        String[] results = baseConverter.getAllResults();
-//        String[] expectedResults = {"100011", "1022", "203", "120", "55", "50", "43", "38", "35",
-//                "32", "2B", "29", "27", "25", "23", "21", "1H", "1G", "1F", "1E", "1D", "1C", "1B",
-//                "1A", "19", "18", "17", "16", "15", "14", "13", "12", "11", "10", "Z"};
-////        System.out.println(Arrays.toString(results));
-//        assertArrayEquals(expectedResults, results);
-//    }
+    @Test
+    public void getAllResults() throws InvalidBaseNumberException {
+        String strBin = "100011";
+        BaseNumber input = new BaseNumber(Base.BINARY, strBin);
+        BaseConverter baseConverter = new BaseConverter(input);
+        BaseNumber[] results = baseConverter.getAllResults();
+        String[] expectedResults = {"100011", "1022", "203", "120", "55", "50", "43", "38", "35",
+                "32", "2B", "29", "27", "25", "23", "21", "1H", "1G", "1F", "1E", "1D", "1C", "1B",
+                "1A", "19", "18", "17", "16", "15", "14", "13", "12", "11", "10", "Z"};
+        for (int i = 0; i < results.length; i++) {
+            assertEquals(expectedResults[i], results[i].getValue());
+        }
+    }
 }
