@@ -1,10 +1,12 @@
 package com.campos.baseconverter.model;
 
+import java.io.Serializable;
+
 /*
 Replace parameters that take in a base and string representing the value for that base
 (specifically in BaseConverter)
  */
-public class BaseNumber {
+public class BaseNumber implements Serializable {
     private Base base;
     private String value;
 
