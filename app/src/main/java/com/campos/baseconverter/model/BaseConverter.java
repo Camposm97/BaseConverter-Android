@@ -5,40 +5,17 @@ import android.util.Log;
 import java.math.BigInteger;
 
 public class BaseConverter {
-    //    private String input;
-//    private Base convertFrom;
     private BaseNumber input;
     private Base convertTo;
-
-//    public BaseConverter() {
-//        this.convertFrom = null;
-//        this.input = null;
-//        this.convertTo = null;
-//    }
 
     public BaseConverter(BaseNumber input) throws InvalidBaseNumberException {
         setInput(input);
     }
 
-//    public BaseConverter(Base convertFrom, Base convertTo, String input) throws InvalidBaseNumberException {
-//        setConvertFrom(convertFrom);
-//        setConvertTo(convertTo);
-//        setInput(input);
-//    }
-
-//    public BaseConverter(Base convertFrom, String input) throws InvalidBaseNumberException {
-//        setConvertFrom(convertFrom);
-//        setInput(input);
-//    }
-
     public BaseConverter(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
         setInput(input);
         setConvertTo(convertTo);
     }
-
-//    public void setInput(BaseNumber input) {
-//        this.input = input;
-//    }
 
     public void setInput(BaseNumber input) throws InvalidBaseNumberException {
         if (Base.isValidBaseNum(input)) {
@@ -47,18 +24,6 @@ public class BaseConverter {
             throw new InvalidBaseNumberException();
         }
     }
-
-//    public void setInput(String input) throws InvalidBaseNumberException {
-//        if (Base.isValidBaseNum(convertFrom, input)) {
-//            this.input = input;
-//        } else {
-//            throw new InvalidBaseNumberException();
-//        }
-//    }
-
-//    public void setConvertFrom(Base convertFrom) {
-//        this.convertFrom = convertFrom;
-//    }
 
     public void setConvertTo(Base convertTo) {
         this.convertTo = convertTo;
@@ -73,22 +38,6 @@ public class BaseConverter {
             return result;
         }
     }
-
-//    /**
-//     * The way convert() works is that the user inputs their number as a String so the method can take the input and
-//     * analyze it and see if converting from its base to the base wanted is possible.
-//     * @return result
-//     */
-//    public String convert() {
-//        String result;
-//        if (convertFrom.equals(convertTo)) {
-//            return input;
-//        } else {
-//            result = convertToDecimal(input, convertFrom);
-//            result = convertDecimalToBase(result, convertTo);
-//            return result;
-//        }
-//    }
 
     public BaseNumber convertToDecimal(BaseNumber input) {
         int radix = input.getBase().getRadix();
