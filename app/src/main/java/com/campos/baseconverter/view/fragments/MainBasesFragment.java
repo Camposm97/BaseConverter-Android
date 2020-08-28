@@ -94,6 +94,7 @@ public class MainBasesFragment extends Fragment {
             BaseNumber[] results = baseConverter.getMainResults();
             EditText[] arr = loadOutputs();
             ConversionHistory.getHistory().add(baseNumber);
+            ConversionHistory.save(getActivity());
             for (int i = 0; i < results.length; i++) {
                 if (i == 0) {
                     arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
