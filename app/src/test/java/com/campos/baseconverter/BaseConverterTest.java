@@ -41,14 +41,15 @@ public class BaseConverterTest {
         assertEquals("7", result.getValue());
     }
 
-//    @Test
-//    public void convertDecimalToBinary() {
-//        BaseConverter baseConverter = new BaseConverter();
-//        String input = "22";
-//        String result = baseConverter.convertDecimalToBase(input, Base.BINARY);
-//        assertEquals("10110", result);
-//    }
-//
+    @Test
+    public void convertDecimalToBinary() throws InvalidBaseNumberException {
+        String input = "22";
+        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BINARY);
+        assertEquals("10110", result.getValue());
+    }
+
 //    @Test
 //    public void convertDecimalToHexadecimal() {
 //        BaseConverter baseConverter = new BaseConverter();
@@ -56,7 +57,7 @@ public class BaseConverterTest {
 //        String result = baseConverter.convertDecimalToBase(input, Base.HEXADECIMAL);
 //        assertEquals("1A", result);
 //    }
-//
+
 //    @Test
 //    public void convertDecimalToOctal() {
 //        BaseConverter baseConverter = new BaseConverter();
@@ -64,7 +65,7 @@ public class BaseConverterTest {
 //        String result = baseConverter.convertDecimalToBase(input, Base.OCTAL);
 //        assertEquals("26", result);
 //    }
-//
+
 //    @Test
 //    public void convertBinaryToHex() throws InvalidBaseNumberException {
 //        BaseConverter baseConverter = new BaseConverter();
@@ -75,7 +76,7 @@ public class BaseConverterTest {
 //        String result = baseConverter.convert();
 //        assertEquals("1A", result);
 //    }
-//
+
 //    @Test
 //    public void convertOctalToBinary() throws InvalidBaseNumberException {
 //        BaseConverter baseConverter = new BaseConverter();
@@ -86,7 +87,7 @@ public class BaseConverterTest {
 //        String result = baseConverter.convert();
 //        assertEquals("111111", result);
 //    }
-//
+
 //    @Test
 //    public void convertHexToHex() throws InvalidBaseNumberException {
 //        String input = "S117";
@@ -96,7 +97,7 @@ public class BaseConverterTest {
 //        String result = baseConverter.convert();
 //        assertEquals("S117", result);
 //    }
-//
+
 //    @Test
 //    public void getMainResults() throws InvalidBaseNumberException {
 //        String input = "1111";
@@ -108,7 +109,7 @@ public class BaseConverterTest {
 //        System.out.println(Arrays.toString(results));
 //        assertArrayEquals(expectedResults, results);
 //    }
-//
+
 //    @Test
 //    public void getAllResults() throws InvalidBaseNumberException {
 //        String input = "100011";
