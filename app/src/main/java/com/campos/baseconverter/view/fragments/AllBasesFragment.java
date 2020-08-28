@@ -1,14 +1,17 @@
-package com.campos.baseconverter.fragments;
+package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -20,34 +23,30 @@ import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.MyUtils;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
-
-public class MainBasesFragment extends Fragment {
+public class AllBasesFragment extends Fragment {
+    private static final String TAG = AllBasesFragment.class.getSimpleName();
     private View root;
-    private EditText tfBin, tfOct, tfDec, tfHex;
     private Spinner spinner;
+    private List<EditText> outputList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_main_bases, container, false);
-        loadControls();
+        this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
+        this.outputList = new LinkedList<>();
         loadSpinner();
+        loadViewsInRoot();
         return root;
     }
 
-    public void loadControls() {
-        spinner = root.findViewById(R.id.spinner_main_bases);
-        tfBin = root.findViewById(R.id.tf_bin);
-        tfOct = root.findViewById(R.id.tf_oct);
-        tfDec = root.findViewById(R.id.tf_dec);
-        tfHex = root.findViewById(R.id.tf_hex);
-    }
-
     public void loadSpinner() {
-        List<String> list = Base.loadSpinnerItemMainBases();
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
+        spinner = root.findViewById(R.id.spinner_all_bases);
+        List<String> list = Base.loadSpinnerItemsAllBases();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,22 +56,22 @@ public class MainBasesFragment extends Fragment {
                     showBaseInputDialog(position);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
 
-    public void showBaseInputDialog(int position) {
+    public void showBaseInputDialog(final int position) {
         String chosenItem = (String) spinner.getItemAtPosition(position);
-        final Base convertFrom = Base.valueOf(chosenItem.toUpperCase());
         BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
         final EditText tfInput = dialogBuilder.getTfInput();
         dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                attemptBaseConversion(convertFrom, tfInput.getText().toString());
+                Base convertFrom = Base.values()[position - 1];
+                String input = tfInput.getText().toString();
+                attemptBaseConversion(convertFrom, input);
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -88,13 +87,13 @@ public class MainBasesFragment extends Fragment {
     public void attemptBaseConversion(Base convertFrom, String input) {
         try {
             BaseConverter baseConverter = new BaseConverter(convertFrom, input);
-            String[] results = baseConverter.getMainResults();
-            EditText[] arr = loadOutputs();
-            for (int i = 0; i < results.length; i++) {
+            String[] results = baseConverter.getAllResults();
+            Log.v(TAG, Arrays.toString(results));
+            for (int i = 0; i < outputList.size(); i++) {
                 if (i == 0) {
-                    arr[i].setText(MyUtils.formatBinStr(results[i]));
+                    outputList.get(i).setText(MyUtils.formatBinStr(results[i]));
                 } else {
-                    arr[i].setText(results[i]);
+                    outputList.get(i).setText(results[i]);
                 }
             }
         } catch (InvalidBaseNumberException e) {
@@ -104,14 +103,38 @@ public class MainBasesFragment extends Fragment {
         }
     }
 
-    public void clearFields() {
-        EditText[] arr = loadOutputs();
-        for (int i = 0; i < arr.length; i++) {
-            arr[i].getText().clear();
+    public void loadViewsInRoot() {
+        LinearLayout layoutOutputField = root.findViewById(R.id.layout_output_field);
+        LinearLayout[] layouts = loadOutputFields();
+        for (int i = 0; i < layouts.length; i++) {
+            layoutOutputField.addView(layouts[i]);
         }
     }
 
-    private EditText[] loadOutputs() {
-        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
+    public LinearLayout[] loadOutputFields() {
+        LinearLayout[] arr = new LinearLayout[Base.values().length];
+        for (int i = 0; i < arr.length; i++) {
+            Base base = Base.values()[i];
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(0, 0, 0, 10);
+
+            arr[i] = (LinearLayout) root.inflate(getContext(), R.layout.base_output_field_layout, null);
+            arr[i].setLayoutParams(layoutParams);
+
+            TextView lbl = (TextView) arr[i].getChildAt(0);
+            lbl.setText(Base.toTitle(base));
+
+            EditText tf = (EditText) arr[i].getChildAt(1);
+            outputList.add(tf);
+        }
+        return arr;
+    }
+
+    public void clearFields() {
+        for (EditText tf : outputList) {
+            tf.getText().clear();
+        }
     }
 }

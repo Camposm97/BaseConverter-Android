@@ -1,4 +1,4 @@
-package com.campos.baseconverter.activities;
+package com.campos.baseconverter.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.fragments.AllBasesFragment;
-import com.campos.baseconverter.fragments.MainBasesFragment;
+import com.campos.baseconverter.view.fragments.AllBasesFragment;
+import com.campos.baseconverter.view.fragments.MainBasesFragment;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
