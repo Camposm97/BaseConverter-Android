@@ -16,7 +16,7 @@ public class BaseConverter {
 //        this.convertTo = null;
 //    }
 
-    public BaseConverter(BaseNumber input) {
+    public BaseConverter(BaseNumber input) throws InvalidBaseNumberException {
         setInput(input);
     }
 
@@ -31,13 +31,21 @@ public class BaseConverter {
 //        setInput(input);
 //    }
 
-    public BaseConverter(BaseNumber input, Base convertTo) {
+    public BaseConverter(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
         setInput(input);
         setConvertTo(convertTo);
     }
 
-    public void setInput(BaseNumber input) {
-        this.input = input;
+//    public void setInput(BaseNumber input) {
+//        this.input = input;
+//    }
+
+    public void setInput(BaseNumber input) throws InvalidBaseNumberException {
+        if (Base.isValidBaseNum(input)) {
+            this.input = input;
+        } else {
+            throw new InvalidBaseNumberException();
+        }
     }
 
 //    public void setInput(String input) throws InvalidBaseNumberException {
@@ -57,7 +65,6 @@ public class BaseConverter {
     }
 
     public BaseNumber convert() throws InvalidBaseNumberException {
-        BaseNumber baseNumber;
         if (input.getBase().equals(convertTo)) {
             return input;
         } else {
@@ -83,7 +90,7 @@ public class BaseConverter {
 //        }
 //    }
 
-    public BaseNumber convertToDecimal(BaseNumber input) throws InvalidBaseNumberException {
+    public BaseNumber convertToDecimal(BaseNumber input) {
         int radix = input.getBase().getRadix();
         int pow = 0;
         BigInteger sum = BigInteger.ZERO;
@@ -103,7 +110,7 @@ public class BaseConverter {
         return new BaseNumber(Base.DECIMAL, sum.toString());
     }
 
-    public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
+    public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) {
         String result = "";
         int radix = convertTo.getRadix();
         BigInteger num = new BigInteger(input.getValue());
@@ -120,7 +127,7 @@ public class BaseConverter {
         }
         return new BaseNumber(convertTo, result);
     }
-    
+
     public BaseNumber[] getMainResults() throws InvalidBaseNumberException {
         BaseNumber dec = convertToDecimal(input);
         BaseNumber bin = convertDecimalToBase(dec, Base.BINARY);
