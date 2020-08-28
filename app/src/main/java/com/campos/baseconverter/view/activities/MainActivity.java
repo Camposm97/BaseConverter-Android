@@ -39,23 +39,6 @@ public class MainActivity extends AppCompatActivity {
         loadButtons();
     }
 
-    @Override
-    protected void onDestroy() {
-        final String FILE_NAME = "history.dat";
-        try {
-            Log.d(Tag.TAG, "Saving...");
-            FileOutputStream fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(ConversionHistory.getHistory());
-            oos.close();
-            Log.d(Tag.TAG, "Saved history");
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.d(Tag.TAG, "Failed to save file");
-        }
-        super.onDestroy();
-    }
-
     public void loadViewPager() {
         viewPager = findViewById(R.id.main_view_pager);
         MyFragmentStateAdapter adapter = new MyFragmentStateAdapter(getSupportFragmentManager(), getLifecycle());
