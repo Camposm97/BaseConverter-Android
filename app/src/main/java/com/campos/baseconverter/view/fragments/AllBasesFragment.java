@@ -1,10 +1,7 @@
-package com.campos.baseconverter.fragments;
+package com.campos.baseconverter.view.fragments;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

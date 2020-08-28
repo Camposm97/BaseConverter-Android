@@ -1,4 +1,4 @@
-package com.campos.baseconverter.activities;
+package com.campos.baseconverter.view.activities;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.campos.baseconverter.fragments;
+package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
