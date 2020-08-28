@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.util.Tag;
 import com.campos.baseconverter.view.fragments.AllBasesFragment;
 import com.campos.baseconverter.view.fragments.MainBasesFragment;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
@@ -40,17 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        final String TAG = MainActivity.class.getSimpleName();
         final String FILE_NAME = "history.dat";
         try {
+            Log.d(Tag.TAG, "Saving...");
             FileOutputStream fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(ConversionHistory.getHistory());
             oos.close();
-            Log.d(TAG, "Saved history");
+            Log.d(Tag.TAG, "Saved history");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d(TAG, "Failed to save file");
+            Log.d(Tag.TAG, "Failed to save file");
         }
         super.onDestroy();
     }
