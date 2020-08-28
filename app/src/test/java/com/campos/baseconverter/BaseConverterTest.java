@@ -2,6 +2,7 @@ package com.campos.baseconverter;
 
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
@@ -15,8 +16,10 @@ import static org.junit.Assert.*;
 public class BaseConverterTest {
     @Test
     public void convertBinaryToDecimal() {
-        BaseConverter baseConverter = new BaseConverter();
+
         String input = "10001";
+        BaseNumber baseNumber = new BaseNumber(Base.BINARY, input);
+        BaseConverter baseConverter = new BaseConverter();
         String result = baseConverter.convertToDecimal(input, Base.BINARY);
         assertEquals("17", result);
     }
