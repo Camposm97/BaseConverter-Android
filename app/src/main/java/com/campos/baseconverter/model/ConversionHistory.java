@@ -1,11 +1,13 @@
 package com.campos.baseconverter.model;
 
-import android.app.Activity;
 import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,16 +18,18 @@ public class ConversionHistory {
     public static void init(AssetManager assets) {
         try {
             history = load(assets);
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e)  {
             Log.d(TAG, "Failed to load file.  Generating a new history.");
             history = new ConversionHistory();
         }
     }
 
-    private static ConversionHistory load(AssetManager assets) throws IOException{
-        ConversionHistory history = null;
-        FileInputStream fis = new FileInputStream(assets.toString());
-        return history;
+    private static ConversionHistory load(AssetManager assets) throws IOException, ClassNotFoundException {
+        final String FILE_NAME = "history.dat";
+        Log.d(TAG, assets.toString());
+        InputStream is = assets.open(FILE_NAME);
+        ObjectInputStream ois = new ObjectInputStream(is);
+        return (ConversionHistory) ois.readObject();
     }
 
     public static ConversionHistory getHistory() {
