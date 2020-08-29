@@ -22,11 +22,12 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 public class ConversionHistory implements Serializable {
+    private static final String FILE_NAME = "history.dat";
     private static ConversionHistory history;
 
-    public static void init(Activity activity) {
+    public static void init(Context context) {
         try {
-            history = load(activity);
+            history = load(context);
             Log.d(Tag.TAG, "Loaded history! :D");
             Log.d(Tag.TAG, history.getList().toString());
         } catch (IOException | ClassNotFoundException e)  {
@@ -35,10 +36,9 @@ public class ConversionHistory implements Serializable {
         }
     }
 
-    public static void save(Activity a) {
-        final String FILE_NAME = "history.dat";
+    public static void save(Context c) {
         try {
-            FileOutputStream fos = a.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+            FileOutputStream fos = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(history);
             oos.close();
@@ -49,9 +49,8 @@ public class ConversionHistory implements Serializable {
         }
     }
 
-    private static ConversionHistory load(Activity a) throws IOException, ClassNotFoundException {
-        final String FILE_NAME = "history.dat";
-        FileInputStream fis = a.openFileInput(FILE_NAME);
+    private static ConversionHistory load(Context c) throws IOException, ClassNotFoundException {
+        FileInputStream fis = c.openFileInput(FILE_NAME);
         ObjectInputStream ois = new ObjectInputStream(fis);
         ConversionHistory history = (ConversionHistory) ois.readObject();
         ois.close();
