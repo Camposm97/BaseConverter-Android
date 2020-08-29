@@ -16,12 +16,5 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         ConversionHistory.init(this);
-        Log.d(TAG, "onCreate() fired!");
-    }
-
-    @Override
-    public void onTerminate() {
-        Log.d(TAG, "Goodbye World!");
-        super.onTerminate();
     }
 }
