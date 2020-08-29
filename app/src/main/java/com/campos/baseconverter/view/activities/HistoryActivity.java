@@ -32,6 +32,10 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        loadRecyclerView();
+    }
+
+    public void loadRecyclerView() {
         List<BaseNumber> list = ConversionHistory.getHistory().getList();
         HistoryViewAdapter adapter = new HistoryViewAdapter(list, this);
         recyclerView = findViewById(R.id.recycler_view_history);
