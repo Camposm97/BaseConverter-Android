@@ -21,6 +21,7 @@ import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
+import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
@@ -30,7 +31,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AllBasesFragment extends Fragment {
-    private static final String TAG = AllBasesFragment.class.getSimpleName();
     private View root;
     private Spinner spinner;
     private List<EditText> outputList;
@@ -90,8 +90,9 @@ public class AllBasesFragment extends Fragment {
         try {
             BaseNumber baseNumber = new BaseNumber(convertFrom, input);
             BaseConverter baseConverter = new BaseConverter(baseNumber);
+            ConversionHistory.getHistory().add(baseNumber);
+            ConversionHistory.save(getActivity());
             BaseNumber[] results = baseConverter.getAllResults();
-            Log.v(TAG, Arrays.toString(results));
             for (int i = 0; i < outputList.size(); i++) {
                 if (i == 0) {
                     outputList.get(i).setText(MyUtils.formatBinStr(results[i].getValue()));
@@ -104,22 +105,6 @@ public class AllBasesFragment extends Fragment {
         } finally {
             spinner.setSelection(0);
         }
-//        try {
-//            BaseConverter baseConverter = new BaseConverter(convertFrom, input);
-//            String[] results = baseConverter.getAllResults();
-//            Log.v(TAG, Arrays.toString(results));
-//            for (int i = 0; i < outputList.size(); i++) {
-//                if (i == 0) {
-//                    outputList.get(i).setText(MyUtils.formatBinStr(results[i]));
-//                } else {
-//                    outputList.get(i).setText(results[i]);
-//                }
-//            }
-//        } catch (InvalidBaseNumberException e) {
-//            Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
-//        } finally {
-//            spinner.setSelection(0);
-//        }
     }
 
     public void loadViewsInRoot() {
