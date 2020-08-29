@@ -1,18 +1,11 @@
 package com.campos.baseconverter.model;
 
-import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.SubscriptSpan;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
 
-/*
-Replace parameters that take in a base and string representing the value for that base
-(specifically in BaseConverter)
- */
 public class BaseNumber implements Serializable {
     private Base base;
     private String value;
@@ -40,5 +33,10 @@ public class BaseNumber implements Serializable {
         SpannableString s = new SpannableString(str);
         s.setSpan(span, str.length() - 1, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return s;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + value + ")" + base.getRadix();
     }
 }
