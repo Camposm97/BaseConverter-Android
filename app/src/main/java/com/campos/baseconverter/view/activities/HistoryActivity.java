@@ -3,6 +3,7 @@ package com.campos.baseconverter.view.activities;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
 
@@ -19,10 +20,10 @@ import com.campos.baseconverter.R;
  * Credit goes to mi em oi
  */
 public class HistoryActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_history);
     }
 }
