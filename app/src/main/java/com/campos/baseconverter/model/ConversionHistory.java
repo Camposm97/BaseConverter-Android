@@ -61,8 +61,8 @@ public class ConversionHistory implements Serializable {
         this.list = new LinkedList<>();
     }
 
-    public BaseNumber[] toArray() {
-        return Arrays.copyOf(list.toArray(), list.toArray().length, BaseNumber[].class);
+    public List<BaseNumber> getList() {
+        return list;
     }
 
     public void add(BaseNumber baseNumber) {
