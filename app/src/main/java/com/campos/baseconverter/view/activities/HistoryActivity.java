@@ -11,6 +11,8 @@ import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.HistoryViewAdapter;
 
+import java.util.List;
+
 /**
  * Every time a user chooses a base to convert from, the HistoryActivity will
  * display what that user input and base he/she chose.  Display it as a list view or
@@ -30,8 +32,8 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        BaseNumber[] arr = ConversionHistory.getHistory().toArray();
-        HistoryViewAdapter adapter = new HistoryViewAdapter(arr, this);
+        List<BaseNumber> list = ConversionHistory.getHistory().getList();
+        HistoryViewAdapter adapter = new HistoryViewAdapter(list, this);
         recyclerView = findViewById(R.id.recycler_view_history);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
