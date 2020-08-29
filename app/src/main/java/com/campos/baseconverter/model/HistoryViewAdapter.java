@@ -13,12 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.util.Tag;
 
+import java.util.List;
+
 public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.HistoryViewHolder> {
-    private BaseNumber[] arr;
+    private List<BaseNumber> numList;
     private Context context;
 
-    public HistoryViewAdapter(BaseNumber[] arr, Context context) {
-        this.arr = arr;
+    public HistoryViewAdapter(List<BaseNumber> numList, Context context) {
+        this.numList = numList;
         this.context = context;
     }
 
@@ -32,12 +34,12 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         Log.d(Tag.TAG, "onBindViewHolder() called");
-        holder.tv.setText(arr[position].toSpannableString());
+        holder.tv.setText(numList.get(position).toSpannableString());
     }
 
     @Override
     public int getItemCount() {
-        return arr.length;
+        return numList.size();
     }
 
     public class HistoryViewHolder extends RecyclerView.ViewHolder {
