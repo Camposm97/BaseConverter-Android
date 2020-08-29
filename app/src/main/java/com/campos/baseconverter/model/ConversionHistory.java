@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ConversionHistory implements Serializable {
         try {
             history = load(context);
             Log.d(Tag.TAG, "Loaded history! :D");
-            Log.d(Tag.TAG, history.getList().toString());
+            Log.d(Tag.TAG, history.list.toString());
         } catch (IOException | ClassNotFoundException e)  {
             Log.d(Tag.TAG, "Failed to load file.  Generating a new history.");
             history = new ConversionHistory();
@@ -54,15 +55,14 @@ public class ConversionHistory implements Serializable {
         return history;
     }
 
-
     private LinkedList<BaseNumber> list;
 
     private ConversionHistory() {
         this.list = new LinkedList<>();
     }
 
-    public List<BaseNumber> getList() {
-        return list;
+    public BaseNumber[] toArray() {
+        return Arrays.copyOf(list.toArray(), list.toArray().length, BaseNumber[].class);
     }
 
     public void add(BaseNumber baseNumber) {
