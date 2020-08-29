@@ -1,6 +1,7 @@
 package com.campos.baseconverter.model;
 
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.SubscriptSpan;
 
@@ -27,12 +28,13 @@ public class BaseNumber implements Serializable {
         return value.length();
     }
 
-    public SpannableString toSpannableString() {
-        String str = "(" + value + ")" + base.getRadix();
+    public SpannableString toSpanString() {
+        String radix = String.valueOf(base.getRadix());
+        String str = "(" + value + ")" + radix;
         SubscriptSpan span = new SubscriptSpan();
-        SpannableString s = new SpannableString(str);
-        s.setSpan(span, str.length() - 1, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return s;
+        SpannableString spanStr = new SpannableString(str);
+        spanStr.setSpan(span, str.length() - radix.length(), str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return spanStr;
     }
 
     @Override
