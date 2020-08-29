@@ -1,25 +1,18 @@
 package com.campos.baseconverter.model;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.util.Log;
-import android.view.animation.AccelerateInterpolator;
 
 import com.campos.baseconverter.util.Tag;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class ConversionHistory implements Serializable {
     private static final String FILE_NAME = "history.dat";
