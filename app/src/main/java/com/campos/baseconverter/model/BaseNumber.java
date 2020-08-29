@@ -1,5 +1,12 @@
 package com.campos.baseconverter.model;
 
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.SubscriptSpan;
+
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 /*
@@ -27,11 +34,11 @@ public class BaseNumber implements Serializable {
         return value.length();
     }
 
-    @Override
-    public String toString() {
-        return "BaseNumber{" +
-                "base=" + base +
-                ", value='" + value + '\'' +
-                '}';
+    public SpannableString toSpannableString() {
+        String str = "(" + value + ")" + base.getRadix();
+        SubscriptSpan span = new SubscriptSpan();
+        SpannableString s = new SpannableString(str);
+        s.setSpan(span, str.length() - 1, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return s;
     }
 }
