@@ -2,6 +2,7 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
+import com.campos.baseconverter.util.Tag;
 
 import java.util.List;
 
@@ -107,23 +109,6 @@ public class MainBasesFragment extends Fragment {
         } finally {
             spinner.setSelection(0);
         }
-//        try {
-//            BaseNumber baseNumber = new BaseNumber(convertFrom, input);
-//            BaseConverter baseConverter = new BaseConverter(baseNumber);
-//            String[] results = baseConverter.getMainResults();
-//            EditText[] arr = loadOutputs();
-//            for (int i = 0; i < results.length; i++) {
-//                if (i == 0) {
-//                    arr[i].setText(MyUtils.formatBinStr(results[i]));
-//                } else {
-//                    arr[i].setText(results[i]);
-//                }
-//            }
-//        } catch (InvalidBaseNumberException e) {
-//            Toast.makeText(getContext(), R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
-//        } finally {
-//            spinner.setSelection(0);
-//        }
     }
 
     public void clearFields() {
