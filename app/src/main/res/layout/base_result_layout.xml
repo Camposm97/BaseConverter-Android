@@ -8,20 +8,20 @@
     android:gravity="center">
 
     <include
-        android:id="@+id/include"
-        layout="@layout/my_text_view_layout"
+        android:id="@+id/output_label"
+        layout="@layout/my_text_view"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@+id/include2"
-        app:layout_constraintEnd_toStartOf="@+id/include2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/output_field"
+        app:layout_constraintEnd_toStartOf="@+id/output_field"
         app:layout_constraintStart_toStartOf="parent" />
 
     <include
-        android:id="@+id/include2"
-        layout="@layout/my_edit_text_layout"
+        android:id="@+id/output_field"
+        layout="@layout/my_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/include"
+        app:layout_constraintStart_toEndOf="@+id/output_label"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
