@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/output_label"
-        layout="@layout/my_text_view"
+        layout="@layout/base_output_label"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         app:layout_constraintBaseline_toBaselineOf="@+id/output_field"
@@ -17,7 +17,7 @@
 
     <include
         android:id="@+id/output_field"
-        layout="@layout/my_edit_text"
+        layout="@layout/base_output_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
