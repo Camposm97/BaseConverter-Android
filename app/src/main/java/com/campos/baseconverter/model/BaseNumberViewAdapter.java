@@ -50,7 +50,7 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
         holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
         holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
         if (listTf != null) {
-            holder.getField().setText(listLbl.get(position ));
+            holder.getField().setText(listTf.get(position ));
         } else {
             holder.getField().setText("");
         }
