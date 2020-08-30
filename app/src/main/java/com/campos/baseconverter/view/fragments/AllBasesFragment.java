@@ -47,9 +47,9 @@ public class AllBasesFragment extends Fragment {
     public void loadRecycler() {
         List<String> listLbl = Arrays.asList(getResources().getStringArray(R.array.all_bases));
         List<String> listTf = Arrays.asList(getResources().getStringArray(R.array.all_bases));
-        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+//        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
-        rv.addItemDecoration(itemDecor);
+//        rv.addItemDecoration(itemDecor);
         rv.setAdapter(new BaseNumberViewAdapter(getContext(), listLbl, listTf));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
