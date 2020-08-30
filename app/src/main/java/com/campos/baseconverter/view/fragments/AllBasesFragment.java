@@ -121,7 +121,7 @@ public class AllBasesFragment extends Fragment {
                     LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(0, 0, 0, 10);
 
-            arr[i] = (LinearLayout) root.inflate(getContext(), R.layout.base_output_field_layout, null);
+            arr[i] = (LinearLayout) root.inflate(getContext(), R.layout.base_result_layout, null);
             arr[i].setLayoutParams(layoutParams);
 
             TextView lbl = (TextView) arr[i].getChildAt(0);
