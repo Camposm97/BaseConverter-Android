@@ -2,6 +2,7 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
+import com.campos.baseconverter.model.BaseNumberViewHolder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.campos.baseconverter.util.Tag.TAG;
 
 public class AllBasesFragment extends Fragment {
     private View root;
@@ -81,12 +85,17 @@ public class AllBasesFragment extends Fragment {
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                for (int i = 0; i < rv.getAdapter().getItemCount(); i++) {
-                    BaseNumberViewAdapter.BaseNumberViewHolder holder = (BaseNumberViewAdapter.BaseNumberViewHolder) rv.findViewHolderForAdapterPosition(i);
-                }
+                clearFields();
                 spinner.setSelection(0);
             }
         });
+        dialogBuilder.show();
+    }
+
+    public void clearFields() {
+        Log.d(TAG, "Clearing fields...");
+
+        Log.d(TAG, "Cleared fields!");
     }
 
 //    public void showBaseInputDialog(final int position) {
