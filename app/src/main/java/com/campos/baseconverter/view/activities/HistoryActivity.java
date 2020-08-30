@@ -39,7 +39,9 @@ public class HistoryActivity extends AppCompatActivity {
     public void loadRecyclerView() {
         List<BaseNumber> list = ConversionHistory.getHistory().getList();
         HistoryViewAdapter adapter = new HistoryViewAdapter(this, list);
+        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rv = findViewById(R.id.recycler_view_history);
+        rv.addItemDecoration(itemDecor);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
