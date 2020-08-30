@@ -1,9 +1,11 @@
 package com.campos.baseconverter.model;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
@@ -16,9 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.HistoryViewHolder> {
+    private Context context;
     private List<BaseNumber> numList;
 
-    public HistoryViewAdapter(List<BaseNumber> numList) {
+    public HistoryViewAdapter(Context context, List<BaseNumber> numList) {
+        this.context = context;
         this.numList = numList;
     }
 
@@ -33,6 +37,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull final HistoryViewHolder holder, int position) {
         holder.tv.setText(numList.get(position).toSpanString());
+        holder.tv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_history_item));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
