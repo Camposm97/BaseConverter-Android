@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapter.AllBasesViewHolder> {
     private Context context;
-    public AllBasesViewAdapter(Context context) {
+    private String[] strings;
+    public AllBasesViewAdapter(Context context, String[] strings) {
         this.context = context;
+        this.strings = strings;
     }
 
     @NonNull
@@ -28,12 +30,13 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return strings.length;
     }
 
     @Override
     public void onBindViewHolder(@NonNull AllBasesViewHolder holder, int position) {
         // Put animations here
+        holder.tv.setText(strings[position]);
     }
 
     public class AllBasesViewHolder extends RecyclerView.ViewHolder {
