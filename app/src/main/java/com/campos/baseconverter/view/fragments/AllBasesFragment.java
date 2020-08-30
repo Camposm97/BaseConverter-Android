@@ -40,7 +40,7 @@ public class AllBasesFragment extends Fragment {
     private View root;
     private RecyclerView rv;
     private Spinner spinner;
-    private List<EditText> outputList;
+//    private List<EditText> outputList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,11 +55,10 @@ public class AllBasesFragment extends Fragment {
 
     public void loadRecycler() {
         List<String> list = Arrays.asList(getResources().getStringArray(R.array.all_bases));
-        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext(), list);
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
         rv.addItemDecoration(itemDecor);
-        rv.setAdapter(adapter);
+        rv.setAdapter(new AllBasesViewAdapter(getContext(), list));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
