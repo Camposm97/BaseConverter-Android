@@ -12,12 +12,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumberViewHolder;
+import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.model.InvalidBaseNumberException;
+import com.campos.baseconverter.util.AlertHelper;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import androidx.fragment.app.Fragment;
@@ -73,14 +79,15 @@ public class AllBasesFragment extends Fragment {
         });
     }
 
-    public void showBaseInputDialog(int position) {
+    public void showBaseInputDialog(final int position) {
         String chosenItem = (String) spinner.getItemAtPosition(position);
-        BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
-        final EditText tfInput = dialogBuilder.getTfInput();
+        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
         dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Base convertFrom = Base.values()[position - 1];
+                String input = dialogBuilder.getTfInput().getText().toString();
+                startBaseConversion(new BaseNumber(convertFrom, input));
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -91,6 +98,27 @@ public class AllBasesFragment extends Fragment {
             }
         });
         dialogBuilder.show();
+    }
+
+    public void startBaseConversion(BaseNumber baseNumber) {
+        try {
+            BaseConverter baseConverter = new BaseConverter(baseNumber);
+            ConversionHistory.getHistory().add(baseNumber);
+            ConversionHistory.save(getActivity());
+            BaseNumber[] resultsArr = baseConverter.getAllResults();
+            List<String> listLbl = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+            List<String> listResult = new LinkedList<>();
+            for (int i = 0; i < resultsArr.length; i++) {
+                listResult.add(resultsArr[i].getValue());
+            }
+            BaseNumberViewAdapter adapter = new BaseNumberViewAdapter(getContext(), listLbl, listResult);
+            rv.setAdapter(adapter);
+        } catch (InvalidBaseNumberException e) {
+            AlertHelper.showInvalidBaseNumInput(getContext());
+        }
+        finally {
+            spinner.setSelection(0);
+        }
     }
 
     public void clearFields() {
