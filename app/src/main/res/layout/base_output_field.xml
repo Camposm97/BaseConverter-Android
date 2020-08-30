@@ -8,4 +8,5 @@
     android:fontFamily="monospace"
     android:importantForAutofill="no"
     android:inputType="none"
-    android:textSize="14sp" />
+    android:textSize="14sp"
+    android:gravity="center" />
