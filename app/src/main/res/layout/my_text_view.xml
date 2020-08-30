@@ -6,4 +6,4 @@
     android:gravity="center|center_vertical"
     android:textColor="@android:color/primary_text_dark"
     android:textSize="14sp"
-    android:fontFamily="monospace"/>
+    android:fontFamily="monospace" />
