@@ -13,11 +13,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.AllBasesViewAdapter;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.model.HistoryViewAdapter;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
@@ -27,6 +29,8 @@ import java.util.List;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.campos.baseconverter.util.Tag.TAG;
@@ -49,8 +53,12 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
+        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext());
+        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
-        
+        rv.addItemDecoration(itemDecor);
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     public void loadSpinner() {
@@ -132,7 +140,7 @@ public class AllBasesFragment extends Fragment {
 //                    LinearLayout.LayoutParams.WRAP_CONTENT);
 //            layoutParams.setMargins(0, 0, 0, 10);
 //
-//            arr[i] = (ConstraintLayout) root.inflate(getContext(), R.layout.base_result_layout, null);
+//            arr[i] = (ConstraintLayout) root.inflate(getContext(), R.layout.base_output_layout, null);
 //            arr[i].setLayoutParams(layoutParams);
 //
 //            TextView lbl = (TextView) arr[i].getChildAt(0);
