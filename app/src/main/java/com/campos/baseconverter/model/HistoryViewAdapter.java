@@ -37,7 +37,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull final HistoryViewHolder holder, int position) {
         holder.tv.setText(numList.get(position).toSpanString());
-        holder.tv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_history_item));
+        holder.tv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
