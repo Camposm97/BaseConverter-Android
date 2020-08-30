@@ -1,6 +1,8 @@
 package com.campos.baseconverter.view.activities;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.BaseNumber;
@@ -9,10 +11,13 @@ import com.campos.baseconverter.model.HistoryViewAdapter;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.campos.baseconverter.util.Tag.TAG;
 
 /**
  * Every time a user chooses a base to convert from, the HistoryActivity will
@@ -44,6 +49,5 @@ public class HistoryActivity extends AppCompatActivity {
         rv.addItemDecoration(itemDecor);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
-
     }
 }
