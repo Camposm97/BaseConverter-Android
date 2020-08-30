@@ -1,6 +1,7 @@
 package com.campos.baseconverter.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import com.campos.baseconverter.R;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static com.campos.baseconverter.util.Tag.TAG;
 
 public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapter.AllBasesViewHolder> {
     private Context context;
@@ -24,7 +27,7 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
     @Override
     public AllBasesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.history_view_item, parent, false);
+        View view = inflater.inflate(R.layout.base_output_layout, parent, false);
         return new AllBasesViewHolder(view);
     }
 
@@ -37,6 +40,7 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
     public void onBindViewHolder(@NonNull AllBasesViewHolder holder, int position) {
         // Put animations here
         String text = strings[position];
+        Log.d(TAG, "string[" + position + "]=" + text);
         if (text != null) {
             holder.tv.setText(text);
         } else {
