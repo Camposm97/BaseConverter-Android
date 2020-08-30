@@ -2,7 +2,6 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
@@ -26,9 +22,10 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
 
 public class AllBasesFragment extends Fragment {
     private View root;
