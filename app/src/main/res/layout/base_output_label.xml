@@ -4,6 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/my_label_border"
     android:gravity="center|center_vertical"
-    android:textColor="@android:color/primary_text_dark"
+    android:textColor="@color/white"
     android:textSize="14sp"
     android:fontFamily="monospace" />
