@@ -13,14 +13,16 @@ import com.campos.baseconverter.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapter.AllBasesViewHolder> {
     private Context context;
-    private String[] strings;
-    public AllBasesViewAdapter(Context context, String[] strings) {
+    private List<String> list;
+    public AllBasesViewAdapter(Context context, List<String> list) {
         this.context = context;
-        this.strings = strings;
+        this.list = list;
     }
 
     @NonNull
@@ -33,19 +35,13 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
 
     @Override
     public int getItemCount() {
-        return strings.length;
+        return list.size();
     }
 
     @Override
     public void onBindViewHolder(@NonNull AllBasesViewHolder holder, int position) {
         // Put animations here
-        String text = strings[position];
-        Log.d(TAG, "string[" + position + "]=" + text);
-        if (text != null) {
-            holder.tv.setText(text);
-        } else {
-            holder.tv.setText("Null");
-        }
+        holder.tv.setText(list.get(position));
     }
 
     public class AllBasesViewHolder extends RecyclerView.ViewHolder {
