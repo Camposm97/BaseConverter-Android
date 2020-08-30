@@ -31,12 +31,12 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HistoryViewHolder holder, int position) {
         holder.tv.setText(numList.get(position).toSpanString());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "Layout Clicked!");
+                Log.d(TAG, "Layout Clicked! " + holder.tv.getText());
             }
         });
     }
