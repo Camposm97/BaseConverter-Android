@@ -3,10 +3,7 @@
     <string name="option_name">Options</string>
     <string name="about_name">About</string>
     <string name="history_name">History</string>
-
-    <string name="fragment_main_bases">Display Main Bases Here</string>
-    <string name="fragment_all_bases">Display All Bases Here</string>
-
+    
     <string name="Binary">BIN</string>
     <string name="Octal">OCT</string>
     <string name="Decimal">DEC</string>
