@@ -3,7 +3,9 @@
     <string name="option_name">Options</string>
     <string name="about_name">About</string>
     <string name="history_name">History</string>
-    
+
+    <string name="about_desc">Description Written Here</string>
+
     <string name="Binary">BIN</string>
     <string name="Octal">OCT</string>
     <string name="Decimal">DEC</string>
