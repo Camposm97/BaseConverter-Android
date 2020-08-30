@@ -2,30 +2,20 @@ package com.campos.baseconverter.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.MyFragmentStateAdapter;
+import com.campos.baseconverter.view.fragments.AllBasesFragment;
+import com.campos.baseconverter.view.fragments.MainBasesFragment;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
-import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.ConversionHistory;
-import com.campos.baseconverter.util.Tag;
-import com.campos.baseconverter.view.fragments.AllBasesFragment;
-import com.campos.baseconverter.view.fragments.MainBasesFragment;
-import com.campos.baseconverter.model.MyFragmentStateAdapter;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
