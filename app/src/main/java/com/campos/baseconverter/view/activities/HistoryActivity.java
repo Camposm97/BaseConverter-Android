@@ -2,16 +2,17 @@ package com.campos.baseconverter.view.activities;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.HistoryViewAdapter;
 
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Every time a user chooses a base to convert from, the HistoryActivity will
@@ -26,7 +27,7 @@ import java.util.List;
  * Credit goes to mi em oi
  */
 public class HistoryActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,9 @@ public class HistoryActivity extends AppCompatActivity {
     public void loadRecyclerView() {
         List<BaseNumber> list = ConversionHistory.getHistory().getList();
         HistoryViewAdapter adapter = new HistoryViewAdapter(list);
-        recyclerView = findViewById(R.id.recycler_view_history);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rv = findViewById(R.id.recycler_view_history);
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
     }
 }
