@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.campos.baseconverter.R;
 
@@ -16,11 +14,11 @@ import java.util.List;
 
 public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHolder> {
     private Context context;
-    private List<String> list;
+    private List<String> lblList;
 
-    public BaseNumberViewAdapter(Context context, List<String> list) {
+    public BaseNumberViewAdapter(Context context, List<String> lblList) {
         this.context = context;
-        this.list = list;
+        this.lblList = lblList;
     }
 
     @NonNull
@@ -33,14 +31,13 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return lblList.size();
     }
 
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         // Put animations here
-        holder.getTv().setText(list.get(position));
+        holder.getLbl().setText(lblList.get(position));
+        holder.getField().setText(lblList.get(position ));
     }
-
-
 }
