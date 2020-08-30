@@ -1,19 +1,19 @@
 package com.campos.baseconverter.model;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.campos.baseconverter.R;
+
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.campos.baseconverter.R;
-import com.campos.baseconverter.util.Tag;
-
-import java.util.List;
+import static com.campos.baseconverter.util.Tag.TAG;
 
 public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.HistoryViewHolder> {
     private List<BaseNumber> numList;
@@ -32,8 +32,13 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
-        Log.d(Tag.TAG, "onBindViewHolder() called");
         holder.tv.setText(numList.get(position).toSpanString());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "Layout Clicked!");
+            }
+        });
     }
 
     @Override
