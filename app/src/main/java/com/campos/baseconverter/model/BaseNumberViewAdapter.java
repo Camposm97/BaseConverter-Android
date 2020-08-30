@@ -1,7 +1,6 @@
 package com.campos.baseconverter.model;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,22 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import static com.campos.baseconverter.util.Tag.TAG;
-
-public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapter.AllBasesViewHolder> {
+public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewAdapter.BaseNumberViewHolder> {
     private Context context;
     private List<String> list;
-    public AllBasesViewAdapter(Context context, List<String> list) {
+
+    public BaseNumberViewAdapter(Context context, List<String> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public AllBasesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BaseNumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.base_output_layout, parent, false);
-        return new AllBasesViewHolder(view);
+        return new BaseNumberViewHolder(view);
     }
 
     @Override
@@ -39,20 +37,19 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllBasesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         // Put animations here
         holder.tv.setText(list.get(position));
     }
 
-    public class AllBasesViewHolder extends RecyclerView.ViewHolder {
+    public class BaseNumberViewHolder extends RecyclerView.ViewHolder {
         private TextView tv;
         private EditText tf;
 
-        public AllBasesViewHolder(@NonNull View itemView) {
+        public BaseNumberViewHolder(@NonNull View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.output_label);
             tf = itemView.findViewById(R.id.output_field);
         }
     }
-
 }
