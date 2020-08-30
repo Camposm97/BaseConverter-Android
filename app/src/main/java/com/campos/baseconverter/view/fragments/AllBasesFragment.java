@@ -8,33 +8,20 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.AllBasesViewAdapter;
+import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
-import com.campos.baseconverter.model.BaseNumber;
-import com.campos.baseconverter.model.ConversionHistory;
-import com.campos.baseconverter.model.HistoryViewAdapter;
-import com.campos.baseconverter.model.InvalidBaseNumberException;
-import com.campos.baseconverter.util.AlertHelper;
-import com.campos.baseconverter.util.MyUtils;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static com.campos.baseconverter.util.Tag.TAG;
 
 public class AllBasesFragment extends Fragment {
     private View root;
@@ -46,7 +33,7 @@ public class AllBasesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
-        this.outputList = new LinkedList<>();
+//        this.outputList = new LinkedList<>();
         loadRecycler();
         loadSpinner();
 //        loadViewsInRoot();
@@ -58,7 +45,7 @@ public class AllBasesFragment extends Fragment {
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
         rv.addItemDecoration(itemDecor);
-        rv.setAdapter(new AllBasesViewAdapter(getContext(), list));
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), list));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -72,11 +59,32 @@ public class AllBasesFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
                 if (position != 0) {
-//                    showBaseInputDialog(position);
+                    showBaseInputDialog(position);
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    public void showBaseInputDialog(int position) {
+        String chosenItem = (String) spinner.getItemAtPosition(position);
+        BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
+        final EditText tfInput = dialogBuilder.getTfInput();
+        dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                for (int i = 0; i < rv.getAdapter().getItemCount(); i++) {
+                    BaseNumberViewAdapter.BaseNumberViewHolder holder = (BaseNumberViewAdapter.BaseNumberViewHolder) rv.findViewHolderForAdapterPosition(i);
+                }
+                spinner.setSelection(0);
             }
         });
     }
