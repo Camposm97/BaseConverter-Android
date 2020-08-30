@@ -10,20 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.campos.baseconverter.R;
 
 public class BaseNumberViewHolder extends RecyclerView.ViewHolder {
-    private TextView tv;
-    private EditText tf;
+    private TextView lbl;
+    private TextView field;
 
     public BaseNumberViewHolder(@NonNull View itemView) {
         super(itemView);
-        tv = itemView.findViewById(R.id.output_label);
-        tf = itemView.findViewById(R.id.output_field);
+        lbl = itemView.findViewById(R.id.output_label);
+        field = itemView.findViewById(R.id.output_field);
     }
 
-    public TextView getTv() {
-        return tv;
+    public TextView getLbl() {
+        return lbl;
     }
 
-    public EditText getTf() {
-        return tf;
+    public TextView getField() {
+        return field;
     }
 }
