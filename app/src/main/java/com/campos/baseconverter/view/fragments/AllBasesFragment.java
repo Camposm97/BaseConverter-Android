@@ -25,6 +25,7 @@ import com.campos.baseconverter.util.MyUtils;
 import java.util.LinkedList;
 import java.util.List;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 public class AllBasesFragment extends Fragment {
@@ -106,22 +107,22 @@ public class AllBasesFragment extends Fragment {
 
     public void loadViewsInRoot() {
         LinearLayout layoutOutputField = root.findViewById(R.id.layout_output_field);
-        LinearLayout[] layouts = loadOutputFields();
+        ConstraintLayout[] layouts = loadOutputLayouts();
         for (int i = 0; i < layouts.length; i++) {
             layoutOutputField.addView(layouts[i]);
         }
     }
 
-    public LinearLayout[] loadOutputFields() {
-        LinearLayout[] arr = new LinearLayout[Base.values().length];
+    public ConstraintLayout[] loadOutputLayouts() {
+        ConstraintLayout[] arr = new ConstraintLayout[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
             Base base = Base.values()[i];
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+            ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(0, 0, 0, 10);
 
-            arr[i] = (LinearLayout) root.inflate(getContext(), R.layout.base_result_layout, null);
+            arr[i] = (ConstraintLayout) root.inflate(getContext(), R.layout.base_result_layout, null);
             arr[i].setLayoutParams(layoutParams);
 
             TextView lbl = (TextView) arr[i].getChildAt(0);
