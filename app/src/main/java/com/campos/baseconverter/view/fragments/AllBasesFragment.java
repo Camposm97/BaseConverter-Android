@@ -24,6 +24,7 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -53,8 +54,8 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
-        String[] strings = new String[10];
-        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext(), strings);
+        List<String> list = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext(), list);
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
         rv.addItemDecoration(itemDecor);
