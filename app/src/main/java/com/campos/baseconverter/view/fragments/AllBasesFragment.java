@@ -28,6 +28,8 @@ import java.util.List;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import static com.campos.baseconverter.util.Tag.TAG;
+
 public class AllBasesFragment extends Fragment {
     private View root;
     private Spinner spinner;
