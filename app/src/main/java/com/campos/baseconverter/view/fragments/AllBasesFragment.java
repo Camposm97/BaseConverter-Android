@@ -45,11 +45,12 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+        List<String> listLbl = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+        List<String> listTf = Arrays.asList(getResources().getStringArray(R.array.all_bases));
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
         rv.addItemDecoration(itemDecor);
-        rv.setAdapter(new BaseNumberViewAdapter(getContext(), list));
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), listLbl, listTf));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -94,7 +95,8 @@ public class AllBasesFragment extends Fragment {
 
     public void clearFields() {
         Log.d(TAG, "Clearing fields...");
-
+        List<String> list = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), list));
         Log.d(TAG, "Cleared fields!");
     }
 
