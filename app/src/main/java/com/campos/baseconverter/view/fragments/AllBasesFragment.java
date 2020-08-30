@@ -53,7 +53,8 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
-        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext());
+        String[] strings = new String[10];
+        AllBasesViewAdapter adapter = new AllBasesViewAdapter(getContext(), strings);
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
         rv.addItemDecoration(itemDecor);
