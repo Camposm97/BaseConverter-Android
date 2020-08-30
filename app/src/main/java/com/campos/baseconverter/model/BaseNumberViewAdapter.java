@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewAdapter.BaseNumberViewHolder> {
+public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHolder> {
     private Context context;
     private List<String> list;
 
@@ -39,17 +39,8 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewAd
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         // Put animations here
-        holder.tv.setText(list.get(position));
+        holder.getTv().setText(list.get(position));
     }
 
-    public class BaseNumberViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv;
-        private EditText tf;
 
-        public BaseNumberViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tv = itemView.findViewById(R.id.output_label);
-            tf = itemView.findViewById(R.id.output_field);
-        }
-    }
 }
