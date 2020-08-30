@@ -36,7 +36,12 @@ public class AllBasesViewAdapter extends RecyclerView.Adapter<AllBasesViewAdapte
     @Override
     public void onBindViewHolder(@NonNull AllBasesViewHolder holder, int position) {
         // Put animations here
-        holder.tv.setText(strings[position]);
+        String text = strings[position];
+        if (text != null) {
+            holder.tv.setText(text);
+        } else {
+            holder.tv.setText("Null");
+        }
     }
 
     public class AllBasesViewHolder extends RecyclerView.ViewHolder {
