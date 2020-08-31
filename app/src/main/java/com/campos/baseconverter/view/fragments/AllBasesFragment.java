@@ -48,12 +48,12 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
-        List<String> listLbl = Arrays.asList(getResources().getStringArray(R.array.all_bases));
+        String[] lblArr = getResources().getStringArray(R.array.all_bases);
         List<String> listTf = Arrays.asList(getResources().getStringArray(R.array.all_bases));
 //        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
 //        rv.addItemDecoration(itemDecor);
-        rv.setAdapter(new BaseNumberViewAdapter(getContext(), listLbl, listTf));
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -103,12 +103,7 @@ public class AllBasesFragment extends Fragment {
             ConversionHistory.getHistory().add(baseNumber);
             ConversionHistory.save(getActivity());
             BaseNumber[] resultsArr = baseConverter.getAllResults();
-            List<String> listLbl = Arrays.asList(getResources().getStringArray(R.array.all_bases));
-            List<String> listResult = new LinkedList<>();
-            for (int i = 0; i < resultsArr.length; i++) {
-                listResult.add(resultsArr[i].getValue());
-            }
-            BaseNumberViewAdapter adapter = new BaseNumberViewAdapter(getContext(), listLbl, listResult);
+            BaseNumberViewAdapter adapter = new BaseNumberViewAdapter(getContext(), resultsArr);
             rv.setAdapter(adapter);
         } catch (InvalidBaseNumberException e) {
             AlertHelper.showInvalidBaseNumInput(getContext());
@@ -120,8 +115,8 @@ public class AllBasesFragment extends Fragment {
 
     public void clearFields() {
         Log.d(TAG, "Clearing fields...");
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.all_bases));
-        rv.setAdapter(new BaseNumberViewAdapter(getContext(), list));
+        String[] lblArr = getResources().getStringArray(R.array.all_bases);
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
         Log.d(TAG, "Cleared fields!");
     }
 }
