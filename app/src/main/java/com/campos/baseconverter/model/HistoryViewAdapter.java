@@ -45,7 +45,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
             public void onClick(View v) {
                 Log.d(TAG, "Layout Clicked! " + holder.tv.getText());
                 Intent intent = new Intent(context, ShowAllBasesActivity.class);
-                intent.putExtra("target", numList.get(position));
+                intent.putExtra("baseNumber", numList.get(position));
                 context.startActivity(intent);
             }
         });
