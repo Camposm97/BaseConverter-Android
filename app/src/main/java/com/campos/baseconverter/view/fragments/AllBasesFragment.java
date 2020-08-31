@@ -2,7 +2,6 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +24,6 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 
 import java.util.List;
-
-import static com.campos.baseconverter.util.Tag.TAG;
 
 public class AllBasesFragment extends Fragment {
     private View root;
@@ -85,7 +82,7 @@ public class AllBasesFragment extends Fragment {
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                clearFields();
+                loadRecyclerItems();
                 spinner.setSelection(0);
             }
         });
@@ -108,10 +105,7 @@ public class AllBasesFragment extends Fragment {
         }
     }
 
-    public void clearFields() {
-        Log.d(TAG, "Clearing fields...");
-        String[] lblArr = getResources().getStringArray(R.array.all_bases);
+    public void loadRecyclerItems() {
         rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
-        Log.d(TAG, "Cleared fields!");
     }
 }
