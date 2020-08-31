@@ -8,28 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseInputDialogBuilder;
-import com.campos.baseconverter.model.BaseNumberViewHolder;
 import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import static com.campos.baseconverter.util.Tag.TAG;
 
@@ -42,17 +37,17 @@ public class AllBasesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         this.root = inflater.inflate(R.layout.fragment_all_bases, container, false);
-        loadRecycler();
-        loadSpinner();
+        loadViews();
         return root;
     }
 
+    public void loadViews() {
+        loadRecycler();
+        loadSpinner();
+    }
+
     public void loadRecycler() {
-        String[] lblArr = getResources().getStringArray(R.array.all_bases);
-        List<String> listTf = Arrays.asList(getResources().getStringArray(R.array.all_bases));
-//        RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rv = root.findViewById(R.id.recycler_all_bases);
-//        rv.addItemDecoration(itemDecor);
         rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
