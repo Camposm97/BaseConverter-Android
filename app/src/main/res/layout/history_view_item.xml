@@ -12,6 +12,7 @@
         android:padding="20dp"
         android:text="@android:string/untitled"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:fontFamily="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
