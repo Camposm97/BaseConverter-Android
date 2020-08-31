@@ -36,8 +36,8 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         holder.getLbl().setText(Base.toTitle(numArr[position].getBase()));
-        holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
+        holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
         holder.getField().setText(numArr[position].getValue());
-        holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
+        holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
     }
 }
