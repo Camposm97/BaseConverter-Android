@@ -1,7 +1,6 @@
 package com.campos.baseconverter.model;
 
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.SubscriptSpan;
 
