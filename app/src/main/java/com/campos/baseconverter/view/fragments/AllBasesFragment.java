@@ -82,7 +82,7 @@ public class AllBasesFragment extends Fragment {
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                loadRecyclerItems();
+                rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
                 spinner.setSelection(0);
             }
         });
@@ -102,9 +102,5 @@ public class AllBasesFragment extends Fragment {
         finally {
             spinner.setSelection(0);
         }
-    }
-
-    public void loadRecyclerItems() {
-        rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
     }
 }
