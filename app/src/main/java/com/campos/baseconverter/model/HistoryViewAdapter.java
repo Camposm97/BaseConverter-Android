@@ -1,6 +1,7 @@
 package com.campos.baseconverter.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.view.activities.ShowAllBasesActivity;
 
 import java.util.List;
 
@@ -42,6 +44,8 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Layout Clicked! " + holder.tv.getText());
+                Intent intent = new Intent(context, ShowAllBasesActivity.class);
+                context.startActivity(intent);
             }
         });
     }
