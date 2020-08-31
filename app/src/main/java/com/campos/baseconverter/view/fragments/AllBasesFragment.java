@@ -95,8 +95,7 @@ public class AllBasesFragment extends Fragment {
             ConversionHistory.getHistory().add(baseNumber);
             ConversionHistory.save(getActivity());
             BaseNumber[] resultsArr = baseConverter.getAllResults();
-            BaseNumberViewAdapter adapter = new BaseNumberViewAdapter(getContext(), resultsArr);
-            rv.setAdapter(adapter);
+            rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
         } catch (InvalidBaseNumberException e) {
             AlertHelper.showInvalidBaseNumInput(getContext());
         }
