@@ -2,7 +2,6 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.Base;
@@ -22,34 +22,40 @@ import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 import com.campos.baseconverter.util.MyUtils;
-import com.campos.baseconverter.util.Tag;
 
 import java.util.List;
 
 
 public class MainBasesFragment extends Fragment {
-    private View root;
-    private EditText tfBin, tfOct, tfDec, tfHex;
+    private View view;
+//    private EditText tfBin, tfOct, tfDec, tfHex;
+    private RecyclerView rv;
     private Spinner spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_main_bases, container, false);
-        loadControls();
+        view = inflater.inflate(R.layout.fragment_main_bases, container, false);
+//        loadControls();
+        loadRecycler();
         loadSpinner();
-        return root;
+        return view;
     }
 
-    public void loadControls() {
-        spinner = root.findViewById(R.id.spinner_main_bases);
-        tfBin = root.findViewById(R.id.tf_bin);
-        tfOct = root.findViewById(R.id.tf_oct);
-        tfDec = root.findViewById(R.id.tf_dec);
-        tfHex = root.findViewById(R.id.tf_hex);
+    public void loadRecycler() {
+        rv = null;
+
     }
+
+//    public void loadControls() {
+//        tfBin = root.findViewById(R.id.tf_bin);
+//        tfOct = root.findViewById(R.id.tf_oct);
+//        tfDec = root.findViewById(R.id.tf_dec);
+//        tfHex = root.findViewById(R.id.tf_hex);
+//    }
 
     public void loadSpinner() {
+        spinner = view.findViewById(R.id.spinner_main_bases);
         List<String> list = Base.loadSpinnerItemMainBases();
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -82,7 +88,7 @@ public class MainBasesFragment extends Fragment {
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                clearFields();
+//                clearFields();
                 spinner.setSelection(0);
             }
         });
@@ -111,14 +117,14 @@ public class MainBasesFragment extends Fragment {
         }
     }
 
-    public void clearFields() {
-        EditText[] arr = loadOutputs();
-        for (int i = 0; i < arr.length; i++) {
-            arr[i].getText().clear();
-        }
-    }
-
-    private EditText[] loadOutputs() {
-        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
-    }
+//    public void clearFields() {
+//        EditText[] arr = loadOutputs();
+//        for (int i = 0; i < arr.length; i++) {
+//            arr[i].getText().clear();
+//        }
+//    }
+//
+//    private EditText[] loadOutputs() {
+//        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
+//    }
 }
