@@ -26,7 +26,7 @@ public class ShowAllBasesActivity extends AppCompatActivity {
     }
 
     public void loadBaseNum() {
-        chosenNum = (BaseNumber) this.getIntent().getSerializableExtra("target");
+        chosenNum = (BaseNumber) this.getIntent().getSerializableExtra("baseNumber");
         try {
             bc = new BaseConverter(chosenNum);
         } catch (InvalidBaseNumberException e) {
