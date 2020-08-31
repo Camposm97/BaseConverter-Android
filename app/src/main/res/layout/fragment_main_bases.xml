@@ -24,7 +24,7 @@
                 android:layout_marginBottom="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/reycler_main_bases"
+        android:id="@+id/recycler_main_bases"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
