@@ -2,6 +2,7 @@ package com.campos.baseconverter.view.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.campos.baseconverter.util.AlertHelper;
 
 import java.util.List;
 
+import static com.campos.baseconverter.util.Tag.TAG;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -76,13 +78,13 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void showBaseInputDialog(int position) {
-        String chosenItem = (String) spinner.getItemAtPosition(position);
-        final Base convertFrom = Base.valueOf(chosenItem.toUpperCase());
-        BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
-        final String value = dialogBuilder.getTfInput().getText().toString();
+        final String chosenItem = (String) spinner.getItemAtPosition(position);
+        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
         dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Base convertFrom = Base.valueOf(chosenItem.toUpperCase());
+                String value = dialogBuilder.getTfInput().getText().toString();
                 attemptBaseConversion(new BaseNumber(convertFrom, value));
             }
         });
@@ -98,12 +100,13 @@ public class MainBasesFragment extends Fragment {
 
     public void attemptBaseConversion(BaseNumber baseNumber) {
         try {
+            Log.d(TAG, baseNumber.toString());
             BaseConverter baseConverter = new BaseConverter(baseNumber);
-            BaseNumber[] results = baseConverter.getMainResults();
 //            EditText[] arr = loadOutputs();
             ConversionHistory.getHistory().add(baseNumber);
             ConversionHistory.save(getActivity());
-
+            BaseNumber[] resultsArr = baseConverter.getMainResults();
+            rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
 //            for (int i = 0; i < results.length; i++) {
 //                if (i == 0) {
 //                    arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
