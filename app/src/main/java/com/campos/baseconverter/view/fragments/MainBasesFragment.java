@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
@@ -18,6 +19,7 @@ import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
+import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
@@ -43,8 +45,9 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void loadRecycler() {
-        rv = null;
-
+        rv = view.findViewById(R.id.recycler_main_bases);
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getMain()));
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
 //    public void loadControls() {
@@ -78,11 +81,11 @@ public class MainBasesFragment extends Fragment {
         String chosenItem = (String) spinner.getItemAtPosition(position);
         final Base convertFrom = Base.valueOf(chosenItem.toUpperCase());
         BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
-        final EditText tfInput = dialogBuilder.getTfInput();
+        final String value = dialogBuilder.getTfInput().getText().toString();
         dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                attemptBaseConversion(convertFrom, tfInput.getText().toString());
+                attemptBaseConversion(new BaseNumber(convertFrom, value));
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -95,21 +98,21 @@ public class MainBasesFragment extends Fragment {
         dialogBuilder.show();
     }
 
-    public void attemptBaseConversion(Base convertFrom, String input) {
+    public void attemptBaseConversion(BaseNumber baseNumber) {
         try {
-            BaseNumber baseNumber = new BaseNumber(convertFrom, input);
             BaseConverter baseConverter = new BaseConverter(baseNumber);
             BaseNumber[] results = baseConverter.getMainResults();
-            EditText[] arr = loadOutputs();
+//            EditText[] arr = loadOutputs();
             ConversionHistory.getHistory().add(baseNumber);
             ConversionHistory.save(getActivity());
-            for (int i = 0; i < results.length; i++) {
-                if (i == 0) {
-                    arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
-                } else {
-                    arr[i].setText(results[i].getValue());
-                }
-            }
+
+//            for (int i = 0; i < results.length; i++) {
+//                if (i == 0) {
+//                    arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
+//                } else {
+//                    arr[i].setText(results[i].getValue());
+//                }
+//            }
         } catch (InvalidBaseNumberException e) {
             AlertHelper.showInvalidBaseNumInput(getContext());
         } finally {
