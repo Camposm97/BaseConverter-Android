@@ -4,4 +4,4 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:spinnerMode="dialog"
-    android:textAlignment="center"></Spinner>
+    android:textAlignment="center" />
