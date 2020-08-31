@@ -30,7 +30,6 @@ import static com.campos.baseconverter.util.Tag.TAG;
 
 public class MainBasesFragment extends Fragment {
     private View view;
-//    private EditText tfBin, tfOct, tfDec, tfHex;
     private RecyclerView rv;
     private Spinner spinner;
 
@@ -38,7 +37,6 @@ public class MainBasesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main_bases, container, false);
-//        loadControls();
         loadRecycler();
         loadSpinner();
         return view;
@@ -49,13 +47,6 @@ public class MainBasesFragment extends Fragment {
         rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getMain()));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
     }
-
-//    public void loadControls() {
-//        tfBin = root.findViewById(R.id.tf_bin);
-//        tfOct = root.findViewById(R.id.tf_oct);
-//        tfDec = root.findViewById(R.id.tf_dec);
-//        tfHex = root.findViewById(R.id.tf_hex);
-//    }
 
     public void loadSpinner() {
         spinner = view.findViewById(R.id.spinner_main_bases);
@@ -102,18 +93,10 @@ public class MainBasesFragment extends Fragment {
         try {
             Log.d(TAG, baseNumber.toString());
             BaseConverter baseConverter = new BaseConverter(baseNumber);
-//            EditText[] arr = loadOutputs();
             ConversionHistory.getHistory().add(baseNumber);
             ConversionHistory.save(getActivity());
             BaseNumber[] resultsArr = baseConverter.getMainResults();
             rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
-//            for (int i = 0; i < results.length; i++) {
-//                if (i == 0) {
-//                    arr[i].setText(MyUtils.formatBinStr(results[i].getValue()));
-//                } else {
-//                    arr[i].setText(results[i].getValue());
-//                }
-//            }
         } catch (InvalidBaseNumberException e) {
             AlertHelper.showInvalidBaseNumInput(getContext());
         } finally {
@@ -124,8 +107,4 @@ public class MainBasesFragment extends Fragment {
     public void loadRecyclerItems() {
         rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getMain()));
     }
-//
-//    private EditText[] loadOutputs() {
-//        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
-//    }
 }
