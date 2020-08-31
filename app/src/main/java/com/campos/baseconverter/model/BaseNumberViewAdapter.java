@@ -14,20 +14,6 @@ import com.campos.baseconverter.R;
 public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHolder> {
     private Context context;
     private BaseNumber[] numArr;
-    private String[] lblArr;
-    private String[] resultArr;
-
-//    public BaseNumberViewAdapter(Context context, String[] lblArr) {
-//        this.context = context;
-//        this.lblArr = lblArr;
-//        this.resultArr = null;
-//    }
-//
-//    public BaseNumberViewAdapter(Context context, String[] lblArr, String[] resultArr) {
-//        this.context = context;
-//        this.lblArr = lblArr;
-//        this.resultArr = resultArr;
-//    }
 
     public BaseNumberViewAdapter(Context context, BaseNumber[] numArr) {
         this.context = context;
@@ -49,15 +35,9 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
 
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
-        // Put animations here
         holder.getLbl().setText(Base.toTitle(numArr[position].getBase()));
         holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
         holder.getField().setText(numArr[position].getValue());
         holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
-//        if (resultArr != null) {
-//            holder.getField().setText(resultArr[position]);
-//        } else {
-//            holder.getField().setText("");
-//        }
     }
 }
