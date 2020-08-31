@@ -7,6 +7,14 @@ import android.text.style.SubscriptSpan;
 import java.io.Serializable;
 
 public class BaseNumber implements Serializable {
+    public static BaseNumber[] getMain() {
+        BaseNumber numBin = new BaseNumber(Base.BINARY, "");
+        BaseNumber numOct = new BaseNumber(Base.OCTAL, "");
+        BaseNumber numDec = new BaseNumber(Base.DECIMAL, "");
+        BaseNumber numHex = new BaseNumber(Base.HEXADECIMAL, "");
+        return new BaseNumber[] {numBin, numOct, numDec, numHex};
+    }
+
     public static BaseNumber[] getAll() {
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < arr.length; i++) {
