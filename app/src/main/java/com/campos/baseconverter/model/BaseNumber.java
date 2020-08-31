@@ -8,6 +8,14 @@ import android.text.style.SubscriptSpan;
 import java.io.Serializable;
 
 public class BaseNumber implements Serializable {
+    public static BaseNumber[] getAll() {
+        BaseNumber[] arr = new BaseNumber[Base.values().length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = new BaseNumber(Base.values()[i], "");
+        }
+        return arr;
+    }
+
     private Base base;
     private String value;
 
