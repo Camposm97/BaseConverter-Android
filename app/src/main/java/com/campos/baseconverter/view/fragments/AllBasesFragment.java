@@ -75,8 +75,8 @@ public class AllBasesFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Base convertFrom = Base.values()[position - 1];
-                String input = dialogBuilder.getTfInput().getText().toString();
-                startBaseConversion(new BaseNumber(convertFrom, input));
+                String value = dialogBuilder.getTfInput().getText().toString();
+                startBaseConversion(new BaseNumber(convertFrom, value));
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
