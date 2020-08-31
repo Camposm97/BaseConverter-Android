@@ -11,23 +11,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
 
-import java.util.List;
-
 public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHolder> {
     private Context context;
-    private List<String> listLbl;
-    private List<String> listTf;
+    private BaseNumber[] numArr;
+    private String[] lblArr;
+    private String[] resultArr;
 
-    public BaseNumberViewAdapter(Context context, List<String> listLbl) {
-        this.context = context;
-        this.listLbl = listLbl;
-        this.listTf = null;
-    }
+//    public BaseNumberViewAdapter(Context context, String[] lblArr) {
+//        this.context = context;
+//        this.lblArr = lblArr;
+//        this.resultArr = null;
+//    }
+//
+//    public BaseNumberViewAdapter(Context context, String[] lblArr, String[] resultArr) {
+//        this.context = context;
+//        this.lblArr = lblArr;
+//        this.resultArr = resultArr;
+//    }
 
-    public BaseNumberViewAdapter(Context context, List<String> listLbl, List<String> listTf) {
+    public BaseNumberViewAdapter(Context context, BaseNumber[] numArr) {
         this.context = context;
-        this.listLbl = listLbl;
-        this.listTf = listTf;
+        this.numArr = numArr;
     }
 
     @NonNull
@@ -40,19 +44,20 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
 
     @Override
     public int getItemCount() {
-        return listLbl.size();
+        return numArr.length;
     }
 
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         // Put animations here
-        holder.getLbl().setText(listLbl.get(position));
-        holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
-        holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
-        if (listTf != null) {
-            holder.getField().setText(listTf.get(position ));
-        } else {
-            holder.getField().setText("");
-        }
+        holder.getLbl().setText(Base.toTitle(numArr[position].getBase()));
+        holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
+        holder.getField().setText(numArr[position].getValue());
+        holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
+//        if (resultArr != null) {
+//            holder.getField().setText(resultArr[position]);
+//        } else {
+//            holder.getField().setText("");
+//        }
     }
 }
