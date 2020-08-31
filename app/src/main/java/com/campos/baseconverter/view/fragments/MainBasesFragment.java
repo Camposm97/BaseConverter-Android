@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -23,7 +22,6 @@ import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.ConversionHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
-import com.campos.baseconverter.util.MyUtils;
 
 import java.util.List;
 
@@ -91,7 +89,7 @@ public class MainBasesFragment extends Fragment {
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                clearFields();
+                loadRecyclerItems();
                 spinner.setSelection(0);
             }
         });
@@ -120,12 +118,9 @@ public class MainBasesFragment extends Fragment {
         }
     }
 
-//    public void clearFields() {
-//        EditText[] arr = loadOutputs();
-//        for (int i = 0; i < arr.length; i++) {
-//            arr[i].getText().clear();
-//        }
-//    }
+    public void loadRecyclerItems() {
+        rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getMain()));
+    }
 //
 //    private EditText[] loadOutputs() {
 //        return new EditText[]{tfBin, tfOct, tfDec, tfHex};
