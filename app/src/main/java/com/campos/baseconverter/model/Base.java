@@ -1,6 +1,5 @@
 package com.campos.baseconverter.model;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -55,46 +54,11 @@ public enum Base {
         list.add("Convert From: Select One");
         for (int i = 0; i < values().length; i++) {
             Base base = values()[i];
-//            switch (base) {
-//                case BASE_2:
-//                    list.add("Base 2");
-//                    break;
-//                case BASE_8:
-//                    list.add("Base 8");
-//                    break;
-//                case BA:
-//                    list.add("Base 10");
-//                    break;
-//                case HEXADECIMAL:
-//                    list.add("Base 16");
-//                    break;
-//                default:
             String s = toItem(base);
             list.add(s);
-//            }
         }
         return list;
     }
-
-//    public static String toTitle(Base base) {
-////        switch (base) {
-////            case BINARY:
-////                return "BASE 02";
-////            case OCTAL:
-////                return "BASE 08";
-////            case DECIMAL:
-////                return "BASE 10";
-////            case HEXADECIMAL:
-////                return "BASE 16";
-////            default:
-//        String result = " ";
-//        if (base.getRadix() < 10) {
-//            result += "0";
-//        }
-//        result += base.getRadix();
-//        return "BASE" + result;
-//        }
-//    }
 
     public static Base parse(String chosenItem) {
         switch (chosenItem.toUpperCase()) {
@@ -110,18 +74,6 @@ public enum Base {
                 return null;
         }
     }
-
-//    public static boolean toMainBase(Base base) {
-//        switch (base) {
-//            case BINARY:
-//            case OCTAL:
-//            case DECIMAL:
-//            case HEXADECIMAL:
-//                return true;
-//            default:
-//        return false;
-//        }
-//    }
 
     public static boolean isValidBaseNum(BaseNumber input) {
         int radix = input.getBase().getRadix();
