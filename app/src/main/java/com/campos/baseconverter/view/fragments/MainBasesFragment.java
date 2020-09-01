@@ -74,7 +74,7 @@ public class MainBasesFragment extends Fragment {
         dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Base convertFrom = Base.valueOf(chosenItem.toUpperCase());
+                Base convertFrom = Base.parse(chosenItem);
                 String value = dialogBuilder.getTfInput().getText().toString();
                 attemptBaseConversion(new BaseNumber(convertFrom, value));
             }
