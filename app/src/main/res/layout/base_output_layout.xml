@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     android:gravity="center"
-    style="@style/AppTheme" >
+    style="@style/MyTheme" >
 
     <include
         android:id="@+id/output_label"
