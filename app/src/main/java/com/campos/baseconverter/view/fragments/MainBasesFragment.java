@@ -50,7 +50,7 @@ public class MainBasesFragment extends Fragment {
 
     public void loadSpinner() {
         spinner = view.findViewById(R.id.spinner_main_bases);
-        List<String> list = Base.loadChoicesItemMainBases();
+        List<String> list = Base.loadSpinnerItemMainBases();
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
