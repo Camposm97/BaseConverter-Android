@@ -6,43 +6,5 @@
 
     <string name="about_desc">Description Written Here</string>
 
-    <string-array name="all_bases">
-        <item>Base 02</item>
-        <item>Base 03</item>
-        <item>Base 04</item>
-        <item>Base 05</item>
-        <item>Base 06</item>
-        <item>Base 07</item>
-        <item>Base 08</item>
-        <item>Base 09</item>
-        <item>Base 10</item>
-        <item>Base 11</item>
-        <item>Base 12</item>
-        <item>Base 13</item>
-        <item>Base 14</item>
-        <item>Base 15</item>
-        <item>Base 16</item>
-        <item>Base 17</item>
-        <item>Base 18</item>
-        <item>Base 19</item>
-        <item>Base 20</item>
-        <item>Base 21</item>
-        <item>Base 22</item>
-        <item>Base 23</item>
-        <item>Base 24</item>
-        <item>Base 25</item>
-        <item>Base 26</item>
-        <item>Base 27</item>
-        <item>Base 28</item>
-        <item>Base 29</item>
-        <item>Base 30</item>
-        <item>Base 31</item>
-        <item>Base 32</item>
-        <item>Base 33</item>
-        <item>Base 34</item>
-        <item>Base 35</item>
-        <item>Base 36</item>
-    </string-array>
-
     <string name="invalid_base_num_message">Invalid Input!</string>
 </resources>
