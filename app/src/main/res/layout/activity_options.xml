@@ -22,11 +22,5 @@
             android:layout_height="wrap_content"
             android:text="@string/str_theme"
             android:onClick="chooseTheme"/>
-
-<!--        <include-->
-<!--            android:id="@+id/layout_theme"-->
-<!--            layout="@layout/theme_chooser_layout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
