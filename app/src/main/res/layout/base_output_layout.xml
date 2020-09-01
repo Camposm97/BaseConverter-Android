@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:gravity="center"
-    style="@style/MyTheme" >
+    android:gravity="center" >
 
     <include
         android:id="@+id/output_label"
