@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public enum Base {
-    BINARY(2), BASE_3(3), BASE_4(4), BASE_5(5),
-    BASE_6(6), BASE_7(7), OCTAL(8), BASE_9(9),
-    DECIMAL(10), BASE_11(11), BASE_12(12), BASE_13(13),
-    BASE_14(14), BASE_15(15), HEXADECIMAL(16), Base_17(17),
+    BASE_2(2), BASE_3(3), BASE_4(4), BASE_5(5),
+    BASE_6(6), BASE_7(7), BASE_8(8), BASE_9(9),
+    BASE_10(10), BASE_11(11), BASE_12(12), BASE_13(13),
+    BASE_14(14), BASE_15(15), BASE_16(16), Base_17(17),
     BASE_18(18), BASE_19(19), BASE_20(20), BASE_21(21), BASE_22(22),
     BASE_23(23), BASE_24(24), BASE_25(25), BASE_26(26), BASE_27(27),
     BASE_28(28), BASE_29(29), BASE_30(30), BASE_31(31), BASE_32(32),
@@ -42,10 +42,10 @@ public enum Base {
         for (int i = 0; i < values().length; i++) {
             Base base = values()[i];
             switch (base) {
-                case BINARY:
+                case BASE_2:
                     list.add("Base 2");
                     break;
-                case OCTAL:
+                case BASE_8:
                     list.add("Base 8");
                     break;
                 case DECIMAL:
@@ -64,9 +64,9 @@ public enum Base {
 
     public static String toTitle(Base base) {
         switch (base) {
-            case BINARY:
+            case BASE_2:
                 return "BASE 02";
-            case OCTAL:
+            case BASE_8:
                 return "BASE 08";
             case DECIMAL:
                 return "BASE 10";
@@ -82,10 +82,10 @@ public enum Base {
         }
     }
 
-    public static boolean isMainBase(Base base) {
+    public static boolean toMainBase(Base base) {
         switch (base) {
-            case BINARY:
-            case OCTAL:
+            case BASE_2:
+            case BASE_8:
             case DECIMAL:
             case HEXADECIMAL:
                 return true;
