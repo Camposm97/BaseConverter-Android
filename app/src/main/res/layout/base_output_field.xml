@@ -7,7 +7,3 @@
     android:importantForAutofill="no"
     android:inputType="none"
     style="@style/MyTextView" />
-<!--    android:textSize="16sp"-->
-<!--    android:gravity="center"-->
-<!--    android:textColor="@color/black"-->
-<!--    android:fontFamily="monospace" />-->
