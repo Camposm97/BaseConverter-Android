@@ -9,12 +9,12 @@
     <include
         android:id="@+id/output_label"
         layout="@layout/base_output_label"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/output_field"
         app:layout_constraintEnd_toStartOf="@+id/output_field"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/output_field" />
 
     <include
         android:id="@+id/output_field"
