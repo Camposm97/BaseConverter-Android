@@ -16,10 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include
-            android:id="@+id/layout_theme"
-            layout="@layout/theme_chooser_layout"
+        <Button
+            android:id="@+id/bt_theme"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/str_theme" />
+
+<!--        <include-->
+<!--            android:id="@+id/layout_theme"-->
+<!--            layout="@layout/theme_chooser_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
