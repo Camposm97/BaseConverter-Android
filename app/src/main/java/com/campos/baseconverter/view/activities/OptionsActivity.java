@@ -1,13 +1,15 @@
 package com.campos.baseconverter.view.activities;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseNumber;
+
+import static com.campos.baseconverter.util.Tag.TAG;
 
 public class OptionsActivity extends AppCompatActivity {
 
@@ -15,5 +17,12 @@ public class OptionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
+    }
+
+    public void chooseTheme(View v) {
+        Log.d(TAG, "Choosing Theme...");
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        
+        alert.show();
     }
 }
