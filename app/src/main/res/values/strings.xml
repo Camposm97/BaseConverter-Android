@@ -12,4 +12,7 @@
     <string name="bt_light">Light Mode</string>
     <string name="bt_dark">Dark Mode</string>
     <string name="bt_system">Default (System)</string>
+
+    <string name="bt_yes">Ok</string>
+    <string name="bt_no">Cancel</string>
 </resources>
