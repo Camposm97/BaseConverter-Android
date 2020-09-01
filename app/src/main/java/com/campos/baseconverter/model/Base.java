@@ -33,12 +33,12 @@ public enum Base {
     }
 
     public static List<String> loadSpinnerItemMainBases() {
-        return Arrays.asList("Convert From", "Binary", "Octal", "Decimal", "Hexadecimal");
+        return Arrays.asList("Convert From: Select One", "Binary", "Octal", "Decimal", "Hexadecimal");
     }
 
     public static List<String> loadSpinnerItemsAllBases() {
         List<String> list = new LinkedList<>();
-        list.add("Convert From");
+        list.add("Convert From: Select One");
         for (int i = 0; i < values().length; i++) {
             Base base = values()[i];
             switch (base) {
