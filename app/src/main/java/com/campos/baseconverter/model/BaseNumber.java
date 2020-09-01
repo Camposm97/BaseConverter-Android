@@ -10,8 +10,8 @@ public class BaseNumber implements Serializable {
     public static BaseNumber[] getMain() {
         BaseNumber numBin = new BaseNumber(Base.BASE_2, "");
         BaseNumber numOct = new BaseNumber(Base.BASE_8, "");
-        BaseNumber numDec = new BaseNumber(Base.DECIMAL, "");
-        BaseNumber numHex = new BaseNumber(Base.HEXADECIMAL, "");
+        BaseNumber numDec = new BaseNumber(Base.BASE_10, "");
+        BaseNumber numHex = new BaseNumber(Base.BASE_16, "");
         return new BaseNumber[] {numBin, numOct, numDec, numHex};
     }
 

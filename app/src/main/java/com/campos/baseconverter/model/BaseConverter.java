@@ -54,7 +54,7 @@ public class BaseConverter {
             bigInteger = bigInteger.multiply(BigInteger.valueOf(num));
             sum = sum.add(bigInteger);
         }
-        return new BaseNumber(Base.DECIMAL, sum.toString());
+        return new BaseNumber(Base.BASE_10, sum.toString());
     }
 
     public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) {
@@ -79,7 +79,7 @@ public class BaseConverter {
         BaseNumber dec = convertToDecimal(input);
         BaseNumber bin = convertDecimalToBase(dec, Base.BASE_2);
         BaseNumber octal = convertDecimalToBase(dec, Base.BASE_8);
-        BaseNumber hex = convertDecimalToBase(dec, Base.HEXADECIMAL);
+        BaseNumber hex = convertDecimalToBase(dec, Base.BASE_16);
         return new BaseNumber[]{bin, octal, dec, hex};
     }
 
