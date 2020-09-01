@@ -40,11 +40,17 @@ public enum Base {
         return s;
     }
 
-    public static List<String> loadChoicesItemMainBases() {
-        return Arrays.asList("Convert From: Select One", "Binary", "Octal", "Decimal", "Hexadecimal");
+    public static List<String> loadSpinnerItemMainBases() {
+        List<String> list = new LinkedList<>();
+        list.add("Convert From: Select One");
+        list.add(BASE_2.getName());
+        list.add(BASE_8.getName());
+        list.add(BASE_10.getName());
+        list.add(BASE_16.getName());
+        return list;
     }
 
-    public static List<String> loadChoicesAllBases() {
+    public static List<String> loadSpinnerAllBases() {
         List<String> list = new LinkedList<>();
         list.add("Convert From: Select One");
         for (int i = 0; i < values().length; i++) {
@@ -70,25 +76,25 @@ public enum Base {
         return list;
     }
 
-    public static String toTitle(Base base) {
-//        switch (base) {
-//            case BINARY:
-//                return "BASE 02";
-//            case OCTAL:
-//                return "BASE 08";
-//            case DECIMAL:
-//                return "BASE 10";
-//            case HEXADECIMAL:
-//                return "BASE 16";
-//            default:
-        String result = " ";
-        if (base.getRadix() < 10) {
-            result += "0";
-        }
-        result += base.getRadix();
-        return "BASE" + result;
+//    public static String toTitle(Base base) {
+////        switch (base) {
+////            case BINARY:
+////                return "BASE 02";
+////            case OCTAL:
+////                return "BASE 08";
+////            case DECIMAL:
+////                return "BASE 10";
+////            case HEXADECIMAL:
+////                return "BASE 16";
+////            default:
+//        String result = " ";
+//        if (base.getRadix() < 10) {
+//            result += "0";
 //        }
-    }
+//        result += base.getRadix();
+//        return "BASE" + result;
+//        }
+//    }
 
     public static boolean toMainBase(Base base) {
 //        switch (base) {
@@ -118,5 +124,14 @@ public enum Base {
 
     public String getName() {
         return name;
+    }
+
+    public String toTitle() {
+        String result = " ";
+        if (radix < 10) {
+            result += "0";
+        }
+        result += radix;
+        return "BASE" + result;
     }
 }
