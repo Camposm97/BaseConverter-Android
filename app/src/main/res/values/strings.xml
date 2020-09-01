@@ -6,11 +6,6 @@
 
     <string name="about_desc">Description Written Here</string>
 
-    <string name="Binary">BIN</string>
-    <string name="Octal">OCT</string>
-    <string name="Decimal">DEC</string>
-    <string name="Hexadecimal">HEX</string>
-
     <string-array name="all_bases">
         <item>Base 02</item>
         <item>Base 03</item>
