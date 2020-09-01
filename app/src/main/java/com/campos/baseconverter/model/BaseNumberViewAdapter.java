@@ -4,12 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import com.campos.baseconverter.R;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.campos.baseconverter.R;
 
 public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHolder> {
     private Context context;
@@ -36,8 +37,12 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         holder.getLbl().setText(Base.toTitle(numArr[position].getBase()));
-        holder.getLbl().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
         holder.getField().setText(numArr[position].getValue());
-        holder.getField().setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans));
+        holder.getLbl().setAnimation(loadAnim());
+        holder.getField().setAnimation(loadAnim());
+    }
+
+    private Animation loadAnim() {
+        return AnimationUtils.loadAnimation(context, R.anim.anim_fade_trans);
     }
 }
