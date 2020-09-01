@@ -20,7 +20,8 @@
             android:id="@+id/bt_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/str_theme" />
+            android:text="@string/str_theme"
+            android:onClick="chooseTheme"/>
 
 <!--        <include-->
 <!--            android:id="@+id/layout_theme"-->
