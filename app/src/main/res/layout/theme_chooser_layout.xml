@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tv_theme"
+        android:text="@string/str_theme"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup_theme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,27 +29,27 @@
         app:layout_constraintVertical_bias="1.0">
 
         <RadioButton
+            style="@style/MyRadioButton"
             android:id="@+id/bt_light_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/bt_light"
-            android:textSize="16sp" />
+            android:text="@string/bt_light" />
 
         <RadioButton
+            style="@style/MyRadioButton"
             android:id="@+id/bt_dark_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="@string/bt_dark"
-            android:textSize="16sp" />
+            android:text="@string/bt_dark" />
 
         <RadioButton
+            style="@style/MyRadioButton"
             android:id="@+id/bt_system_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bt_system"
-            android:textSize="16sp" />
+            android:text="@string/bt_system" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
