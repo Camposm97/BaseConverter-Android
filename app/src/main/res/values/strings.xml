@@ -13,6 +13,12 @@
     <string name="bt_dark">Dark Mode</string>
     <string name="bt_system">Default (System)</string>
 
+    <string-array name="themes">
+        <item name="light">Light Mode</item>
+        <item name="dark">Dark Mode</item>
+        <item name="default">Default (System)</item>
+    </string-array>
+
     <string name="bt_yes">Ok</string>
     <string name="bt_no">Cancel</string>
 </resources>
