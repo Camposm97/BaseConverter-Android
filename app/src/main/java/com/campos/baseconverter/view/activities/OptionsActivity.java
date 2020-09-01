@@ -14,7 +14,7 @@ import com.campos.baseconverter.R;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class OptionsActivity extends AppCompatActivity {
-    private int themeChoice;
+//    private int themeChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class OptionsActivity extends AppCompatActivity {
         alert.setSingleChoiceItems(R.array.themes, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                themeChoice = which;
-                switch (themeChoice) {
+//                themeChoice = which;
+                switch (which) {
                     case 0:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         break;
