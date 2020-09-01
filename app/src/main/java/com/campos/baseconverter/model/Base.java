@@ -96,7 +96,22 @@ public enum Base {
 //        }
 //    }
 
-    public static boolean toMainBase(Base base) {
+    public static Base parse(String chosenItem) {
+        switch (chosenItem.toUpperCase()) {
+            case "BINARY":
+                return BASE_2;
+            case "OCTAL":
+                return BASE_8;
+            case "DECIMAL":
+                return BASE_10;
+            case "HEXADECIMAL":
+                return BASE_16;
+            default:
+                return null;
+        }
+    }
+
+//    public static boolean toMainBase(Base base) {
 //        switch (base) {
 //            case BINARY:
 //            case OCTAL:
@@ -104,9 +119,9 @@ public enum Base {
 //            case HEXADECIMAL:
 //                return true;
 //            default:
-        return false;
+//        return false;
 //        }
-    }
+//    }
 
     public static boolean isValidBaseNum(BaseNumber input) {
         int radix = input.getBase().getRadix();
