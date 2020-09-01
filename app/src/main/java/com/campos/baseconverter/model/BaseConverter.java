@@ -77,8 +77,8 @@ public class BaseConverter {
 
     public BaseNumber[] getMainResults() {
         BaseNumber dec = convertToDecimal(input);
-        BaseNumber bin = convertDecimalToBase(dec, Base.BINARY);
-        BaseNumber octal = convertDecimalToBase(dec, Base.OCTAL);
+        BaseNumber bin = convertDecimalToBase(dec, Base.BASE_2);
+        BaseNumber octal = convertDecimalToBase(dec, Base.BASE_8);
         BaseNumber hex = convertDecimalToBase(dec, Base.HEXADECIMAL);
         return new BaseNumber[]{bin, octal, dec, hex};
     }
