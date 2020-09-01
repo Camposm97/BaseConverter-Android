@@ -32,66 +32,66 @@ public enum Base {
         return s;
     }
 
-    public static List<String> loadSpinnerItemMainBases() {
+    public static List<String> loadChoicesItemMainBases() {
         return Arrays.asList("Convert From: Select One", "Binary", "Octal", "Decimal", "Hexadecimal");
     }
 
-    public static List<String> loadSpinnerItemsAllBases() {
+    public static List<String> loadChoicesAllBases() {
         List<String> list = new LinkedList<>();
         list.add("Convert From: Select One");
         for (int i = 0; i < values().length; i++) {
             Base base = values()[i];
-            switch (base) {
-                case BASE_2:
-                    list.add("Base 2");
-                    break;
-                case BASE_8:
-                    list.add("Base 8");
-                    break;
-                case DECIMAL:
-                    list.add("Base 10");
-                    break;
-                case HEXADECIMAL:
-                    list.add("Base 16");
-                    break;
-                default:
+//            switch (base) {
+//                case BASE_2:
+//                    list.add("Base 2");
+//                    break;
+//                case BASE_8:
+//                    list.add("Base 8");
+//                    break;
+//                case BA:
+//                    list.add("Base 10");
+//                    break;
+//                case HEXADECIMAL:
+//                    list.add("Base 16");
+//                    break;
+//                default:
                     String s = toItem(base);
                     list.add(s);
-            }
+//            }
         }
         return list;
     }
 
     public static String toTitle(Base base) {
-        switch (base) {
-            case BASE_2:
-                return "BASE 02";
-            case BASE_8:
-                return "BASE 08";
-            case DECIMAL:
-                return "BASE 10";
-            case HEXADECIMAL:
-                return "BASE 16";
-            default:
+//        switch (base) {
+//            case BINARY:
+//                return "BASE 02";
+//            case OCTAL:
+//                return "BASE 08";
+//            case DECIMAL:
+//                return "BASE 10";
+//            case HEXADECIMAL:
+//                return "BASE 16";
+//            default:
                 String result = " ";
                 if (base.getRadix() < 10) {
                     result += "0";
                 }
                 result += base.getRadix();
                 return "BASE" + result;
-        }
+//        }
     }
 
     public static boolean toMainBase(Base base) {
-        switch (base) {
-            case BASE_2:
-            case BASE_8:
-            case DECIMAL:
-            case HEXADECIMAL:
-                return true;
-            default:
+//        switch (base) {
+//            case BINARY:
+//            case OCTAL:
+//            case DECIMAL:
+//            case HEXADECIMAL:
+//                return true;
+//            default:
                 return false;
-        }
+//        }
     }
 
     public static boolean isValidBaseNum(BaseNumber input) {
