@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/my_edit_text_border"
     android:ems="10"
-    android:fontFamily="monospace"
     android:importantForAutofill="no"
     android:inputType="none"
-    android:textSize="16sp"
-    android:gravity="center"
-    android:textColor="@color/black" />
+    style="@style/MyTextView" />
+<!--    android:textSize="16sp"-->
+<!--    android:gravity="center"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:fontFamily="monospace" />-->
