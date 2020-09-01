@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 public class BaseNumber implements Serializable {
     public static BaseNumber[] getMain() {
-        BaseNumber numBin = new BaseNumber(Base.BINARY, "");
-        BaseNumber numOct = new BaseNumber(Base.OCTAL, "");
+        BaseNumber numBin = new BaseNumber(Base.BASE_2, "");
+        BaseNumber numOct = new BaseNumber(Base.BASE_8, "");
         BaseNumber numDec = new BaseNumber(Base.DECIMAL, "");
         BaseNumber numHex = new BaseNumber(Base.HEXADECIMAL, "");
         return new BaseNumber[] {numBin, numOct, numDec, numHex};
