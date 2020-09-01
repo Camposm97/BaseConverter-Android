@@ -5,23 +5,31 @@ import java.util.LinkedList;
 import java.util.List;
 
 public enum Base {
-    BASE_2(2), BASE_3(3), BASE_4(4), BASE_5(5),
-    BASE_6(6), BASE_7(7), BASE_8(8), BASE_9(9),
-    BASE_10(10), BASE_11(11), BASE_12(12), BASE_13(13),
-    BASE_14(14), BASE_15(15), BASE_16(16), Base_17(17),
-    BASE_18(18), BASE_19(19), BASE_20(20), BASE_21(21), BASE_22(22),
-    BASE_23(23), BASE_24(24), BASE_25(25), BASE_26(26), BASE_27(27),
-    BASE_28(28), BASE_29(29), BASE_30(30), BASE_31(31), BASE_32(32),
-    BASE_33(33), BASE_34(34), BASE_35(35), BASE_36(36);
+    BASE_2(2, "Binary"), BASE_3(3, "Ternary"),
+    BASE_4(4, "Quarternary"), BASE_5(5, "Quinary"),
+    BASE_6(6, "Senary"), BASE_7(7, "Septenary"),
+    BASE_8(8, "Octal"), BASE_9(9, "Nonary"),
+    BASE_10(10, "Decimal"), BASE_11(11, "Undecimal"),
+    BASE_12(12, "Duodecimal"), BASE_13(13, "Tridecimal"),
+    BASE_14(14, "Tetradecimal"), BASE_15(15, "Pentadecimal"),
+    BASE_16(16, "Hexadecimal"), Base_17(17, "Heptadecimal"),
+    BASE_18(18, "Octodecimal"), BASE_19(19, "Enneadecimal"),
+    BASE_20(20, "Vigesimal"), BASE_21(21, "Unvigesimal"),
+    BASE_22(22, "Duovigesimal"), BASE_23(23, "Trivigesimal"),
+    BASE_24(24, "Tetravigesimal"), BASE_25(25, "Pentavigesimal"),
+    BASE_26(26, "Hexavigesimal"), BASE_27(27, "Heptavigesimal"),
+    BASE_28(28, "Octovigesimal"), BASE_29(29, "Enneavigesimal"),
+    BASE_30(30, "Trigesimal"), BASE_31(31, "Untrigesimal"),
+    BASE_32(32, "Duotrisgesimal"), BASE_33(33, "Tritrigesimal"),
+    BASE_34(34, "Tetratrigesimal"), BASE_35(35, "Pentatrigesimal"),
+    BASE_36(36, "Hexatrigesimal");
 
     private int radix;
+    private String name;
 
-    Base(int radix) {
+    Base(int radix, String name) {
         this.radix = radix;
-    }
-
-    public int getRadix() {
-        return radix;
+        this.name = name;
     }
 
     public static String toItem(Base base) {
@@ -55,8 +63,8 @@ public enum Base {
 //                    list.add("Base 16");
 //                    break;
 //                default:
-                    String s = toItem(base);
-                    list.add(s);
+            String s = toItem(base);
+            list.add(s);
 //            }
         }
         return list;
@@ -73,12 +81,12 @@ public enum Base {
 //            case HEXADECIMAL:
 //                return "BASE 16";
 //            default:
-                String result = " ";
-                if (base.getRadix() < 10) {
-                    result += "0";
-                }
-                result += base.getRadix();
-                return "BASE" + result;
+        String result = " ";
+        if (base.getRadix() < 10) {
+            result += "0";
+        }
+        result += base.getRadix();
+        return "BASE" + result;
 //        }
     }
 
@@ -90,7 +98,7 @@ public enum Base {
 //            case HEXADECIMAL:
 //                return true;
 //            default:
-                return false;
+        return false;
 //        }
     }
 
@@ -102,5 +110,13 @@ public enum Base {
             char c = (char) (54 + radix);
             return input.getValue().matches("[0-9A-" + c + "]+");
         }
+    }
+
+    public int getRadix() {
+        return radix;
+    }
+
+    public String getName() {
+        return name;
     }
 }
