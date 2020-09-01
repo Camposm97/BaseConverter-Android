@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@drawable/my_label_border"
-    android:gravity="center|center_vertical"
-    android:textSize="16sp"
-    android:textColor="@color/white"
-    android:fontFamily="monospace" />
+    style="@style/MyTextView" />
+<!--    android:gravity="center|center_vertical"-->
+<!--    android:textSize="16sp"-->
+<!--    android:textColor="@color/white"-->
+<!--    android:fontFamily="monospace" />-->
