@@ -7,18 +7,13 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
-import java.util.zip.Inflater;
-
 import static org.junit.Assert.*;
 
 public class BaseConverterTest {
     @Test
     public void convertBinaryToDecimal() throws InvalidBaseNumberException {
         String input = "10001";
-        BaseNumber baseNumber = new BaseNumber(Base.BINARY, input);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_2, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
         BaseNumber result = baseConverter.convertToDecimal(baseNumber);
         assertEquals("17", result.getValue());
@@ -47,7 +42,7 @@ public class BaseConverterTest {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BINARY);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_2);
         assertEquals("10110", result.getValue());
     }
 
@@ -65,14 +60,14 @@ public class BaseConverterTest {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.OCTAL);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_8);
         assertEquals("26", result.getValue());
     }
 
     @Test
     public void convertBinaryToHex() throws InvalidBaseNumberException {
         String strBin = "11010";
-        BaseNumber input = new BaseNumber(Base.BINARY, strBin);
+        BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
         baseConverter.setConvertTo(Base.HEXADECIMAL);
         BaseNumber result = baseConverter.convert();
@@ -82,9 +77,9 @@ public class BaseConverterTest {
     @Test
     public void convertOctalToBinary() throws InvalidBaseNumberException {
         String strOctal = "77";
-        BaseNumber baseNumber = new BaseNumber(Base.OCTAL, strOctal);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_8, strOctal);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        baseConverter.setConvertTo(Base.BINARY);
+        baseConverter.setConvertTo(Base.BASE_2);
         BaseNumber result = baseConverter.convert();
         assertEquals("111111", result.getValue());
     }
@@ -102,7 +97,7 @@ public class BaseConverterTest {
     @Test
     public void getMainResults() throws InvalidBaseNumberException {
         String strBin = "1111";
-        BaseNumber input= new BaseNumber(Base.BINARY, strBin);
+        BaseNumber input= new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
         BaseNumber[] results = baseConverter.getMainResults();
         String[] expectedResults = {"1111", "17", "15", "F"};
@@ -114,7 +109,7 @@ public class BaseConverterTest {
     @Test
     public void getAllResults() throws InvalidBaseNumberException {
         String strBin = "100011";
-        BaseNumber input = new BaseNumber(Base.BINARY, strBin);
+        BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
         BaseNumber[] results = baseConverter.getAllResults();
         String[] expectedResults = {"100011", "1022", "203", "120", "55", "50", "43", "38", "35",
