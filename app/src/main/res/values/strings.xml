@@ -9,8 +9,13 @@
     <string name="invalid_base_num_message">Invalid Input!</string>
 
     <string name="str_theme">Appearance</string>
+    <string name="str_num_show">Display Numbers In</string>
 
-    <string-array name="themes">
+    <string-array name="num_show_options">
+        <item>Base</item>
+        <item>Name</item>
+    </string-array>
+    <string-array name="theme_options">
         <item name="light">Light Mode</item>
         <item name="dark">Dark Mode</item>
         <item name="default">Default (System)</item>
