@@ -1,6 +1,7 @@
 package com.campos.baseconverter.app;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.util.Log;
 
@@ -21,5 +22,10 @@ public class App extends Application {
         super.onCreate();
         themeCode = ThemeChooser.load(this);
         ConversionHistory.init(this);
+        /*
+        SharedPreferences - something I can use in the future instead of saving dat files
+        I can make the program run faster if I save history with not only the BaseNumber, but
+        with all of it's results: BaseNumber[]
+         */
     }
 }
