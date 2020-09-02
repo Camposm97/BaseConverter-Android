@@ -8,6 +8,8 @@ import com.campos.baseconverter.model.ConversionHistory;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class App extends Application {
+    public static int themeCode = -1;
+
     public App() {
         Log.d(TAG, "Starting App...");
     }
