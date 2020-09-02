@@ -8,10 +8,7 @@
 
     <string name="invalid_base_num_message">Invalid Input!</string>
 
-    <string name="str_theme">Choose Your Theme</string>
-    <string name="bt_light">Light Mode</string>
-    <string name="bt_dark">Dark Mode</string>
-    <string name="bt_system">Default (System)</string>
+    <string name="str_theme">Appearance</string>
 
     <string-array name="themes">
         <item name="light">Light Mode</item>
