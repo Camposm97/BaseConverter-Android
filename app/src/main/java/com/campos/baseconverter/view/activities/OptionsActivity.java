@@ -10,6 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.app.App;
 import com.campos.baseconverter.model.ThemeChooser;
 
 public class OptionsActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class OptionsActivity extends AppCompatActivity {
     public void chooseTheme(View v) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_theme);
-        dialogBuilder.setSingleChoiceItems(R.array.themes, -1, new DialogInterface.OnClickListener() {
+        dialogBuilder.setSingleChoiceItems(R.array.themes, App.themeCode, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 code = which;
