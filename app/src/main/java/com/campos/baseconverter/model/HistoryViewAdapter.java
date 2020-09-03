@@ -59,6 +59,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.history_item);
+            tv.setTextSize(18);
         }
     }
 }
