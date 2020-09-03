@@ -25,7 +25,6 @@ public class ShowResultsActivity extends AppCompatActivity {
     public void loadExtra() {
         final String s1 = "selected_item";
         item = (UserHistory.HistoryItem) this.getIntent().getSerializableExtra(s1);
-        setTitle("Selected Item: " + item.getInput().toSpanString());
     }
 
     public void loadRecycler() {
