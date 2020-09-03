@@ -48,7 +48,7 @@ public class OptionsActivity extends AppCompatActivity {
     public void chooseAppear(View v) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_num_scheme);
-        dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, -1, new DialogInterface.OnClickListener() {
+        dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.numSchemeCode, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 numSchemeCode = which;
