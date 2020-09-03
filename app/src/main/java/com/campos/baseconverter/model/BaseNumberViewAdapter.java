@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
+import com.campos.baseconverter.util.MyUtils;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,24 +39,34 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
         defineLabelText(holder, position);
-        holder.getField().setText(numArr[position].getValue());
+        defineFieldText(holder, position);
         holder.getLbl().setAnimation(loadAnim());
         holder.getField().setAnimation(loadAnim());
     }
 
-    private void defineLabelText(BaseNumberViewHolder holder, int position) {
+    private void defineFieldText(BaseNumberViewHolder holder, int i) {
+        String value = numArr[i].getValue();
+        if (i == 0 && !value.isEmpty()) { // Format bin string then display
+            String binStr = numArr[i].getValue();
+            holder.getField().setText(MyUtils.spaceBinStr(binStr));
+        } else { // Display
+            holder.getField().setText(value);
+        }
+    }
+
+    private void defineLabelText(BaseNumberViewHolder holder, int i) {
         switch (App.numSchemeCode) {
             case 0: // Show Bases (ex: Base 02)
-                holder.getLbl().setText(numArr[position].getBase().toTitle());
+                holder.getLbl().setText(numArr[i].getBase().toTitle());
                 break; // Show Names (ex: Binary)
             case 1:
-                holder.getLbl().setText(numArr[position].getBase().getName());
+                holder.getLbl().setText(numArr[i].getBase().getName());
                 break;
             default: // Display Default
                 if (numArr.length == 4) {
-                    holder.getLbl().setText(numArr[position].getBase().getName());
+                    holder.getLbl().setText(numArr[i].getBase().getName());
                 } else {
-                    holder.getLbl().setText(numArr[position].getBase().toTitle());
+                    holder.getLbl().setText(numArr[i].getBase().toTitle());
                 }
         }
     }
