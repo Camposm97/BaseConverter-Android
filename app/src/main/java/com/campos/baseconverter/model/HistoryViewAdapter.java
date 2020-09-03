@@ -2,7 +2,6 @@ package com.campos.baseconverter.model;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,22 +9,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.view.activities.ShowAllBasesActivity;
+import com.campos.baseconverter.view.activities.ShowResultsActivity;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.campos.baseconverter.util.Tag.TAG;
-
 public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.HistoryViewHolder> {
     private Context context;
-    private List<BaseNumber> numList;
+    private List<UserHistory.HistoryItem> list;
 
-    public HistoryViewAdapter(Context context, List<BaseNumber> numList) {
+    public HistoryViewAdapter(Context context, List<UserHistory.HistoryItem> list) {
         this.context = context;
-        this.numList = numList;
+        this.list = list;
     }
 
     @NonNull
@@ -38,14 +35,14 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final HistoryViewHolder holder, final int position) {
-        holder.tv.setText(numList.get(position).toSpanString());
+        holder.tv.setText(list.get(position).getInput().toSpanString());
         holder.tv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "Layout Clicked! " + holder.tv.getText());
-                Intent intent = new Intent(context, ShowAllBasesActivity.class);
-                intent.putExtra("baseNumber", numList.get(position));
+                final String s1 = "selected_item";
+                Intent intent = new Intent(context, ShowResultsActivity.class);
+                intent.putExtra(s1, list.get(position));
                 context.startActivity(intent);
             }
         });
@@ -53,7 +50,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
 
     @Override
     public int getItemCount() {
-        return numList.size();
+        return list.size();
     }
 
     public class HistoryViewHolder extends RecyclerView.ViewHolder {
