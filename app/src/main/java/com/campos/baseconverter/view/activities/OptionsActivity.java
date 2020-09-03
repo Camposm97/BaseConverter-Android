@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
+import com.campos.baseconverter.model.NumSchemeChooser;
 import com.campos.baseconverter.model.ThemeChooser;
 
 public class OptionsActivity extends AppCompatActivity {
@@ -56,7 +57,7 @@ public class OptionsActivity extends AppCompatActivity {
         dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                NumberSchemeChooser
+                NumSchemeChooser.setScheme(c, numSchemeCode);
             }
         });
         dialogBuilder.setNegativeButton(R.string.bt_no, null);
