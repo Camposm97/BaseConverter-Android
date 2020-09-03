@@ -3,6 +3,8 @@ package com.campos.baseconverter.model;
 import android.content.Context;
 import android.util.Log;
 
+import com.campos.baseconverter.app.App;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,17 +21,11 @@ public class NumSchemeChooser {
     public static void setScheme(Context c, int code) {
         Log.d(TAG, "Setting Number Scheme...");
         Log.d(TAG, "code=" + code);
-        switch (code) {
-            case 0:
-                break;
-            case 1:
-                break;
-            default:
-                Log.d(TAG, "Invalid number scheme code!");
-        }
+        App.numSchemeCode = code;
+        save(c, code);
     }
 
-    private static void saveNumScheme(Context c, int code) {
+    private static void save(Context c, int code) {
         try {
             FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fis);
@@ -37,7 +33,7 @@ public class NumSchemeChooser {
             oos.close();
             Log.d(TAG, "Successfully saved number scheme!");
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -50,7 +46,7 @@ public class NumSchemeChooser {
             ois.close();
             Log.d(TAG, "Successfully loaded number scheme!");
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d(TAG, "Failed t load nunber scheme :(");
         } finally {
             setScheme(c, code);
             return code;
