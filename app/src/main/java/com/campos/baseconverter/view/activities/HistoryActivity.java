@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.BaseNumber;
-import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.model.UserHistory;
 import com.campos.baseconverter.model.HistoryViewAdapter;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     public void loadRecyclerView() {
-        List<BaseNumber> list = ConversionHistory.getHistory().getList();
+        List<UserHistory.HistoryItem> list = UserHistory.getHistory().getList();
         HistoryViewAdapter adapter = new HistoryViewAdapter(this, list);
         RecyclerView.ItemDecoration itemDecor = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rv = findViewById(R.id.recycler_show_history);
