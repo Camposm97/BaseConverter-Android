@@ -22,7 +22,7 @@ public class BaseConverterTest {
     @Test
     public void convertHexToDecimal() throws InvalidBaseNumberException {
         String input = "11"; // Which equals 17 in decimal
-        BaseNumber baseNumber = new BaseNumber(Base.HEXADECIMAL, input);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_16, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
         BaseNumber result = baseConverter.convertToDecimal(baseNumber);
         assertEquals("17", result.getValue());
@@ -40,7 +40,7 @@ public class BaseConverterTest {
     @Test
     public void convertDecimalToBinary() throws InvalidBaseNumberException {
         String input = "22";
-        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
         BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_2);
         assertEquals("10110", result.getValue());
@@ -49,16 +49,16 @@ public class BaseConverterTest {
     @Test
     public void convertDecimalToHex() throws InvalidBaseNumberException {
         String input = "26";
-        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.HEXADECIMAL);
+        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_16);
         assertEquals("1A", result.getValue());
     }
 
     @Test
     public void convertDecimalToOctal() throws InvalidBaseNumberException {
         String input = "22";
-        BaseNumber baseNumber = new BaseNumber(Base.DECIMAL, input);
+        BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
         BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_8);
         assertEquals("26", result.getValue());
@@ -69,7 +69,7 @@ public class BaseConverterTest {
         String strBin = "11010";
         BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
-        baseConverter.setConvertTo(Base.HEXADECIMAL);
+        baseConverter.setConvertTo(Base.BASE_16);
         BaseNumber result = baseConverter.convert();
         assertEquals("1A", result.getValue());
     }
@@ -87,8 +87,8 @@ public class BaseConverterTest {
     @Test
     public void convertHexToHex() throws InvalidBaseNumberException {
         String strHex = "A117";
-        BaseNumber input = new BaseNumber(Base.HEXADECIMAL, strHex);
-        Base convertTo = Base.HEXADECIMAL;
+        BaseNumber input = new BaseNumber(Base.BASE_16, strHex);
+        Base convertTo = Base.BASE_16;
         BaseConverter baseConverter = new BaseConverter(input, convertTo);
         BaseNumber result = baseConverter.convert();
         assertEquals("A117", result.getValue());
