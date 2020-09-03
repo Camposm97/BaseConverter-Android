@@ -49,13 +49,9 @@ public class MyUtils {
      * @return result
      */
     public static String completeBinStr(String binStr) {
-        String result = "";
-        final int SIZE = binStr.length();
-        int r = SIZE % 4;
-        for (int i = 0; i < r; i++) {
+        while ((binStr.length() % 4) != 0) {
             binStr = "0" + binStr;
         }
-        result = binStr;
-        return result;
+        return binStr;
     }
 }
