@@ -3,13 +3,14 @@ package com.campos.baseconverter.app;
 import android.app.Application;
 import android.util.Log;
 
-import com.campos.baseconverter.model.UserHistory;
 import com.campos.baseconverter.model.NumSchemeChooser;
 import com.campos.baseconverter.model.ThemeChooser;
+import com.campos.baseconverter.model.UserHistory;
 
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class App extends Application {
+    private static final String PREF_FILE = "options.properties";
     public static int themeCode = -1;
     public static int numSchemeCode = -1;
 
@@ -28,5 +29,9 @@ public class App extends Application {
         I can make the program run faster if I save history with not only the BaseNumber, but
         with all of it's results: BaseNumber[]
          */
+    }
+
+    public static String getPrefFile() {
+        return PREF_FILE;
     }
 }
