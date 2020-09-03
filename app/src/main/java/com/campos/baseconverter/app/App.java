@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.util.Log;
 
 import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.model.NumSchemeChooser;
 import com.campos.baseconverter.model.ThemeChooser;
 
 import static com.campos.baseconverter.util.Tag.TAG;
@@ -22,6 +23,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         themeCode = ThemeChooser.load(this);
+        numSchemeCode = NumSchemeChooser.load(this);
         ConversionHistory.init(this);
         /*
         SharedPreferences - something I can use in the future instead of saving dat files
