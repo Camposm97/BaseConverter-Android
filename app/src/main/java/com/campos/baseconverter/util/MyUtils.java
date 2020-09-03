@@ -8,14 +8,23 @@ import com.campos.baseconverter.model.Base;
  * revolve around Bases.
  */
 public class MyUtils {
+    /**
+     * Calls spaceBinStr and completeBinStr
+     * @param binStr
+     * @return result
+     */
     public static String formatBinStr(String binStr) {
-        String result = "";
-        return result;
+        return spaceBinStr(completeBinStr(binStr));
     }
 
+    /**
+     * Formats the binary string by spacing out the bits by splitting it by a space
+     * for every 4 bits.  If the string's length is not divisible by 4, then the it will be left
+     * as this (before: 10101 ---> after: 1 0101)
+     * @param binStr
+     * @return result
+     */
     public static String spaceBinStr(String binStr) {
-
-
         String result = "";
         int count = 0;
         for (int i = binStr.length() - 1; i >= 0; i--) {
@@ -33,6 +42,12 @@ public class MyUtils {
         return result;
     }
 
+    /**
+     * Completes the binary string by adding zeros in front of the string if the string's length
+     * mod 4 equals zero
+     * @param binStr
+     * @return result
+     */
     public static String completeBinStr(String binStr) {
         String result = "";
         final int SIZE = binStr.length();
