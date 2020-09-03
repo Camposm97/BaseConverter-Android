@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.campos.baseconverter.R;
 
 public class AlertHelper {
-    public static void showInvalidBaseNumInput(Context context) {
-        Toast.makeText(context, R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
+    public static void showInvalidBaseNumInput(Context c) {
+        Toast.makeText(c, R.string.invalid_base_num_message, Toast.LENGTH_SHORT).show();
     }
 }
