@@ -9,9 +9,9 @@
     <string name="invalid_base_num_message">Invalid Input!</string>
 
     <string name="str_theme">Appearance</string>
-    <string name="str_num_show">Display Numbers In</string>
+    <string name="str_num_scheme">Number Scheme</string>
 
-    <string-array name="num_show_options">
+    <string-array name="num_scheme_options">
         <item>Base</item>
         <item>Name</item>
     </string-array>
