@@ -20,7 +20,7 @@ import com.campos.baseconverter.model.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
-import com.campos.baseconverter.model.ConversionHistory;
+import com.campos.baseconverter.model.UserHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertHelper;
 
@@ -93,9 +93,9 @@ public class MainBasesFragment extends Fragment {
         try {
             Log.d(TAG, baseNumber.toString());
             BaseConverter baseConverter = new BaseConverter(baseNumber);
-            ConversionHistory.getHistory().add(baseNumber);
-            ConversionHistory.save(getActivity());
             BaseNumber[] resultsArr = baseConverter.getMainResults();
+            UserHistory.getHistory().add(baseNumber, resultsArr);
+            UserHistory.save(getActivity());
             rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
         } catch (InvalidBaseNumberException e) {
             AlertHelper.showInvalidBaseNumInput(getContext());
