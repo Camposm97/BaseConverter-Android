@@ -48,7 +48,7 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
         String value = numArr[i].getValue();
         if (i == 0 && !value.isEmpty()) { // Format bin string then display
             String binStr = numArr[i].getValue();
-            holder.getField().setText(MyUtils.spaceBinStr(binStr));
+            holder.getField().setText(MyUtils.formatBinStr(binStr));
         } else { // Display
             holder.getField().setText(value);
         }
