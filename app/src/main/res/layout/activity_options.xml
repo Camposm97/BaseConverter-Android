@@ -17,6 +17,7 @@
             android:id="@+id/bt_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:onClick="chooseTheme"
             android:text="@string/str_theme"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,6 +26,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/bt_num_scheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_num_scheme"
+            android:onClick="chooseAppear" />
 
     </LinearLayout>
 </ScrollView>
