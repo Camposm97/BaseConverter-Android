@@ -12,8 +12,9 @@
     <string name="str_num_scheme">Number Scheme</string>
 
     <string-array name="num_scheme_options">
-        <item>Base</item>
-        <item>Name</item>
+        <item>Base (ex. Base 02)</item>
+        <item>Name (ex. Binary)</item>
+        <item>Default</item>
     </string-array>
     <string-array name="theme_options">
         <item name="light">Light Mode</item>
