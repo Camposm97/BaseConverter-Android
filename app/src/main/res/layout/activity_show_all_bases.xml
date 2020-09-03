@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    tools:context=".view.activities.ShowAllBasesActivity">
+    tools:context=".view.activities.ShowResultsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_all_bases"
