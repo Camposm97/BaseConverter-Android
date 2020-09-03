@@ -5,7 +5,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,22 +22,22 @@ public class ThemeChooser {
         switch (code) {
             case 0:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                saveTheme(c, code);
+                save(c, code);
                 break;
             case 1:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                saveTheme(c, code);
+                save(c, code);
                 break;
             case 2:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                saveTheme(c, code);
+                save(c, code);
                 break;
             default:
                 Log.d(TAG, "Invalid theme code!");
         }
     }
 
-    private static void saveTheme(Context c, int code) {
+    private static void save(Context c, int code) {
         try {
             FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fis);
@@ -59,7 +58,7 @@ public class ThemeChooser {
             ois.close();
             Log.d(TAG, "Successfully loaded theme!");
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d(TAG, "Failed to load theme :(");
         } finally {
             setTheme(c, code);
             return code;
