@@ -37,6 +37,13 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
 
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
+        defineDisplay(holder, position);
+        holder.getField().setText(numArr[position].getValue());
+        holder.getLbl().setAnimation(loadAnim());
+        holder.getField().setAnimation(loadAnim());
+    }
+
+    private void defineDisplay(BaseNumberViewHolder holder, int position) {
         switch (App.numSchemeCode) {
             case 0: // Show Bases (ex: Base 02)
                 holder.getLbl().setText(numArr[position].getBase().toTitle());
@@ -51,10 +58,6 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
                     holder.getLbl().setText(numArr[position].getBase().toTitle());
                 }
         }
-
-        holder.getField().setText(numArr[position].getValue());
-        holder.getLbl().setAnimation(loadAnim());
-        holder.getField().setAnimation(loadAnim());
     }
 
     private Animation loadAnim() {
