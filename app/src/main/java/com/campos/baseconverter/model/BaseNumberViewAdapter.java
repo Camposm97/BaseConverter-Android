@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.app.App;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,11 +37,21 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
 
     @Override
     public void onBindViewHolder(@NonNull BaseNumberViewHolder holder, int position) {
-        if (numArr.length == 4) {
-            holder.getLbl().setText(numArr[position].getBase().getName());
-        } else {
-            holder.getLbl().setText(numArr[position].getBase().toTitle());
+        switch (App.numSchemeCode) {
+            case 0: // Show Bases (ex: Base 02)
+                holder.getLbl().setText(numArr[position].getBase().toTitle());
+                break; // Show Names (ex: Binary)
+            case 1:
+                holder.getLbl().setText(numArr[position].getBase().getName());
+                break;
+            default:
+                if (numArr.length == 4) {
+                    holder.getLbl().setText(numArr[position].getBase().getName());
+                } else {
+                    holder.getLbl().setText(numArr[position].getBase().toTitle());
+                }
         }
+
         holder.getField().setText(numArr[position].getValue());
         holder.getLbl().setAnimation(loadAnim());
         holder.getField().setAnimation(loadAnim());
