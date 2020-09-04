@@ -4,6 +4,8 @@
     <string name="about_name">About</string>
     <string name="history_name">History</string>
 
+    <string name="str_convert_float">Convert Floating Point Numbers</string>
+
     <string name="str_main_bases">Main Bases</string>
     <string name="str_all_bases">All Bases</string>
 
