@@ -13,8 +13,8 @@ public class App extends Application {
     public static final String SETTINGS_FILE = "settings";
     public static final String THEME_KEY = "theme_key";
     public static final String NUM_SCHEME_KEY = "num_scheme_key";
-    public static int themeCode = -1;
-    public static int numSchemeCode = -1;
+    private static int themeCode = -1;
+    private static int numSchemeCode = -1;
 
     @Override
     public void onCreate() {
@@ -23,5 +23,21 @@ public class App extends Application {
         themeCode = ThemeChooser.load(this);
         numSchemeCode = NumSchemeChooser.load(this);
         UserHistory.init(this);
+    }
+
+    public static int getThemeCode() {
+        return themeCode;
+    }
+
+    public static void setThemeCode(int themeCode) {
+        App.themeCode = themeCode;
+    }
+
+    public static int getNumSchemeCode() {
+        return numSchemeCode;
+    }
+
+    public static void setNumSchemeCode(int numSchemeCode) {
+        App.numSchemeCode = numSchemeCode;
     }
 }
