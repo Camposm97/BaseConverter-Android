@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="showMainBases"
-                android:text="Main Bases" />
+                android:text="@string/str_main_bases" />
 
             <Button
                 android:id="@+id/bt_All"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="showAllBases"
-                android:text="All Bases" />
+                android:text="@string/str_all_bases" />
 
         </LinearLayout>
 
