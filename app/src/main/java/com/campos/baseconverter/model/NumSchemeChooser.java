@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class NumSchemeChooser {
