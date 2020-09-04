@@ -29,7 +29,7 @@ public class OptionsActivity extends AppCompatActivity {
     public void chooseTheme(View v) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_theme);
-        dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.getThemeCode(), new DialogInterface.OnClickListener() {
+        dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.themeCode, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 themeCode = which;
@@ -39,7 +39,7 @@ public class OptionsActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ThemeUtils.setTheme(c, themeCode);
-                App.setThemeCode(themeCode);
+                App.themeCode = themeCode;
                 ThemeUtils.save(c, themeCode);
             }
         });
@@ -51,7 +51,7 @@ public class OptionsActivity extends AppCompatActivity {
     public void chooseAppear(View v) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_num_scheme);
-        dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.getNumSchemeCode(), new DialogInterface.OnClickListener() {
+        dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.numSchemeCode, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 numSchemeCode = which;
@@ -60,7 +60,7 @@ public class OptionsActivity extends AppCompatActivity {
         dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                App.setNumSchemeCode(numSchemeCode);
+                App.numSchemeCode = numSchemeCode;
                 NumSchemeUtils.save(c, numSchemeCode);
                 String s = "Press the \"BACK\" button above to apply changes";
                 Toast.makeText(c, s, Toast.LENGTH_LONG).show();
