@@ -55,18 +55,26 @@ public class ThemeChooser {
     }
 
     public static int load(Context c) {
-        int code = -1;
-        try {
-            FileInputStream fis = c.openFileInput(FILE_NAME);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            code = ois.readInt();
-            ois.close();
-            Log.d(TAG, "Successfully loaded theme!");
-        } catch (IOException e) {
-            Log.d(TAG, "Failed to load theme :(");
-        } finally {
-            setTheme(c, code);
-            return code;
+        SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
+        int code = pref.getInt(App.THEME_KEY, -1);
+        if (code == -1) {
+            Log.d(TAG, "Key doesn't exist");
+        } else {
+            Log.d(TAG, "Loaded Theme Code (" + code + ")");
         }
+        setTheme(c, code);
+        return code;
+//        try {
+//            FileInputStream fis = c.openFileInput(FILE_NAME);
+//            ObjectInputStream ois = new ObjectInputStream(fis);
+//            code = ois.readInt();
+//            ois.close();
+//            Log.d(TAG, "Successfully loaded theme!");
+//        } catch (IOException e) {
+//            Log.d(TAG, "Failed to load theme :(");
+//        } finally {
+//            setTheme(c, code);
+//            return code;
+//        }
     }
 }
