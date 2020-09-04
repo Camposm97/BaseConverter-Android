@@ -15,8 +15,6 @@ import java.io.ObjectInputStream;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class ThemeChooser {
-    private static final String FILE_NAME = "theme.dat";
-
     public static void setTheme(Context c, int code) {
         Log.d(TAG, "Setting theme...");
         Log.d(TAG, "code=" + code);
@@ -42,15 +40,6 @@ public class ThemeChooser {
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(App.THEME_KEY, code);
         editor.apply();
-//        try {
-//            FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-//            ObjectOutputStream oos = new ObjectOutputStream(fis);
-//            oos.writeInt(code);
-//            oos.close();
-//            Log.d(TAG, "Successfully saved theme!");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public static int load(Context c) {
@@ -63,17 +52,5 @@ public class ThemeChooser {
         }
         setTheme(c, code);
         return code;
-//        try {
-//            FileInputStream fis = c.openFileInput(FILE_NAME);
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            code = ois.readInt();
-//            ois.close();
-//            Log.d(TAG, "Successfully loaded theme!");
-//        } catch (IOException e) {
-//            Log.d(TAG, "Failed to load theme :(");
-//        } finally {
-//            setTheme(c, code);
-//            return code;
-//        }
     }
 }
