@@ -38,15 +38,16 @@ public class ThemeChooser {
     }
 
     private static void save(Context c, int code) {
-        try {
-            FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(fis);
-            oos.writeInt(code);
-            oos.close();
-            Log.d(TAG, "Successfully saved theme!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
+//        try {
+//            FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+//            ObjectOutputStream oos = new ObjectOutputStream(fis);
+//            oos.writeInt(code);
+//            oos.close();
+//            Log.d(TAG, "Successfully saved theme!");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public static int load(Context c) {
