@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.campos.baseconverter.app.App;
 
-public class NumSchemeChooser {
+public class NumSchemeUtils {
     public static void save(Context c, int code) {
         SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
