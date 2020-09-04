@@ -4,7 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.campos.baseconverter.model.NumSchemeChooser;
-import com.campos.baseconverter.model.ThemeChooser;
+import com.campos.baseconverter.model.ThemeUtils;
 import com.campos.baseconverter.model.UserHistory;
 
 import static com.campos.baseconverter.util.Tag.TAG;
@@ -20,7 +20,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "Starting app...");
-        themeCode = ThemeChooser.load(this);
+        themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeChooser.load(this);
         UserHistory.init(this);
     }
