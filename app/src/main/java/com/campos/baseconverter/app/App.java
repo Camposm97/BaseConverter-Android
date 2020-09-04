@@ -10,7 +10,7 @@ import com.campos.baseconverter.model.UserHistory;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class App extends Application {
-    public static final String PREF_FILE = "settings";
+    public static final String SETTINGS_FILE = "settings";
     public static final String THEME_KEY = "theme_key";
     public static final String NUM_SCHEME_KEY = "num_scheme_key";
     public static int themeCode = -1;
