@@ -62,7 +62,7 @@ public class OptionsActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 //                NumSchemeChooser.setScheme(c, numSchemeCode);
                 App.setNumSchemeCode(numSchemeCode);
-                NumSchemeChooser.save(c, themeCode);
+                NumSchemeChooser.save(c, numSchemeCode);
                 String s = "Press the \"BACK\" button above to apply changes";
                 Toast.makeText(c, s, Toast.LENGTH_LONG).show();
             }
