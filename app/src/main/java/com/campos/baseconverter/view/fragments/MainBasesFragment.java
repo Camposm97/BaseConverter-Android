@@ -22,7 +22,7 @@ import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
 import com.campos.baseconverter.model.InvalidBaseNumberException;
-import com.campos.baseconverter.util.AlertHelper;
+import com.campos.baseconverter.util.AlertUtils;
 
 import java.util.List;
 
@@ -98,7 +98,7 @@ public class MainBasesFragment extends Fragment {
             UserHistory.save(getActivity());
             rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
         } catch (InvalidBaseNumberException e) {
-            AlertHelper.showInvalidBaseNumInput(getContext());
+            AlertUtils.showInvalidBaseNumInput(getContext());
         } finally {
             spinner.setSelection(0);
         }
