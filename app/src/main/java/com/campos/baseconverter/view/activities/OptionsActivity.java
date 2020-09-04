@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
 import com.campos.baseconverter.model.NumSchemeChooser;
-import com.campos.baseconverter.model.ThemeChooser;
+import com.campos.baseconverter.model.ThemeUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,9 +38,9 @@ public class OptionsActivity extends AppCompatActivity {
         dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                ThemeChooser.setTheme(c, themeCode);
+                ThemeUtils.setTheme(c, themeCode);
                 App.setThemeCode(themeCode);
-                ThemeChooser.save(c, themeCode);
+                ThemeUtils.save(c, themeCode);
             }
         });
         dialogBuilder.setNegativeButton(R.string.bt_no, null);
