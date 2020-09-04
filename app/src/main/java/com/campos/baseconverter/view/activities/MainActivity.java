@@ -45,23 +45,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setCurrentItem(1);
     }
 
-//    public void loadButtons() {
-//        Button btMainBases = findViewById(R.id.bt_Main);
-//        Button btAllBases = findViewById(R.id.bt_All);
-//        btMainBases.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setViewPagerCurrentItem(0);
-//            }
-//        });
-//        btAllBases.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                setViewPagerCurrentItem(1);
-//            }
-//        });
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
