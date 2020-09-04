@@ -23,19 +23,18 @@ public class ThemeChooser {
         switch (code) {
             case 0:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                save(c, code);
                 break;
             case 1:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                save(c, code);
                 break;
             case 2:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                save(c, code);
                 break;
             default:
                 Log.d(TAG, "Invalid theme code!");
         }
+        App.themeCode = code;
+        save(c, code);
     }
 
     private static void save(Context c, int code) {
