@@ -3,7 +3,7 @@ package com.campos.baseconverter.app;
 import android.app.Application;
 import android.util.Log;
 
-import com.campos.baseconverter.model.NumSchemeChooser;
+import com.campos.baseconverter.model.NumSchemeUtils;
 import com.campos.baseconverter.model.ThemeUtils;
 import com.campos.baseconverter.model.UserHistory;
 
@@ -21,7 +21,7 @@ public class App extends Application {
         super.onCreate();
         Log.d(TAG, "Starting app...");
         themeCode = ThemeUtils.load(this);
-        numSchemeCode = NumSchemeChooser.load(this);
+        numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
     }
 
