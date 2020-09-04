@@ -10,11 +10,11 @@ import com.campos.baseconverter.model.UserHistory;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 public class App extends Application {
-    public static final String SETTINGS_FILE = "settings";
-    public static final String THEME_KEY = "theme_key";
-    public static final String NUM_SCHEME_KEY = "num_scheme_key";
-    private static int themeCode = -1;
-    private static int numSchemeCode = -1;
+    private static final String SETTINGS_FILE = "settings";
+    private static final String THEME_KEY = "theme_key";
+    private static final String NUM_SCHEME_KEY = "num_scheme_key";
+    public static int themeCode = -1;
+    public static int numSchemeCode = -1;
 
     @Override
     public void onCreate() {
@@ -23,5 +23,17 @@ public class App extends Application {
         themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
+    }
+
+    public static String getSettingsFile() {
+        return SETTINGS_FILE;
+    }
+
+    public static String getThemeKey() {
+        return THEME_KEY;
+    }
+
+    public static String getNumSchemeKey() {
+        return NUM_SCHEME_KEY;
     }
 }
