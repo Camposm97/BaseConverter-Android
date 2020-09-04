@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
-import com.campos.baseconverter.model.NumSchemeUtils;
-import com.campos.baseconverter.model.ThemeUtils;
+import com.campos.baseconverter.util.NumSchemeUtils;
+import com.campos.baseconverter.util.ThemeUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
