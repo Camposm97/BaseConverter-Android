@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
-import com.campos.baseconverter.model.NumSchemeChooser;
+import com.campos.baseconverter.model.NumSchemeUtils;
 import com.campos.baseconverter.model.ThemeUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,7 +61,7 @@ public class OptionsActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 App.setNumSchemeCode(numSchemeCode);
-                NumSchemeChooser.save(c, numSchemeCode);
+                NumSchemeUtils.save(c, numSchemeCode);
                 String s = "Press the \"BACK\" button above to apply changes";
                 Toast.makeText(c, s, Toast.LENGTH_LONG).show();
             }
