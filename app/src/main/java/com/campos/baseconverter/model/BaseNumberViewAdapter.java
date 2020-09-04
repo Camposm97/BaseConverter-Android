@@ -55,7 +55,7 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
     }
 
     private void defineLabelText(BaseNumberViewHolder holder, int i) {
-        switch (App.numSchemeCode) {
+        switch (App.getNumSchemeCode()) {
             case 0: // Show Bases (ex: Base 02)
                 holder.getLbl().setText(numArr[i].getBase().toTitle());
                 break; // Show Names (ex: Binary)
