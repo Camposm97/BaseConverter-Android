@@ -24,20 +24,4 @@ public class App extends Application {
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
     }
-
-    public static int getThemeCode() {
-        return themeCode;
-    }
-
-    public static void setThemeCode(int themeCode) {
-        App.themeCode = themeCode;
-    }
-
-    public static int getNumSchemeCode() {
-        return numSchemeCode;
-    }
-
-    public static void setNumSchemeCode(int numSchemeCode) {
-        App.numSchemeCode = numSchemeCode;
-    }
 }
