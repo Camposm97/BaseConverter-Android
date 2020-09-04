@@ -1,15 +1,16 @@
 package com.campos.baseconverter.model;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
+
+import com.campos.baseconverter.app.App;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import static com.campos.baseconverter.util.Tag.TAG;
 
@@ -38,7 +39,10 @@ public class ThemeChooser {
     }
 
     private static void save(Context c, int code) {
-        
+        SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt(App.THEME_KEY, code);
+        editor.apply();
 //        try {
 //            FileOutputStream fis = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
 //            ObjectOutputStream oos = new ObjectOutputStream(fis);
