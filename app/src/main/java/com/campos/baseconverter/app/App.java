@@ -3,8 +3,8 @@ package com.campos.baseconverter.app;
 import android.app.Application;
 import android.util.Log;
 
-import com.campos.baseconverter.model.NumSchemeUtils;
-import com.campos.baseconverter.model.ThemeUtils;
+import com.campos.baseconverter.util.NumSchemeUtils;
+import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.model.UserHistory;
 
 import static com.campos.baseconverter.util.Tag.TAG;
