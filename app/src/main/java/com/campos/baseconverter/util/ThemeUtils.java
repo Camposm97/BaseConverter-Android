@@ -34,15 +34,15 @@ public class ThemeUtils {
     }
 
     public static void save(Context c, int code) {
-        SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
+        SharedPreferences pref = c.getSharedPreferences(App.getSettingsFile(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt(App.THEME_KEY, code);
+        editor.putInt(App.getThemeKey(), code);
         editor.apply();
     }
 
     public static int load(Context c) {
-        SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
-        int code = pref.getInt(App.THEME_KEY, -1);
+        SharedPreferences pref = c.getSharedPreferences(App.getSettingsFile(), Context.MODE_PRIVATE);
+        int code = pref.getInt(App.getThemeKey(), -1);
         setTheme(c, code);
         return code;
     }
