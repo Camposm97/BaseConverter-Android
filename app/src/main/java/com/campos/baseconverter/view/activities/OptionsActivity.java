@@ -60,7 +60,6 @@ public class OptionsActivity extends AppCompatActivity {
         dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                NumSchemeChooser.setScheme(c, numSchemeCode);
                 App.setNumSchemeCode(numSchemeCode);
                 NumSchemeChooser.save(c, numSchemeCode);
                 String s = "Press the \"BACK\" button above to apply changes";
