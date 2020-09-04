@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadViewPager();
-//        loadButtons();
     }
 
     public void loadViewPager() {
@@ -36,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         viewPager.setUserInputEnabled(false);
         viewPager.setOffscreenPageLimit(1);
-    }
-
-    public void setViewPagerCurrentItem(int position) {
-        viewPager.setCurrentItem(position);
     }
 
     public void showMainBases(View v) {
