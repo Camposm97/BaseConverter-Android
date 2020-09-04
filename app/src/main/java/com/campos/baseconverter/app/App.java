@@ -19,6 +19,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "Initializing...");
         themeCode = ThemeChooser.load(this);
         numSchemeCode = NumSchemeChooser.load(this);
         UserHistory.init(this);
