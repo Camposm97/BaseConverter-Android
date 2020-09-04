@@ -14,7 +14,7 @@ import java.io.ObjectInputStream;
 
 import static com.campos.baseconverter.util.Tag.TAG;
 
-public class ThemeChooser {
+public class ThemeUtils {
     public static void setTheme(Context c, int code) {
         Log.d(TAG, "Setting theme...");
         Log.d(TAG, "code=" + code);
