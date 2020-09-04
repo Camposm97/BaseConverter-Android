@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
