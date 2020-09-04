@@ -31,11 +31,9 @@ public class ThemeChooser {
             default:
                 Log.d(TAG, "Invalid theme code!");
         }
-        App.themeCode = code;
-        save(c, code);
     }
 
-    private static void save(Context c, int code) {
+    public static void save(Context c, int code) {
         SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(App.THEME_KEY, code);
@@ -45,11 +43,6 @@ public class ThemeChooser {
     public static int load(Context c) {
         SharedPreferences pref = c.getSharedPreferences(App.SETTINGS_FILE, Context.MODE_PRIVATE);
         int code = pref.getInt(App.THEME_KEY, -1);
-        if (code == -1) {
-            Log.d(TAG, "Key doesn't exist");
-        } else {
-            Log.d(TAG, "Loaded Theme Code (" + code + ")");
-        }
         setTheme(c, code);
         return code;
     }
