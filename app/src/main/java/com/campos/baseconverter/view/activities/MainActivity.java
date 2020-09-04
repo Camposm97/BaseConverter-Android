@@ -69,26 +69,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_History:
-                historyClicked();
+                startActivity(new Intent(this, HistoryActivity.class));
                 break;
             case R.id.mi_settings:
-                settingsClicked();
+                startActivity(new Intent(this, OptionsActivity.class));
                 break;
             case R.id.mi_about:
                 aboutClicked();
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void historyClicked() {
-        startActivity(new Intent(this, HistoryActivity.class));
-    }
-
-    public void settingsClicked() {
-        // Display settings that allows the user to switch to a unsigned, sign/magnitude, and two's complement
-        startActivity(new Intent(this, OptionsActivity.class));
-    }
-
 
     public void aboutClicked() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
