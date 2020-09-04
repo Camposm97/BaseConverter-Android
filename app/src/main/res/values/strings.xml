@@ -4,7 +4,8 @@
     <string name="about_name">About</string>
     <string name="history_name">History</string>
 
-    <string name="about_desc">Description Written Here</string>
+    <string name="str_main_bases">Main Bases</string>
+    <string name="str_all_bases">All Bases</string>
 
     <string name="invalid_base_num_message">Invalid Input!</string>
 
