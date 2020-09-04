@@ -6,12 +6,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.app.App;
 import com.campos.baseconverter.model.NumSchemeChooser;
 import com.campos.baseconverter.model.ThemeChooser;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class OptionsActivity extends AppCompatActivity {
     private Context c;
