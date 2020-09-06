@@ -13,6 +13,7 @@ public class SinglePrecisionConverterTest {
         BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
         SinglePrecisionConverter precisionConverter = new SinglePrecisionConverter(number);
         String result = precisionConverter.convertToBinStr();
-        System.out.println(result);
+        System.out.println("before: " + number.getValue());
+        System.out.println("after: " + result);
     }
 }
