@@ -12,6 +12,7 @@ public class SinglePrecisionConverterTest {
     public void convertTest() throws InvalidBaseNumberException {
         BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
         SinglePrecisionConverter precisionConverter = new SinglePrecisionConverter(number);
-        precisionConverter.convertToBin();
+        String result = precisionConverter.convertToBinStr();
+        System.out.println(result);
     }
 }
