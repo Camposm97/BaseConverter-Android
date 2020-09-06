@@ -52,7 +52,7 @@ public class BaseNumber implements Serializable {
         return spanStr;
     }
 
-    public boolean isDecimal() {
+    public boolean hasDecimals() {
         return value.contains(".");
     }
 
