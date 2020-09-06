@@ -25,7 +25,6 @@ public class SinglePrecisionConverter {
             BaseNumber result1 = baseConverter.convert(); //  Result before '.'
 
             BigDecimal decimals = arr[1];
-            System.out.println("inital=" + decimals);
             final int RADIX = Base.BASE_2.getRadix();
             final int LIMIT = 23;
             String result2 = "";
