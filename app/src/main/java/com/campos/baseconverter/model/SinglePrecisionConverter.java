@@ -21,7 +21,17 @@ public class SinglePrecisionConverter {
             BaseConverter baseConverter = new BaseConverter(num, Base.BASE_2);
             BaseNumber result1 = baseConverter.convert(); //  Result before '.'
 
-            
+            BigDecimal decimals = arr[1];
+            System.out.println("inital=" + decimals);
+            final int RADIX = Base.BASE_2.getRadix();
+            final int LIMIT = 23;
+            for (int i = 0; i < LIMIT; i++) {
+                decimals = decimals.multiply(BigDecimal.valueOf(RADIX));
+                if (BigDecimal.ONE.compareTo(decimals) == -1) {
+                    System.out.print("1 < ");
+                }
+                System.out.println(decimals);
+            }
         }
     }
 }
