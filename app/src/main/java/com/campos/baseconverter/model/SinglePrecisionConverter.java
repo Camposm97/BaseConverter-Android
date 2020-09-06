@@ -14,7 +14,8 @@ public class SinglePrecisionConverter {
         this.input = input;
     }
 
-    public void convertToBin() throws InvalidBaseNumberException {
+    public String convertToBinStr() throws InvalidBaseNumberException {
+        String result = "";
         if (input.getBase().equals(Base.BASE_10)) {
             BigDecimal value = new BigDecimal(input.getValue());
             BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
@@ -38,6 +39,8 @@ public class SinglePrecisionConverter {
                     result2 = result2 + bit.toString();
                 }
             }
+            result = result1.getValue() + "." + result2;
         }
+        return result;
     }
 }
