@@ -1,11 +1,7 @@
 package com.campos.baseconverter.model;
 
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.BitSet;
-import java.util.LinkedList;
-import java.util.List;
 
 public class SinglePrecisionConverter {
     private BaseNumber input;
@@ -41,5 +37,9 @@ public class SinglePrecisionConverter {
             result = result1.getValue() + "." + result2;
         }
         return result;
+    }
+
+    private String computeDecimals(BigDecimal decimals) {
+
     }
 }
