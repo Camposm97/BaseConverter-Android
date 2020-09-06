@@ -2,6 +2,10 @@ package com.campos.baseconverter.model;
 
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.BitSet;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SinglePrecisionConverter {
     private BaseNumber input;
@@ -25,13 +29,23 @@ public class SinglePrecisionConverter {
             System.out.println("inital=" + decimals);
             final int RADIX = Base.BASE_2.getRadix();
             final int LIMIT = 23;
+            String result2 = "";
+//            List<String> list = new LinkedList<>();
             for (int i = 0; i < LIMIT; i++) {
                 decimals = decimals.multiply(BigDecimal.valueOf(RADIX));
-                if (BigDecimal.ONE.compareTo(decimals) == -1) {
-                    System.out.print("1 < ");
+                BigInteger bit = decimals.divide(BigDecimal.ONE).toBigInteger();
+//                System.out.print(decimals + " : ");
+//                System.out.println(BigDecimal.ONE.compareTo(decimals));
+                if (BigDecimal.ONE.compareTo(decimals) <= 0) { // Is greater than 1
+                    decimals = decimals.subtract(new BigDecimal(bit));
+                    result2 = result2 + bit.toString();
+//                    list.add(bit.toString());
+                } else { // Is less than one
+                    result2 = result2 + bit.toString();
+//                    list.add(bit.toString());
                 }
-                System.out.println(decimals);
             }
+            System.out.println(result2);
         }
     }
 }
