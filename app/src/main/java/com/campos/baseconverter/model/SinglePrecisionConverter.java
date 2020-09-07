@@ -19,33 +19,33 @@ public class SinglePrecisionConverter {
         if (input.getBase().equals(Base.BASE_10)) {
             BigDecimal value = new BigDecimal(input.getValue());
             BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
-
-            BaseNumber num = new BaseNumber(input.getBase(), arr[0].toBigInteger().toString());
-            BaseConverter baseConverter = new BaseConverter(num, Base.BASE_2);
-            BaseNumber result1 = baseConverter.convert(); //  Result before '.'
+            
+//            BaseNumber num = new BaseNumber(input.getBase(), arr[0].toBigInteger().toString());
+//            BaseConverter baseConverter = new BaseConverter(num, Base.BASE_2);
+//            BaseNumber result1 = baseConverter.convert(); //  Result before '.'
 
             BigDecimal decimals = arr[1];
-            String result2 = calcDecimals(decimals);
+            String result2 = calcFractionalPart(decimals);
             result = result1.getValue() + "." + result2;
         }
         return result;
     }
 
-    private String calcWholeNums(BigDecimal bigDecimal) {
+    private String calcWholePart(BigDecimal wholePart) {
         String result = "";
-        
+
         return result;
     }
 
-    private String calcDecimals(BigDecimal decimals) {
+    private String calcFractionalPart(BigDecimal fractionalPart) {
         String result = "";
         final int RADIX = Base.BASE_2.getRadix();
         final int LIMIT = 23;
         for (int i = 0 ;i < LIMIT; i++) {
-            decimals = decimals.multiply(BigDecimal.valueOf(RADIX));
-            BigInteger bit = decimals.divide(BigDecimal.ONE).toBigInteger();
-            if (BigDecimal.ONE.compareTo(decimals) <= 0) { // Is greater than 1
-                decimals = decimals.subtract(new BigDecimal(bit));
+            fractionalPart = fractionalPart.multiply(BigDecimal.valueOf(RADIX));
+            BigInteger bit = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
+            if (BigDecimal.ONE.compareTo(fractionalPart) <= 0) { // Is greater than 1
+                fractionalPart = fractionalPart.subtract(new BigDecimal(bit));
                 result = result + bit.toString();
             } else { // Is less than one
                 result = result + bit.toString();
