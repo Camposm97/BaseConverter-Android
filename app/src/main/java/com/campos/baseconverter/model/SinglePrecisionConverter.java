@@ -25,13 +25,19 @@ public class SinglePrecisionConverter {
             BaseNumber result1 = baseConverter.convert(); //  Result before '.'
 
             BigDecimal decimals = arr[1];
-            String result2 = computeDecimals(decimals);
+            String result2 = calcDecimals(decimals);
             result = result1.getValue() + "." + result2;
         }
         return result;
     }
 
-    private String computeDecimals(BigDecimal decimals) {
+    private String calcWholeNums(BigDecimal bigDecimal) {
+        String result = "";
+        
+        return result;
+    }
+
+    private String calcDecimals(BigDecimal decimals) {
         String result = "";
         final int RADIX = Base.BASE_2.getRadix();
         final int LIMIT = 23;
