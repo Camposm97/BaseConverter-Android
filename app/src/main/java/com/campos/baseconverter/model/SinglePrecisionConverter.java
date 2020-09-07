@@ -24,15 +24,18 @@ public class SinglePrecisionConverter {
             BaseNumber half1 = baseConverter.convert();
 
             int pow = -1;
+            double sum = 0;
             for (char c : arr[1].toCharArray()) {
-                int x;
+                double x;
                 if (Character.isLetter(c)) {
                     x = (c - 55);
                 } else {
                     x = Integer.valueOf(c + "");
                 }
-                System.out.println(x);
+                x = x * Math.pow(input.getBase().getRadix(), pow--);
+                sum += x;
             }
+            System.out.println(sum);
         }
         return result;
     }
