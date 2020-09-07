@@ -45,6 +45,18 @@ public class SinglePrecisionConverter {
 
     private String computeDecimals(BigDecimal decimals) {
         String result = "";
+        final int RADIX = Base.BASE_2.getRadix();
+        final int LIMIT = 23;
+        for (int i = 0 ;i < LIMIT; i++) {
+            decimals = decimals.multiply(BigDecimal.valueOf(RADIX));
+            BigInteger bit = decimals.divide(BigDecimal.ONE).toBigInteger();
+            if (BigDecimal.ONE.compareTo(decimals) <= 0) { // Is greater than 1
+                decimals = decimals.subtract(new BigDecimal(bit));
+                result = result + bit.toString();
+            } else { // Is less than one
+                result = result + bit.toString();
+            }
+        }
 
         return result;
     }
