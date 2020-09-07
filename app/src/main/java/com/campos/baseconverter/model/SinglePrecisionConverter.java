@@ -32,10 +32,10 @@ public class SinglePrecisionConverter {
         return result;
     }
 
-    private String calcWholePart(BigDecimal wholePart) {
-        String result = "";
-
-        return result;
+    private String calcWholePart(BigDecimal wholePart) throws InvalidBaseNumberException {
+        String value = wholePart.toBigInteger().toString();
+        BaseNumber num = new BaseNumber(input.getBase(), value);
+        return new BaseConverter(num, Base.BASE_2).convert().getValue();
     }
 
     private String calcFractionalPart(BigDecimal fractionalPart) {
