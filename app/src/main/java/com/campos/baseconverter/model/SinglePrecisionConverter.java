@@ -2,6 +2,7 @@ package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class SinglePrecisionConverter {
     private BaseNumber input;
@@ -14,10 +15,24 @@ public class SinglePrecisionConverter {
         return input;
     }
 
-    public String convertToDec() {
+    public String convertToDec() throws InvalidBaseNumberException {
         String result = "";
         if (!input.getBase().equals(Base.BASE_10)) {
-            
+            String[] arr = input.getValue().split("[.]");
+            BaseNumber num = new BaseNumber(input.getBase(), arr[0]);
+            BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
+            BaseNumber half1 = baseConverter.convert();
+
+            int pow = -1;
+            for (char c : arr[1].toCharArray()) {
+                int x;
+                if (Character.isLetter(c)) {
+                    x = (c - 55);
+                } else {
+                    x = Integer.valueOf(c + "");
+                }
+                System.out.println(x);
+            }
         }
         return result;
     }
