@@ -14,6 +14,14 @@ public class SinglePrecisionConverter {
         return input;
     }
 
+    public String convertToDec() {
+        String result = "";
+        if (!input.getBase().equals(Base.BASE_10)) {
+            
+        }
+        return result;
+    }
+
     public String convertToBinStr() throws InvalidBaseNumberException {
         String result = "";
         if (input.getBase().equals(Base.BASE_10)) {
