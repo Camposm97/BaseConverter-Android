@@ -40,6 +40,7 @@ public class SinglePrecisionConverter {
     }
 
     private String computeDecimals(BigDecimal decimals) {
-
+        String result = "";
+        return result;
     }
 }
