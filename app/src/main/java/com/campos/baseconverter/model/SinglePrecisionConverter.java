@@ -39,15 +39,14 @@ public class SinglePrecisionConverter {
         final int LIMIT = 23;
         for (int i = 0 ;i < LIMIT; i++) {
             fractionalPart = fractionalPart.multiply(BigDecimal.valueOf(RADIX));
-            BigInteger bit = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
+            BigInteger wholePart = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
             if (BigDecimal.ONE.compareTo(fractionalPart) <= 0) { // Is greater than 1
-                fractionalPart = fractionalPart.subtract(new BigDecimal(bit));
-                result = result + bit.toString();
+                fractionalPart = fractionalPart.subtract(new BigDecimal(wholePart));
+                result = result + wholePart.toString();
             } else { // Is less than one
-                result = result + bit.toString();
+                result = result + wholePart.toString();
             }
         }
-
         return result;
     }
 }
