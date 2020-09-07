@@ -10,6 +10,10 @@ public class SinglePrecisionConverter {
         this.input = input;
     }
 
+    public BaseNumber getInput() {
+        return input;
+    }
+
     public String convertToBinStr() throws InvalidBaseNumberException {
         String result = "";
         if (input.getBase().equals(Base.BASE_10)) {
@@ -41,6 +45,7 @@ public class SinglePrecisionConverter {
 
     private String computeDecimals(BigDecimal decimals) {
         String result = "";
+
         return result;
     }
 }
