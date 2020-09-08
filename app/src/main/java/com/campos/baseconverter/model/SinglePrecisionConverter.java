@@ -40,6 +40,11 @@ public class SinglePrecisionConverter {
         return result.toString();
     }
 
+    private String calcFractionalPartToDec(String s) {
+        String result = "";
+        return result;
+    }
+
     public String convertToBinStr() throws InvalidBaseNumberException {
         String result = "";
         if (input.getBase().equals(Base.BASE_10)) {
