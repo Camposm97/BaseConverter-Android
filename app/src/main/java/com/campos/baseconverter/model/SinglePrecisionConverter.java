@@ -22,18 +22,7 @@ public class SinglePrecisionConverter {
             BaseNumber num = new BaseNumber(input.getBase(), arr[0]);
             BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
             BaseNumber half1 = baseConverter.convert();
-
-//            int pow = -1;
-//            double sum = 0;
-//            for (char c : arr[1].toCharArray()) {
-//                double value;
-//                if (Character.isLetter(c)) {
-//                    value = (c - 55);
-//                } else {
-//                    value = Integer.valueOf(c + "");
-//                }
-//                sum += (value * Math.pow(input.getBase().getRadix(), pow--));
-//            }
+            
             BigDecimal fractionalPart = calcFractionalPartToDec(arr[1].toCharArray());
             result = new BigDecimal(half1.getValue());
             result = result.add(fractionalPart);
