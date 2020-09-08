@@ -21,7 +21,7 @@ public class SinglePrecisionConverterTest {
 
     @Test
     public void convertTest() throws InvalidBaseNumberException {
-        BaseNumber number = new BaseNumber(Base.BASE_2, "1111.001");
+        BaseNumber number = new BaseNumber(Base.BASE_16, "A.A");
         SinglePrecisionConverter precisionConverter = new SinglePrecisionConverter(number);
         String result = precisionConverter.convertToDec();
         System.out.println(result);
