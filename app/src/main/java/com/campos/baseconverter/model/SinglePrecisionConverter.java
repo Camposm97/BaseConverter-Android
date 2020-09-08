@@ -34,8 +34,9 @@ public class SinglePrecisionConverter {
 //                }
 //                sum += (value * Math.pow(input.getBase().getRadix(), pow--));
 //            }
+            BigDecimal fractionalPart = calcFractionalPartToDec(arr[1].toCharArray());
             result = new BigDecimal(half1.getValue());
-            result = result.add();
+            result = result.add(fractionalPart);
         }
         return result.toString();
     }
