@@ -23,26 +23,36 @@ public class SinglePrecisionConverter {
             BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
             BaseNumber half1 = baseConverter.convert();
 
-            int pow = -1;
-            double fractionalPart = 0;
-            for (char c : arr[1].toCharArray()) {
-                double value;
-                if (Character.isLetter(c)) {
-                    value = (c - 55);
-                } else {
-                    value = Integer.valueOf(c + "");
-                }
-                fractionalPart += (value * Math.pow(input.getBase().getRadix(), pow--));
-            }
+//            int pow = -1;
+//            double sum = 0;
+//            for (char c : arr[1].toCharArray()) {
+//                double value;
+//                if (Character.isLetter(c)) {
+//                    value = (c - 55);
+//                } else {
+//                    value = Integer.valueOf(c + "");
+//                }
+//                sum += (value * Math.pow(input.getBase().getRadix(), pow--));
+//            }
             result = new BigDecimal(half1.getValue());
-            result = result.add(BigDecimal.valueOf(fractionalPart));
+            result = result.add();
         }
         return result.toString();
     }
 
-    private String calcFractionalPartToDec(String s) {
-        String result = "";
-        return result;
+    private BigDecimal calcFractionalPartToDec(char[] arr) {
+        int pow = -1;
+        double sum = 0;
+        for (char c : arr) {
+            double value;
+            if (Character.isLetter(c)) {
+                value = (c - 55);
+            } else {
+                value = Integer.valueOf(c + "");
+            }
+            sum += (value * Math.pow(input.getBase().getRadix(), pow--));
+        }
+        return new BigDecimal(sum);
     }
 
     public String convertToBinStr() throws InvalidBaseNumberException {
