@@ -16,7 +16,7 @@ public class SinglePrecisionConverter {
     }
 
     public String convertToDec() throws InvalidBaseNumberException {
-        String result = "";
+        BigDecimal result = null;
         if (!input.getBase().equals(Base.BASE_10)) {
             String[] arr = input.getValue().split("[.]");
             BaseNumber num = new BaseNumber(input.getBase(), arr[0]);
@@ -35,9 +35,10 @@ public class SinglePrecisionConverter {
                 x = x * Math.pow(input.getBase().getRadix(), pow--);
                 sum += x;
             }
-            System.out.println(sum);
+            result = new BigDecimal(half1.getValue());
+            result = result.add(BigDecimal.valueOf(sum));
         }
-        return result;
+        return result.toString();
     }
 
     public String convertToBinStr() throws InvalidBaseNumberException {
