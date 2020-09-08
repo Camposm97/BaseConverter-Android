@@ -2,7 +2,6 @@ package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class SinglePrecisionConverter {
     private BaseNumber input;
@@ -19,21 +18,24 @@ public class SinglePrecisionConverter {
         BigDecimal result = null;
         if (!input.getBase().equals(Base.BASE_10)) {
             String[] arr = input.getValue().split("[.]");
-            BaseNumber num = new BaseNumber(input.getBase(), arr[0]);
-            BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
-            BaseNumber half1 = baseConverter.convert();
-            
-            BigDecimal fractionalPart = calcFractionalPartToDec(arr[1].toCharArray());
-            result = new BigDecimal(half1.getValue());
+            BaseNumber wholePart = calcWholePartToDec(arr[0]);
+            BigDecimal fractionalPart = calcFractionalPartToDec(arr[1]);
+            result = new BigDecimal(wholePart.getValue());
             result = result.add(fractionalPart);
         }
         return result.toString();
     }
 
-    private BigDecimal calcFractionalPartToDec(char[] arr) {
+    private BaseNumber calcWholePartToDec(String value) throws InvalidBaseNumberException {
+        BaseNumber num = new BaseNumber(input.getBase(), value);
+        BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
+        return baseConverter.convert();
+    }
+
+    private BigDecimal calcFractionalPartToDec(String s) {
         int pow = -1;
         double sum = 0;
-        for (char c : arr) {
+        for (char c : s.toCharArray()) {
             double value;
             if (Character.isLetter(c)) {
                 value = (c - 55);
