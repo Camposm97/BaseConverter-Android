@@ -24,19 +24,18 @@ public class SinglePrecisionConverter {
             BaseNumber half1 = baseConverter.convert();
 
             int pow = -1;
-            double sum = 0;
+            double fractionalPart = 0;
             for (char c : arr[1].toCharArray()) {
-                double x;
+                double value;
                 if (Character.isLetter(c)) {
-                    x = (c - 55);
+                    value = (c - 55);
                 } else {
-                    x = Integer.valueOf(c + "");
+                    value = Integer.valueOf(c + "");
                 }
-                x = x * Math.pow(input.getBase().getRadix(), pow--);
-                sum += x;
+                fractionalPart += (value * Math.pow(input.getBase().getRadix(), pow--));
             }
             result = new BigDecimal(half1.getValue());
-            result = result.add(BigDecimal.valueOf(sum));
+            result = result.add(BigDecimal.valueOf(fractionalPart));
         }
         return result.toString();
     }
