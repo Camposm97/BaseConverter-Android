@@ -18,7 +18,7 @@ public class SinglePrecisionConverter {
         BigDecimal result = null;
         if (!input.getBase().equals(Base.BASE_10)) {
             String[] arr = input.getValue().split("[.]");
-            BaseNumber wholePart = calcWholePartToDec(arr[0]);
+            BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
             BigDecimal fractionalPart = calcFractionalPartToDec(arr[1]);
             result = new BigDecimal(wholePart.getValue());
             result = result.add(fractionalPart);
