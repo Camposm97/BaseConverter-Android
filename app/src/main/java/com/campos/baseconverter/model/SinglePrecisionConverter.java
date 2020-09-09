@@ -32,12 +32,6 @@ public class SinglePrecisionConverter {
         return baseConverter.convert();
     }
 
-    private BaseNumber calcWholePartToDec(String value) throws InvalidBaseNumberException {
-        BaseNumber num = new BaseNumber(input.getBase(), value);
-        BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
-        return baseConverter.convert();
-    }
-
     private BigDecimal calcFractionalPartToDec(String s) {
         int pow = -1;
         double sum = 0;
