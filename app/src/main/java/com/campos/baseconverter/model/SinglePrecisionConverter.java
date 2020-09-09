@@ -26,9 +26,10 @@ public class SinglePrecisionConverter {
         return result.toString();
     }
 
-    private BaseNumber calcWholePart(String value) throws InvalidBaseNumberException {
+    private BaseNumber calcWholePart(String value, Base convertTo) throws InvalidBaseNumberException {
         BaseNumber num = new BaseNumber(input.getBase(), value);
-        return null;
+        BaseConverter baseConverter = new BaseConverter(num, convertTo);
+        return baseConverter.convert();
     }
 
     private BaseNumber calcWholePartToDec(String value) throws InvalidBaseNumberException {
