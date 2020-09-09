@@ -18,7 +18,7 @@ public class SinglePrecisionConverter {
         BigDecimal result = null;
         if (!input.getBase().equals(Base.BASE_10)) {
             String[] arr = input.getValue().split("[.]");
-            BaseNumber wholePart = calcWholePartToDec(arr[0], Base.BASE_10);
+            BaseNumber wholePart = calcWholePartToDec(arr[0]);
             BigDecimal fractionalPart = calcFractionalPartToDec(arr[1]);
             result = new BigDecimal(wholePart.getValue());
             result = result.add(fractionalPart);
@@ -26,9 +26,9 @@ public class SinglePrecisionConverter {
         return result.toString();
     }
 
-    private BaseNumber calcWholePartToDec(String value, Base convertTo) throws InvalidBaseNumberException {
+    private BaseNumber calcWholePartToDec(String value) throws InvalidBaseNumberException {
         BaseNumber num = new BaseNumber(input.getBase(), value);
-        BaseConverter baseConverter = new BaseConverter(num, convertTo);
+        BaseConverter baseConverter = new BaseConverter(num, Base.BASE_10);
         return baseConverter.convert();
     }
 
