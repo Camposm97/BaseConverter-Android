@@ -21,14 +21,12 @@ public class FloatingPointerConverter {
     }
 
     public String convertToDec() throws InvalidBaseNumberException {
-        BigDecimal result = null;
-        if (!input.getBase().equals(Base.BASE_10)) {
-            String[] arr = input.getValue().split("[.]");
-            BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
-            BigDecimal fractionalPart = calcFractPartToDec(arr[1]);
-            result = new BigDecimal(wholePart.getValue());
-            result = result.add(fractionalPart);
-        }
+        BigDecimal result;
+        String[] arr = input.getValue().split("[.]");
+        BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
+        BigDecimal fractionalPart = calcFractPartToDec(arr[1]);
+        result = new BigDecimal(wholePart.getValue());
+        result = result.add(fractionalPart);
         return result.toString();
     }
 
@@ -71,7 +69,7 @@ public class FloatingPointerConverter {
         String result = "";
         final int RADIX = Base.BASE_2.getRadix();
         final int LIMIT = 23;
-        for (int i = 0 ;i < LIMIT; i++) {
+        for (int i = 0; i < LIMIT; i++) {
             fractionalPart = fractionalPart.multiply(BigDecimal.valueOf(RADIX));
             BigInteger wholePart = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
             if (BigDecimal.ONE.compareTo(fractionalPart) <= 0) { // Is greater than 1
