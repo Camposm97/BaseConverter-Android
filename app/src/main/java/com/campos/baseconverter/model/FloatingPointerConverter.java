@@ -1,6 +1,7 @@
 package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
@@ -18,7 +19,6 @@ public class FloatingPointerConverter {
             if (convertTo.equals(Base.BASE_10)) {
                 return new BaseNumber(convertTo, strDec);
             } else {
-                System.out.println("Returning result");
                 return new BaseNumber(convertTo, convertToBase(strDec, convertTo));
             }
         }
@@ -41,18 +41,30 @@ public class FloatingPointerConverter {
     }
 
     private BigDecimal calcFractionPartToDec(String s) {
-        int pow = -1;
-        double sum = 0;
+        int pow = 1;
+        BigDecimal sum = BigDecimal.ZERO;
         for (char c : s.toCharArray()) {
-            double value;
+            double digit;
             if (Character.isLetter(c)) {
-                value = (c - 55);
+                digit = (c - 55);
             } else {
-                value = Integer.valueOf(c + "");
+                digit = Integer.valueOf(c + "");
             }
-            sum += (value * Math.pow(input.getBase().getRadix(), pow--));
+            System.out.print("digit=" + digit);
+            BigDecimal value = new BigDecimal(input.getBase().getRadix());
+            value = value.pow(pow++);
+            System.out.print(" pow=" + value);
+            value = new BigDecimal(1.0).divide(value);
+            System.out.println(" value=" + value);
+            value = value.multiply(new BigDecimal(digit));
+            sum = sum.add(value);
+//            double temp = digit * Math.pow(input.getBase().getRadix(), pow--);
+//            System.out.println(temp);
+//            sum = sum.add(new BigDecimal(temp));
         }
-        return new BigDecimal(sum);
+        System.out.println("Finished adding fractions");
+        System.out.println();
+        return sum;
     }
 
     private String convertToBase(String strDec, Base convertTo) throws  InvalidBaseNumberException {
