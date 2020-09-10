@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class SinglePrecisionConverter {
+public class FloatingPointerConverter {
     private BaseNumber input;
 
-    public SinglePrecisionConverter(BaseNumber input) {
+    public FloatingPointerConverter(BaseNumber input) {
         this.input = input;
     }
 
