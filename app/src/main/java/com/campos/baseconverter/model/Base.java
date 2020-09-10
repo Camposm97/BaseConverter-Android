@@ -3,7 +3,7 @@ package com.campos.baseconverter.model;
 import java.util.LinkedList;
 import java.util.List;
 
-public enum Base {
+public enum Base implements Comparable<Base> {
     BASE_2(2, "Binary"), BASE_3(3, "Ternary"),
     BASE_4(4, "Quarternary"), BASE_5(5, "Quinary"),
     BASE_6(6, "Senary"), BASE_7(7, "Septenary"),
