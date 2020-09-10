@@ -12,7 +12,8 @@ public class FloatingPointerConverter {
 
     public String convert(Base convertTo) {
         String result = "";
-        convertTo.compareTo(input.getBase());
+        int x = convertTo.compareTo(input.getBase());
+        System.out.println(x);
         return result;
     }
 
