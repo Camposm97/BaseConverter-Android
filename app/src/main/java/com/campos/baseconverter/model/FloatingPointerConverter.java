@@ -10,12 +10,14 @@ public class FloatingPointerConverter {
         this.input = input;
     }
 
-    public BaseNumber convert(Base convertTo) {
-        int compareValue = input.getBase().compareTo(convertTo);
-        if (compareValue == 0) {
+    public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
+        int compare = input.getBase().compareTo(convertTo);
+        if (compare == 0) { // Return deep copy of input
             return BaseNumber.deepCopy(input);
+        } else { // Convert to Decimal then to convertTo
+            String strDec = convertToDec();
+            return null; // TODO
         }
-        return null;
     }
 
     public String convertToDec() throws InvalidBaseNumberException {
