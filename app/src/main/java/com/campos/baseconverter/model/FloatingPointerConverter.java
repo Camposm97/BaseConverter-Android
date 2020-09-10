@@ -12,9 +12,8 @@ public class FloatingPointerConverter {
 
     public BaseNumber convert(Base convertTo) {
         int compareValue = input.getBase().compareTo(convertTo);
-        System.out.println(compareValue);
         if (compareValue == 0) {
-
+            return BaseNumber.deepCopy(input);
         }
         return null;
     }
