@@ -9,11 +9,11 @@ import org.junit.Test;
 
 public class FloatingPointConverterTest {
     @Test
-    public void convertToBinStrTest() throws InvalidBaseNumberException {
+    public void convertToBinTest() throws InvalidBaseNumberException {
         BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
         FloatingPointerConverter converter = new FloatingPointerConverter(number);
-        String result = converter.convertToBinStr();
-        System.out.println("before: " + number.getValue());
+        BaseNumber result = converter.convert(Base.BASE_2);
+        System.out.println("before: " + number);
         System.out.println("after: " + result);
     }
 
