@@ -1,7 +1,6 @@
 package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
@@ -15,7 +14,11 @@ public class FloatingPointerConverter {
         if (compare == 0) { // Return deep copy of input
             return BaseNumber.deepCopy(input);
         } else { // Convert to Decimal then to convertTo
+            if (input.getBase().equals(Base.BASE_10)) {
+                return new BaseNumber(convertTo, convertToBase(input.getValue(), convertTo));
+            }
             String strDec = convertToDec();
+            System.out.println("strDec=" + strDec);
             if (convertTo.equals(Base.BASE_10)) {
                 return new BaseNumber(convertTo, strDec);
             } else {
@@ -41,8 +44,10 @@ public class FloatingPointerConverter {
     }
 
     private BigDecimal calcFractionPartToDec(String s) {
-        int pow = 1;
-        BigDecimal sum = BigDecimal.ZERO;
+        int pow = -1;
+        int radix = input.getBase().getRadix();
+//        BigDecimal sum = BigDecimal.ZERO;
+        double sum = 0;
         for (char c : s.toCharArray()) {
             double digit;
             if (Character.isLetter(c)) {
@@ -50,24 +55,16 @@ public class FloatingPointerConverter {
             } else {
                 digit = Integer.valueOf(c + "");
             }
-            System.out.print("digit=" + digit);
-            BigDecimal value = new BigDecimal(input.getBase().getRadix());
-            value = value.pow(pow++);
-            System.out.print(" pow=" + value);
-            value = new BigDecimal(1.0).divide(value);
-            System.out.println(" value=" + value);
-            value = value.multiply(new BigDecimal(digit));
-            sum = sum.add(value);
-//            double temp = digit * Math.pow(input.getBase().getRadix(), pow--);
-//            System.out.println(temp);
-//            sum = sum.add(new BigDecimal(temp));
+            double value = digit * Math.pow(radix, pow--);
+//            sum = sum.add(new BigDecimal(value));
+            sum += value;
         }
-        System.out.println("Finished adding fractions");
         System.out.println();
-        return sum;
+//        return sum;
+        return new BigDecimal(sum);
     }
 
-    private String convertToBase(String strDec, Base convertTo) throws  InvalidBaseNumberException {
+    private String convertToBase(String strDec, Base convertTo) throws InvalidBaseNumberException {
         BigDecimal value = new BigDecimal(strDec);
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
@@ -76,17 +73,20 @@ public class FloatingPointerConverter {
         return wholePart.getValue() + '.' + strFractionPart;
     }
 
-    private String calcFractionPartToBase(BigDecimal value, Base convertTo) {
+    private String calcFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
         final int LIMIT = 23; // I can make this a parameter
         for (int i = 0; i < LIMIT; i++) {
-            value = value.multiply(RADIX);
-            int wholePart = value.divide(BigDecimal.ONE).intValue();
-            if (BigDecimal.ONE.compareTo(value) <= 0) { // Is whole part greater than 1
-                value = value.subtract(new BigDecimal(wholePart));
+            System.out.print(" fractionBefore=" + fractionPart);
+            fractionPart = fractionPart.multiply(RADIX);
+            System.out.print(" fractionAfter=" + fractionPart);
+            int wholePart = fractionPart.divide(BigDecimal.ONE).intValue();
+            System.out.println(" wholePart=" + wholePart);
+            if (BigDecimal.ONE.compareTo(fractionPart) <= 0) { // Is whole part greater than 1
+                fractionPart = fractionPart.subtract(new BigDecimal(wholePart));
                 if (wholePart >= 10) {
-                    result.append(((char)(wholePart + 55)));
+                    result.append(((char) (wholePart + 55)));
                 } else {
                     result.append(wholePart);
                 }
