@@ -66,7 +66,7 @@ public class FloatingPointerConverter {
         final int LIMIT = 23; // I can make this a parameter
         for (int i = 0; i < LIMIT; i++) {
             value = value.multiply(RADIX);
-            int wholePart = Integer.parseInt(value.divide(BigDecimal.ONE).toString());
+            int wholePart = value.divide(BigDecimal.ONE).intValue();
             if (BigDecimal.ONE.compareTo(value) <= 0) { // Is whole part greater than 1
                 value = value.subtract(new BigDecimal(wholePart));
                 if (wholePart >= 10) {
@@ -74,6 +74,8 @@ public class FloatingPointerConverter {
                 } else {
                     result.append(wholePart);
                 }
+            } else {
+                result.append(wholePart);
             }
         }
         return result.toString();
