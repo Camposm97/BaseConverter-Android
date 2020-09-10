@@ -12,13 +12,10 @@ public class FloatingPointerConverter {
     public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
         int compare = input.getBase().compareTo(convertTo);
         if (compare == 0) { // Return deep copy of input
-            System.out.println("Returning input");
             return BaseNumber.deepCopy(input);
         } else { // Convert to Decimal then to convertTo
-            System.out.println("Converting to Base 10");
             String strDec = convertToDec();
             if (convertTo.equals(Base.BASE_10)) {
-                System.out.println("Returning Decimal");
                 return new BaseNumber(convertTo, strDec);
             } else {
                 System.out.println("Returning result");
