@@ -7,6 +7,8 @@ import com.campos.baseconverter.model.FloatingPointerConverter;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class FloatingPointConverterTest {
     @Test
     public void convertToBinTest() throws InvalidBaseNumberException {
@@ -27,11 +29,12 @@ public class FloatingPointConverterTest {
 
     @Test
     public void convertTest() throws InvalidBaseNumberException{
-        BaseNumber number = new BaseNumber(Base.BASE_10, "150.125971100");
+        BaseNumber number = new BaseNumber(Base.BASE_10, "150.1259711");
         Base convertTo = Base.BASE_36;
         FloatingPointerConverter converter = new FloatingPointerConverter(number);
         BaseNumber result = converter.convert(convertTo);
         System.out.println(result);
-        
+        FloatingPointerConverter converter1 = new FloatingPointerConverter(result);
+        System.out.println(converter1.convert(Base.BASE_10));
     }
 }
