@@ -10,11 +10,13 @@ public class FloatingPointerConverter {
         this.input = input;
     }
 
-    public String convert(Base convertTo) {
-        String result = "";
-        int x = convertTo.compareTo(input.getBase());
-        System.out.println(x);
-        return result;
+    public BaseNumber convert(Base convertTo) {
+        int compareValue = input.getBase().compareTo(convertTo);
+        System.out.println(compareValue);
+        if (compareValue == 0) {
+
+        }
+        return null;
     }
 
     public String convertToDec() throws InvalidBaseNumberException {
