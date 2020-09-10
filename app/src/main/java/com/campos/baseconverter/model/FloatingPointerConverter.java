@@ -15,7 +15,8 @@ public class FloatingPointerConverter {
             return BaseNumber.deepCopy(input);
         } else { // Convert to Decimal then to convertTo
             String strDec = convertToDec();
-            return null; // Implement here
+            BaseNumber result = new BaseNumber(convertTo, convertToBase(strDec, convertTo));
+            return result;
         }
     }
 
@@ -50,9 +51,8 @@ public class FloatingPointerConverter {
         return new BigDecimal(sum);
     }
 
-    private String convertToBase(Base convertTo) throws  InvalidBaseNumberException {
-        String result = "";
-        BigDecimal value = new BigDecimal(input.getValue());
+    private String convertToBase(String strDec, Base convertTo) throws  InvalidBaseNumberException {
+        BigDecimal value = new BigDecimal(strDec);
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
         String strFractionPart = calcFractionPartToBase(arr[1], convertTo);
@@ -63,31 +63,21 @@ public class FloatingPointerConverter {
     private String calcFractionPartToBase(BigDecimal value, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
-        final int LIMIT = 23;
+        final int LIMIT = 23; // I can make this a parameter
         for (int i = 0; i < LIMIT; i++) {
             value = value.multiply(RADIX);
             int wholePart = Integer.parseInt(value.divide(BigDecimal.ONE).toString());
             if (BigDecimal.ONE.compareTo(value) <= 0) { // Is whole part greater than 1
                 value = value.subtract(new BigDecimal(wholePart));
-
+                if (wholePart >= 10) {
+                    result.append(((char)(wholePart + 55)));
+                } else {
+                    result.append(wholePart);
+                }
             }
         }
         return result.toString();
     }
-
-//    public String convertToBinStr() throws InvalidBaseNumberException {
-//        String result = "";
-//        if (input.getBase().equals(Base.BASE_10)) {
-//            BigDecimal value = new BigDecimal(input.getValue());
-//            BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
-//
-//            String wholePartValue = arr[0].toBigInteger().toString();
-//            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
-//            String fractionalPart = calcFractionPart(arr[1]);
-//            result = wholePart.getValue() + "." + fractionalPart;
-//        }
-//        return result;
-//    }
 
 //    private String calcFractionPart(BigDecimal fractionalPart) {
 //        String result = "";
@@ -102,6 +92,20 @@ public class FloatingPointerConverter {
 //            } else { // Is less than one
 //                result = result + wholePart.toString();
 //            }
+//        }
+//        return result;
+//    }
+
+//    public String convertToBinStr() throws InvalidBaseNumberException {
+//        String result = "";
+//        if (input.getBase().equals(Base.BASE_10)) {
+//            BigDecimal value = new BigDecimal(input.getValue());
+//            BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
+//
+//            String wholePartValue = arr[0].toBigInteger().toString();
+//            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
+//            String fractionalPart = calcFractionPart(arr[1]);
+//            result = wholePart.getValue() + "." + fractionalPart;
 //        }
 //        return result;
 //    }
