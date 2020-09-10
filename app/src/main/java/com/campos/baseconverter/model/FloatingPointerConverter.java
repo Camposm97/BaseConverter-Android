@@ -13,17 +13,17 @@ public class FloatingPointerConverter {
         int compare = input.getBase().compareTo(convertTo);
         if (compare == 0) { // Return deep copy of input
             return BaseNumber.deepCopy(input);
-        } else { // Convert to Decimal then to convertTo
-            if (input.getBase().equals(Base.BASE_10)) {
-                return new BaseNumber(convertTo, convertToBase(input.getValue(), convertTo));
-            }
-            String strDec = convertToDec();
-            if (convertTo.equals(Base.BASE_10)) {
-                return new BaseNumber(convertTo, strDec);
-            } else {
-                return new BaseNumber(convertTo, convertToBase(strDec, convertTo));
-            }
+        } // Else convert to Decimal then to convertTo
+        if (input.getBase().equals(Base.BASE_10)) {
+            return new BaseNumber(convertTo, convertToBase(input.getValue(), convertTo));
         }
+        String strDec = convertToDec();
+        if (convertTo.equals(Base.BASE_10)) {
+            return new BaseNumber(convertTo, strDec);
+        } else {
+            return new BaseNumber(convertTo, convertToBase(strDec, convertTo));
+        }
+
     }
 
     public String convertToDec() throws InvalidBaseNumberException {
