@@ -51,6 +51,10 @@ public class FloatingPointerConverter {
         return new BigDecimal(sum);
     }
 
+    private String convertToBase() throws  InvalidBaseNumberException {
+        
+    }
+
     public String convertToBinStr() throws InvalidBaseNumberException {
         String result = "";
         if (input.getBase().equals(Base.BASE_10)) {
