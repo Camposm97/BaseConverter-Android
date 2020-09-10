@@ -60,4 +60,8 @@ public class BaseNumber implements Serializable {
     public String toString() {
         return "(" + value + ")" + base.getRadix();
     }
+
+    public static BaseNumber deepCopy(BaseNumber number) {
+        return new BaseNumber(number.getBase(), number.getValue());
+    }
 }
