@@ -18,7 +18,6 @@ public class FloatingPointerConverter {
                 return new BaseNumber(convertTo, convertToBase(input.getValue(), convertTo));
             }
             String strDec = convertToDec();
-            System.out.println("strDec=" + strDec);
             if (convertTo.equals(Base.BASE_10)) {
                 return new BaseNumber(convertTo, strDec);
             } else {
@@ -31,6 +30,7 @@ public class FloatingPointerConverter {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
+        System.out.println(wholePart.getValue());
         BigDecimal fractionalPart = calcFractionPartToDec(arr[1]);
         result = new BigDecimal(wholePart.getValue());
         result = result.add(fractionalPart);
