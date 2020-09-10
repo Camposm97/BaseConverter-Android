@@ -1,7 +1,6 @@
 package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
@@ -24,7 +23,7 @@ public class FloatingPointerConverter {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
-        BigDecimal fractionalPart = calcFractPartToDec(arr[1]);
+        BigDecimal fractionalPart = calcFractionPartToDec(arr[1]);
         result = new BigDecimal(wholePart.getValue());
         result = result.add(fractionalPart);
         return result.toString();
@@ -36,7 +35,7 @@ public class FloatingPointerConverter {
         return baseConverter.convert();
     }
 
-    private BigDecimal calcFractPartToDec(String s) {
+    private BigDecimal calcFractionPartToDec(String s) {
         int pow = -1;
         double sum = 0;
         for (char c : s.toCharArray()) {
@@ -56,12 +55,12 @@ public class FloatingPointerConverter {
         BigDecimal value = new BigDecimal(input.getValue());
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
-        String strFractionPart = calcFractPartToBase(arr[1], convertTo);
+        String strFractionPart = calcFractionPartToBase(arr[1], convertTo);
         BaseNumber wholePart = calcWholePart(strWholePart, convertTo);
         return wholePart.getValue() + '.' + strFractionPart;
     }
 
-    private String calcFractPartToBase(BigDecimal value, Base convertTo) {
+    private String calcFractionPartToBase(BigDecimal value, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
         final int LIMIT = 23;
@@ -84,13 +83,13 @@ public class FloatingPointerConverter {
 //
 //            String wholePartValue = arr[0].toBigInteger().toString();
 //            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
-//            String fractionalPart = calcFractPart(arr[1]);
+//            String fractionalPart = calcFractionPart(arr[1]);
 //            result = wholePart.getValue() + "." + fractionalPart;
 //        }
 //        return result;
 //    }
 
-//    private String calcFractPart(BigDecimal fractionalPart) {
+//    private String calcFractionPart(BigDecimal fractionalPart) {
 //        String result = "";
 //        final int RADIX = Base.BASE_2.getRadix();
 //        final int LIMIT = 23;
