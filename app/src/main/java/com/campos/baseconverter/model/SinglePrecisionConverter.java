@@ -2,6 +2,7 @@ package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class SinglePrecisionConverter {
     private BaseNumber input;
@@ -49,9 +50,10 @@ public class SinglePrecisionConverter {
             BigDecimal value = new BigDecimal(input.getValue());
             BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
 
-            String wholePart = calcWholePart(arr[0]);
+            String wholePartValue = arr[0].toBigInteger().toString();
+            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
             String fractionalPart = calcFractionalPart(arr[1]);
-            result = wholePart + "." + fractionalPart;
+            result = wholePart.getValue() + "." + fractionalPart;
         }
         return result;
     }
