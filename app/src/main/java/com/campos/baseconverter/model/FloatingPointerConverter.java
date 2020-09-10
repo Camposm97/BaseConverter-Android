@@ -56,45 +56,54 @@ public class FloatingPointerConverter {
         BigDecimal value = new BigDecimal(input.getValue());
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
-        String strFractPart = calcFractPartToBase(arr[1], convertTo);
+        String strFractionPart = calcFractPartToBase(arr[1], convertTo);
         BaseNumber wholePart = calcWholePart(strWholePart, convertTo);
-        return wholePart.getValue() + '.' + strFractPart;
+        return wholePart.getValue() + '.' + strFractionPart;
     }
 
-    private String calcFractPartToBase(BigDecimal fractPart, Base convertTo) {
+    private String calcFractPartToBase(BigDecimal value, Base convertTo) {
         StringBuilder result = new StringBuilder();
-        final int RADIX = convertTo.getRadix();
+        final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
+        final int LIMIT = 23;
+        for (int i = 0; i < LIMIT; i++) {
+            value = value.multiply(RADIX);
+            int wholePart = Integer.parseInt(value.divide(BigDecimal.ONE).toString());
+            if (BigDecimal.ONE.compareTo(value) <= 0) { // Is whole part greater than 1
+                value = value.subtract(new BigDecimal(wholePart));
+
+            }
+        }
         return result.toString();
     }
 
-    public String convertToBinStr() throws InvalidBaseNumberException {
-        String result = "";
-        if (input.getBase().equals(Base.BASE_10)) {
-            BigDecimal value = new BigDecimal(input.getValue());
-            BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
+//    public String convertToBinStr() throws InvalidBaseNumberException {
+//        String result = "";
+//        if (input.getBase().equals(Base.BASE_10)) {
+//            BigDecimal value = new BigDecimal(input.getValue());
+//            BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
+//
+//            String wholePartValue = arr[0].toBigInteger().toString();
+//            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
+//            String fractionalPart = calcFractPart(arr[1]);
+//            result = wholePart.getValue() + "." + fractionalPart;
+//        }
+//        return result;
+//    }
 
-            String wholePartValue = arr[0].toBigInteger().toString();
-            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
-            String fractionalPart = calcFractPart(arr[1]);
-            result = wholePart.getValue() + "." + fractionalPart;
-        }
-        return result;
-    }
-
-    private String calcFractPart(BigDecimal fractionalPart) {
-        String result = "";
-        final int RADIX = Base.BASE_2.getRadix();
-        final int LIMIT = 23;
-        for (int i = 0; i < LIMIT; i++) {
-            fractionalPart = fractionalPart.multiply(BigDecimal.valueOf(RADIX));
-            BigInteger wholePart = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
-            if (BigDecimal.ONE.compareTo(fractionalPart) <= 0) { // Is greater than 1
-                fractionalPart = fractionalPart.subtract(new BigDecimal(wholePart));
-                result = result + wholePart.toString();
-            } else { // Is less than one
-                result = result + wholePart.toString();
-            }
-        }
-        return result;
-    }
+//    private String calcFractPart(BigDecimal fractionalPart) {
+//        String result = "";
+//        final int RADIX = Base.BASE_2.getRadix();
+//        final int LIMIT = 23;
+//        for (int i = 0; i < LIMIT; i++) {
+//            fractionalPart = fractionalPart.multiply(BigDecimal.valueOf(RADIX));
+//            BigInteger wholePart = fractionalPart.divide(BigDecimal.ONE).toBigInteger();
+//            if (BigDecimal.ONE.compareTo(fractionalPart) <= 0) { // Is greater than 1
+//                fractionalPart = fractionalPart.subtract(new BigDecimal(wholePart));
+//                result = result + wholePart.toString();
+//            } else { // Is less than one
+//                result = result + wholePart.toString();
+//            }
+//        }
+//        return result;
+//    }
 }
