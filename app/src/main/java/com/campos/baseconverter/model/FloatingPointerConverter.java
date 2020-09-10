@@ -56,9 +56,15 @@ public class FloatingPointerConverter {
         BigDecimal value = new BigDecimal(input.getValue());
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
-        String strFractPart = calcFractPart(arr[1]);
+        String strFractPart = calcFractPartToBase(arr[1], convertTo);
         BaseNumber wholePart = calcWholePart(strWholePart, convertTo);
         return wholePart.getValue() + '.' + strFractPart;
+    }
+
+    private String calcFractPartToBase(BigDecimal fractPart, Base convertTo) {
+        StringBuilder result = new StringBuilder();
+        final int RADIX = convertTo.getRadix();
+        return result.toString();
     }
 
     public String convertToBinStr() throws InvalidBaseNumberException {
