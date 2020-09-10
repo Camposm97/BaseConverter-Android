@@ -30,7 +30,7 @@ public class BaseConverter {
     public BaseNumber convert() {
         if (input.getBase().equals(convertTo)) {
             return input;
-        } else {
+        } else { // TODO: Fix issue when value is 0
             BaseNumber dec = convertToDecimal(input);
             BaseNumber result = convertDecimalToBase(dec, convertTo);
             return result;
@@ -45,7 +45,7 @@ public class BaseConverter {
             char c = Character.toUpperCase(input.getValue().charAt(i));
             int num;
             if (Character.isLetter(c)) {
-                num = ((int) (c - 55));
+                num = (c - 55);
             } else {
                 num = Integer.parseInt(String.valueOf(c));
             }
