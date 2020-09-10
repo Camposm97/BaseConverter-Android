@@ -28,8 +28,9 @@ public class FloatingPointConverterTest {
     @Test
     public void convertTest() throws InvalidBaseNumberException{
         BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
-        Base convertTo = Base.BASE_2;
+        Base convertTo = Base.BASE_10;
         FloatingPointerConverter converter = new FloatingPointerConverter(number);
         BaseNumber result = converter.convert(convertTo);
+        System.out.println(result);
     }
 }
