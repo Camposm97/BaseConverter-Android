@@ -29,13 +29,13 @@ public class FloatingPointConverterTest {
 
     @Test
     public void convertTest() throws InvalidBaseNumberException{
-        BaseNumber number = new BaseNumber(Base.BASE_36, "F.ZZZZZZZZZZZZ");
-        System.out.println("inital=" + number);
-        Base convertTo = Base.BASE_10;
+        BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
+        System.out.println(number);
+        Base convertTo = Base.BASE_36;
         FloatingPointerConverter converter = new FloatingPointerConverter(number);
         BaseNumber result = converter.convert(convertTo);
-        System.out.println(convertTo + "=" + result);
+        System.out.println(result);
         FloatingPointerConverter converter1 = new FloatingPointerConverter(result);
-        System.out.println(Base.BASE_36 + "=" + converter1.convert(Base.BASE_36));
+        System.out.println(converter1.convert(Base.BASE_10));
     }
 }
