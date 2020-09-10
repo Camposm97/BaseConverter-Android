@@ -2,7 +2,6 @@ package com.campos.baseconverter.model;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
@@ -13,6 +12,7 @@ public class FloatingPointerConverter {
 
     public String convert(Base convertTo) {
         String result = "";
+        convertTo.compareTo(input.getBase());
         return result;
     }
 
@@ -21,7 +21,7 @@ public class FloatingPointerConverter {
         if (!input.getBase().equals(Base.BASE_10)) {
             String[] arr = input.getValue().split("[.]");
             BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
-            BigDecimal fractionalPart = calcFractionalPartToDec(arr[1]);
+            BigDecimal fractionalPart = calcFractPartToDec(arr[1]);
             result = new BigDecimal(wholePart.getValue());
             result = result.add(fractionalPart);
         }
@@ -34,7 +34,7 @@ public class FloatingPointerConverter {
         return baseConverter.convert();
     }
 
-    private BigDecimal calcFractionalPartToDec(String s) {
+    private BigDecimal calcFractPartToDec(String s) {
         int pow = -1;
         double sum = 0;
         for (char c : s.toCharArray()) {
@@ -57,13 +57,13 @@ public class FloatingPointerConverter {
 
             String wholePartValue = arr[0].toBigInteger().toString();
             BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
-            String fractionalPart = calcFractionalPart(arr[1]);
+            String fractionalPart = calcFractPart(arr[1]);
             result = wholePart.getValue() + "." + fractionalPart;
         }
         return result;
     }
 
-    private String calcFractionalPart(BigDecimal fractionalPart) {
+    private String calcFractPart(BigDecimal fractionalPart) {
         String result = "";
         final int RADIX = Base.BASE_2.getRadix();
         final int LIMIT = 23;
