@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
+    private int precision;
 
     public FloatingPointerConverter(BaseNumber input) {
         this.input = input;
@@ -30,7 +31,7 @@ public class FloatingPointerConverter {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
-        System.out.println(wholePart.getValue());
+//        System.out.println(wholePart.getValue());
         BigDecimal fractionalPart = calcFractionPartToDec(arr[1]);
         result = new BigDecimal(wholePart.getValue());
         result = result.add(fractionalPart);
@@ -59,7 +60,6 @@ public class FloatingPointerConverter {
 //            sum = sum.add(new BigDecimal(value));
             sum += value;
         }
-        System.out.println();
 //        return sum;
         return new BigDecimal(sum);
     }
@@ -76,13 +76,13 @@ public class FloatingPointerConverter {
     private String calcFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
-        final int LIMIT = 23; // I can make this a parameter
-        for (int i = 0; i < LIMIT; i++) {
-            System.out.print(" fractionBefore=" + fractionPart);
+        final int PRECISION = 23; // I can make this a parameter
+        for (int i = 0; i < PRECISION; i++) {
+//            System.out.print(" fractionBefore=" + fractionPart);
             fractionPart = fractionPart.multiply(RADIX);
-            System.out.print(" fractionAfter=" + fractionPart);
+//            System.out.print(" fractionAfter=" + fractionPart);
             int wholePart = fractionPart.divide(BigDecimal.ONE).intValue();
-            System.out.println(" wholePart=" + wholePart);
+//            System.out.println(" wholePart=" + wholePart);
             if (BigDecimal.ONE.compareTo(fractionPart) <= 0) { // Is whole part greater than 1
                 fractionPart = fractionPart.subtract(new BigDecimal(wholePart));
                 if (wholePart >= 10) {
