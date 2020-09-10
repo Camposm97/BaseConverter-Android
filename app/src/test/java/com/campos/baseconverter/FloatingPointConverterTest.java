@@ -18,10 +18,16 @@ public class FloatingPointConverterTest {
     }
 
     @Test
-    public void convertTest() throws InvalidBaseNumberException {
+    public void convertToDecTest() throws InvalidBaseNumberException {
         BaseNumber number = new BaseNumber(Base.BASE_16, "A.A");
         FloatingPointerConverter precisionConverter = new FloatingPointerConverter(number);
         String result = precisionConverter.convertToDec();
         System.out.println(result);
+    }
+
+    public void convertTest() throws InvalidBaseNumberException{
+        BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
+        FloatingPointerConverter converter = new FloatingPointerConverter(number);
+        String result = converter.convert();
     }
 }
