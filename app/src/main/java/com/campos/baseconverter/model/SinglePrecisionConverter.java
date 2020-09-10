@@ -9,11 +9,7 @@ public class SinglePrecisionConverter {
     public SinglePrecisionConverter(BaseNumber input) {
         this.input = input;
     }
-
-    public BaseNumber getInput() {
-        return input;
-    }
-
+    
     public String convertToDec() throws InvalidBaseNumberException {
         BigDecimal result = null;
         if (!input.getBase().equals(Base.BASE_10)) {
