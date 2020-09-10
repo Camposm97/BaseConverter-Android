@@ -16,7 +16,7 @@ public class FloatingPointerConverter {
             return BaseNumber.deepCopy(input);
         } else { // Convert to Decimal then to convertTo
             String strDec = convertToDec();
-            return null; // TODO
+            return null; // Implement here
         }
     }
 
@@ -51,8 +51,14 @@ public class FloatingPointerConverter {
         return new BigDecimal(sum);
     }
 
-    private String convertToBase() throws  InvalidBaseNumberException {
-        
+    private String convertToBase(Base convertTo) throws  InvalidBaseNumberException {
+        String result = "";
+        BigDecimal value = new BigDecimal(input.getValue());
+        BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
+        String strWholePart = arr[0].toBigInteger().toString();
+        String strFractPart = calcFractPart(arr[1]);
+        BaseNumber wholePart = calcWholePart(strWholePart, convertTo);
+        return wholePart.getValue() + '.' + strFractPart;
     }
 
     public String convertToBinStr() throws InvalidBaseNumberException {
