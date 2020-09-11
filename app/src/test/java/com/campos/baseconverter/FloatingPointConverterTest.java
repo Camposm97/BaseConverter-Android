@@ -7,16 +7,14 @@ import com.campos.baseconverter.model.FloatingPointerConverter;
 
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
 public class FloatingPointConverterTest {
     @Test
     public void convertTest() throws InvalidBaseNumberException {
         BaseNumber number = new BaseNumber(Base.BASE_10, "15.125");
         System.out.println(number);
-        Base convertTo = Base.BASE_36;
+        Base convertTo = Base.BASE_2;
         FloatingPointerConverter converter = new FloatingPointerConverter(number);
-        converter.setPrecision(2);
+        converter.setScale(3);
         BaseNumber result = converter.convert(convertTo);
         System.out.println(result);
         FloatingPointerConverter converter1 = new FloatingPointerConverter(result);
