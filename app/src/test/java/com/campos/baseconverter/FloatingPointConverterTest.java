@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class FloatingPointConverterTest {
     @Test
-    public void convertTest1() throws InvalidBaseNumberException {
+    public void convertTest1() {
         String expectedValue = "1111.001";
         BaseNumber input = new BaseNumber(Base.BASE_10, "15.125");
         Base convertTo = Base.BASE_2;
@@ -22,7 +22,7 @@ public class FloatingPointConverterTest {
     }
 
     @Test
-    public void convertTest2() throws InvalidBaseNumberException {
+    public void convertTest2() {
         String expectedValue = "15.125";
         BaseNumber input = new BaseNumber(Base.BASE_2, "1111.001");
         Base convertTo = Base.BASE_10;
@@ -33,7 +33,7 @@ public class FloatingPointConverterTest {
     }
 
     @Test
-    public void convertTest3() throws InvalidBaseNumberException {
+    public void convertTest3() {
         String expectedValue = "0.0000";
         BaseNumber input = new BaseNumber(Base.BASE_36, "0.0000");
         Base convertTo = Base.BASE_2;
