@@ -14,6 +14,10 @@ public class MyUtils {
      * @return result
      */
     public static String formatBinStr(String binStr) {
+        if (binStr.contains(".")) {
+            String[] arr = binStr.split("[.]");
+            return spaceBinStr(completeBinStr(arr[0])) + "." + spaceBinStr(completeBinStr(arr[1]));
+        }
         return spaceBinStr(completeBinStr(binStr));
     }
 
@@ -44,12 +48,13 @@ public class MyUtils {
 
     /**
      * Completes the binary string by adding zeros in front of the string if the string's length
-     * mod 4 equals zero
+     * mod 4 equals zero. If code == 0, then add zeros in front, else add zeros at the back
      * @param binStr
      * @return result
      */
-    public static String completeBinStr(String binStr) {
+    public static String completeBinStr(String binStr, int code) {
         while ((binStr.length() % 4) != 0) {
+            
             binStr = "0" + binStr;
         }
         return binStr;
