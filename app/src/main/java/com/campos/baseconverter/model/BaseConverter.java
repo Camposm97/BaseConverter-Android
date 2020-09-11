@@ -32,8 +32,10 @@ public class BaseConverter {
             return BaseNumber.deepCopy(input); // Return deep copy of input
         } else { // TODO: Fix issue when value is 0
             BaseNumber dec = convertToDec(input);
-            BaseNumber result = convertDecToBase(dec, convertTo);
-            return result;
+            if (convertTo.equals(Base.BASE_10)) {
+                return dec;
+            }
+            return convertDecToBase(dec, convertTo);
         }
     }
 
