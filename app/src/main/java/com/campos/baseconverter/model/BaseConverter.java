@@ -83,7 +83,7 @@ public class BaseConverter {
     }
 
     public BaseNumber[] getMainResults() {
-        BaseNumber dec = convertToDec(input);
+        BaseNumber dec = convert(Base.BASE_10);
         BaseNumber bin = convertDecToBase(dec, Base.BASE_2);
         BaseNumber octal = convertDecToBase(dec, Base.BASE_8);
         BaseNumber hex = convertDecToBase(dec, Base.BASE_16);
@@ -91,7 +91,7 @@ public class BaseConverter {
     }
 
     public BaseNumber[] getAllResults() {
-        BaseNumber dec = convertToDec(input);
+        BaseNumber dec = convert(Base.BASE_10);
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
             if (Base.values()[i].equals(input.getBase())) {
