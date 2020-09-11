@@ -31,6 +31,9 @@ public class BaseConverter {
         if (input.getBase().equals(convertTo)) {
             return BaseNumber.deepCopy(input); // Return deep copy of input
         }
+        if (input.getValue().equals("0")) {
+            return new BaseNumber(convertTo, "0");
+        }
         if (input.getBase().equals(Base.BASE_10)) {
             return convertDecToBase(input, convertTo);
         }
