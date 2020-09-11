@@ -8,6 +8,7 @@ public class FloatingPointerConverter {
 
     public FloatingPointerConverter(BaseNumber input) {
         this.input = input;
+        this.precision = 1;
     }
 
     public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
@@ -76,8 +77,7 @@ public class FloatingPointerConverter {
     private String calcFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
-        final int PRECISION = 23; // I can make this a parameter
-        for (int i = 0; i < PRECISION; i++) {
+        for (int i = 0; i < precision; i++) {
 //            System.out.print(" fractionBefore=" + fractionPart);
             fractionPart = fractionPart.multiply(RADIX);
 //            System.out.print(" fractionAfter=" + fractionPart);
