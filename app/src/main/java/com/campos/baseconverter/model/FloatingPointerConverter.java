@@ -19,7 +19,7 @@ public class FloatingPointerConverter {
         this.scale = scale;
     }
 
-    public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
+    public BaseNumber convert(Base convertTo) {
         if (input.getBase().equals(convertTo)) { // Return deep copy of input
             return BaseNumber.deepCopy(input);
         } // Else convert to Decimal then to convertTo
@@ -34,7 +34,7 @@ public class FloatingPointerConverter {
         }
     }
 
-    private String convertToDec() throws InvalidBaseNumberException {
+    private String convertToDec() {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
@@ -44,7 +44,7 @@ public class FloatingPointerConverter {
         return result.toString();
     }
 
-    private BaseNumber calcWholePart(String value, Base convertTo) throws InvalidBaseNumberException {
+    private BaseNumber calcWholePart(String value, Base convertTo) {
         BaseNumber num = new BaseNumber(input.getBase(), value);
         BaseConverter baseConverter = new BaseConverter(num);
         return baseConverter.convert(convertTo);
@@ -67,7 +67,7 @@ public class FloatingPointerConverter {
         return new BigDecimal(sum);
     }
 
-    private String convertDecToBase(String strDec, Base convertTo) throws InvalidBaseNumberException {
+    private String convertDecToBase(String strDec, Base convertTo) {
         BigDecimal value = new BigDecimal(strDec);
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
