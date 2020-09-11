@@ -78,8 +78,7 @@ public class BaseConverterTest {
         String strBin = "11010";
         BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
-        baseConverter.setConvertTo(Base.BASE_16);
-        BaseNumber result = baseConverter.convert();
+        BaseNumber result = baseConverter.convert(Base.BASE_16);
         assertEquals("1A", result.getValue());
     }
 
@@ -88,8 +87,7 @@ public class BaseConverterTest {
         String strOctal = "77";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_8, strOctal);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        baseConverter.setConvertTo(Base.BASE_2);
-        BaseNumber result = baseConverter.convert();
+        BaseNumber result = baseConverter.convert(Base.BASE_2);
         assertEquals("111111", result.getValue());
     }
 
@@ -98,8 +96,8 @@ public class BaseConverterTest {
         String strHex = "A117";
         BaseNumber input = new BaseNumber(Base.BASE_16, strHex);
         Base convertTo = Base.BASE_16;
-        BaseConverter baseConverter = new BaseConverter(input, convertTo);
-        BaseNumber result = baseConverter.convert();
+        BaseConverter baseConverter = new BaseConverter(input);
+        BaseNumber result = baseConverter.convert(convertTo);
         assertEquals("A117", result.getValue());
     }
 
