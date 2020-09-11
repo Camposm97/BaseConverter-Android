@@ -89,17 +89,16 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void attemptBaseConversion(BaseNumber baseNumber) {
-        try {
-            Log.d(TAG, baseNumber.toString());
-            BaseConverter baseConverter = new BaseConverter(baseNumber);
-            BaseNumber[] resultsArr = baseConverter.getMainResults();
+        Log.d(TAG, baseNumber.toString());
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber[] resultsArr = baseConverter.getMainResults();
+        if (resultsArr != null) {
             UserHistory.getHistory().add(baseNumber, resultsArr);
             UserHistory.save(getActivity());
             rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
-        } catch (InvalidBaseNumberException e) {
+        } else {
             AlertUtils.showInvalidBaseNumInput(getContext());
-        } finally {
-            spinner.setSelection(0);
         }
+        spinner.setSelection(0);
     }
 }
