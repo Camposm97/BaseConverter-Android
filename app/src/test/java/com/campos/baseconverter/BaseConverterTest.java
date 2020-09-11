@@ -7,9 +7,20 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
 
+import java.nio.file.LinkPermission;
+
 import static org.junit.Assert.*;
 
 public class BaseConverterTest {
+    @Test
+    public void convertTest() throws InvalidBaseNumberException {
+        String value = "0";
+        BaseNumber input = new BaseNumber(Base.BASE_10, value);
+        BaseConverter converter = new BaseConverter(input, Base.BASE_2);
+        BaseNumber result = converter.convert();
+        System.out.println(result);
+    }
+
     @Test
     public void convertBinaryToDecimal() throws InvalidBaseNumberException {
         String input = "10001";
