@@ -6,9 +6,6 @@ import android.text.style.SubscriptSpan;
 
 import java.io.Serializable;
 
-/**
- * TODO: Get rid of InvalidNumberException and instead return null if there's a problem
- */
 public class BaseNumber implements Serializable {
     public static BaseNumber[] getMain() {
         BaseNumber numBin = new BaseNumber(Base.BASE_2, "");
