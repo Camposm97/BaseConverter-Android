@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class BaseConverterTest {
     @Test
-    public void convertTest() throws InvalidBaseNumberException {
+    public void convertTest() {
         String value = "0";
         BaseNumber input = new BaseNumber(Base.BASE_10, value);
         BaseConverter converter = new BaseConverter(input);
@@ -20,7 +20,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertBinaryToDecimal() throws InvalidBaseNumberException {
+    public void convertBinaryToDecimal() {
         String input = "10001";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_2, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -29,7 +29,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertHexToDecimal() throws InvalidBaseNumberException {
+    public void convertHexToDecimal() {
         String input = "11"; // Which equals 17 in decimal
         BaseNumber baseNumber = new BaseNumber(Base.BASE_16, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -38,7 +38,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertBase3ToDecimal() throws InvalidBaseNumberException {
+    public void convertBase3ToDecimal() {
         String input = "21";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_3, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -47,7 +47,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertDecimalToBinary() throws InvalidBaseNumberException {
+    public void convertDecimalToBinary() {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -56,7 +56,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertDecimalToHex() throws InvalidBaseNumberException {
+    public void convertDecimalToHex() {
         String input = "26";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -65,7 +65,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertDecimalToOctal() throws InvalidBaseNumberException {
+    public void convertDecimalToOctal() {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -74,7 +74,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertBinaryToHex() throws InvalidBaseNumberException {
+    public void convertBinaryToHex() {
         String strBin = "11010";
         BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
@@ -83,7 +83,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertOctalToBinary() throws InvalidBaseNumberException {
+    public void convertOctalToBinary() {
         String strOctal = "77";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_8, strOctal);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
@@ -92,7 +92,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void convertHexToHex() throws InvalidBaseNumberException {
+    public void convertHexToHex() {
         String strHex = "A117";
         BaseNumber input = new BaseNumber(Base.BASE_16, strHex);
         Base convertTo = Base.BASE_16;
@@ -102,7 +102,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void getMainResults() throws InvalidBaseNumberException {
+    public void getMainResults() {
         String strBin = "1111";
         BaseNumber input= new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
@@ -114,7 +114,7 @@ public class BaseConverterTest {
     }
 
     @Test
-    public void getAllResults() throws InvalidBaseNumberException {
+    public void getAllResults() {
         String strBin = "100011";
         BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
