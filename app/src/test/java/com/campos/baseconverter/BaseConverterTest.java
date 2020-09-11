@@ -14,8 +14,8 @@ public class BaseConverterTest {
     public void convertTest() throws InvalidBaseNumberException {
         String value = "0";
         BaseNumber input = new BaseNumber(Base.BASE_10, value);
-        BaseConverter converter = new BaseConverter(input, Base.BASE_2);
-        BaseNumber result = converter.convert();
+        BaseConverter converter = new BaseConverter(input);
+        BaseNumber result = converter.convert(Base.BASE_2);
         System.out.println(result);
     }
 
