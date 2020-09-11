@@ -31,13 +31,13 @@ public class BaseConverter {
         if (input.getBase().equals(convertTo)) {
             return BaseNumber.deepCopy(input); // Return deep copy of input
         } else { // TODO: Fix issue when value is 0
-            BaseNumber dec = convertToDecimal(input);
-            BaseNumber result = convertDecimalToBase(dec, convertTo);
+            BaseNumber dec = convertToDec(input);
+            BaseNumber result = convertDecToBase(dec, convertTo);
             return result;
         }
     }
 
-    public BaseNumber convertToDecimal(BaseNumber input) {
+    public BaseNumber convertToDec(BaseNumber input) {
         int radix = input.getBase().getRadix();
         int pow = 0;
         BigInteger sum = BigInteger.ZERO;
@@ -57,7 +57,7 @@ public class BaseConverter {
         return new BaseNumber(Base.BASE_10, sum.toString());
     }
 
-    public BaseNumber convertDecimalToBase(BaseNumber input, Base convertTo) {
+    public BaseNumber convertDecToBase(BaseNumber input, Base convertTo) {
         String result = "";
         int radix = convertTo.getRadix();
         BigInteger num = new BigInteger(input.getValue());
@@ -76,21 +76,21 @@ public class BaseConverter {
     }
 
     public BaseNumber[] getMainResults() {
-        BaseNumber dec = convertToDecimal(input);
-        BaseNumber bin = convertDecimalToBase(dec, Base.BASE_2);
-        BaseNumber octal = convertDecimalToBase(dec, Base.BASE_8);
-        BaseNumber hex = convertDecimalToBase(dec, Base.BASE_16);
+        BaseNumber dec = convertToDec(input);
+        BaseNumber bin = convertDecToBase(dec, Base.BASE_2);
+        BaseNumber octal = convertDecToBase(dec, Base.BASE_8);
+        BaseNumber hex = convertDecToBase(dec, Base.BASE_16);
         return new BaseNumber[]{bin, octal, dec, hex};
     }
 
     public BaseNumber[] getAllResults() {
-        BaseNumber dec = convertToDecimal(input);
+        BaseNumber dec = convertToDec(input);
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
             if (Base.values()[i].equals(input.getBase())) {
                 arr[i] = input;
             } else {
-                arr[i] = convertDecimalToBase(dec, Base.values()[i]);
+                arr[i] = convertDecToBase(dec, Base.values()[i]);
             }
         }
         return arr;
