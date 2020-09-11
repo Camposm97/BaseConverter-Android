@@ -29,7 +29,7 @@ public class BaseConverter {
 
     public BaseNumber convert() {
         if (input.getBase().equals(convertTo)) {
-            return BaseNumber.deepCopy(input);
+            return BaseNumber.deepCopy(input); // Return deep copy of input
         } else { // TODO: Fix issue when value is 0
             BaseNumber dec = convertToDecimal(input);
             BaseNumber result = convertDecimalToBase(dec, convertTo);
