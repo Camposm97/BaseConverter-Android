@@ -4,16 +4,10 @@ import java.math.BigInteger;
 
 public class BaseConverter {
     private BaseNumber input;
-//    private Base convertTo;
 
     public BaseConverter(BaseNumber input) throws InvalidBaseNumberException {
         setInput(input);
     }
-
-//    public BaseConverter(BaseNumber input, Base convertTo) throws InvalidBaseNumberException {
-//        setInput(input);
-//        setConvertTo(convertTo);
-//    }
 
     public void setInput(BaseNumber input) throws InvalidBaseNumberException {
         if (Base.isValidBaseNum(input)) {
@@ -22,10 +16,6 @@ public class BaseConverter {
             throw new InvalidBaseNumberException();
         }
     }
-
-//    public void setConvertTo(Base convertTo) {
-//        this.convertTo = convertTo;
-//    }
 
     public BaseNumber convert(Base convertTo) {
         if (input.getBase().equals(convertTo)) {
