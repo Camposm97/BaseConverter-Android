@@ -48,8 +48,8 @@ public class FloatingPointerConverter {
 
     private BaseNumber calcWholePart(String value, Base convertTo) throws InvalidBaseNumberException {
         BaseNumber num = new BaseNumber(input.getBase(), value);
-        BaseConverter baseConverter = new BaseConverter(num, convertTo);
-        return baseConverter.convert();
+        BaseConverter baseConverter = new BaseConverter(num);
+        return baseConverter.convert(convertTo);
     }
 
     private BigDecimal calcFractionPartToDec(String s) {
