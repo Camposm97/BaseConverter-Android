@@ -11,6 +11,10 @@ public class FloatingPointerConverter {
         this.precision = 1;
     }
 
+    public void setInput(BaseNumber input) {
+        this.input = input;
+    }
+
     public void setPrecision(int precision) {
         this.precision = precision;
     }
