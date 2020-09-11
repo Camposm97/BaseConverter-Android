@@ -3,7 +3,6 @@ package com.campos.baseconverter;
 import com.campos.baseconverter.model.Base;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.FloatingPointerConverter;
-import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
 

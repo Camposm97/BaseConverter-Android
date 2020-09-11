@@ -21,7 +21,6 @@ import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
-import com.campos.baseconverter.model.InvalidBaseNumberException;
 import com.campos.baseconverter.util.AlertUtils;
 
 import java.util.List;
