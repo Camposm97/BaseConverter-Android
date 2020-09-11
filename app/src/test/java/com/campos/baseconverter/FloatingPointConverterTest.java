@@ -31,4 +31,15 @@ public class FloatingPointConverterTest {
         BaseNumber result = converter.convert(convertTo);
         assertEquals(expectedValue, result.getValue());
     }
+
+    @Test
+    public void convertTest3() throws InvalidBaseNumberException {
+        String expectedValue = "0.0000";
+        BaseNumber input = new BaseNumber(Base.BASE_36, "0.0000");
+        Base convertTo = Base.BASE_2;
+        FloatingPointerConverter converter = new FloatingPointerConverter(input);
+        converter.setScale(4);
+        BaseNumber result = converter.convert(convertTo);
+        assertEquals(expectedValue, result.getValue());
+    }
 }
