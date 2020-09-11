@@ -36,7 +36,7 @@ public class FloatingPointerConverter {
 
     }
 
-    public String convertToDec() throws InvalidBaseNumberException {
+    private String convertToDec() throws InvalidBaseNumberException {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
