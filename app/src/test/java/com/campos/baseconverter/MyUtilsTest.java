@@ -7,10 +7,16 @@ import static org.junit.Assert.assertEquals;
 
 public class MyUtilsTest {
     @Test
-    public void formatBinStrTest() {
+    public void formatBinStrTest1() {
+        // Tests Whole Number
         String binStr = "10101";
         String result = formatBinStr(binStr);
         assertEquals("0001 0101", result);
+    }
+
+    @Test
+    public void formatBinStrTest2() {
+        // Tests Floating Point Number
     }
 
     @Test
@@ -21,15 +27,9 @@ public class MyUtilsTest {
     }
 
     @Test
-    public void completeBinStrTest1() {
-        // Tests whole number
+    public void completeBinStrTest() {
         String binStr = "1";
         String result = completeBinStr(binStr);
         assertEquals("0001", result);
-    }
-
-    @Test
-    public void completeBinStrTest2() {
-        // Tests floating point number
     }
 }
