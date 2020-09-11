@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 
 public class FloatingPointerConverter {
     private BaseNumber input;
-    private int precision;
+    private int scale;
 
     public FloatingPointerConverter(BaseNumber input) {
         this.input = input;
-        this.precision = 1;
+        this.scale = 1;
     }
 
     public void setInput(BaseNumber input) {
         this.input = input;
     }
 
-    public void setPrecision(int precision) {
-        this.precision = precision;
+    public void setScale(int scale) {
+        this.scale = scale;
     }
 
     public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
@@ -85,7 +85,7 @@ public class FloatingPointerConverter {
     private String calcFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
-        for (int i = 0; i < precision; i++) {
+        for (int i = 0; i < scale; i++) {
 //            System.out.print(" fractionBefore=" + fractionPart);
             fractionPart = fractionPart.multiply(RADIX);
 //            System.out.print(" fractionAfter=" + fractionPart);
