@@ -39,7 +39,6 @@ public class FloatingPointerConverter {
         BigDecimal result;
         String[] arr = input.getValue().split("[.]");
         BaseNumber wholePart = calcWholePart(arr[0], Base.BASE_10);
-//        System.out.println(wholePart.getValue());
         BigDecimal fractionalPart = calcFractionPartToDec(arr[1]);
         result = new BigDecimal(wholePart.getValue());
         result = result.add(fractionalPart);
@@ -55,7 +54,6 @@ public class FloatingPointerConverter {
     private BigDecimal calcFractionPartToDec(String s) {
         int pow = -1;
         int radix = input.getBase().getRadix();
-//        BigDecimal sum = BigDecimal.ZERO;
         double sum = 0;
         for (char c : s.toCharArray()) {
             double digit;
@@ -65,10 +63,8 @@ public class FloatingPointerConverter {
                 digit = Integer.valueOf(c + "");
             }
             double value = digit * Math.pow(radix, pow--);
-//            sum = sum.add(new BigDecimal(value));
             sum += value;
         }
-//        return sum;
         return new BigDecimal(sum);
     }
 
