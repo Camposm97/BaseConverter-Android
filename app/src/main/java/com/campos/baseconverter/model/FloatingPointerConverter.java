@@ -7,8 +7,8 @@ public class FloatingPointerConverter {
     private int scale;
 
     public FloatingPointerConverter(BaseNumber input) {
-        this.input = input;
-        this.scale = 16;
+        setInput(input);
+        this.setScale(16);
     }
 
     public void setInput(BaseNumber input) {
@@ -32,7 +32,6 @@ public class FloatingPointerConverter {
         } else {
             return new BaseNumber(convertTo, convertDecToBase(strDec, convertTo));
         }
-
     }
 
     private String convertToDec() throws InvalidBaseNumberException {
@@ -60,7 +59,7 @@ public class FloatingPointerConverter {
             if (Character.isLetter(c)) {
                 digit = (c - 55);
             } else {
-                digit = Integer.valueOf(c + "");
+                digit = Integer.parseInt(String.valueOf(c));
             }
             double value = digit * Math.pow(radix, pow--);
             sum += value;
