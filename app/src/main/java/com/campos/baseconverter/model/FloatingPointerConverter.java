@@ -24,13 +24,13 @@ public class FloatingPointerConverter {
             return BaseNumber.deepCopy(input);
         } // Else convert to Decimal then to convertTo
         if (input.getBase().equals(Base.BASE_10)) {
-            return new BaseNumber(convertTo, convertToBase(input.getValue(), convertTo));
+            return new BaseNumber(convertTo, convertDecToBase(input.getValue(), convertTo));
         }
         String strDec = convertToDec();
         if (convertTo.equals(Base.BASE_10)) {
             return new BaseNumber(convertTo, strDec);
         } else {
-            return new BaseNumber(convertTo, convertToBase(strDec, convertTo));
+            return new BaseNumber(convertTo, convertDecToBase(strDec, convertTo));
         }
 
     }
@@ -68,16 +68,16 @@ public class FloatingPointerConverter {
         return new BigDecimal(sum);
     }
 
-    private String convertToBase(String strDec, Base convertTo) throws InvalidBaseNumberException {
+    private String convertDecToBase(String strDec, Base convertTo) throws InvalidBaseNumberException {
         BigDecimal value = new BigDecimal(strDec);
         BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
         String strWholePart = arr[0].toBigInteger().toString();
-        String strFractionPart = calcFractionPartToBase(arr[1], convertTo);
+        String strFractionPart = calcDecFractionPartToBase(arr[1], convertTo);
         BaseNumber wholePart = calcWholePart(strWholePart, convertTo);
         return wholePart.getValue() + '.' + strFractionPart;
     }
 
-    private String calcFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
+    private String calcDecFractionPartToBase(BigDecimal fractionPart, Base convertTo) {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
         for (int i = 0; i < scale; i++) {
