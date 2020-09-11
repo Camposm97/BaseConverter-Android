@@ -8,7 +8,7 @@ public class FloatingPointerConverter {
 
     public FloatingPointerConverter(BaseNumber input) {
         this.input = input;
-        this.scale = 1;
+        this.scale = 16;
     }
 
     public void setInput(BaseNumber input) {
