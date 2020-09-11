@@ -21,9 +21,15 @@ public class MyUtilsTest {
     }
 
     @Test
-    public void completeBinStrTest() {
+    public void completeBinStrTest1() {
+        // Tests whole number
         String binStr = "1";
         String result = completeBinStr(binStr);
         assertEquals("0001", result);
+    }
+
+    @Test
+    public void completeBinStrTest2() {
+        // Tests floating point number
     }
 }
