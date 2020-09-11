@@ -60,7 +60,6 @@ public class MainBasesFragment extends Fragment {
                     showBaseInputDialog(position);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
