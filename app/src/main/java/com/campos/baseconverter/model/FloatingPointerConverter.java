@@ -99,18 +99,4 @@ public class FloatingPointerConverter {
         }
         return result.toString();
     }
-
-//    public String convertToBinStr() throws InvalidBaseNumberException {
-//        String result = "";
-//        if (input.getBase().equals(Base.BASE_10)) {
-//            BigDecimal value = new BigDecimal(input.getValue());
-//            BigDecimal[] arr = value.divideAndRemainder(BigDecimal.ONE);
-//
-//            String wholePartValue = arr[0].toBigInteger().toString();
-//            BaseNumber wholePart = calcWholePart(wholePartValue, Base.BASE_2);
-//            String fractionalPart = calcFractionPart(arr[1]);
-//            result = wholePart.getValue() + "." + fractionalPart;
-//        }
-//        return result;
-//    }
 }
