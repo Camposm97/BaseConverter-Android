@@ -17,6 +17,9 @@ public class MyUtilsTest {
     @Test
     public void formatBinStrTest2() {
         // Tests Floating Point Number
+        String binStr = "10100.1101001";
+        String result = formatBinStr(binStr);
+        assertEquals("0001 0100.1101 0010", result);
     }
 
     @Test
