@@ -16,9 +16,9 @@ public class MyUtils {
     public static String formatBinStr(String binStr) {
         if (binStr.contains(".")) {
             String[] arr = binStr.split("[.]");
-            return spaceBinStr(completeBinStr(arr[0])) + "." + spaceBinStr(completeBinStr(arr[1]));
+            return spaceBinStr(completeBinStr(arr[0], 0)) + "." + spaceBinStr(completeBinStr(arr[1], 1));
         }
-        return spaceBinStr(completeBinStr(binStr));
+        return spaceBinStr(completeBinStr(binStr, 0));
     }
 
     /**
@@ -54,8 +54,10 @@ public class MyUtils {
      */
     public static String completeBinStr(String binStr, int code) {
         while ((binStr.length() % 4) != 0) {
-            
-            binStr = "0" + binStr;
+            if (code == 0)
+                binStr = "0" + binStr;
+            else
+                binStr = binStr + "0";
         }
         return binStr;
     }
