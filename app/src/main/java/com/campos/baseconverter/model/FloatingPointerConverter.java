@@ -20,8 +20,7 @@ public class FloatingPointerConverter {
     }
 
     public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
-        int compare = input.getBase().compareTo(convertTo);
-        if (compare == 0) { // Return deep copy of input
+        if (input.getBase().equals(convertTo)) { // Return deep copy of input
             return BaseNumber.deepCopy(input);
         } // Else convert to Decimal then to convertTo
         if (input.getBase().equals(Base.BASE_10)) {
