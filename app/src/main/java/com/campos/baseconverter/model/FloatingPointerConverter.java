@@ -81,11 +81,8 @@ public class FloatingPointerConverter {
         StringBuilder result = new StringBuilder();
         final BigDecimal RADIX = new BigDecimal(convertTo.getRadix());
         for (int i = 0; i < scale; i++) {
-//            System.out.print(" fractionBefore=" + fractionPart);
             fractionPart = fractionPart.multiply(RADIX);
-//            System.out.print(" fractionAfter=" + fractionPart);
             int wholePart = fractionPart.divide(BigDecimal.ONE).intValue();
-//            System.out.println(" wholePart=" + wholePart);
             if (BigDecimal.ONE.compareTo(fractionPart) <= 0) { // Is whole part greater than 1
                 fractionPart = fractionPart.subtract(new BigDecimal(wholePart));
                 if (wholePart >= 10) {
