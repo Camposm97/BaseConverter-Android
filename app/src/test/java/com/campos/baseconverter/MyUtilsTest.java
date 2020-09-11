@@ -32,7 +32,7 @@ public class MyUtilsTest {
     @Test
     public void completeBinStrTest() {
         String binStr = "1";
-        String result = completeBinStr(binStr);
+        String result = completeBinStr(binStr, 0);
         assertEquals("0001", result);
     }
 }
