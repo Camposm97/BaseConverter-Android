@@ -30,13 +30,15 @@ public class BaseConverter {
     public BaseNumber convert(Base convertTo) {
         if (input.getBase().equals(convertTo)) {
             return BaseNumber.deepCopy(input); // Return deep copy of input
-        } else { // TODO: Fix issue when value is 0
-            BaseNumber dec = convertToDec(input);
-            if (convertTo.equals(Base.BASE_10)) {
-                return dec;
-            }
-            return convertDecToBase(dec, convertTo);
         }
+        if (input.getBase().equals(Base.BASE_10)) {
+            return convertDecToBase(input, convertTo);
+        }
+        BaseNumber dec = convertToDec(input);
+        if (convertTo.equals(Base.BASE_10)) {
+            return dec;
+        }
+        return convertDecToBase(dec, convertTo);
     }
 
     public BaseNumber convertToDec(BaseNumber input) {
