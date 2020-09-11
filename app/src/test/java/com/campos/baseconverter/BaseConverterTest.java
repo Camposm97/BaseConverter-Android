@@ -7,8 +7,6 @@ import com.campos.baseconverter.model.InvalidBaseNumberException;
 
 import org.junit.Test;
 
-import java.nio.file.LinkPermission;
-
 import static org.junit.Assert.*;
 
 public class BaseConverterTest {
@@ -26,7 +24,7 @@ public class BaseConverterTest {
         String input = "10001";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_2, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertToDecimal(baseNumber);
+        BaseNumber result = baseConverter.convertToDec(baseNumber);
         assertEquals("17", result.getValue());
     }
 
@@ -35,7 +33,7 @@ public class BaseConverterTest {
         String input = "11"; // Which equals 17 in decimal
         BaseNumber baseNumber = new BaseNumber(Base.BASE_16, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertToDecimal(baseNumber);
+        BaseNumber result = baseConverter.convertToDec(baseNumber);
         assertEquals("17", result.getValue());
     }
 
@@ -44,7 +42,7 @@ public class BaseConverterTest {
         String input = "21";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_3, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertToDecimal(baseNumber);
+        BaseNumber result = baseConverter.convertToDec(baseNumber);
         assertEquals("7", result.getValue());
     }
 
@@ -53,7 +51,7 @@ public class BaseConverterTest {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_2);
+        BaseNumber result = baseConverter.convertDecToBase(baseNumber, Base.BASE_2);
         assertEquals("10110", result.getValue());
     }
 
@@ -62,7 +60,7 @@ public class BaseConverterTest {
         String input = "26";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_16);
+        BaseNumber result = baseConverter.convertDecToBase(baseNumber, Base.BASE_16);
         assertEquals("1A", result.getValue());
     }
 
@@ -71,7 +69,7 @@ public class BaseConverterTest {
         String input = "22";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_10, input);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convertDecimalToBase(baseNumber, Base.BASE_8);
+        BaseNumber result = baseConverter.convertDecToBase(baseNumber, Base.BASE_8);
         assertEquals("26", result.getValue());
     }
 
