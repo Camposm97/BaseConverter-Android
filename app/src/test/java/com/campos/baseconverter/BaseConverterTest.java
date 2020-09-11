@@ -16,7 +16,7 @@ public class BaseConverterTest {
         BaseNumber input = new BaseNumber(Base.BASE_10, value);
         BaseConverter converter = new BaseConverter(input);
         BaseNumber result = converter.convert(Base.BASE_2);
-        System.out.println(result);
+        assertEquals("0", result.getValue());
     }
 
     @Test
