@@ -11,6 +11,10 @@ public class FloatingPointerConverter {
         this.precision = 1;
     }
 
+    public void setPrecision(int precision) {
+        this.precision = precision;
+    }
+
     public BaseNumber convert(Base convertTo) throws InvalidBaseNumberException {
         int compare = input.getBase().compareTo(convertTo);
         if (compare == 0) { // Return deep copy of input
