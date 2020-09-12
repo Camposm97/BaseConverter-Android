@@ -1,11 +1,9 @@
 package com.campos.baseconverter.util;
 
-import com.campos.baseconverter.model.Base;
 
-/**
- * TODO:
- * I should probably move these methods to Base enum if I only have methods that
- * revolve around Bases.
+/* TODO
+    Maybe I should rename this class since it only involves formatting
+    binary strings
  */
 public class MyUtils {
     /**
