@@ -61,6 +61,7 @@ public class AllBasesFragment extends Fragment {
                     showBaseInputDialog(position);
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -89,15 +90,15 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void startBaseConversion(BaseNumber baseNumber) {
-            BaseConverter baseConverter = new BaseConverter(baseNumber);
-            BaseNumber[] resultsArr = baseConverter.getAllResults();
-            if (resultsArr != null) {
-                UserHistory.getHistory().add(baseNumber, resultsArr);
-                UserHistory.save(getActivity());
-                rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
-            } else {
-                AlertUtils.showInvalidBaseNumInput(getContext());
-            }
-            spinner.setSelection(0);
+        BaseConverter baseConverter = new BaseConverter(baseNumber);
+        BaseNumber[] resultsArr = baseConverter.getAllResults();
+        if (resultsArr != null) {
+            UserHistory.getHistory().add(baseNumber, resultsArr);
+            UserHistory.save(getActivity());
+            rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
+        } else {
+            AlertUtils.showInvalidBaseNumInput(getContext());
+        }
+        spinner.setSelection(0);
     }
 }
