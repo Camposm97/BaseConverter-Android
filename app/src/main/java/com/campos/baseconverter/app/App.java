@@ -16,6 +16,11 @@ public class App extends Application {
     public static int themeCode = -1;
     public static int numSchemeCode = -1;
 
+    /* TODO
+        I should take some time and think about how I want to design the app to make it so
+        the user convert floating point and integer numbers.
+     */
+
     @Override
     public void onCreate() {
         super.onCreate();
