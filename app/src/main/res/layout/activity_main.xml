@@ -13,12 +13,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bt_float"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/str_convert_float" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
