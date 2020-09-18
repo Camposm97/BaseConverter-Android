@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.view.activities.ShowResultsActivity;
+import com.campos.baseconverter.view.activity.ShowResultsActivity;
 
 import java.util.List;
 
