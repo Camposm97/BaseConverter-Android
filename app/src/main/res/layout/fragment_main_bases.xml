@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.fragments.MainBasesFragment">
+    tools:context=".view.fragment.MainBasesFragment">
 
     <include
         android:id="@+id/spinner_main_bases"
