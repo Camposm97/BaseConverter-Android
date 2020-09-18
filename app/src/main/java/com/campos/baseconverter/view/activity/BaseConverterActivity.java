@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.model.MyFragmentStateAdapter;
-import com.campos.baseconverter.view.fragments.AllBasesFragment;
-import com.campos.baseconverter.view.fragments.MainBasesFragment;
+import com.campos.baseconverter.view.fragment.AllBasesFragment;
+import com.campos.baseconverter.view.fragment.MainBasesFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
