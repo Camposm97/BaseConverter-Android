@@ -17,12 +17,12 @@
         <activity
             android:name=".view.activities.HistoryActivity"
             android:label="@string/history_name"
-            android:parentActivityName=".view.activities.MainActivity" />
+            android:parentActivityName=".view.activities.BaseConverterActivity" />
         <activity
             android:name=".view.activities.OptionsActivity"
             android:label="@string/option_name"
-            android:parentActivityName=".view.activities.MainActivity" />
-        <activity android:name=".view.activities.MainActivity">
+            android:parentActivityName=".view.activities.BaseConverterActivity" />
+        <activity android:name=".view.activities.BaseConverterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
