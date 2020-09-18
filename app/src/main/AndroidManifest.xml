@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
+        <activity android:name=".view.activities.FloatingPointConverterActivity"></activity>
         <activity
             android:name=".view.activities.ShowResultsActivity"
             android:label="@string/history_name"
