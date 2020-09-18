@@ -1,10 +1,11 @@
 package com.campos.baseconverter.view.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.campos.baseconverter.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * I named it to AppActivity instead of MainActivity so the file can be listed at the top
@@ -16,5 +17,11 @@ public class AppActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
