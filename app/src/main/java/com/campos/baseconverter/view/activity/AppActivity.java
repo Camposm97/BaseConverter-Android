@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import com.campos.baseconverter.R;
 import com.campos.baseconverter.util.Tag;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
+import com.campos.baseconverter.view.fragment.HistoryFragment;
 import com.campos.baseconverter.view.fragment.MainBasesFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -72,7 +73,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 break;
             case R.id.item_history:
                 manager.beginTransaction().replace(
-                        R.id.fragment_container, new HistoryActivity()).commit();
+                        R.id.fragment_container, new HistoryFragment()).commit();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
