@@ -45,7 +45,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.bt_yes, R.string.bt_no);
+                R.string.nav_open, R.string.nav_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
