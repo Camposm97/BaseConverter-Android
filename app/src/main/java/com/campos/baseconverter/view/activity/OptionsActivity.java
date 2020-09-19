@@ -35,7 +35,7 @@ public class OptionsActivity extends AppCompatActivity {
                 themeCode = which;
             }
         });
-        dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.nav_open, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ThemeUtils.setTheme(c, themeCode);
@@ -43,7 +43,7 @@ public class OptionsActivity extends AppCompatActivity {
                 ThemeUtils.save(c, themeCode);
             }
         });
-        dialogBuilder.setNegativeButton(R.string.bt_no, null);
+        dialogBuilder.setNegativeButton(R.string.nav_close, null);
         dialogBuilder.setCancelable(false);
         dialogBuilder.show();
     }
@@ -57,7 +57,7 @@ public class OptionsActivity extends AppCompatActivity {
                 numSchemeCode = which;
             }
         });
-        dialogBuilder.setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
+        dialogBuilder.setPositiveButton(R.string.nav_open, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 App.numSchemeCode = numSchemeCode;
@@ -66,7 +66,7 @@ public class OptionsActivity extends AppCompatActivity {
                 Toast.makeText(c, s, Toast.LENGTH_LONG).show();
             }
         });
-        dialogBuilder.setNegativeButton(R.string.bt_no, null);
+        dialogBuilder.setNegativeButton(R.string.nav_close, null);
         dialogBuilder.setCancelable(false);
         dialogBuilder.show();
     }
