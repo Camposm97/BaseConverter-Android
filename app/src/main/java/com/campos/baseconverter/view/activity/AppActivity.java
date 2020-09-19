@@ -31,6 +31,6 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        return false;
+        return true;
     }
 }
