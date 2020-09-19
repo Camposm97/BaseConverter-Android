@@ -3,12 +3,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_main_bases"
-            android:title="Main Bases" />
+            android:title="@string/str_main_bases" />
         <item
             android:id="@+id/item_all_bases"
-            android:title="All Bases" />
+            android:title="@string/str_all_bases" />
     </group>
-
     <item android:title="Settings">
         <menu>
             <item
