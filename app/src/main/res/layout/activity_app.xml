@@ -5,7 +5,9 @@
     android:id="@+id/layout_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.AppActivity">
+    android:fitsSystemWindows="false"
+    tools:context=".view.activity.AppActivity"
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
