@@ -54,7 +54,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         }
     }
 
-    @Override // Do something if an item is clicked in drawer
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_main_bases:
