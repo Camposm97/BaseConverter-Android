@@ -25,8 +25,6 @@
         <item name="default">Default (System)</item>
     </string-array>
 
-    <string name="bt_yes">Ok</string>
-    <string name="bt_no">Cancel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
