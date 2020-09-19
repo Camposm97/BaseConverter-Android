@@ -70,6 +70,10 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
+            case R.id.item_history:
+                manager.beginTransaction().replace(
+                        R.id.fragment_container, new HistoryActivity()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
