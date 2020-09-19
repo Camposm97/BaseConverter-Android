@@ -1,6 +1,7 @@
 package com.campos.baseconverter.view.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.util.Tag;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
 import com.campos.baseconverter.view.fragment.MainBasesFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -56,12 +58,15 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Log.d(Tag.TAG, item.getTitle() + " " + item.toString());
         switch (item.getItemId()) {
             case R.id.item_main_bases:
+                Log.d(Tag.TAG, "Display Main Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new MainBasesFragment()).commit();
                 break;
             case R.id.item_all_bases:
+                Log.d(Tag.TAG, "Display All Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
