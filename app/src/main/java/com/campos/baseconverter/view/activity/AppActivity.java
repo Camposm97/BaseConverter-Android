@@ -30,7 +30,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     public void initControl() {
-        
+
     }
 
     @Override
