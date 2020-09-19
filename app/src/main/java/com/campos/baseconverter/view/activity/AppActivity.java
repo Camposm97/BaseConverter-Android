@@ -44,8 +44,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 0, 0);
-//        drawer.addDrawerListener(toggle); // Not sure what this does, but program runs fine without it
-        toggle.syncState(); // Displays toggle switch on toolbar
+        toggle.syncState();
     }
 
     public void initDisplay(Bundle savedInstanceState) {
@@ -58,9 +57,9 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     @Override // Do something if an item is clicked in drawer
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-
+            
         }
-        drawer.closeDrawer(GravityCompat.START); // Closes drawer after an item is selected
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
