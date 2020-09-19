@@ -3,7 +3,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_main_bases"
-            android:title="" />
+            android:title="Main Bases" />
         <item
             android:id="@+id/item_all_bases"
             android:title="All Bases" />
