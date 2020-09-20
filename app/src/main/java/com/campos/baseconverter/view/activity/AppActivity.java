@@ -1,8 +1,12 @@
 package com.campos.baseconverter.view.activity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,7 +17,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.campos.baseconverter.R;
+
+import static com.campos.baseconverter.util.Tag.TAG;
+
+import com.campos.baseconverter.app.App;
 import com.campos.baseconverter.util.Tag;
+import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
 import com.campos.baseconverter.view.fragment.HistoryFragment;
 import com.campos.baseconverter.view.fragment.MainBasesFragment;
@@ -28,6 +37,9 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     private DrawerLayout drawer;
     private FragmentManager manager;
     private NavigationView navigationView;
+    private Context c;
+//    private int themeCode;
+//    private int numSchemeCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +60,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 R.string.nav_open, R.string.nav_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        c = this;
     }
 
     public void initDisplay(Bundle savedInstanceState) {
@@ -59,25 +72,42 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Log.d(Tag.TAG, item.getTitle() + " " + item.toString());
+        Log.d(TAG, item.getTitle() + " " + item.toString());
         switch (item.getItemId()) {
             case R.id.item_main_bases:
-                Log.d(Tag.TAG, "Display Main Bases");
+                Log.d(TAG, "Display Main Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new MainBasesFragment()).commit();
                 break;
             case R.id.item_all_bases:
-                Log.d(Tag.TAG, "Display All Bases");
+                Log.d(TAG, "Display All Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
             case R.id.item_history:
+                Log.d(TAG, "Display History");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void chooseAppearance() {
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(R.string.str_theme);
+        dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.themeCode, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                ThemeUtils.setTheme(c, which);
+                App.themeCode = which;
+                ThemeUtils.save(c, which);
+            }
+        });
+        dialogBuilder.setCancelable(false);
+        dialogBuilder.show();
     }
 
     @Override
