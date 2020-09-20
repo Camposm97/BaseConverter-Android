@@ -15,10 +15,10 @@
         <menu>
             <item
                 android:id="@+id/item_theme"
-                android:title="Appearance" />
+                android:title="@string/str_theme" />
             <item
-                android:id="@+id/item_appearance"
-                android:title="Advanced" />
+                android:id="@+id/item_num_scheme"
+                android:title="@string/str_num_scheme" />
         </menu>
     </item>
 
