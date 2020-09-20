@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 App.numSchemeCode = which;
                 NumSchemeUtils.save(c, which);
                 dialog.dismiss();
+                recreate();
             }
         });
         dialogBuilder.setCancelable(true);
