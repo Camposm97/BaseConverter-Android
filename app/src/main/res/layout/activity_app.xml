@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context=".view.activity.AppActivity"
+    tools:context=".view.activity.MainActivity"
     tools:openDrawer="left">
 
     <androidx.constraintlayout.widget.ConstraintLayout

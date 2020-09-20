@@ -25,11 +25,7 @@ import com.campos.baseconverter.view.fragment.HistoryFragment;
 import com.campos.baseconverter.view.fragment.MainBasesFragment;
 import com.google.android.material.navigation.NavigationView;
 
-/**
- * I named it to AppActivity instead of MainActivity so the file can be listed at the top
- * when you open this package folder.
- */
-public class AppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private FragmentManager manager;
