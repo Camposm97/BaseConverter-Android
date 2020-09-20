@@ -18,12 +18,12 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:orientation="vertical">-->
 
-    <include
+    <Spinner
         android:id="@+id/spinner_all_bases"
-        layout="@layout/my_spinner_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        style="@style/MySpinner" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_all_bases"
