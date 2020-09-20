@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -84,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 chooseTheme();
                 break;
             case R.id.item_num_scheme:
-                chooseAppearance();
+                chooseNumScheme();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -107,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialogBuilder.show();
     }
 
-    public void chooseAppearance() {
+    public void chooseNumScheme() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_num_scheme);
         dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.numSchemeCode, new DialogInterface.OnClickListener() {

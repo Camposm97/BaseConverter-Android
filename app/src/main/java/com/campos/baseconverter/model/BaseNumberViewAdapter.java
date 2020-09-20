@@ -27,7 +27,7 @@ public class BaseNumberViewAdapter extends RecyclerView.Adapter<BaseNumberViewHo
     @Override
     public BaseNumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.base_output_layout, parent, false);
+        View view = inflater.inflate(R.layout.layout_base_num_output, parent, false);
         return new BaseNumberViewHolder(view);
     }
 
