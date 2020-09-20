@@ -65,12 +65,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_main_bases:
-                setTitle(R.string.app_name);
+                setTitle(R.string.str_main_bases);
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new MainBasesFragment()).commit();
                 break;
             case R.id.item_all_bases:
-                setTitle(R.string.app_name);
+                setTitle(R.string.str_all_bases);
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
