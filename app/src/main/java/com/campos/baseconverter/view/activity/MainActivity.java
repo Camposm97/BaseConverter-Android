@@ -65,14 +65,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_main_bases:
+                setTitle(R.string.app_name);
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new MainBasesFragment()).commit();
                 break;
             case R.id.item_all_bases:
+                setTitle(R.string.app_name);
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
             case R.id.item_history:
+                setTitle(R.string.history_name);
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
@@ -111,8 +114,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(DialogInterface dialog, int which) {
                 App.numSchemeCode = which;
                 NumSchemeUtils.save(c, which);
-                String s = "Press the \"BACK\" button above to apply changes";
-                Toast.makeText(c, s, Toast.LENGTH_LONG).show();
                 dialog.dismiss();
             }
         });
