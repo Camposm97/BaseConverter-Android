@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,7 +20,6 @@ import com.campos.baseconverter.R;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 import com.campos.baseconverter.app.App;
-import com.campos.baseconverter.util.Tag;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
 import com.campos.baseconverter.view.fragment.HistoryFragment;
@@ -89,15 +87,15 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
-            case R.id.appearance:
-                chooseAppearance();
+            case R.id.item_appearance:
+                chooseTheme();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void chooseAppearance() {
+    public void chooseTheme() {
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_theme);
         dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.themeCode, new DialogInterface.OnClickListener() {
@@ -111,6 +109,10 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         });
         dialogBuilder.setCancelable(false);
         dialogBuilder.show();
+    }
+
+    public void chooseBaseScheme() {
+
     }
 
     @Override
