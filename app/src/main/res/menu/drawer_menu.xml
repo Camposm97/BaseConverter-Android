@@ -14,10 +14,10 @@
     <item android:title="Settings">
         <menu>
             <item
-                android:id="@+id/item_appearance"
+                android:id="@+id/item_theme"
                 android:title="Appearance" />
             <item
-                android:id="@+id/item_advanced"
+                android:id="@+id/item_appearance"
                 android:title="Advanced" />
         </menu>
     </item>

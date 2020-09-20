@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,6 +21,7 @@ import com.campos.baseconverter.R;
 import static com.campos.baseconverter.util.Tag.TAG;
 
 import com.campos.baseconverter.app.App;
+import com.campos.baseconverter.util.NumSchemeUtils;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
 import com.campos.baseconverter.view.fragment.HistoryFragment;
@@ -87,7 +89,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
-            case R.id.item_appearance:
+            case R.id.item_theme:
                 chooseTheme();
                 break;
         }
@@ -112,7 +114,19 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     public void chooseBaseScheme() {
-
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(R.string.str_num_scheme);
+        dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.numSchemeCode, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                App.numSchemeCode = which;
+                NumSchemeUtils.save(c, which);
+                String s = "Press the \"BACK\" button above to apply changes";
+                Toast.makeText(c, s, Toast.LENGTH_LONG).show();
+            }
+        });
+        dialogBuilder.setCancelable(false);
+        dialogBuilder.show();
     }
 
     @Override
