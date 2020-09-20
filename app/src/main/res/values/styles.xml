@@ -12,4 +12,8 @@
         <item name="fontFamily">monospace</item>
         <item name="android:gravity">center</item>
     </style>
+    <style name="MySpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:spinnerMode">dialog</item>
+    </style>
 </resources>
