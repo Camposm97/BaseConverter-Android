@@ -89,6 +89,9 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
+            case R.id.appearance:
+                chooseAppearance();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -100,10 +103,10 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.themeCode, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
                 ThemeUtils.setTheme(c, which);
                 App.themeCode = which;
                 ThemeUtils.save(c, which);
+                dialog.dismiss();
             }
         });
         dialogBuilder.setCancelable(false);
