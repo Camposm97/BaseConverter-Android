@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -17,8 +16,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.campos.baseconverter.R;
-
-import static com.campos.baseconverter.util.Tag.TAG;
 
 import com.campos.baseconverter.app.App;
 import com.campos.baseconverter.util.NumSchemeUtils;
@@ -38,8 +35,6 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     private FragmentManager manager;
     private NavigationView navigationView;
     private Context c;
-//    private int themeCode;
-//    private int numSchemeCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +83,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
             case R.id.item_theme:
                 chooseTheme();
                 break;
-            case R.id.item_appearance:
+            case R.id.item_num_scheme:
                 chooseAppearance();
                 break;
         }
@@ -97,7 +92,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     public void chooseTheme() {
-        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_theme);
         dialogBuilder.setSingleChoiceItems(R.array.theme_options, App.themeCode, new DialogInterface.OnClickListener() {
             @Override
@@ -108,7 +103,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 dialog.dismiss();
             }
         });
-        dialogBuilder.setCancelable(false);
+        dialogBuilder.setCancelable(true);
         dialogBuilder.show();
     }
 
@@ -122,9 +117,10 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
                 NumSchemeUtils.save(c, which);
                 String s = "Press the \"BACK\" button above to apply changes";
                 Toast.makeText(c, s, Toast.LENGTH_LONG).show();
+                dialog.dismiss();
             }
         });
-        dialogBuilder.setCancelable(false);
+        dialogBuilder.setCancelable(true);
         dialogBuilder.show();
     }
 
