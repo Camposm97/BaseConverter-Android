@@ -72,25 +72,24 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Log.d(TAG, item.getTitle() + " " + item.toString());
         switch (item.getItemId()) {
             case R.id.item_main_bases:
-                Log.d(TAG, "Display Main Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new MainBasesFragment()).commit();
                 break;
             case R.id.item_all_bases:
-                Log.d(TAG, "Display All Bases");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
             case R.id.item_history:
-                Log.d(TAG, "Display History");
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new HistoryFragment()).commit();
                 break;
             case R.id.item_theme:
                 chooseTheme();
+                break;
+            case R.id.item_appearance:
+                chooseAppearance();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -113,7 +112,7 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         dialogBuilder.show();
     }
 
-    public void chooseBaseScheme() {
+    public void chooseAppearance() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(R.string.str_num_scheme);
         dialogBuilder.setSingleChoiceItems(R.array.num_scheme_options, App.numSchemeCode, new DialogInterface.OnClickListener() {
