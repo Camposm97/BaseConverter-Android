@@ -5,23 +5,34 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp">
 
-    <include
+    <TextView
         android:id="@+id/output_label"
-        layout="@layout/base_output_label"
+        style="@style/MyTextView"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/my_label_border"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/output_field"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <include
+    <TextView
         android:id="@+id/output_field"
-        layout="@layout/base_output_field"
+        style="@style/MyTextView"
+        android:background="@drawable/my_edit_text_border"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="none"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/output_label"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
