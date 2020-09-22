@@ -38,7 +38,7 @@ public class IEEE754 {
                     for (int j = 0; j < arr[0].length(); j++) {
                         char c1 = arr[0].charAt(j);
                         if (c1 == '1') {
-
+                            position = position - j;
                         }
                     }
                     sb.deleteCharAt(i);
@@ -47,6 +47,8 @@ public class IEEE754 {
         }
         System.out.println(sb);
         System.out.println("position=" + position);
+        sb.insert(position, '.');
+        System.out.println(sb);
         return null;
     }
 
