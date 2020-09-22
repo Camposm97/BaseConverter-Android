@@ -20,7 +20,14 @@ public class IEEE754 {
      */
     private String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
-        int position = sb.indexOf(".");
+        int pos1 = sb.indexOf(".");
+        sb.deleteCharAt(pos1);
+        for (int i = 0; i < sb.length(); i++) {
+            char c = sb.charAt(i);
+            if (c == '1') {
+
+            }
+        }
 //        for (int i = 0; i < sb.length(); i++) {
 //            char c0 = sb.charAt(i);
 //            if (i < sb.length() - 1) {
@@ -48,7 +55,7 @@ public class IEEE754 {
 //            }
 //        }
         System.out.println(sb);
-        System.out.println("position=" + position);
+        System.out.println("pos1=" + pos1);
         return null;
     }
 
