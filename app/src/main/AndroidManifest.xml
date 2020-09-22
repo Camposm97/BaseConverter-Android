@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.FloatingPointConverterActivity" />
         <activity
             android:name=".view.activity.ShowResultsActivity"
             android:label="@string/history_name"
