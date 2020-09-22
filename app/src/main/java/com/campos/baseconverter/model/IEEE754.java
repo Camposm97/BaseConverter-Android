@@ -1,0 +1,9 @@
+package com.campos.baseconverter.model;
+
+public class IEEE754 {
+    public void toSinglePrecision(BaseNumber input) {
+        if (input.getBase().equals(Base.BASE_2)) {
+            
+        }
+    }
+}
