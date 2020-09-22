@@ -22,26 +22,31 @@ public class IEEE754 {
         StringBuilder sb = new StringBuilder(value);
         int position = 0;
         for (int i = 0; i < sb.length(); i++) {
-            char c = sb.charAt(i);
-            if (i < sb.length() - 1) {
-                char d = sb.charAt(i + 1);
-                System.out.println(d);
-            }
-            if (c == '.') {
+            char c0 = sb.charAt(i);
+//            if (i < sb.length() - 1) {
+//                char d = sb.charAt(i + 1);
+//                System.out.println(d);
+//            }
+            if (c0 == '.') {
+                position = i;
                 if (sb.charAt(0) == '1') {
                     // If the msb is a 1, then we can get the power and delete '.' and move on
-                    position = i;
                     sb.deleteCharAt(i);
+                    break;
                 } else { // We have to find a 1 to know the power, then we can delete '.'
                     String[] arr = sb.toString().split("[.]");
                     for (int j = 0; j < arr[0].length(); j++) {
+                        char c1 = arr[0].charAt(j);
+                        if (c1 == '1') {
 
+                        }
                     }
+                    sb.deleteCharAt(i);
                 }
             }
         }
         System.out.println(sb);
-        System.out.println("j=" + position);
+        System.out.println("position=" + position);
         return null;
     }
 
