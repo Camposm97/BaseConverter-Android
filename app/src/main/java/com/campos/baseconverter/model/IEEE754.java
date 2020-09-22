@@ -24,6 +24,10 @@ public class IEEE754 {
                 sb.deleteCharAt(i);
                 if (sb.charAt(0) == '1') {
                     j = i - 1;
+                } else {
+                    if (i < sb.length() - 1) {
+                        
+                    }
                 }
             }
         }
