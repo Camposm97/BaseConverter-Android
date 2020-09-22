@@ -52,10 +52,6 @@ public class BaseNumber implements Serializable {
         return spanStr;
     }
 
-    public boolean hasDecimals() {
-        return value.contains(".");
-    }
-
     @Override
     public String toString() {
         return "(" + value + ")" + base.getRadix();
