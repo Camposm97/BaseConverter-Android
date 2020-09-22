@@ -10,7 +10,7 @@ public class IEEE754Test {
     @Test
     public void method() {
         IEEE754 ieee754 = new IEEE754();
-        BaseNumber input = new BaseNumber(Base.BASE_2, "0010.001");
+        BaseNumber input = new BaseNumber(Base.BASE_2, "0001.001");
         ieee754.toSinglePrecision(input);
     }
 }
