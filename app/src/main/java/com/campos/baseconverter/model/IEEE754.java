@@ -57,6 +57,7 @@ public class IEEE754 {
 //            }
 //        }
         int x = pos1 - pos2;
+        System.out.println("x=" + x);
         System.out.println(sb);
         System.out.println("pos1=" + pos1);
         System.out.println("pos2=" + pos2);
