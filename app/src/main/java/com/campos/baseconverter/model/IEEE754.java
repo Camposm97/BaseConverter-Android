@@ -48,8 +48,4 @@ public class IEEE754 {
         System.out.println("pow=" + x);
         return new String[] {sb.toString()};
     }
-
-    private boolean containsFractions(String value) {
-        return value.contains("[.]");
-    }
 }
