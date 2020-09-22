@@ -20,16 +20,16 @@ public class IEEE754 {
      */
     private String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
-        int position = 0;
-        for (int i = 0; i < sb.length(); i++) {
-            char c0 = sb.charAt(i);
+        int position = sb.indexOf(".");
+//        for (int i = 0; i < sb.length(); i++) {
+//            char c0 = sb.charAt(i);
 //            if (i < sb.length() - 1) {
 //                char d = sb.charAt(i + 1);
 //                System.out.println(d);
 //            }
-            if (c0 == '.') {
-                position = i;
-                break;
+//            if (c0 == '.') {
+//                position = i;
+//                break;
 //                if (sb.charAt(0) == '1') {
 //                    // If the msb is a 1, then we can get the power and delete '.' and move on
 //                    sb.deleteCharAt(i);
@@ -45,8 +45,8 @@ public class IEEE754 {
 //                    }
 //                    sb.deleteCharAt(i);
 //                }
-            }
-        }
+//            }
+//        }
         System.out.println(sb);
         System.out.println("position=" + position);
         return null;
