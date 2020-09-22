@@ -21,13 +21,15 @@ public class IEEE754 {
     private String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
         int pos1 = sb.indexOf(".");
-        sb.deleteCharAt(pos1);
-        for (int i = 0; i < sb.length(); i++) {
-            char c = sb.charAt(i);
-            if (c == '1') {
-
-            }
-        }
+        int pos2 = sb.indexOf("1");
+//        sb.deleteCharAt(pos1);
+//        for (int i = 0; i < sb.length(); i++) {
+//            char c = sb.charAt(i);
+//            if (c == '1') {
+//                pos2 = i;
+//                break;
+//            }
+//        }
 //        for (int i = 0; i < sb.length(); i++) {
 //            char c0 = sb.charAt(i);
 //            if (i < sb.length() - 1) {
@@ -54,8 +56,17 @@ public class IEEE754 {
 //                }
 //            }
 //        }
+        int x = pos1 - pos2;
         System.out.println(sb);
         System.out.println("pos1=" + pos1);
+        System.out.println("pos2=" + pos2);
+        if (x == 1) {
+            System.out.println("Leave the decimal");
+        } else if (x > 1) {
+            System.out.println("Move decimal to the right");
+        } else {
+            System.out.println("Move decimal to the left");
+        }
         return null;
     }
 
