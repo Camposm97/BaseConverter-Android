@@ -28,21 +28,22 @@ public class IEEE754 {
         System.out.println(sb);
         System.out.println("posDot=" + posDot);
         System.out.println("posOne=" + posOne);
-        if (x == 1) {
-//            System.out.println("Leave the decimal");
+        if (x == 1) { // Leave decimal
             x = 0;
-        } else if (x > 1) {
-//            System.out.println("Move decimal to the right");
+        } else if (x > 1) { // Move decimal right
             sb.insert(posOne + 1, '.');
             sb.deleteCharAt(posDot + 1);
             posDot = sb.indexOf(".");
-        } else {
-//            System.out.println("Move decimal to the left");
+            x = Math.abs(x) - 1;
+        } else { // Move decimal left
             sb.insert(posOne + 1, '.');
             sb.deleteCharAt(posDot);
             posDot = sb.indexOf(".");
+            x = Math.abs(x);
         }
-        x = Math.abs(x) - 1;
+        if (sb.charAt(sb.length() - 1) == '.') {
+            sb.append('0');
+        }
         sb = sb.delete(0, posDot - 1);
         System.out.println(sb);
         System.out.println("pow=" + x);
