@@ -29,26 +29,26 @@ public class IEEE754 {
 //            }
             if (c0 == '.') {
                 position = i;
-                if (sb.charAt(0) == '1') {
-                    // If the msb is a 1, then we can get the power and delete '.' and move on
-                    sb.deleteCharAt(i);
-                    break;
-                } else { // We have to find a 1 to know the power, then we can delete '.'
-                    String[] arr = sb.toString().split("[.]");
-                    for (int j = 0; j < arr[0].length(); j++) {
-                        char c1 = arr[0].charAt(j);
-                        if (c1 == '1') {
-                            position = position - j;
-                        }
-                    }
-                    sb.deleteCharAt(i);
-                }
+                break;
+//                if (sb.charAt(0) == '1') {
+//                    // If the msb is a 1, then we can get the power and delete '.' and move on
+//                    sb.deleteCharAt(i);
+//                    break;
+//                }
+//                else { // We have to find a 1 to know the power, then we can delete '.'
+//                    String[] arr = sb.toString().split("[.]");
+//                    for (int j = 0; j < arr[0].length(); j++) {
+//                        char c1 = arr[0].charAt(j);
+//                        if (c1 == '1') {
+//                            position = position - j;
+//                        }
+//                    }
+//                    sb.deleteCharAt(i);
+//                }
             }
         }
         System.out.println(sb);
         System.out.println("position=" + position);
-        sb.insert(position, '.');
-        System.out.println(sb);
         return null;
     }
 
