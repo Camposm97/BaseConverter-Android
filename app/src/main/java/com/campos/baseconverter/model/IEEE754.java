@@ -7,4 +7,8 @@ public class IEEE754 {
             String value = input.getValue();
         }
     }
+
+    private boolean containsFractions(String value) {
+        return value.contains("[.]");
+    }
 }
