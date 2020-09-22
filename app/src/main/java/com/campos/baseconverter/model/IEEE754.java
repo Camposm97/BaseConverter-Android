@@ -20,22 +20,30 @@ public class IEEE754 {
      */
     private String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
-        int pos1 = sb.indexOf(".");
-        int pos2 = sb.indexOf("1");
-        int x = pos1 - pos2;
-        
+        int posDot = sb.indexOf(".");
+        int posOne = sb.indexOf("1");
+        int x = posDot - posOne;
+
         System.out.println("x=" + x);
         System.out.println(sb);
-        System.out.println("pos1=" + pos1);
-        System.out.println("pos2=" + pos2);
+        System.out.println("posDot=" + posDot);
+        System.out.println("posOne=" + posOne);
         if (x == 1) {
             System.out.println("Leave the decimal");
         } else if (x > 1) {
             System.out.println("Move decimal to the right");
+            sb.insert(posOne + 1, '.');
+            sb.deleteCharAt(posDot + 1);
+            posDot = sb.indexOf(".");
         } else {
             System.out.println("Move decimal to the left");
+            sb.insert(posOne + 1, '.');
+            sb.deleteCharAt(posDot);
+            posDot = sb.indexOf(".");
         }
-        return null;
+        sb = sb.delete(0, posDot - 1);
+        System.out.println(sb);
+        return new String[] {sb.toString()};
     }
 
     private boolean containsFractions(String value) {
