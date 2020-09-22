@@ -18,7 +18,6 @@
         </activity>
         <activity
             android:name=".view.activity.ShowResultsActivity"
-            android:label="@string/history_name"
-            android:parentActivityName=".view.activity.HistoryActivity" />
+            android:label="@string/history_name" />
     </application>
 </manifest>
