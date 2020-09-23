@@ -39,7 +39,7 @@ public class IEEE754 {
             sb.insert(posOne + 1, '.');
             sb.deleteCharAt(posDot);
             posDot = sb.indexOf(".");
-            x = Math.abs(x);
+//            x = Math.abs(x);
         }
         if (sb.charAt(sb.length() - 1) == '.') {
             sb.append('0');
