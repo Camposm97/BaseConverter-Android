@@ -47,6 +47,6 @@ public class IEEE754 {
         sb = sb.delete(0, posDot - 1);
         System.out.println(sb);
         System.out.println("pow=" + x);
-        return new String[] {sb.toString()};
+        return new String[] {sb.toString(), String.valueOf(x)};
     }
 }
