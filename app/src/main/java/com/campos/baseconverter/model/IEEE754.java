@@ -20,14 +20,13 @@ public class IEEE754 {
      */
     private String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
-        int posDot = sb.indexOf(".");
-        int posOne = sb.indexOf("1");
+        int posDot = sb.indexOf("."); // find the first '.'
+        int posOne = sb.indexOf("1"); // find the first '1'
         int x = posDot - posOne;
-
-        System.out.println("x=" + x);
-        System.out.println(sb);
-        System.out.println("posDot=" + posDot);
-        System.out.println("posOne=" + posOne);
+//        System.out.println("x=" + x);
+//        System.out.println(sb);
+//        System.out.println("posDot=" + posDot);
+//        System.out.println("posOne=" + posOne);
         if (x == 1) { // Leave decimal
             x = 0;
         } else if (x > 1) { // Move decimal right
@@ -44,8 +43,8 @@ public class IEEE754 {
             sb.append('0');
         }
         sb = sb.delete(0, posDot - 1);
-        System.out.println(sb);
-        System.out.println("pow=" + x);
+//        System.out.println(sb);
+//        System.out.println("pow=" + x);
         return new String[] {sb.toString(), String.valueOf(x)};
     }
 }
