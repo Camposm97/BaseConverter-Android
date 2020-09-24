@@ -16,14 +16,10 @@ public class App extends Application {
     public static int themeCode = -1;
     public static int numSchemeCode = -1;
 
-    /* TODO:
-            I should take some time and think about how I want to design the app to make it so
-            the user convert floating points (fixed and IEEE 754) and integer
-        IDEA:
-            I think I'll have it where the MainActivity will have buttons the user can choose from
-            then from there it will launch a new activity what is currently the MainActivity.
-
-     */
+/*
+TODO:
+        
+ */
 
     @Override
     public void onCreate() {
