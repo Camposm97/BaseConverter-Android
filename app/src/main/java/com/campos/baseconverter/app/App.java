@@ -18,7 +18,10 @@ public class App extends Application {
 
 /*
 TODO:
-        
+    The way I'm seeing how to make my application more clean is that my navigation view will have 3 menu items to choose from
+    which will be whole numbers, floating point numbers, and ieee754 for now.  When the user clicks on whole or floating point
+    the way they will be displayed is it will show the main bases and in the settings it will have the option to display all the bases.
+    IEEE754 will only be taking in hex, binary, and decimal as input.
  */
 
     @Override
