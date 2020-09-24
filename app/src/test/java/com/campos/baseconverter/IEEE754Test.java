@@ -1,16 +1,17 @@
 package com.campos.baseconverter;
 
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.IEEE754;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class IEEE754Test {
     @Test
-    public void method() {
-        IEEE754 ieee754 = new IEEE754();
-        BaseNumber input = new BaseNumber(Base.BASE_2, "00.11");
-        ieee754.toSinglePrecision(input);
+    public void testFormatBinStr1() {
+        String value = "00.11";
+        IEEE754 ieee = new IEEE754();
+        String[] resultArr = ieee.formatBinStr(value);
+        System.out.println(Arrays.toString(resultArr));
     }
 }
