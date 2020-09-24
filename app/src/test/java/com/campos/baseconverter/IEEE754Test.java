@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
+
 public class IEEE754Test {
     /*
     TODO:
@@ -16,6 +18,7 @@ public class IEEE754Test {
         String value = "100.0";
         IEEE754 ieee = new IEEE754();
         String[] resultArr = ieee.formatBinStr(value);
-        System.out.println(Arrays.toString(resultArr));
+        assertEquals("1.000", resultArr[0]);
+        assertEquals("2", resultArr[1]);
     }
 }
