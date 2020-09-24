@@ -7,7 +7,7 @@ import com.campos.baseconverter.util.NumSchemeUtils;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.model.UserHistory;
 
-import static com.campos.baseconverter.util.Tag.TAG;
+import static com.campos.baseconverter.util.D.E;
 
 public class App extends Application {
     private static final String SETTINGS_FILE = "settings";
@@ -28,7 +28,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "Starting app...");
+        Log.d(E, "Starting app...");
         themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
