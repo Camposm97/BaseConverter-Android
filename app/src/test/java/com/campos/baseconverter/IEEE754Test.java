@@ -16,8 +16,8 @@ public class IEEE754Test {
     @Test
     public void testFormatBinStr1() {
         String value = "100.0";
-        IEEE754 ieee = new IEEE754();
-        String[] arr = ieee.formatBinStr(value);
+        IEEE754 ieee754 = new IEEE754();
+        String[] arr = ieee754.formatBinStr(value);
         assertEquals("1.000", arr[0]);
         assertEquals("2", arr[1]);
     }
@@ -25,8 +25,8 @@ public class IEEE754Test {
     @Test
     public void testFormatBinStr2() {
         String value = "0.1";
-        IEEE754 ieee = new IEEE754();
-        String[] arr = ieee.formatBinStr(value);
+        IEEE754 ieee754 = new IEEE754();
+        String[] arr = ieee754.formatBinStr(value);
         assertEquals("1.0", arr[0]);
         assertEquals("-1", arr[1]);
     }
