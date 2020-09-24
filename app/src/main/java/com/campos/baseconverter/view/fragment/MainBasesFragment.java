@@ -26,7 +26,7 @@ import com.campos.baseconverter.util.AlertUtils;
 
 import java.util.List;
 
-import static com.campos.baseconverter.util.Tag.TAG;
+import static com.campos.baseconverter.util.D.E;
 
 public class MainBasesFragment extends Fragment {
     private View view;
@@ -91,7 +91,7 @@ public class MainBasesFragment extends Fragment {
     }
 
     public void attemptBaseConversion(BaseNumber baseNumber) {
-        Log.d(TAG, baseNumber.toString());
+        Log.d(E, baseNumber.toString());
         BaseConverter baseConverter = new BaseConverter(baseNumber);
         BaseNumber[] resultsArr = baseConverter.getMainResults();
         if (resultsArr != null) {
