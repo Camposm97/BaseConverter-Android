@@ -8,16 +8,12 @@ import com.campos.baseconverter.app.App;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-
-import static com.campos.baseconverter.util.Tag.TAG;
+import static com.campos.baseconverter.util.D.E;
 
 public class ThemeUtils {
     public static void setTheme(Context c, int code) {
-        Log.d(TAG, "Setting theme...");
-        Log.d(TAG, "code=" + code);
+        Log.d(E, "Setting theme...");
+        Log.d(E, "code=" + code);
         switch (code) {
             case 0:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -29,7 +25,7 @@ public class ThemeUtils {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
             default:
-                Log.d(TAG, "Invalid theme code!");
+                Log.d(E, "Invalid theme code!");
         }
     }
 
