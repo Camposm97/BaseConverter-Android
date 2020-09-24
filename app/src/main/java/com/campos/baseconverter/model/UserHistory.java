@@ -3,7 +3,7 @@ package com.campos.baseconverter.model;
 import android.content.Context;
 import android.util.Log;
 
-import com.campos.baseconverter.util.Tag;
+import com.campos.baseconverter.util.D;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,10 +21,10 @@ public class UserHistory implements Serializable {
     public static void init(Context context) {
         try {
             history = load(context);
-            Log.d(Tag.TAG, "Loaded history! :D");
-            Log.d(Tag.TAG, history.list.toString());
+            Log.d(D.E, "Loaded history! :D");
+            Log.d(D.E, history.list.toString());
         } catch (IOException | ClassNotFoundException e)  {
-            Log.d(Tag.TAG, "Failed to load file.  Generating a new history.");
+            Log.d(D.E, "Failed to load file.  Generating a new history.");
             history = new UserHistory();
         }
     }
@@ -35,10 +35,10 @@ public class UserHistory implements Serializable {
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(history);
             oos.close();
-            Log.d(Tag.TAG, "Save successful! :D");
+            Log.d(D.E, "Save successful! :D");
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d(Tag.TAG, "Failed to save");
+            Log.d(D.E, "Failed to save");
         }
     }
 
