@@ -18,7 +18,7 @@ public class IEEE754 {
      *
      * @return result[]
      */
-    private String[] formatBinStr(String value) {
+    public String[] formatBinStr(String value) {
         StringBuilder sb = new StringBuilder(value);
         int posDot = sb.indexOf("."); // find the first '.'
         int posOne = sb.indexOf("1"); // find the first '1'
