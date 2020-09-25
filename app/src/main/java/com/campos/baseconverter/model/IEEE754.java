@@ -2,6 +2,10 @@ package com.campos.baseconverter.model;
 
 public class IEEE754 {
 
+    /*
+    Maybe this method doesn't need a BaseNumber type parameter, I could just pass in a binary string,
+    and make it so the class validates the string.
+     */
     public String toSinglePrecision(BaseNumber input) {
         String result = "";
         if (input.getBase().equals(Base.BASE_2)) {

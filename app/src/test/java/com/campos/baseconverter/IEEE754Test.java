@@ -13,7 +13,7 @@ public class IEEE754Test {
      */
     @Test
     public void testToSinglePrecision1() {
-        
+
     }
 
     @Test
