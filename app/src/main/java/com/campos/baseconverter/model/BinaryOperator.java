@@ -24,7 +24,14 @@ public class BinaryOperator {
     public char[] addOne(char[] input) {
         char[] arr = input.clone();
         for (int i = 0; i < arr.length; i++) {
-            
+            char c = arr[i];
+            if (c == 48) {
+                arr[i] = 49;
+                break;
+            }
+            if (c == 49) {
+                arr[i] = 48;
+            }
         }
         return arr;
     }
