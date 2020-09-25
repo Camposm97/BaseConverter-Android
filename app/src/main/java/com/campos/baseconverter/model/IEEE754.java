@@ -17,9 +17,11 @@ public class IEEE754 {
              */
             String value = input.getValue();
             String[] arr =formatBinStr(value);
-            String m = arr[0].split("[.]")[1]; // get mantissa
-            String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
+            StringBuilder m = new StringBuilder(arr[0].split("[.]")[1]); // get mantissa
             
+            String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
+            result.append(e);
+            result.append(m);
         }
         return result.toString();
     }
