@@ -51,7 +51,7 @@ public class BaseNumber implements Serializable {
         return this.base.equals(base);
     }
 
-    public boolean isValidBase(Base base) {
+    public boolean isValidAndIs(Base base) {
         return isValid() && is(base);
     }
 
