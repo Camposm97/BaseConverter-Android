@@ -1,20 +1,20 @@
 package com.campos.baseconverter.model;
 
 public class IEEE754 {
-
     /*
     Maybe this method doesn't need a BaseNumber type parameter, I could just pass in a binary string,
     and make it so the class validates the string.
      */
     public String toSinglePrecision(BaseNumber input) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (input.getBase().equals(Base.BASE_2)) {
             String value = input.getValue();
             String[] arr =formatBinStr(value);
             String m = arr[0].split("[.]")[1]; // get mantissa
-            int e = Integer.parseInt(arr[1]);
+            String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
+
         }
-        return result;
+        return result.toString();
     }
 
     /**
