@@ -8,11 +8,18 @@ public class IEEE754 {
     public String toSinglePrecision(BaseNumber input) {
         StringBuilder result = new StringBuilder();
         if (input.getBase().equals(Base.BASE_2)) {
+            /*
+            TODO:
+                I need some way to determine if the binary number is positive or negative.
+                We work in two's complement, so I can solve this by creating a class that
+                converts two's complement binary numbers to it's decimal and then check if the
+                the decimal is less than zero.
+             */
             String value = input.getValue();
             String[] arr =formatBinStr(value);
             String m = arr[0].split("[.]")[1]; // get mantissa
             String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
-
+            
         }
         return result.toString();
     }
