@@ -5,9 +5,8 @@ public class IEEE754 {
     Maybe this method doesn't need a BaseNumber type parameter, I could just pass in a binary string,
     and make it so the class validates the string.
      */
-    public String toSinglePrecision(BaseNumber input) {
+    public String toSinglePrecision(String value) {
         StringBuilder result = new StringBuilder();
-        if (input.getBase().equals(Base.BASE_2)) {
             /*
             TODO:
                 I need some way to determine if the binary number is positive or negative.
@@ -15,14 +14,15 @@ public class IEEE754 {
                 converts two's complement binary numbers to it's decimal and then check if the
                 the decimal is less than zero.
              */
-            String value = input.getValue();
-            String[] arr =formatBinStr(value);
-            char sign = ' ';
-            String m = formatMantissa(arr[0].split("[.]")[1]); // get mantissa
-            String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
-            result.append(e);
-            result.append(m);
-        }
+        String[] arr = formatBinStr(value);
+        char sign = ' ';
+        String m = formatMantissa(arr[0].split("[.]")[1]); // get mantissa
+        String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
+
+
+//        result.append(e);
+        result.append(m);
+        System.out.println(result);
         return result.toString();
     }
 
@@ -46,7 +46,7 @@ public class IEEE754 {
         int posDot = sb.indexOf("."); // find the first '.'
         int posOne = sb.indexOf("1"); // find the first '1'
         int x = posDot - posOne;
-        
+
         if (x == 1) { // Leave decimal
             x = 0;
         } else if (x > 1) { // Move decimal right
@@ -63,6 +63,6 @@ public class IEEE754 {
             sb.append('0');
         }
         sb = sb.delete(0, posDot - 1);
-        return new String[] {sb.toString(), String.valueOf(x)};
+        return new String[]{sb.toString(), String.valueOf(x)};
     }
 }
