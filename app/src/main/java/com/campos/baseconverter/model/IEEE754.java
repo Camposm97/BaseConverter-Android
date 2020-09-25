@@ -18,10 +18,7 @@ public class IEEE754 {
             final int MANTISSA_SIZE = 23;
             String value = input.getValue();
             String[] arr =formatBinStr(value);
-//            StringBuilder m = new StringBuilder(arr[0].split("[.]")[1]); // get mantissa
-////            for (int i = m.length(); i < MANTISSA_SIZE; i++) {
-////                m.append("0");
-////            }
+            char sign = ' ';
             String m = formatMantissa(arr[0].split("[.]")[1]); // get mantissa
             String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
             result.append(e);
