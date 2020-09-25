@@ -21,7 +21,8 @@ import com.campos.baseconverter.model.BaseInputDialogBuilder;
 import com.campos.baseconverter.model.BaseNumber;
 import com.campos.baseconverter.model.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
-import com.campos.baseconverter.util.AlertUtils;
+
+import static com.campos.baseconverter.util.AlertUtils.showShortToast;
 
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class AllBasesFragment extends Fragment {
             UserHistory.save(getActivity());
             rv.setAdapter(new BaseNumberViewAdapter(getContext(), resultsArr));
         } else {
-            AlertUtils.showInvalidBaseNumInput(getContext());
+            showShortToast(getContext(), "Invalid Input!");
         }
         spinner.setSelection(0);
     }
