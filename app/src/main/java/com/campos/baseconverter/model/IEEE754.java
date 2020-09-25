@@ -15,10 +15,13 @@ public class IEEE754 {
                 converts two's complement binary numbers to it's decimal and then check if the
                 the decimal is less than zero.
              */
+            final int MANTISSA_SIZE = 23;
             String value = input.getValue();
             String[] arr =formatBinStr(value);
             StringBuilder m = new StringBuilder(arr[0].split("[.]")[1]); // get mantissa
-            
+            for (int i = m.length(); i < MANTISSA_SIZE; i++) {
+                m.append("0");
+            }
             String e = String.valueOf((Integer.parseInt(arr[1]) + 127)); // get exponent
             result.append(e);
             result.append(m);
