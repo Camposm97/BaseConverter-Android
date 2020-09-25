@@ -10,7 +10,8 @@ public class IEEE754 {
         String result = "";
         if (input.getBase().equals(Base.BASE_2)) {
             String value = input.getValue();
-            formatBinStr(value);
+            String[] arr =formatBinStr(value);
+            
         }
         return result;
     }
