@@ -47,6 +47,14 @@ public class BaseNumber implements Serializable {
         return Base.isValidBaseNum(this);
     }
 
+    public boolean is(Base base) {
+        return this.base.equals(base);
+    }
+
+    public boolean isValidBase(Base base) {
+        return isValid() && is(base);
+    }
+
     public SpannableString toSpanString() {
         String radix = String.valueOf(base.getRadix());
         String str = "(" + value + ")" + radix;
