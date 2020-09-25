@@ -4,7 +4,7 @@ import com.campos.baseconverter.model.BinaryOperator;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 public class BinaryOperatorTest {
     @Test
@@ -12,7 +12,16 @@ public class BinaryOperatorTest {
         String s = "1001";
         BinaryOperator op = new BinaryOperator();
         char[] result = op.flipBits(s.toCharArray());
-        char[] expected = {'0', '1', '1', '0'};
+        char[] expected = "0110".toCharArray();
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testAddOne() {
+        String s = "1001";
+        BinaryOperator op = new BinaryOperator();
+        char[] result = op.addOne(s.toCharArray());
+        char[] expected = "1010".toCharArray();
         assertArrayEquals(expected, result);
     }
 }
