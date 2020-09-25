@@ -78,10 +78,10 @@ public enum Base {
     public static boolean isValidBaseNum(BaseNumber input) {
         int radix = input.getBase().getRadix();
         if (radix <= 10) {
-            return input.getValue().matches("[0-" + (radix - 1) + "]+");
+            return input.getValue().replaceFirst("[.]", "").matches("[0-" + (radix - 1) + "]+");
         } else {
             char c = (char) (54 + radix);
-            return input.getValue().matches("[0-9A-" + c + "]+");
+            return input.getValue().replaceFirst("[.]", "").matches("[0-9A-" + c + "]+");
         }
     }
 
