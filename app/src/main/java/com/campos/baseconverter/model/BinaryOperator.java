@@ -13,24 +13,24 @@ public class BinaryOperator {
         char[] arr = input.clone();
         for (int i = 0; i < arr.length; i++) {
             char c = arr[i];
-            if (c == 48)
-                arr[i] = 49;
-            if (c == 49)
-                arr[i] = 48;
+            if (c == '0')
+                arr[i] = '1';
+            if (c == '1')
+                arr[i] = '0';
         }
         return arr;
     }
 
     public char[] addOne(char[] input) {
         char[] arr = input.clone();
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = (arr.length - 1); i >= 0; i--) {
             char c = arr[i];
-            if (c == 48) {
-                arr[i] = 49;
+            if (c == '0') {
+                arr[i] = '1';
                 break;
             }
-            if (c == 49) {
-                arr[i] = 48;
+            if (c == '1') {
+                arr[i] = '0';
             }
         }
         return arr;
