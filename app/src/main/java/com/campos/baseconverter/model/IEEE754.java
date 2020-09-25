@@ -1,7 +1,5 @@
 package com.campos.baseconverter.model;
 
-import java.util.Arrays;
-
 public class IEEE754 {
 
     public String toSinglePrecision(BaseNumber input) {

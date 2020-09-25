@@ -4,8 +4,6 @@ import com.campos.baseconverter.model.IEEE754;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 
 public class IEEE754Test {
@@ -13,6 +11,11 @@ public class IEEE754Test {
     TODO:
      - If you pass a value of 0.0 and pass that into formatBinStr, it will crash the program (StringIndexOutOfBounds)
      */
+    @Test
+    public void testToSinglePrecision1() {
+        
+    }
+
     @Test
     public void testFormatBinStr1() {
         String value = "100.0";
