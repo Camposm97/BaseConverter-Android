@@ -24,10 +24,19 @@ public class IEEE754Test {
 
     @Test
     public void testFormatBinStr2() {
-        String value = "0.1";
+        String value = "0.01";
         IEEE754 ieee754 = new IEEE754();
         String[] arr = ieee754.formatBinStr(value);
         assertEquals("1.0", arr[0]);
-        assertEquals("-1", arr[1]);
+        assertEquals("-2", arr[1]);
+    }
+
+    @Test
+    public void testFormatBinStr3() {
+        String value = "1.01";
+        IEEE754 ieee754 = new IEEE754();
+        String[] arr = ieee754.formatBinStr(value);
+        assertEquals("1.01", arr[0]);
+        assertEquals("0", arr[1]);
     }
 }
