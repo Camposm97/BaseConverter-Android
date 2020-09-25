@@ -42,4 +42,13 @@ public class IEEE754Test {
         assertEquals("1.01", arr[0]);
         assertEquals("0", arr[1]);
     }
+
+    @Test
+    public void testFormatBinStr4() {
+        String value = "101.001";
+        IEEE754 ieee754 = new IEEE754();
+        String[] arr = ieee754.formatBinStr(value);
+        assertEquals("1.01001", arr[0]);
+        assertEquals("2", arr[1]);
+    }
 }
