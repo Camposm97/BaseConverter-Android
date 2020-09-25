@@ -13,7 +13,9 @@ public class IEEE754Test {
      */
     @Test
     public void testToSinglePrecision1() {
-
+        String value = "101.001";
+        IEEE754 ieee754 = new IEEE754();
+//        ieee754.toSinglePrecision(value);
     }
 
     @Test
