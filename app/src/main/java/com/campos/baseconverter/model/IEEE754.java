@@ -11,7 +11,8 @@ public class IEEE754 {
         if (input.getBase().equals(Base.BASE_2)) {
             String value = input.getValue();
             String[] arr =formatBinStr(value);
-            
+            String m = arr[0].split("[.]")[1]; // get mantissa
+            int e = Integer.parseInt(arr[1]);
         }
         return result;
     }
