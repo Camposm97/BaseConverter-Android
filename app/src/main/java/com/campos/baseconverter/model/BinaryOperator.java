@@ -2,11 +2,13 @@ package com.campos.baseconverter.model;
 
 public class BinaryOperator {
     public String toTwosComp(BaseNumber input) {
-        StringBuilder sb = new StringBuilder();
         if (input.isValidAndIs(Base.BASE_2)) {
-
+            char[] arr = input.getValue().toCharArray();
+            arr = flipBits(arr);
+            arr = addOne(arr);
+            return new String(arr);
         }
-        return sb.toString();
+        return null;
     }
 
     public char[] flipBits(char[] input) {
