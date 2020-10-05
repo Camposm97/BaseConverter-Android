@@ -4,8 +4,10 @@ public class BinaryOperator {
     public String toTwosComp(BaseNumber input) {
         if (input.isValidAndIs(Base.BASE_2)) {
             char[] arr = input.getValue().toCharArray();
-            arr = flipBits(arr);
-            arr = addOne(arr);
+            if (arr[0] == '1') {
+                arr = flipBits(arr);
+                arr = addOne(arr);
+            }
             return new String(arr);
         }
         return null;
