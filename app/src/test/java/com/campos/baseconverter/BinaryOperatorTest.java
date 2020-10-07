@@ -10,7 +10,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class BinaryOperatorTest {
     @Test
-    public void testToTwosComp() {
+    public void testToTwosComp() { // TODO How can the program know if the number is negative
         BaseNumber number = new BaseNumber(Base.BASE_2, "1001");
         BinaryOperator op = new BinaryOperator();
         String result = op.toTwosComp(number);
