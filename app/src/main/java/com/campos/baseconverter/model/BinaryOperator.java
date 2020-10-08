@@ -2,6 +2,10 @@ package com.campos.baseconverter.model;
 
 public class BinaryOperator {
     public String toTwosComp(BaseNumber input) {
+        /*
+        We can assume the number is already negative, but that won't work
+        because Two's Complement also represents positive numbers :/
+         */
         if (input.isValidAndIs(Base.BASE_2)) {
             char[] arr = input.getValue().toCharArray();
             if (arr[0] == '1') {
