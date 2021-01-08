@@ -1,4 +1,4 @@
-# BaseConverter
+# BaseConverter-Android
  An android app for converting number systems from a range of Binary to Base 36<br/>
  
  ### Future Plans:
