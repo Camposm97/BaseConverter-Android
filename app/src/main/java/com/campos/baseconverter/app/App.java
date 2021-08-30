@@ -9,6 +9,9 @@ import com.campos.baseconverter.model.UserHistory;
 
 import static com.campos.baseconverter.util.D.E;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App extends Application {
     private static final String SETTINGS_FILE = "settings";
     private static final String THEME_KEY = "theme_key";
@@ -31,6 +34,9 @@ TODO:
         themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
+        List list = new ArrayList();
+        list.stream().count();
+
     }
 
     public static String getSettingsFile() {
