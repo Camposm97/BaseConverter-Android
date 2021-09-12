@@ -15,12 +15,14 @@ public class BaseConverter {
 
     public BaseNumber convert(Base convertTo) {
         if (!Base.isValidBaseNum(input)) {
+            System.out.println(("Input is invalid!"));
             return null;
         }
         if (input.getBase().equals(convertTo)) {
             return BaseNumber.deepCopy(input); // Return deep copy of input
         }
         if (input.getValue().equals("0")) {
+            System.out.println("Input is 0");
             return new BaseNumber(convertTo, "0");
         }
         if (input.getBase().equals(Base.BASE_10)) {
@@ -54,6 +56,9 @@ public class BaseConverter {
     }
 
     public BaseNumber convertDecToBase(BaseNumber input, Base convertTo) {
+        if (input.getValue().equals("0")) {
+            return new BaseNumber(convertTo, "0");
+        }
         String result = "";
         int radix = convertTo.getRadix();
         BigInteger num = new BigInteger(input.getValue());
@@ -79,7 +84,7 @@ public class BaseConverter {
         BaseNumber bin = convertDecToBase(dec, Base.BASE_2);
         BaseNumber octal = convertDecToBase(dec, Base.BASE_8);
         BaseNumber hex = convertDecToBase(dec, Base.BASE_16);
-        return new BaseNumber[]{bin, octal, dec, hex};
+        return new BaseNumber[] {bin, octal, dec, hex};
     }
 
     public BaseNumber[] getAllResults() {

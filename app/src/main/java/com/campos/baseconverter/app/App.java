@@ -34,9 +34,6 @@ TODO:
         themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);
-        List list = new ArrayList();
-        list.stream().count();
-
     }
 
     public static String getSettingsFile() {
