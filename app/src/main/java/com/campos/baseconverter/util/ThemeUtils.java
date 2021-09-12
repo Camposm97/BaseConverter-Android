@@ -2,18 +2,16 @@ package com.campos.baseconverter.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.campos.baseconverter.app.App;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import static com.campos.baseconverter.util.D.E;
 
 public class ThemeUtils {
     public static void setTheme(Context c, int code) {
-        Log.d(E, "Setting theme...");
-        Log.d(E, "code=" + code);
+        System.out.println("Setting theme...");
+        System.out.println("code=" + code);
         switch (code) {
             case 0:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -25,7 +23,7 @@ public class ThemeUtils {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
             default:
-                Log.d(E, "Invalid theme code!");
+                System.out.println("Invalid theme code!");
         }
     }
 

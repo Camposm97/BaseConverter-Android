@@ -1,16 +1,11 @@
 package com.campos.baseconverter.app;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.campos.baseconverter.util.NumSchemeUtils;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.model.UserHistory;
 
-import static com.campos.baseconverter.util.D.E;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class App extends Application {
     private static final String SETTINGS_FILE = "settings";
@@ -30,7 +25,7 @@ TODO:
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(E, "Starting app...");
+        System.out.println("Starting app...");
         themeCode = ThemeUtils.load(this);
         numSchemeCode = NumSchemeUtils.load(this);
         UserHistory.init(this);

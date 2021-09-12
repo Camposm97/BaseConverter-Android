@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import com.campos.baseconverter.R;
 
 import com.campos.baseconverter.app.App;
+import com.campos.baseconverter.util.AlertUtils;
 import com.campos.baseconverter.util.NumSchemeUtils;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
@@ -37,6 +40,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         initControls();
         initDisplay(savedInstanceState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = this.getMenuInflater();
+        mi.inflate(R.menu.corner_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mi_history:
+                setTitle(R.string.history_name);
+                manager.beginTransaction().replace(
+                        R.id.fragment_container, new HistoryFragment()).commit();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void initControls() {
@@ -73,10 +95,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 manager.beginTransaction().replace(
                         R.id.fragment_container, new AllBasesFragment()).commit();
                 break;
-            case R.id.item_history:
-                setTitle(R.string.history_name);
-                manager.beginTransaction().replace(
-                        R.id.fragment_container, new HistoryFragment()).commit();
+//            case R.id.item_history:
+//                setTitle(R.string.history_name);
+//                manager.beginTransaction().replace(
+//                        R.id.fragment_container, new HistoryFragment()).commit();
+//                break;
+            case R.id.item_binary_formats: // TODO
+                setTitle("Binary Formats");
+                
+                break;
+            case R.id.item_ieee754: // TODO
+                setTitle("IEEE 754 Single Precision");
                 break;
             case R.id.item_theme:
                 chooseTheme();
