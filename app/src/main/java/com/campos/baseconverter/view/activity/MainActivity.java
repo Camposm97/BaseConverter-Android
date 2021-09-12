@@ -24,7 +24,9 @@ import com.campos.baseconverter.util.NumSchemeUtils;
 import com.campos.baseconverter.util.ThemeUtils;
 import com.campos.baseconverter.view.fragment.AllBasesFragment;
 import com.campos.baseconverter.view.fragment.HistoryFragment;
+import com.campos.baseconverter.view.fragment.IEEE754Fragment;
 import com.campos.baseconverter.view.fragment.MainBasesFragment;
+import com.campos.baseconverter.view.fragment.SignedBinaryFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -100,12 +102,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                manager.beginTransaction().replace(
 //                        R.id.fragment_container, new HistoryFragment()).commit();
 //                break;
-            case R.id.item_binary_formats: // TODO
-                setTitle("Binary Formats");
-                
+            case R.id.item_signed_binary: // TODO
+                setTitle("Signed Binary");
+                manager.beginTransaction().replace(
+                        R.id.fragment_container, new SignedBinaryFragment()).commit();
                 break;
             case R.id.item_ieee754: // TODO
-                setTitle("IEEE 754 Single Precision");
+                setTitle("IEEE 754");
+                manager.beginTransaction().replace(
+                        R.id.fragment_container, new IEEE754Fragment()).commit();
                 break;
             case R.id.item_theme:
                 chooseTheme();
