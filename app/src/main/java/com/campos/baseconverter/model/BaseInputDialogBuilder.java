@@ -10,17 +10,17 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 public class BaseInputDialogBuilder extends AlertDialog.Builder {
     private BaseInputField tfInput;
 
-    public BaseInputDialogBuilder(Context context, String chosenItem) {
+    public BaseInputDialogBuilder(Context context, String chosenItem, Base convertFrom) {
         super(context);
         super.setCancelable(false);
         super.setTitle("Convert From: " + chosenItem);
         super.setMessage("Please Enter Input:");
-        this.tfInput = new BaseInputField(context);
+        this.tfInput = new BaseInputField(context, convertFrom);
         super.setView(loadView(context));
     }
 
-    public BaseInputField getTfInput() {
-        return tfInput;
+    public String getInput() {
+        return tfInput.getText().toString();
     }
 
     private LinearLayout loadView(Context context) {

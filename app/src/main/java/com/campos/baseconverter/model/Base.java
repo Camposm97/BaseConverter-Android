@@ -60,7 +60,13 @@ public enum Base {
         return list;
     }
 
+    /**
+     * Parses only main bases
+     * @param chosenItem
+     * @return
+     */
     public static Base parse(String chosenItem) {
+        System.out.println("chosenItem=" + chosenItem);
         switch (chosenItem.toUpperCase()) {
             case "BINARY":
                 return BASE_2;
@@ -71,7 +77,8 @@ public enum Base {
             case "HEXADECIMAL":
                 return BASE_16;
             default:
-                return null;
+
+                return Base.valueOf(chosenItem.toUpperCase());
         }
     }
 
@@ -91,6 +98,10 @@ public enum Base {
 
     public String getName() {
         return name;
+    }
+
+    public String toString() {
+        return "Base " + radix;
     }
 
     public String toTitle() {

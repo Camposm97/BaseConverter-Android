@@ -73,21 +73,15 @@ public class AllBasesFragment extends Fragment {
 
     public void showBaseInputDialog(final int position) {
         String chosenItem = (String) spinner.getItemAtPosition(position);
-        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem);
-        dialogBuilder.setPositiveButton("Convert", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Base convertFrom = Base.values()[position - 1];
-                String value = dialogBuilder.getTfInput().getText().toString();
-                startBaseConversion(new BaseNumber(convertFrom, value));
-            }
+        final Base CONVERT_FROM = Base.values()[position - 1];
+        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem, CONVERT_FROM);
+        dialogBuilder.setPositiveButton("Convert", (dialog, which) -> {
+            String value = dialogBuilder.getInput();
+            startBaseConversion(new BaseNumber(CONVERT_FROM, value));
         });
-        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
-                spinner.setSelection(0);
-            }
+        dialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
+            rv.setAdapter(new BaseNumberViewAdapter(getContext(), BaseNumber.getAll()));
+            spinner.setSelection(0);
         });
         dialogBuilder.show();
     }
