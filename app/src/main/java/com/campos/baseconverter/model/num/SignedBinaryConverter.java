@@ -2,7 +2,6 @@ package com.campos.baseconverter.model.num;
 
 import com.campos.baseconverter.util.MyUtils;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class SignedBinaryConverter {

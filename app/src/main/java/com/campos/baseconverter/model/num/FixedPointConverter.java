@@ -2,11 +2,11 @@ package com.campos.baseconverter.model.num;
 
 import java.math.BigDecimal;
 
-public class FloatingPointerConverter {
+public class FixedPointConverter {
     private BaseNumber input;
     private int scale;
 
-    public FloatingPointerConverter(BaseNumber input) {
+    public FixedPointConverter(BaseNumber input) {
         setInput(input);
         this.setScale(16);
     }

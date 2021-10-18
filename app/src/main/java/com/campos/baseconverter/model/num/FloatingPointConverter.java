@@ -1,6 +1,6 @@
 package com.campos.baseconverter.model.num;
 
-public class IEEE754 {
+public class FloatingPointConverter {
     /*
     Maybe this method doesn't need a BaseNumber type parameter, I could just pass in a binary string,
     and make it so the class validates the string.
