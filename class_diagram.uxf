@@ -4,13 +4,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>590</y>
+      <x>10</x>
+      <y>540</y>
       <w>270</w>
       <h>280</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
-Base
+**Base**
 --
 BASE_2
 BASE_3
@@ -36,13 +36,13 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>630</y>
+      <x>300</x>
+      <y>580</y>
       <w>280</w>
       <h>220</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-BaseNumber
+**BaseNumber**
 --
 -base: Base
 -value: String
@@ -63,13 +63,14 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>450</x>
-      <y>540</y>
-      <w>190</w>
-      <h>80</h>
+      <x>330</x>
+      <y>820</y>
+      <w>220</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>Note..
-If a BaseNumber should check if it's invalid and throw an exception if it is
+    <panel_attributes>BaseNumber
+--
+If a BaseNumber is invalid then throw an exception
 bg=blue
 style=wordwrap</panel_attributes>
     <additional_attributes/>
@@ -77,24 +78,24 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>390</x>
-      <y>720</y>
-      <w>80</w>
+      <x>250</x>
+      <y>670</y>
+      <w>30</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>130</y>
+      <x>680</x>
+      <y>760</y>
       <w>410</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-BaseConverter
+**BaseConverter**
 --
 +convertTo(input: BaseNumber, convertTo: Base): BaseNumber
 +convertToDec(input: BaseNumber): BaseNumber
@@ -107,49 +108,47 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>130</y>
-      <w>120</w>
+      <x>170</x>
+      <y>830</y>
+      <w>140</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-FixedPointConverter
+**FixedPointConverter**
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>260</y>
-      <w>420</w>
-      <h>110</h>
+      <x>680</x>
+      <y>630</y>
+      <w>320</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-BinaryOperator
+**BinaryOperator**
 --
-toSignMagnitude(input: BaseNumber, format: SignFormat): BaseNumber
-toOnesComplement(input: BaseNumber, format: SignFormat): BaseNumber
-toTwosComplement(input: BaseNumber, format: SignFormat): BaseNumber
-getResults(input: BaseNumber, format: SignFormat): BaseNumber[]
++toSignMagnitude(input: BaseNumber): BaseNumber
++toOnesComplement(input: BaseNumber): BaseNumber
++toTwosComplement(input: BaseNumber): BaseNumber
++flipBits(input: char[]): char[]
++addOne(input: char[]): char[]
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>80</x>
-      <y>380</y>
-      <w>310</w>
-      <h>200</h>
+      <x>1100</x>
+      <y>660</y>
+      <w>220</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>Note..
-Calling getResults(input: BaseNumber) will returns an array BaseNumber that will include not only sign, ones, and twos, but it will also include the decimal form of input.
+    <panel_attributes>BinaryOperator
 --
 Also the binary numbers will be represented in bits of 4s to avoid issues when representing the binary number in sign, ones, or twos.
 Maybe we can let the user select the # of bits to use
---
-
 bg=blue
 style=wordwrap</panel_attributes>
     <additional_attributes/>
@@ -157,13 +156,13 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>400</y>
+      <x>650</x>
+      <y>380</y>
       <w>120</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
-SignFormat
+**SignFormat**
 --
 Decimal
 Sign_Magnitude
@@ -175,14 +174,263 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>190</y>
-      <w>140</w>
+      <x>0</x>
+      <y>830</y>
+      <w>160</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Class&gt;&gt;
-FloatingPointConverter
+**FloatingPointConverter**
 style=autoresize</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>550</y>
+      <w>380</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+**SignedBinaryConverter**
+--
++getResults(input: BaseNumber, format: SignFormat): BaseNumber[]
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1100</x>
+      <y>550</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>SignedBinaryConverter
+--
+Calling getResults(input: BaseNumber) will returns an array BaseNumber that will include not only sign, ones, and twos, but it will also include the decimal form of input.
+bg=blue
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>110</y>
+      <w>290</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+**UserHistory**
+--
+_-FILE_NAME: String_
+_-history: UserHistory_
+--
+-list: LinkedList&lt;HistoryItem&gt;
+--
++getList(): List&lt;HistoryItem&gt;
++add(input: BaseNumber, resultsArr: BaseNumber[]
+--
+{innerclass
+&lt;&lt;Class&gt;&gt;
+HistoryItem
+--
+-input: BaseNumber
+-resultsArr: BaseNumber[]
+-type: BaseNumberAdapterType
+--
++HistoryItem(
+    input: BaseNumber, 
+    resultsArr: BaseNumber[], 
+    type: BaseNumberAdapterType)
+--
++getInput(): BaseNumber
++getResults(): BaseNumber[]
++getType(): BaseNumberAdapterType
+innerclass}
+--
+_+init(c: Context)_
+_+get(): UserHistory_
+_+save(c: Context)_
+_+load(c: Context): UserHistory_
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>590</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;40.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>480</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>680</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>750</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>290</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+**java.io.Serializable**
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>330</y>
+      <w>30</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>340</y>
+      <w>30</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>240</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+**BaseNumberAdapterType**
+--
+MAIN_BASES
+ALL_BASES
+SIGNED_BINARY
+IEEE754
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>980</x>
+      <y>200</y>
+      <w>350</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+**BaseNumberViewAdapter**
+--
+-c: Context
+-type: AdapterType
+-numArr: BaseNumber[]
+--
++BaseNumberViewAdapter(c: Context, numArr: BaseNumber[])
+{innerclass
+&lt;&lt;Class&gt;&gt;
+**BaseNumberViewHolder**
+--
+-tvTitle: TextView
+-tvValue: TextView
+--
++onTitleClicked(listener: View.OnClickListener)
++getTitle(): String
++setTitle(): String
++setValue(s: String)
++setAnimation(a: Animation)
+innerclass}
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>120</y>
+      <w>360</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+**RecyclerView.Adapter&lt;T extends RecyclerView.ViewHolder&gt;**
+style=autoresize</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>160</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>290</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>310</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
