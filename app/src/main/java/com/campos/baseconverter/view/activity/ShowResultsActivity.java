@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.BaseNumberViewAdapter;
+import com.campos.baseconverter.model.adapter.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
 
 public class ShowResultsActivity extends AppCompatActivity {

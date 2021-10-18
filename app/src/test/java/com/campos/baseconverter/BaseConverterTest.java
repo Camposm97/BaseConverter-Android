@@ -1,8 +1,8 @@
 package com.campos.baseconverter;
 
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseConverter;
-import com.campos.baseconverter.model.BaseNumber;
+import com.campos.baseconverter.model.num.Base;
+import com.campos.baseconverter.model.num.BaseConverter;
+import com.campos.baseconverter.model.num.BaseNumber;
 
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class BaseConverterTest {
         String value = "0";
         BaseNumber input = new BaseNumber(Base.BASE_10, value);
         BaseConverter converter = new BaseConverter(input);
-        BaseNumber result = converter.convert(Base.BASE_2);
+        BaseNumber result = converter.convertTo(Base.BASE_2);
         assertEquals("0", result.getValue());
     }
 
@@ -77,7 +77,7 @@ public class BaseConverterTest {
         String strBin = "11010";
         BaseNumber input = new BaseNumber(Base.BASE_2, strBin);
         BaseConverter baseConverter = new BaseConverter(input);
-        BaseNumber result = baseConverter.convert(Base.BASE_16);
+        BaseNumber result = baseConverter.convertTo(Base.BASE_16);
         assertEquals("1A", result.getValue());
     }
 
@@ -86,7 +86,7 @@ public class BaseConverterTest {
         String strOctal = "77";
         BaseNumber baseNumber = new BaseNumber(Base.BASE_8, strOctal);
         BaseConverter baseConverter = new BaseConverter(baseNumber);
-        BaseNumber result = baseConverter.convert(Base.BASE_2);
+        BaseNumber result = baseConverter.convertTo(Base.BASE_2);
         assertEquals("111111", result.getValue());
     }
 
@@ -96,7 +96,7 @@ public class BaseConverterTest {
         BaseNumber input = new BaseNumber(Base.BASE_16, strHex);
         Base convertTo = Base.BASE_16;
         BaseConverter baseConverter = new BaseConverter(input);
-        BaseNumber result = baseConverter.convert(convertTo);
+        BaseNumber result = baseConverter.convertTo(convertTo);
         assertEquals("A117", result.getValue());
     }
 

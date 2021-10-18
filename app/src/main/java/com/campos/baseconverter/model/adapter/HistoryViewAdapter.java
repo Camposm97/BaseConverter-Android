@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.campos.baseconverter.R;
+import com.campos.baseconverter.model.UserHistory;
 import com.campos.baseconverter.view.activity.ShowResultsActivity;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class HistoryViewAdapter extends RecyclerView.Adapter<HistoryViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HistoryViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         holder.tv.setText(list.get(position).getInput().toSpanString());
         holder.tv.setAnimation(AnimationUtils.loadAnimation(context, R.anim.anim_fade_scale));
         holder.itemView.setOnClickListener(new View.OnClickListener() {

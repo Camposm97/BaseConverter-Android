@@ -1,20 +1,37 @@
 package com.campos.baseconverter;
 
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseNumber;
-import com.campos.baseconverter.model.BinaryOperator;
+import com.campos.baseconverter.model.num.Base;
+import com.campos.baseconverter.model.num.BaseNumber;
+import com.campos.baseconverter.model.num.BinaryOperator;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class BinaryOperatorTest {
     @Test
-    public void testToTwosComp() { // TODO How can the program know if the number is negative
-        BaseNumber number = new BaseNumber(Base.BASE_2, "1001");
+    public void testToSignMag() {
         BinaryOperator op = new BinaryOperator();
-        String result = op.toTwosComp(number);
-        System.out.println(result);
+        String result = op.toSignMag("0111", true);
+        String expected = "1111";
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testToOnesComp() {
+        BinaryOperator op = new BinaryOperator();
+        String result = op.toOnesComp("0101");
+        String expected = "1010";
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testToTwosComp() {
+        BinaryOperator op = new BinaryOperator();
+        String result = op.toTwosComp("1001");
+        String expected = "0111";
+        assertEquals(expected, result);
     }
 
     @Test

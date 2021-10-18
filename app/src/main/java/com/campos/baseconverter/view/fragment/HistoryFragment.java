@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.HistoryViewAdapter;
+import com.campos.baseconverter.model.adapter.HistoryViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
 
 import java.util.List;

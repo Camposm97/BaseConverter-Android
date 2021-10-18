@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

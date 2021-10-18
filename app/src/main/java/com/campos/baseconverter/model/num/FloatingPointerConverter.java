@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.num;
 
 import java.math.BigDecimal;
 
@@ -47,7 +47,7 @@ public class FloatingPointerConverter {
     private BaseNumber calcWholePart(String value, Base convertTo) {
         BaseNumber num = new BaseNumber(input.getBase(), value);
         BaseConverter baseConverter = new BaseConverter(num);
-        return baseConverter.convert(convertTo);
+        return baseConverter.convertTo(convertTo);
     }
 
     private BigDecimal calcFractionPartToDec(String s) {

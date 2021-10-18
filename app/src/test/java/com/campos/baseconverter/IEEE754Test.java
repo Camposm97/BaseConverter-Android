@@ -1,6 +1,6 @@
 package com.campos.baseconverter;
 
-import com.campos.baseconverter.model.IEEE754;
+import com.campos.baseconverter.model.num.IEEE754;
 
 import org.junit.Test;
 

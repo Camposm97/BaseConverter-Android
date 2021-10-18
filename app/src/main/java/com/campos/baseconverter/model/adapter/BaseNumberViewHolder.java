@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.adapter;
 
 import android.view.View;
 import android.widget.EditText;

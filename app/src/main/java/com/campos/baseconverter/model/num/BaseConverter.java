@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.num;
 
 import java.math.BigInteger;
 
@@ -13,7 +13,7 @@ public class BaseConverter {
         this.input = input;
     }
 
-    public BaseNumber convert(Base convertTo) {
+    public BaseNumber convertTo(Base convertTo) {
         if (!Base.isValidBaseNum(input)) {
             System.out.println(("Input is invalid!"));
             return null;
@@ -80,7 +80,7 @@ public class BaseConverter {
         if (!Base.isValidBaseNum(input)) {
             return null;
         }
-        BaseNumber dec = convert(Base.BASE_10);
+        BaseNumber dec = convertTo(Base.BASE_10);
         BaseNumber bin = convertDecToBase(dec, Base.BASE_2);
         BaseNumber octal = convertDecToBase(dec, Base.BASE_8);
         BaseNumber hex = convertDecToBase(dec, Base.BASE_16);
@@ -91,7 +91,7 @@ public class BaseConverter {
         if (!Base.isValidBaseNum(input)) {
             return null;
         }
-        BaseNumber dec = convert(Base.BASE_10);
+        BaseNumber dec = convertTo(Base.BASE_10);
         BaseNumber[] arr = new BaseNumber[Base.values().length];
         for (int i = 0; i < Base.values().length; i++) {
             if (Base.values()[i].equals(input.getBase())) {

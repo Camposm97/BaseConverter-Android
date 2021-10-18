@@ -2,6 +2,8 @@ package com.campos.baseconverter.model;
 
 import android.content.Context;
 
+import com.campos.baseconverter.model.num.BaseNumber;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

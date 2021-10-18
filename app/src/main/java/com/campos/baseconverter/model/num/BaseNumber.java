@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.num;
 
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -44,7 +44,7 @@ public class BaseNumber implements Serializable {
     }
 
     public boolean isValid() {
-        return Base.isValidBaseNum(this);
+        return !value.isEmpty() && Base.isValidBaseNum(this);
     }
 
     public boolean is(Base base) {

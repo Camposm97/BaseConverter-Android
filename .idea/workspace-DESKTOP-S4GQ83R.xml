@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="08755033-7c75-4f56-91c4-46b56e11d00a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/BinaryOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/BaseConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseInputDialogBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseInputDialogBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseInputField.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseInputField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/BaseNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseNumberViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/adapter/BaseNumberViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BaseNumberViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/adapter/BaseNumberViewHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/BinaryOperator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/FloatingPointerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/FloatingPointerConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/HistoryViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/adapter/HistoryViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/IEEE754.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/num/IEEE754.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/MyFragmentStateAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/adapter/MyFragmentStateAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/UserHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/model/UserHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/util/MyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/util/MyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/activity/ShowResultsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/activity/ShowResultsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/AllBasesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/AllBasesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/HistoryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/HistoryFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/MainBasesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/MainBasesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/SignedBinaryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/baseconverter/view/fragment/SignedBinaryFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_signed_binary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_signed_binary.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_base_num_output.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_base_num_output.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BaseConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BaseConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BinaryOperatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/BinaryOperatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/FloatingPointConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/FloatingPointConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/IEEE754Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/campos/baseconverter/IEEE754Test.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[FA7AN1A05019]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1xSARWn65pLTYhRIDa5LRvjdPZT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Default Config" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="BaseConverter.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryOperatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.campos.baseconverter.BinaryOperatorTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:cleanTestDebugUnitTest" />
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BinaryOperatorTest.testToTwosComp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.campos.baseconverter.BinaryOperatorTest.testToTwosComp&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:cleanTestDebugUnitTest" />
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FloatingPointConverterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.campos.baseconverter.FloatingPointConverterTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:cleanTestDebugUnitTest" />
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="IEEE754Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.campos.baseconverter.IEEE754Test&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:cleanTestDebugUnitTest" />
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="IEEE754Test.testToSinglePrecision1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.campos.baseconverter.IEEE754Test.testToSinglePrecision1&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":app:cleanTestDebugUnitTest" />
+            <option value=":app:testDebugUnitTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.BinaryOperatorTest" />
+        <item itemvalue="Gradle.IEEE754Test.testToSinglePrecision1" />
+        <item itemvalue="Gradle.FloatingPointConverterTest" />
+        <item itemvalue="Gradle.BinaryOperatorTest.testToTwosComp" />
+        <item itemvalue="Gradle.IEEE754Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Darkp\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08755033-7c75-4f56-91c4-46b56e11d00a" name="Default Changelist" comment="" />
+      <created>1630338108595</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630338108595</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

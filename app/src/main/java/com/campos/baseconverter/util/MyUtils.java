@@ -59,4 +59,17 @@ public class MyUtils {
         }
         return binStr;
     }
+
+    /**
+     * Adds bits of 0 in front of the binary string
+     * @param binStr
+     * @param amount
+     * @return
+     */
+    public static String addBitsOf0(String binStr, int amount) {
+        for (int i = 0; i < amount; i++) {
+            binStr = "0" + binStr;
+        }
+        return binStr;
+    }
 }

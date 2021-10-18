@@ -1,4 +1,4 @@
-package com.campos.baseconverter.model;
+package com.campos.baseconverter.model.num;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,11 +24,11 @@ public enum Base {
     BASE_36(36, "Hexatrigesimal");
 
     private int radix;
-    private String name;
+    private String formalName;
 
     Base(int radix, String name) {
         this.radix = radix;
-        this.name = name;
+        this.formalName = name;
     }
 
     public static String toItem(Base base) {
@@ -42,10 +42,10 @@ public enum Base {
     public static List<String> loadSpinnerItemMainBases() {
         List<String> list = new LinkedList<>();
         list.add("Convert From: Select One");
-        list.add(BASE_2.getName());
-        list.add(BASE_8.getName());
-        list.add(BASE_10.getName());
-        list.add(BASE_16.getName());
+        list.add(BASE_2.getFormalName());
+        list.add(BASE_8.getFormalName());
+        list.add(BASE_10.getFormalName());
+        list.add(BASE_16.getFormalName());
         return list;
     }
 
@@ -84,7 +84,7 @@ public enum Base {
 
     public static boolean isValidBaseNum(BaseNumber input) {
         int radix = input.getBase().getRadix();
-        if (radix <= 10) {
+        if (radix <= 10) { // Check if radix is base 10 or less
             return input.getValue().replaceFirst("[.]", "").matches("[0-" + (radix - 1) + "]+");
         } else {
             char c = (char) (54 + radix);
@@ -96,8 +96,8 @@ public enum Base {
         return radix;
     }
 
-    public String getName() {
-        return name;
+    public String getFormalName() {
+        return formalName;
     }
 
     public String toString() {

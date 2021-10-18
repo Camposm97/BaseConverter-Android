@@ -1,6 +1,5 @@
 package com.campos.baseconverter.view.fragment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.campos.baseconverter.R;
-import com.campos.baseconverter.model.Base;
-import com.campos.baseconverter.model.BaseConverter;
+import com.campos.baseconverter.model.num.Base;
+import com.campos.baseconverter.model.num.BaseConverter;
 import com.campos.baseconverter.model.BaseInputDialogBuilder;
-import com.campos.baseconverter.model.BaseNumber;
-import com.campos.baseconverter.model.BaseNumberViewAdapter;
+import com.campos.baseconverter.model.num.BaseNumber;
+import com.campos.baseconverter.model.adapter.BaseNumberViewAdapter;
 import com.campos.baseconverter.model.UserHistory;
 
 import static com.campos.baseconverter.util.AlertUtils.showShortToast;
@@ -72,9 +71,8 @@ public class AllBasesFragment extends Fragment {
     }
 
     public void showBaseInputDialog(final int position) {
-        String chosenItem = (String) spinner.getItemAtPosition(position);
         final Base CONVERT_FROM = Base.values()[position - 1];
-        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), chosenItem, CONVERT_FROM);
+        final BaseInputDialogBuilder dialogBuilder = new BaseInputDialogBuilder(getContext(), CONVERT_FROM);
         dialogBuilder.setPositiveButton("Convert", (dialog, which) -> {
             String value = dialogBuilder.getInput();
             startBaseConversion(new BaseNumber(CONVERT_FROM, value));
